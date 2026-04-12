@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "hero_jVaWmY": {
       "type": "hero",
@@ -15,7 +16,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Browse our latest products</p>",
+            "text": "<p>unepected outside, bold inside.</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -43,7 +44,7 @@
           "settings": {
             "label": "Shop all",
             "link": "shopify://collections/all",
-            "open_in_new_tab": false,
+            "open_in_new_tab": true,
             "style_class": "button-secondary",
             "width": "fit-content",
             "custom_width": 100,
@@ -60,11 +61,13 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
+        "image_1": "shopify://shop_images/image-164b2774-39de-4bca-ac34-4ce36a4f9375.png",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
+        "link": "",
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -129,7 +132,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
+                "text": "<h3>PRODUCTS.</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
