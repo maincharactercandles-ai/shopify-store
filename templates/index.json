@@ -91,6 +91,47 @@
         "padding-block-end": 51
       }
     },
+    "marquee_ENJYE9": {
+      "type": "marquee",
+      "blocks": {
+        "text_hUdnWJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Made to surprise, keep, and display.<br/></p><p><br/><br/></p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h5",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 19,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_hUdnWJ"
+      ],
+      "name": "t:names.marquee_section",
+      "settings": {
+        "movement_direction": "normal",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 20,
+        "padding-block-end": 0,
+        "gap_between_elements": 72
+      }
+    },
     "product_list_fa6P9H": {
       "type": "product-list",
       "blocks": {
@@ -132,7 +173,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
+                "text": "<h3>THE COLLECTION.</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -288,6 +329,7 @@
   },
   "order": [
     "hero_jVaWmY",
+    "marquee_ENJYE9",
     "product_list_fa6P9H"
   ]
 }
