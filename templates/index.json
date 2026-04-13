@@ -45,7 +45,7 @@
             "label": "SHOP THE COLLECTION.",
             "link": "shopify://collections/all",
             "open_in_new_tab": false,
-            "style_class": "button",
+            "style_class": "button-secondary",
             "width": "fit-content",
             "custom_width": 100,
             "width_mobile": "custom",
@@ -61,7 +61,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/ChatGPT_Image_13_avr._2026_13_01_35_f446bf8f-1337-466d-a3aa-3cf79ca1d825.png",
+        "image_1": "shopify://shop_images/Banner_web.png",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": true,
@@ -83,13 +83,13 @@
         "section_height_custom": 50,
         "color_scheme": "scheme-5",
         "toggle_overlay": true,
-        "overlay_color": "#12121240",
+        "overlay_color": "#121212a9",
         "overlay_style": "gradient",
-        "gradient_direction": "to bottom",
+        "gradient_direction": "to top",
         "blurred_reflection": false,
         "reflection_opacity": 75,
-        "padding-block-start": 45,
-        "padding-block-end": 51
+        "padding-block-start": 44,
+        "padding-block-end": 86
       }
     },
     "marquee_ENJYE9": {
