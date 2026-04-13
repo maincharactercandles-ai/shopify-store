@@ -1,96 +1,184 @@
+<style>
+  /* ── RESET PAGE TITLE ─────────────────────── */
+  .main-page h1,
+  .main-page__heading,
+  .template-page .page-width > h1,
+  .shopify-section-main-page h1 { display: none !important; }
+  .main-page, .shopify-section-main-page,
+  .template-page main > .shopify-section:first-child { padding-top: 0 !important; margin-top: 0 !important; }
 
+  /* ── BASE ─────────────────────────────────── */
+  .ab { font-family: 'Inter', sans-serif; color: #111; background: #fff; width: 100vw; position: relative; left: 50%; transform: translateX(-50%); margin-top: -40px; }
 
-<div class="section-background color-{{ section.settings.color_scheme }}"></div>
-<div class="section page-width-content color-{{ section.settings.color_scheme }}">
-  <div
-    class="
-      spacing-style
-      layout-panel-flex
-      layout-panel-flex--column
-      section-content-wrapper
-      mobile-column
-    "
-    style="
-      {% render 'layout-panel-style', settings: section.settings %}
-      {% render 'spacing-style', settings: section.settings %}
-    "
-  >
-    {% content_for 'blocks' %}
+  /* ── HERO ─────────────────────────────────── */
+  .ab-hero { background: #111; padding: 112px 48px 96px; text-align: center; position: relative; overflow: hidden; }
+  .ab-hero__label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #555; margin-bottom: 28px; }
+  .ab-hero__title { font-size: clamp(64px, 10vw, 136px); font-weight: 900; line-height: 0.86; text-transform: uppercase; letter-spacing: -0.03em; color: #fff; margin: 0 0 36px; }
+  .ab-hero__title em { font-style: normal; color: #FCCE06; }
+  .ab-hero__sub { font-size: clamp(14px, 1.5vw, 17px); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #555; }
+
+  /* ── INTRO SPLIT ──────────────────────────── */
+  .ab-intro { display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; }
+  .ab-intro__img {
+    background-color: #BFBFBE;
+    background-image: url(https://cdn.shopify.com/s/files/1/0940/6791/7178/files/cf60ddd7-b174-4399-a380-b402eb547cf9.png?v=1776113093); /* ← Upload: green candle + silver tin on concrete slab */
+    background-size: cover;
+    background-position: center;
+    min-height: 560px;
+  }
+  .ab-intro__body { padding: 72px 64px; display: flex; flex-direction: column; justify-content: center; background: #fff; }
+  .ab-intro__label { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #aaa; margin-bottom: 24px; display: block; }
+  .ab-intro__title { font-size: clamp(32px, 3.5vw, 52px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.92; margin-bottom: 32px; color: #111; }
+  .ab-intro__text { font-size: 15px; line-height: 1.85; color: #555; max-width: 420px; }
+  .ab-intro__text + .ab-intro__text { margin-top: 20px; }
+
+  /* ── FULL BLEED IMAGE ─────────────────────── */
+  .ab-fullbleed {
+    height: 520px;
+    background-color: #c4a882;
+    background-image: url(https://cdn.shopify.com/s/files/1/0940/6791/7178/files/cosmos_1387050968.jpg?v=1776113091); /* ← Upload: oval architecture concrete + orange photo */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 48px 64px;
+  }
+  .ab-fullbleed__quote { font-size: clamp(18px, 2.5vw, 28px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; color: #fff; max-width: 640px; line-height: 1.1; text-shadow: 0 2px 20px rgba(0,0,0,0.4); }
+
+  /* ── VALUES ───────────────────────────────── */
+  .ab-values { background: #FCCE06; padding: 80px 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .ab-values__item { padding: 0 48px 0 0; }
+  .ab-values__item:not(:first-child) { padding-left: 48px; border-left: 1px solid rgba(0,0,0,0.12); }
+  .ab-values__num { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: rgba(0,0,0,0.3); margin-bottom: 16px; display: block; }
+  .ab-values__title { font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; color: #111; margin-bottom: 14px; }
+  .ab-values__text { font-size: 14px; line-height: 1.75; color: #333; }
+
+  /* ── COLLECTION SPLIT ─────────────────────── */
+  .ab-collection { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; }
+  .ab-collection__body { padding: 72px 64px; display: flex; flex-direction: column; justify-content: center; background: #f8f8f8; order: 1; }
+  .ab-collection__img {
+    background-color: #ddd;
+    background-image: url(https://cdn.shopify.com/s/files/1/0940/6791/7178/files/20077ae7-8f8d-4be0-ba44-c8f13385a6c5_7667b014-469b-49c4-9f6e-60c2347e525a.png?v=1776113092); /* ← Upload: 4 candles (green, amber, blue, tin) on concrete cube */
+    background-size: cover;
+    background-position: center;
+    min-height: 520px;
+    order: 2;
+  }
+  .ab-collection__label { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #aaa; margin-bottom: 20px; display: block; }
+  .ab-collection__title { font-size: clamp(36px, 4vw, 60px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.92; margin-bottom: 28px; color: #111; }
+  .ab-collection__title em { font-style: normal; color: #2C60E4; }
+  .ab-collection__text { font-size: 14px; line-height: 1.8; color: #666; max-width: 380px; margin-bottom: 36px; }
+  .ab-collection__cta { display: inline-block; background: #111; color: #fff; padding: 15px 40px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; text-decoration: none; align-self: flex-start; transition: background 0.2s; }
+  .ab-collection__cta:hover { background: #333; text-decoration: none; color: #fff; }
+
+  /* ── MARQUEE ──────────────────────────────── */
+  .ab-marquee { background: #DA2336; padding: 18px 0; overflow: hidden; white-space: nowrap; }
+  .ab-marquee__track { display: inline-block; animation: ab-scroll 24s linear infinite; }
+  .ab-marquee__track span { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; color: #fff; padding: 0 40px; }
+  .ab-marquee__track span::after { content: '·'; margin-left: 40px; }
+  @keyframes ab-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── CLOSING CTA ──────────────────────────── */
+  .ab-cta { background: #BFBFBE; padding: 100px 48px; text-align: center; }
+  .ab-cta__title { font-size: clamp(48px, 7vw, 104px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; color: #111; line-height: 0.88; margin-bottom: 40px; }
+  .ab-cta__links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .ab-cta__btn { display: inline-block; border: 2px solid #111; color: #111; padding: 15px 44px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; text-decoration: none; transition: background 0.2s, color 0.2s; }
+  .ab-cta__btn:hover { background: #111; color: #fff; text-decoration: none; }
+  .ab-cta__btn--fill { background: #111; color: #fff; }
+  .ab-cta__btn--fill:hover { background: #333; color: #fff; }
+
+  /* ── RESPONSIVE ───────────────────────────── */
+  @media (max-width: 900px) {
+    .ab-intro, .ab-collection { grid-template-columns: 1fr; }
+    .ab-intro__img, .ab-collection__img { min-height: 380px; order: 0; }
+    .ab-intro__body, .ab-collection__body { padding: 48px 32px; order: 1; }
+    .ab-values { grid-template-columns: 1fr; gap: 40px; padding: 56px 32px; }
+    .ab-values__item:not(:first-child) { padding-left: 0; border-left: none; border-top: 1px solid rgba(0,0,0,0.12); padding-top: 40px; }
+    .ab-fullbleed { height: 380px; padding: 32px; }
+  }
+  @media (max-width: 600px) {
+    .ab-hero { padding: 72px 24px 60px; }
+    .ab-intro__body, .ab-collection__body { padding: 40px 24px; }
+    .ab-values { padding: 48px 24px; }
+    .ab-cta { padding: 72px 24px; }
+    .ab-fullbleed { height: 300px; padding: 24px; }
+  }
+</style>
+
+<div class="ab">
+
+  <!-- ── HERO ── -->
+  <div class="ab-hero">
+    <span class="ab-hero__label">About the brand</span>
+    <h1 class="ab-hero__title">Not what<br>you <em>expect.</em></h1>
+    <p class="ab-hero__sub">Unexpected outside. Bold inside.</p>
   </div>
-</div>
 
-{% schema %}
-{
-  "name": "t:names.page",
-  "class": "section-wrapper",
-  "blocks": [
-    {
-      "type": "@theme"
-    },
-    {
-      "type": "@app"
-    },
-    {
-      "type": "_divider"
-    }
-  ],
-  "disabled_on": {
-    "groups": ["header"]
-  },
-  "settings": [
-    {
-      "type": "select",
-      "id": "content_direction",
-      "label": "t:settings.direction",
-      "options": [
-        {
-          "value": "column",
-          "label": "t:options.vertical"
-        }
-      ],
-      "default": "column",
-      "visible_if": "{{ section.settings.gap < 0 }}"
-    },
-    {
-      "type": "range",
-      "id": "gap",
-      "label": "t:settings.gap",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 12
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:settings.color_scheme",
-      "default": "scheme-1"
-    },
-    {
-      "type": "header",
-      "content": "t:content.padding"
-    },
-    {
-      "type": "range",
-      "id": "padding-block-start",
-      "label": "t:settings.top",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 0
-    },
-    {
-      "type": "range",
-      "id": "padding-block-end",
-      "label": "t:settings.bottom",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 0
-    }
-  ]
-}
-{% endschema %}
+  <!-- ── INTRO SPLIT ── -->
+  <!-- ⚠️ Replace PHOTO_URL_1 in the CSS above with your Shopify CDN link for the green candle + tin photo -->
+  <div class="ab-intro">
+    <div class="ab-intro__img"></div>
+    <div class="ab-intro__body">
+      <span class="ab-intro__label">Who we are</span>
+      <h2 class="ab-intro__title">Objects for<br>the home.</h2>
+      <p class="ab-intro__text">A Paris-based brand designing eco-conscious objects for the home. Each piece combines clean, minimalist forms with bold colors and sculptural details — creating a subtle tension between simplicity and expression.</p>
+      <p class="ab-intro__text">Inspired by industrial materials, contemporary design, and playful contrasts, we turn everyday objects into unexpected design pieces.</p>
+    </div>
+  </div>
+
+  <!-- ── FULL BLEED IMAGE ── -->
+  <!-- ⚠️ Replace PHOTO_URL_3 in the CSS above with your Shopify CDN link for the oval architecture photo -->
+  <div class="ab-fullbleed">
+    <p class="ab-fullbleed__quote">Inspired by industrial materials, contemporary design, and playful contrasts.</p>
+  </div>
+
+  <!-- ── VALUES ── -->
+  <div class="ab-values">
+    <div class="ab-values__item">
+      <span class="ab-values__num">01</span>
+      <div class="ab-values__title">Eco-conscious</div>
+      <div class="ab-values__text">Natural soy wax. Clean materials. Reusable vessels designed to outlast the candle itself. Nothing goes to waste.</div>
+    </div>
+    <div class="ab-values__item">
+      <span class="ab-values__num">02</span>
+      <div class="ab-values__title">Sculptural</div>
+      <div class="ab-values__text">Every object is conceived as a design piece first. Form, texture, and color carry as much weight as function.</div>
+    </div>
+    <div class="ab-values__item">
+      <span class="ab-values__num">03</span>
+      <div class="ab-values__title">Unexpected</div>
+      <div class="ab-values__text">We don't do safe. Each piece is built on contrast — something familiar and something that shouldn't work, but does.</div>
+    </div>
+  </div>
+
+  <!-- ── COLLECTION SPLIT ── -->
+  <!-- ⚠️ Replace PHOTO_URL_5 in the CSS above with your Shopify CDN link for the 4 candles on concrete cube photo -->
+  <div class="ab-collection">
+    <div class="ab-collection__body">
+      <span class="ab-collection__label">The Collection</span>
+      <h2 class="ab-collection__title">Three scents.<br>One <em>vision.</em></h2>
+      <p class="ab-collection__text">Hand-poured in small batches in Paris. Each candle is a study in contrast — the vessel bold and sculptural, the scent unexpected, the experience entirely its own.</p>
+      <a href="/collections/all" class="ab-collection__cta">Shop the Collection</a>
+    </div>
+    <div class="ab-collection__img"></div>
+  </div>
+
+  <!-- ── MARQUEE ── -->
+  <div class="ab-marquee">
+    <div class="ab-marquee__track">
+      <span>Not What You Expect</span><span>Paris</span><span>Eco-conscious</span><span>Hand-Poured</span><span>Unexpected Outside</span><span>Bold Inside</span><span>Not What You Expect</span><span>Paris</span><span>Eco-conscious</span><span>Hand-Poured</span><span>Unexpected Outside</span><span>Bold Inside</span>
+    </div>
+  </div>
+
+  <!-- ── CLOSING CTA ── -->
+  <div class="ab-cta">
+    <h2 class="ab-cta__title">Still not<br>convinced?</h2>
+    <div class="ab-cta__links">
+      <a href="/collections/all" class="ab-cta__btn ab-cta__btn--fill">Shop Now</a>
+      <a href="/pages/candle-care" class="ab-cta__btn">Care Guide</a>
+      <a href="/pages/contact" class="ab-cta__btn">Contact</a>
+    </div>
+  </div>
+
+</div>
