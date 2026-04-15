@@ -146,8 +146,8 @@
                     "text_color_low_stock": "#ffa500",
                     "dot_color_unavailable": "#b40c1c",
                     "text_color_unavailable": "#b40c1c",
-                    "font_size": 14,
-                    "dot_size": 8,
+                    "font_size": 12,
+                    "dot_size": 6,
                     "margin_top": -10,
                     "margin_bottom": -10,
                     "max-width": "44rem"
@@ -250,6 +250,41 @@
                   },
                   "blocks": {}
                 },
+                "buy_buttons_rU9iBA": {
+                  "type": "buy-buttons",
+                  "settings": {
+                    "stacking": true,
+                    "show_pickup_availability": false,
+                    "gift_card_form": true,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {
+                    "quantity": {
+                      "type": "quantity",
+                      "static": true,
+                      "settings": {},
+                      "blocks": {}
+                    },
+                    "add-to-cart": {
+                      "type": "add-to-cart",
+                      "static": true,
+                      "settings": {
+                        "style_class": "button"
+                      },
+                      "blocks": {}
+                    },
+                    "accelerated-checkout": {
+                      "type": "accelerated-checkout",
+                      "static": true,
+                      "settings": {},
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": []
+                },
                 "buy_box_selling_points_jUcUde": {
                   "type": "shopify://apps/buy-box/blocks/selling-points/17b7c6ef-0c82-4743-acf4-050c34e5b233",
                   "settings": {
@@ -278,8 +313,21 @@
                 "text_PEgt4r",
                 "buy_box_star_rating_gpE9nd",
                 "price_tVjtKg",
+                "buy_buttons_rU9iBA",
                 "buy_box_selling_points_jUcUde"
               ]
+            },
+            "divider_4fzypz": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
             },
             "buy_box_trust_badges_zUeUzt": {
               "type": "shopify://apps/buy-box/blocks/trust-badges/17b7c6ef-0c82-4743-acf4-050c34e5b233",
@@ -298,53 +346,6 @@
                 "b": -15,
                 "c": "100%"
               }
-            },
-            "divider_4fzypz": {
-              "type": "_divider",
-              "name": "t:names.divider",
-              "settings": {
-                "thickness": 1,
-                "corner_radius": "square",
-                "width_percent": 100,
-                "padding-block-start": 0,
-                "padding-block-end": 0
-              },
-              "blocks": {}
-            },
-            "buy_buttons_eYQEYi": {
-              "type": "buy-buttons",
-              "settings": {
-                "stacking": true,
-                "show_pickup_availability": false,
-                "gift_card_form": true,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "quantity": {
-                  "type": "quantity",
-                  "static": true,
-                  "settings": {},
-                  "blocks": {}
-                },
-                "add-to-cart": {
-                  "type": "add-to-cart",
-                  "static": true,
-                  "settings": {
-                    "style_class": "button"
-                  },
-                  "blocks": {}
-                },
-                "accelerated-checkout": {
-                  "type": "accelerated-checkout",
-                  "static": true,
-                  "settings": {},
-                  "blocks": {}
-                }
-              },
-              "block_order": []
             },
             "divider_VJhene": {
               "type": "_divider",
@@ -388,9 +389,8 @@
           "block_order": [
             "buy_box_buy_box_wrapper_d7TzaU",
             "group_icgrde",
-            "buy_box_trust_badges_zUeUzt",
             "divider_4fzypz",
-            "buy_buttons_eYQEYi",
+            "buy_box_trust_badges_zUeUzt",
             "divider_VJhene",
             "text_6nEYm3"
           ]
