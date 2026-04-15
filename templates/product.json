@@ -342,22 +342,10 @@
                 "e": "#000000",
                 "d": 26,
                 "f": 12,
-                "a": -15,
-                "b": -15,
+                "a": -10,
+                "b": -10,
                 "c": "100%"
               }
-            },
-            "divider_VJhene": {
-              "type": "_divider",
-              "name": "t:names.divider",
-              "settings": {
-                "thickness": 1,
-                "corner_radius": "square",
-                "width_percent": 100,
-                "padding-block-start": 0,
-                "padding-block-end": 0
-              },
-              "blocks": {}
             },
             "accordion_NfK7fn": {
               "type": "accordion",
@@ -548,7 +536,6 @@
             "group_icgrde",
             "divider_4fzypz",
             "buy_box_trust_badges_zUeUzt",
-            "divider_VJhene",
             "accordion_NfK7fn"
           ]
         }
