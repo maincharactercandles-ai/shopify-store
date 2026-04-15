@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "main": {
       "type": "product-information",
@@ -24,6 +25,7 @@
             "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "right",
             "thumbnail_width": 44,
+            "thumbnail_radius": 0,
             "aspect_ratio": "adapt",
             "constrain_to_viewport": true,
             "media_fit": "contain",
@@ -70,7 +72,6 @@
               "type": "group",
               "name": "Header",
               "settings": {
-                "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "flex-start",
@@ -98,6 +99,9 @@
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -130,6 +134,22 @@
                   },
                   "blocks": {}
                 },
+                "buy_box_star_rating_gpE9nd": {
+                  "type": "shopify://apps/buy-box/blocks/star-rating/17b7c6ef-0c82-4743-acf4-050c34e5b233",
+                  "settings": {
+                    "rating": 4.7,
+                    "text": "200+ Ratings",
+                    "link": "",
+                    "star_color": "#00b67a",
+                    "star_background_color": "#eaeaea",
+                    "text_color": "#000000",
+                    "star_size": 16,
+                    "font_size": 14,
+                    "margin_top": 0,
+                    "margin_bottom": 0,
+                    "max-width": "44rem"
+                  }
+                },
                 "price_tVjtKg": {
                   "type": "price",
                   "settings": {
@@ -155,6 +175,7 @@
               },
               "block_order": [
                 "text_xrnftG",
+                "buy_box_star_rating_gpE9nd",
                 "price_tVjtKg"
               ]
             },
@@ -188,6 +209,7 @@
               "settings": {
                 "stacking": true,
                 "show_pickup_availability": false,
+                "gift_card_form": true,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -259,6 +281,7 @@
         "equal_columns": false,
         "limit_details_width": false,
         "gap": 48,
+        "enable_sticky_add_to_cart": true,
         "color_scheme": "",
         "padding-block-start": 0,
         "padding-block-end": 0
