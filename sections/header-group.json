@@ -17,7 +17,7 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "HANDMADE IN PARIS.",
+            "text": "HANDMADE IN PARIS.       FREE SHIPPING OVER €49 IN FRANCE.",
             "link": "",
             "font": "var(--font-heading--family)",
             "font_size": "0.875rem",
