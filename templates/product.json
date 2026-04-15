@@ -68,6 +68,27 @@
             "padding-inline-end": 0
           },
           "blocks": {
+            "buy_box_buy_box_wrapper_d7TzaU": {
+              "type": "shopify://apps/buy-box/blocks/buy-box-wrapper/17b7c6ef-0c82-4743-acf4-050c34e5b233",
+              "settings": {
+                "use_in_mobile": false,
+                "box_shadow": "small",
+                "ht": "",
+                "hb": "#f0f0f0",
+                "htc": "#000000",
+                "background_color": "#ffffff",
+                "border_color": "#DADCE0",
+                "header_font_size": 23,
+                "border_radius": 5,
+                "border_width": 1,
+                "padding_top": 3,
+                "padding_bottom": 8,
+                "padding_sides": 20,
+                "margin_sides_mobile": 0,
+                "margin_left": 0,
+                "max-width": "44rem"
+              }
+            },
             "group_icgrde": {
               "type": "group",
               "name": "Header",
@@ -111,7 +132,7 @@
                 "buy_box_inventory_status_jErUDr": {
                   "type": "shopify://apps/buy-box/blocks/inventory-status/17b7c6ef-0c82-4743-acf4-050c34e5b233",
                   "settings": {
-                    "inventory_status": "in_stock",
+                    "inventory_status": "low_stock",
                     "low_stock_threshold": 10,
                     "show_zero_as_out": false,
                     "text_available": "<strong>IN STOCK - </strong>delivery in 2-3 days",
@@ -121,10 +142,10 @@
                     "dot_style": "dot_with_animated_ring",
                     "dot_color_available": "#06b279",
                     "text_color_available": "#00b67a",
-                    "dot_color_low_stock": "#FFA500",
-                    "text_color_low_stock": "#FFA500",
-                    "dot_color_unavailable": "#B40C1C",
-                    "text_color_unavailable": "#B40C1C",
+                    "dot_color_low_stock": "#ffa500",
+                    "text_color_low_stock": "#ffa500",
+                    "dot_color_unavailable": "#b40c1c",
+                    "text_color_unavailable": "#b40c1c",
                     "font_size": 14,
                     "dot_size": 8,
                     "margin_top": 0,
@@ -238,7 +259,7 @@
                     "sellingPoint_4_text": "100% natural soy wax",
                     "sellingPoint_5_text": "",
                     "icon": "checkmark",
-                    "icon_color": "#037E05",
+                    "icon_color": "#037e05",
                     "text_color": "#212121",
                     "icon_size": 16,
                     "text_size": 12,
@@ -347,6 +368,7 @@
             }
           },
           "block_order": [
+            "buy_box_buy_box_wrapper_d7TzaU",
             "group_icgrde",
             "divider_4fzypz",
             "buy_buttons_eYQEYi",
@@ -374,7 +396,7 @@
           "type": "text",
           "name": "t:names.header",
           "settings": {
-            "text": "<h3>You may also like </h3>",
+            "text": "<h3>Complete the mood.</h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
