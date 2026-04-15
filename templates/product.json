@@ -382,7 +382,7 @@
                   "type": "_accordion-row",
                   "settings": {
                     "heading": "SCENT PROFILE",
-                    "open_by_default": true,
+                    "open_by_default": false,
                     "icon": "none",
                     "width": 20
                   },
@@ -417,10 +417,49 @@
                     "text_WgXqr8"
                   ]
                 },
+                "accordion_row_8RMQjL": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "MANUFACTURING",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_cJt7BE": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_cJt7BE"
+                  ]
+                },
                 "accordion_row_CzRjhK": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Shipping",
+                    "heading": "SHIPPING",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -456,16 +495,16 @@
                     "text_tMxHxJ"
                   ]
                 },
-                "accordion_row_8RMQjL": {
+                "accordion_row_j4yhyc": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Manufacturing",
+                    "heading": "RETURN POLICY",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
                   },
                   "blocks": {
-                    "text_cJt7BE": {
+                    "text_WqQpk3": {
                       "type": "text",
                       "settings": {
                         "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
@@ -492,41 +531,16 @@
                     }
                   },
                   "block_order": [
-                    "text_cJt7BE"
+                    "text_WqQpk3"
                   ]
                 }
               },
               "block_order": [
                 "accordion_row_df7TXW",
+                "accordion_row_8RMQjL",
                 "accordion_row_CzRjhK",
-                "accordion_row_8RMQjL"
+                "accordion_row_j4yhyc"
               ]
-            },
-            "text_6nEYm3": {
-              "type": "text",
-              "name": "Product description",
-              "settings": {
-                "text": "{{ closest.product.description }}",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-primary--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
             }
           },
           "block_order": [
@@ -535,8 +549,7 @@
             "divider_4fzypz",
             "buy_box_trust_badges_zUeUzt",
             "divider_VJhene",
-            "accordion_NfK7fn",
-            "text_6nEYm3"
+            "accordion_NfK7fn"
           ]
         }
       },
