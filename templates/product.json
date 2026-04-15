@@ -239,6 +239,24 @@
               },
               "block_order": []
             },
+            "buy_box_trust_badges_XqBPVF": {
+              "type": "shopify://apps/buy-box/blocks/trust-badges/17b7c6ef-0c82-4743-acf4-050c34e5b233",
+              "settings": {
+                "i1": "delivery",
+                "t1": "<p>Free delivery</p>",
+                "i2": "return",
+                "t2": "<p>30 days returns</p>",
+                "i3": "guarantee",
+                "t3": "<p>2 years guarantee</p>",
+                "ic": "#000000",
+                "e": "#000000",
+                "d": 20,
+                "f": 12,
+                "a": 0,
+                "b": 0,
+                "c": "44rem"
+              }
+            },
             "text_aEtTtq": {
               "type": "text",
               "name": "Product description",
@@ -271,6 +289,7 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
+            "buy_box_trust_badges_XqBPVF",
             "text_aEtTtq"
           ]
         }
