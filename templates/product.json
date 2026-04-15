@@ -134,6 +134,32 @@
                   },
                   "blocks": {}
                 },
+                "text_PEgt4r": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>A candle you didn’t expect.<br/>Designed to slow everything down.</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
                 "buy_box_star_rating_gpE9nd": {
                   "type": "shopify://apps/buy-box/blocks/star-rating/17b7c6ef-0c82-4743-acf4-050c34e5b233",
                   "settings": {
@@ -154,18 +180,44 @@
                   "type": "price",
                   "settings": {
                     "show_sale_price_first": true,
-                    "show_installments": false,
+                    "show_installments": true,
                     "show_tax_info": false,
-                    "type_preset": "paragraph",
+                    "type_preset": "custom",
                     "width": "100%",
                     "alignment": "left",
-                    "font": "var(--font-body--family)",
+                    "font": "var(--font-subheading--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
-                    "case": "none",
+                    "case": "uppercase",
                     "color": "var(--color-foreground)",
                     "padding-block-start": 4,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_Y8PRVb": {
+                  "type": "text",
+                  "name": "Product description",
+                  "settings": {
+                    "text": "<ul><li>Up to 40 hours of slow burn</li><li>Hand-poured in Paris</li><li>100% natural soy wax</li><li>Fragrance from Grasse, France</li></ul>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
@@ -175,34 +227,11 @@
               },
               "block_order": [
                 "text_xrnftG",
+                "text_PEgt4r",
                 "buy_box_star_rating_gpE9nd",
-                "price_tVjtKg"
+                "price_tVjtKg",
+                "text_Y8PRVb"
               ]
-            },
-            "divider_VJhene": {
-              "type": "_divider",
-              "name": "t:names.divider",
-              "settings": {
-                "thickness": 1,
-                "corner_radius": "square",
-                "width_percent": 100,
-                "padding-block-start": 0,
-                "padding-block-end": 0
-              },
-              "blocks": {}
-            },
-            "variant_picker_R3rGDr": {
-              "type": "variant-picker",
-              "settings": {
-                "variant_style": "buttons",
-                "show_swatches": false,
-                "alignment": "left",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
             },
             "buy_buttons_eYQEYi": {
               "type": "buy-buttons",
@@ -239,7 +268,19 @@
               },
               "block_order": []
             },
-            "text_aEtTtq": {
+            "divider_VJhene": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "text_6nEYm3": {
               "type": "text",
               "name": "Product description",
               "settings": {
@@ -268,10 +309,9 @@
           },
           "block_order": [
             "group_icgrde",
-            "divider_VJhene",
-            "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq"
+            "divider_VJhene",
+            "text_6nEYm3"
           ]
         }
       },
