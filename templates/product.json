@@ -148,8 +148,8 @@
                     "text_color_unavailable": "#b40c1c",
                     "font_size": 14,
                     "dot_size": 8,
-                    "margin_top": 0,
-                    "margin_bottom": 0,
+                    "margin_top": -10,
+                    "margin_bottom": -10,
                     "max-width": "44rem"
                   }
                 },
@@ -281,6 +281,24 @@
                 "buy_box_selling_points_jUcUde"
               ]
             },
+            "buy_box_trust_badges_zUeUzt": {
+              "type": "shopify://apps/buy-box/blocks/trust-badges/17b7c6ef-0c82-4743-acf4-050c34e5b233",
+              "settings": {
+                "i1": "gift",
+                "t1": "<p><strong>Free Delivery<br/></strong>over 49€</p>",
+                "i2": "delivery",
+                "t2": "<p><strong>Fast Delivery</strong><br/>2-4 business days</p>",
+                "i3": "guarantee",
+                "t3": "<p><strong>100% Secure<br/></strong>Payment</p>",
+                "ic": "#000000",
+                "e": "#000000",
+                "d": 26,
+                "f": 12,
+                "a": 0,
+                "b": -15,
+                "c": "100%"
+              }
+            },
             "divider_4fzypz": {
               "type": "_divider",
               "name": "t:names.divider",
@@ -370,6 +388,7 @@
           "block_order": [
             "buy_box_buy_box_wrapper_d7TzaU",
             "group_icgrde",
+            "buy_box_trust_badges_zUeUzt",
             "divider_4fzypz",
             "buy_buttons_eYQEYi",
             "divider_VJhene",
