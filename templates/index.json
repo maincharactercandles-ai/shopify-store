@@ -389,7 +389,7 @@
             "feature_title": "HANDMADE IN PARIS.",
             "feature_text": "<p>Each candle, each design object is handcrafted in our Parisian workshop.</p>",
             "icon_type": "default",
-            "icon": "leaf",
+            "icon": "heart",
             "feature_url": ""
           }
         },
@@ -409,7 +409,17 @@
             "feature_title": "CAREFUL DELIVERY.",
             "feature_text": "<p>Fast shipping and protective packaging across Europe.</p>",
             "icon_type": "default",
-            "icon": "box",
+            "icon": "envelope",
+            "feature_url": ""
+          }
+        },
+        "image_atRJAd": {
+          "type": "image",
+          "settings": {
+            "feature_title": "ECO-FRIENDLY.",
+            "feature_text": "<p>Made with vegan wax and recyclable materials.</p>",
+            "icon_type": "default",
+            "icon": "leaf",
             "feature_url": ""
           }
         }
@@ -417,11 +427,12 @@
       "block_order": [
         "image_BfF3GY",
         "image_xqiBN9",
-        "image_rK4RmM"
+        "image_rK4RmM",
+        "image_atRJAd"
       ],
       "name": "Features",
       "settings": {
-        "feature_title_custom": true,
+        "feature_title_custom": false,
         "feature_title_font": "josefin_sans_n4",
         "feature_title_size": 15,
         "feature_title_size_mobile": 12,
@@ -439,8 +450,8 @@
         "feature_text_mt_mobile": 4,
         "feature_icon_size": 44,
         "feature_icon_size_mobile": 22,
-        "feature_row": 3,
-        "feature_row_mobile": 1,
+        "feature_row": 4,
+        "feature_row_mobile": 2,
         "feature_gap": 20,
         "feature_gap_mobile": 20,
         "feature_background": false,
