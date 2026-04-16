@@ -456,7 +456,7 @@
                     "text_tMxHxJ": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "text": "<p>Orders are prepared within 2–4 business days.<br/>Delivery times:</p><ul><li>France: 2–4 business days</li><li>Europe: 3–7 business days</li></ul><p>You will receive a tracking link as soon as your order ships.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
