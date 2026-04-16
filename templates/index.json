@@ -281,6 +281,243 @@
         "section_radius": 0
       }
     },
+    "media_with_content_Q3wwBy": {
+      "type": "media-with-content",
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/sweet-but-not-sorry-lifestyle.png",
+            "link": "",
+            "video_loop": true,
+            "video_autoplay": false,
+            "image_position": "cover",
+            "video_position": "cover"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "space-between",
+            "gap": 24
+          },
+          "blocks": {
+            "text_CcgW74": {
+              "type": "text",
+              "name": "t:names.caption",
+              "settings": {
+                "text": "<p>Bestseller</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h4",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "group_zLFGbF": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_BYBzCj": {
+                  "type": "text",
+                  "name": "t:names.heading",
+                  "settings": {
+                    "text": "<h2>Our signature product</h2>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h3",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_x7xdwU": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Made with care and unconditionally loved by our customers, this signature bestseller exceeds all expectations.</p>",
+                    "width": "fit-content",
+                    "max_width": "narrow",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_BYBzCj",
+                "text_x7xdwU"
+              ]
+            },
+            "button_ctP8dA": {
+              "type": "button",
+              "settings": {
+                "label": "Shop now",
+                "link": "shopify://collections/all",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            },
+            "button_7bEEWD": {
+              "type": "button",
+              "name": "t:names.button",
+              "settings": {
+                "label": "Shop now",
+                "link": "shopify://collections/all",
+                "open_in_new_tab": false,
+                "style_class": "button",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_CcgW74",
+            "group_zLFGbF",
+            "button_ctP8dA",
+            "button_7bEEWD"
+          ]
+        }
+      },
+      "name": "t:names.editorial",
+      "settings": {
+        "media_position": "left",
+        "media_width": "medium",
+        "media_height": "60svh",
+        "section_width": "full-width",
+        "extend_media": true,
+        "color_scheme": "scheme-4",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "nwye_pillars_idgR4w": {
+      "type": "nwye-pillars",
+      "blocks": {
+        "pillar_iGgy6X": {
+          "type": "pillar",
+          "settings": {
+            "name": "Hand-Poured in Paris",
+            "text": "Every candle is poured by hand in our Parisian studio. No mass production. Each piece is one of a kind.",
+            "accent_color": "#1800ad"
+          }
+        },
+        "pillar_QftgCM": {
+          "type": "pillar",
+          "settings": {
+            "name": "Premium Vegan Wax",
+            "text": "100% plant-based formula, high-concentration fragrances. A clean, long burn with a scent that truly lasts.",
+            "accent_color": "#fbb91d"
+          }
+        },
+        "pillar_cgjfbW": {
+          "type": "pillar",
+          "settings": {
+            "name": "Unexpected Design",
+            "text": "Objects that stand as décor just as much as candles. The outside surprises. The inside captivates.",
+            "accent_color": "#097e14"
+          }
+        }
+      },
+      "block_order": [
+        "pillar_iGgy6X",
+        "pillar_QftgCM",
+        "pillar_cgjfbW"
+      ],
+      "name": "What Sets Us Apart",
+      "settings": {
+        "label": "What sets us apart",
+        "title": "Made differently. Felt differently."
+      }
+    },
     "media_with_content_BqgNbP": {
       "type": "media-with-content",
       "blocks": {
@@ -462,45 +699,6 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
-    },
-    "nwye_pillars_idgR4w": {
-      "type": "nwye-pillars",
-      "blocks": {
-        "pillar_iGgy6X": {
-          "type": "pillar",
-          "settings": {
-            "name": "Hand-Poured in Paris",
-            "text": "Every candle is poured by hand in our Parisian studio. No mass production. Each piece is one of a kind.",
-            "accent_color": "#1800ad"
-          }
-        },
-        "pillar_QftgCM": {
-          "type": "pillar",
-          "settings": {
-            "name": "Premium Vegan Wax",
-            "text": "100% plant-based formula, high-concentration fragrances. A clean, long burn with a scent that truly lasts.",
-            "accent_color": "#fbb91d"
-          }
-        },
-        "pillar_cgjfbW": {
-          "type": "pillar",
-          "settings": {
-            "name": "Unexpected Design",
-            "text": "Objects that stand as décor just as much as candles. The outside surprises. The inside captivates.",
-            "accent_color": "#097e14"
-          }
-        }
-      },
-      "block_order": [
-        "pillar_iGgy6X",
-        "pillar_QftgCM",
-        "pillar_cgjfbW"
-      ],
-      "name": "What Sets Us Apart",
-      "settings": {
-        "label": "What sets us apart",
-        "title": "Made differently. Felt differently."
-      }
     }
   },
   "order": [
@@ -509,7 +707,8 @@
     "177626714700396d40",
     "nwye_collection_r7rEti",
     "ss_feature_1_features_ADUAyp",
-    "media_with_content_BqgNbP",
-    "nwye_pillars_idgR4w"
+    "media_with_content_Q3wwBy",
+    "nwye_pillars_idgR4w",
+    "media_with_content_BqgNbP"
   ]
 }
