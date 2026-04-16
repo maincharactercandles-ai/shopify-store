@@ -17,7 +17,7 @@
           "static": true,
           "settings": {
             "media_presentation": "grid",
-            "media_columns": "one",
+            "media_columns": "two",
             "image_gap": 4,
             "large_first_image": false,
             "icons_style": "none",
@@ -77,7 +77,7 @@
                 "hb": "#f0f0f0",
                 "htc": "#000000",
                 "background_color": "#ffffff",
-                "border_color": "#dadce0",
+                "border_color": "#DADCE0",
                 "header_font_size": 23,
                 "border_radius": 5,
                 "border_width": 1,
@@ -139,7 +139,7 @@
                     "text_low_stock": "<strong>LOW STOCK - </strong>delivery in 2-3 days",
                     "text_unavailable": "<strong>OUT OF STOCK</strong>",
                     "alignment": "left",
-                    "dot_style": "dot_with_ring",
+                    "dot_style": "dot_with_animated_ring",
                     "dot_color_available": "#06b279",
                     "text_color_available": "#00b67a",
                     "dot_color_low_stock": "#ffa500",
@@ -148,8 +148,8 @@
                     "text_color_unavailable": "#b40c1c",
                     "font_size": 12,
                     "dot_size": 6,
-                    "margin_top": -20,
-                    "margin_bottom": -15,
+                    "margin_top": -10,
+                    "margin_bottom": -10,
                     "max-width": "44rem"
                   }
                 },
@@ -165,7 +165,7 @@
                   "name": "Product title",
                   "settings": {
                     "text": "<h1>{{ closest.product.title }}</h1>",
-                    "width": "fit-content",
+                    "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
                     "type_preset": "h3",
@@ -417,7 +417,7 @@
                     "text_cJt7BE": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our candles are hand-poured in small batches using natural soy wax.</p><p>We work with carefully selected partners in France and Greece, for our vessels and materials, combining craftsmanship and design.</p><p>Each piece is made with attention to detail — no mass production, just intentional objects.</p>",
+                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -456,7 +456,7 @@
                     "text_tMxHxJ": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Orders are prepared within 2–4 business days.<br/>Delivery times:</p><ul><li>France: 2–4 business days</li><li>Europe: 3–7 business days</li></ul><p>You will receive a tracking link as soon as your order ships.</p>",
+                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -495,7 +495,7 @@
                     "text_WqQpk3": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>If something isn’t right, you have 14 days after delivery to request a return.</p><p>Products must be unused and in their original condition.</p><p>To start a return, contact us at: <a>contact@notwhatyouexpect.com</a></p>",
+                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
