@@ -1,0 +1,125 @@
+<style>
+  /* Hide Shopify default page title + remove its padding */
+  .main-page h1,
+  .main-page__heading,
+  .template-page .page-width > h1,
+  .shopify-section-main-page h1 { display: none !important; }
+  .main-page, .shopify-section-main-page,
+  .template-page main > .shopify-section:first-child { padding-top: 0 !important; margin-top: 0 !important; }
+
+  .cc { font-family: 'Inter', sans-serif; color: #111; background: #fff; width: 100vw; position: relative; left: 50%; transform: translateX(-50%); margin-top: -40px; }
+  .cc-hero { background: #BFBFBE; padding: 80px 48px 72px; text-align: center; }
+  .cc-hero__label { display: block; font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #444; margin-bottom: 28px; }
+  .cc-hero__title { font-size: clamp(56px, 8vw, 112px); font-weight: 900; line-height: 0.88; text-transform: uppercase; letter-spacing: -0.03em; margin: 0 0 40px; color: #111; }
+  .cc-hero__quote { font-style: italic; font-size: 20px; color: #333; line-height: 1.5; margin: 0 auto 24px; max-width: 480px; }
+  .cc-hero__sub { font-size: 14px; line-height: 1.8; color: #555; max-width: 400px; margin: 0 auto; }
+  .cc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; background: #e0e0e0; }
+  .cc-card { background: #fff; padding: 28px 36px 32px; position: relative; overflow: hidden; }
+  .cc-card::before { content: ''; display: block; height: 4px; width: 100%; position: absolute; top: 0; left: 0; }
+  .cc-card--y::before { background: #FCCE06; }
+  .cc-card--r::before { background: #DA2336; }
+  .cc-card--b::before { background: #2C60E4; }
+  .cc-card--p::before { background: #F75791; }
+  .cc-card__num { font-size: 40px; font-weight: 900; color: #ebebeb; line-height: 1; margin-bottom: 10px; letter-spacing: -0.04em; }
+  .cc-card__title { font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; color: #111; margin-bottom: 4px; }
+  .cc-card__sub { font-size: 13px; font-style: italic; color: #aaa; margin-bottom: 12px; }
+  .cc-card__body { font-size: 13px; line-height: 1.65; color: #555; }
+  .cc-card__body strong { display: block; margin-top: 10px; font-size: 12px; letter-spacing: 0.04em; color: #111; }
+  .cc-smart { background: #111; padding: 88px 48px; text-align: center; }
+  .cc-smart__step { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #FCCE06; margin-bottom: 14px; }
+  .cc-smart__title { font-size: clamp(44px, 6vw, 80px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; color: #fff; margin: 0 0 10px; line-height: 0.9; }
+  .cc-smart__sub { font-size: 14px; font-style: italic; color: #666; margin-bottom: 48px; }
+  .cc-smart__rules { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 800px; margin: 0 auto; list-style: none; padding: 0; }
+  .cc-smart__rules li { background: #1a1a1a; border: 1px solid #2e2e2e; padding: 13px 24px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fff; }
+  .cc-finale { background: #DA2336; padding: 112px 48px; text-align: center; }
+  .cc-finale__label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 24px; }
+  .cc-finale__title { font-size: clamp(44px, 6vw, 88px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; color: #fff; line-height: 0.9; margin: 0 0 28px; }
+  .cc-finale__body { font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.85); max-width: 420px; margin: 0 auto 44px; }
+  .cc-finale__cta { display: inline-block; border: 2px solid #fff; color: #fff; padding: 15px 44px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; text-decoration: none; }
+  .cc-finale__cta:hover { background: #fff; color: #DA2336; }
+  @media (max-width: 900px) { .cc-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) {
+    .cc-hero { padding: 64px 24px 52px; }
+    .cc-grid { grid-template-columns: 1fr; }
+    .cc-card { padding: 24px 20px 28px; }
+    .cc-smart { padding: 64px 24px; }
+    .cc-finale { padding: 64px 24px; }
+  }
+</style>
+
+<div class="cc">
+
+  <div class="cc-hero">
+    <span class="cc-hero__label">Care Guide</span>
+    <h1 class="cc-hero__title">Make it last.<br>Make it right.</h1>
+    <p class="cc-hero__quote">Candles are simple objects.<br>But how you burn them changes everything.</p>
+    <p class="cc-hero__sub">Follow these guidelines to get the best out of your candle — from the first light to the last.</p>
+  </div>
+
+  <div class="cc-grid">
+
+    <div class="cc-card cc-card--y">
+      <div class="cc-card__num">01</div>
+      <div class="cc-card__title">First Burn</div>
+      <div class="cc-card__sub">Let it melt properly.</div>
+      <div class="cc-card__body">Allow the entire surface of the wax to melt to the edges on the first use. This prevents tunneling and ensures an even burn over time.<strong>→ Allow 2–3 hours minimum.</strong>
+</div>
+    </div>
+
+    <div class="cc-card cc-card--r">
+      <div class="cc-card__num">02</div>
+      <div class="cc-card__title">Trim the Wick</div>
+      <div class="cc-card__sub">Keep it clean.</div>
+      <div class="cc-card__body">Before each burn, trim the wick to around 5 mm. This maintains a steady flame, reduces smoke, and extends the life of your candle.</div>
+    </div>
+
+    <div class="cc-card cc-card--b">
+      <div class="cc-card__num">03</div>
+      <div class="cc-card__title">Burn Time</div>
+      <div class="cc-card__sub">Don't rush it.</div>
+      <div class="cc-card__body">Burn your candle for a maximum of 3–4 hours at a time. Longer burns can overheat the wax and affect performance.</div>
+    </div>
+
+    <div class="cc-card cc-card--p">
+      <div class="cc-card__num">04</div>
+      <div class="cc-card__title">After Use</div>
+      <div class="cc-card__sub">Let it rest.</div>
+      <div class="cc-card__body">Extinguish with a snuffer — never blow or use water. Let the wax fully cool before moving the candle. Re-center the wick if needed.</div>
+    </div>
+
+    <div class="cc-card cc-card--y">
+      <div class="cc-card__num">05</div>
+      <div class="cc-card__title">When to Stop</div>
+      <div class="cc-card__sub">Know when it's done.</div>
+      <div class="cc-card__body">Stop using your candle when approximately 10 mm of wax remains. This prevents overheating of the container.</div>
+    </div>
+
+    <div class="cc-card cc-card--b">
+      <div class="cc-card__num">06</div>
+      <div class="cc-card__title">Keep it Clean</div>
+      <div class="cc-card__sub">A better burn every time.</div>
+      <div class="cc-card__body">Keep the wax surface free of dust and debris. A clean candle burns better and smells better — always.</div>
+    </div>
+
+  </div>
+
+  <div class="cc-smart">
+    <h2 class="cc-smart__title">Burn Smart</h2>
+    <p class="cc-smart__sub">A few simple rules.</p>
+    <ul class="cc-smart__rules">
+      <li>Burn on a heat-resistant surface</li>
+      <li>Keep away from drafts</li>
+      <li>Keep away from flammable objects</li>
+      <li>Never leave unattended</li>
+      <li>Keep away from children &amp; pets</li>
+    </ul>
+  </div>
+
+  <div class="cc-finale">
+    <span class="cc-finale__label">After the Flame</span>
+    <h2 class="cc-finale__title">Objects first.<br>Candles second.</h2>
+    <p class="cc-finale__body">Once finished, your vessel is made to stay. Reuse it. Keep it. Make it part of your space.</p>
+    <a href="/collections/all" class="cc-finale__cta">Shop the Collection</a>
+  </div>
+
+</div>
