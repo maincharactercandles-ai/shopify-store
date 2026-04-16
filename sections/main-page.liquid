@@ -1,339 +1,184 @@
+<style>
+  /* ── RESET PAGE TITLE ─────────────────────── */
+  .main-page h1,
+  .main-page__heading,
+  .template-page .page-width > h1,
+  .shopify-section-main-page h1 { display: none !important; }
+  .main-page, .shopify-section-main-page,
+  .template-page main > .shopify-section:first-child { padding-top: 0 !important; margin-top: 0 !important; }
 
+  /* ── BASE ─────────────────────────────────── */
+  .ab { font-family: 'Inter', sans-serif; color: #111; background: #fff; width: 100vw; position: relative; left: 50%; transform: translateX(-50%); margin-top: -40px; }
 
-{% liquid
-  assign section_settings = section.settings
-  assign image = settings.logo
+  /* ── HERO ─────────────────────────────────── */
+  .ab-hero { background: #111; padding: 112px 48px 96px; text-align: center; position: relative; overflow: hidden; }
+  .ab-hero__label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #555; margin-bottom: 28px; }
+  .ab-hero__title { font-size: clamp(64px, 10vw, 136px); font-weight: 900; line-height: 0.86; text-transform: uppercase; letter-spacing: -0.03em; color: #fff; margin: 0 0 36px; }
+  .ab-hero__title em { font-style: normal; color: #FCCE06; }
+  .ab-hero__sub { font-size: clamp(14px, 1.5vw, 17px); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #555; }
 
-  if section_settings.inverse and settings.logo_inverse
-    assign image = settings.logo_inverse
-  endif
-%}
+  /* ── INTRO SPLIT ──────────────────────────── */
+  .ab-intro { display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; }
+  .ab-intro__img {
+    background-color: #BFBFBE;
+    background-image: url(https://cdn.shopify.com/s/files/1/0940/6791/7178/files/cf60ddd7-b174-4399-a380-b402eb547cf9.png?v=1776113093); /* ← Upload: green candle + silver tin on concrete slab */
+    background-size: cover;
+    background-position: center;
+    min-height: 560px;
+  }
+  .ab-intro__body { padding: 72px 64px; display: flex; flex-direction: column; justify-content: center; background: #fff; }
+  .ab-intro__label { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #aaa; margin-bottom: 24px; display: block; }
+  .ab-intro__title { font-size: clamp(32px, 3.5vw, 52px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.92; margin-bottom: 32px; color: #111; }
+  .ab-intro__text { font-size: 15px; line-height: 1.85; color: #555; max-width: 420px; }
+  .ab-intro__text + .ab-intro__text { margin-top: 20px; }
 
-{%- if image -%}
-  {% capture logo_image %}
-    {{-
-      image
-      | image_url: width: 3840
-      | image_tag:
-        width: image.width,
-        widths: '240, 352, 832, 1200, 1600, 1920, 2560, 3840',
-        height: image.height,
-        class: 'logo-section__image',
-        alt: shop.name,
-        sizes: '(min-width: 750px) calc(var(--logo-width)), 100vw'
-    -}}
-  {% endcapture %}
-{%- endif -%}
+  /* ── FULL BLEED IMAGE ─────────────────────── */
+  .ab-fullbleed {
+    height: 520px;
+    background-color: #c4a882;
+    background-image: url(https://cdn.shopify.com/s/files/1/0940/6791/7178/files/cosmos_1387050968.jpg?v=1776113091); /* ← Upload: oval architecture concrete + orange photo */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 48px 64px;
+  }
+  .ab-fullbleed__quote { font-size: clamp(18px, 2.5vw, 28px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; color: #fff; max-width: 640px; line-height: 1.1; text-shadow: 0 2px 20px rgba(0,0,0,0.4); }
 
-<div class="section-background color-{{ section_settings.color_scheme }}"></div>
-<div
-  class="section section--{{ section_settings.section_width }} color-{{ section_settings.color_scheme }}"
->
-  <div
-    class="
-      logo-section
-      logo-section--{{ section_settings.alignment_horizontal }}
-      spacing-style
-    "
-    style="
-      {% if section_settings.unit == 'percent' %}
-        --logo-width: {{ section_settings.percent_width }}%;
-      {% else %}
-        {% if image %}
-          --logo-width: {{ image.width | times: 1.00 | divided_by: image.height | times: section_settings.pixel_height }}px;
-        {% else %}
-          --logo-width: {{ shop.name.size | times: 0.65 }}em;
-          --logo-height: {{ section_settings.pixel_height }}px;
-        {% endif %}
-      {% endif %}
+  /* ── VALUES ───────────────────────────────── */
+  .ab-values { background: #FCCE06; padding: 80px 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .ab-values__item { padding: 0 48px 0 0; }
+  .ab-values__item:not(:first-child) { padding-left: 48px; border-left: 1px solid rgba(0,0,0,0.12); }
+  .ab-values__num { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: rgba(0,0,0,0.3); margin-bottom: 16px; display: block; }
+  .ab-values__title { font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; color: #111; margin-bottom: 14px; }
+  .ab-values__text { font-size: 14px; line-height: 1.75; color: #333; }
 
-      {% if section_settings.custom_mobile_size %}
-        {% if section_settings.unit_mobile == 'percent' %}
-          --logo-width-mobile: {{ section_settings.percent_width_mobile }}%;
-          --logo-height-mobile: auto;
-        {% else %}
-          {% if image %}
-            --logo-width-mobile: {{ image.width | times: 1.00 | divided_by: image.height | times: section_settings.pixel_height_mobile }}px;
-            {% else %}
-              --logo-width-mobile: {{ shop.name.size | times: 0.65 }}em;
-              --logo-height-mobile: {{ section_settings.pixel_height_mobile }}px;
-          {% endif %}
-        {% endif %}
-      {% endif %}
-      {% render 'spacing-style', settings: section_settings %}
-    "
-    {{ section.shopify_attributes }}
-  >
-    {% if logo_image %}
-      <div class="logo-section__image-wrapper">
-        {{ logo_image }}
-      </div>
-    {% else %}
-      {% render 'jumbo-text', text: shop.name, block_settings: section.settings %}
-    {% endif %}
+  /* ── COLLECTION SPLIT ─────────────────────── */
+  .ab-collection { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; }
+  .ab-collection__body { padding: 72px 64px; display: flex; flex-direction: column; justify-content: center; background: #f8f8f8; order: 1; }
+  .ab-collection__img {
+    background-color: #ddd;
+    background-image: url(https://cdn.shopify.com/s/files/1/0940/6791/7178/files/20077ae7-8f8d-4be0-ba44-c8f13385a6c5_7667b014-469b-49c4-9f6e-60c2347e525a.png?v=1776113092); /* ← Upload: 4 candles (green, amber, blue, tin) on concrete cube */
+    background-size: cover;
+    background-position: center;
+    min-height: 520px;
+    order: 2;
+  }
+  .ab-collection__label { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #aaa; margin-bottom: 20px; display: block; }
+  .ab-collection__title { font-size: clamp(36px, 4vw, 60px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.92; margin-bottom: 28px; color: #111; }
+  .ab-collection__title em { font-style: normal; color: #2C60E4; }
+  .ab-collection__text { font-size: 14px; line-height: 1.8; color: #666; max-width: 380px; margin-bottom: 36px; }
+  .ab-collection__cta { display: inline-block; background: #111; color: #fff; padding: 15px 40px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; text-decoration: none; align-self: flex-start; transition: background 0.2s; }
+  .ab-collection__cta:hover { background: #333; text-decoration: none; color: #fff; }
+
+  /* ── MARQUEE ──────────────────────────────── */
+  .ab-marquee { background: #DA2336; padding: 18px 0; overflow: hidden; white-space: nowrap; }
+  .ab-marquee__track { display: inline-block; animation: ab-scroll 24s linear infinite; }
+  .ab-marquee__track span { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; color: #fff; padding: 0 40px; }
+  .ab-marquee__track span::after { content: '·'; margin-left: 40px; }
+  @keyframes ab-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── CLOSING CTA ──────────────────────────── */
+  .ab-cta { background: #BFBFBE; padding: 100px 48px; text-align: center; }
+  .ab-cta__title { font-size: clamp(48px, 7vw, 104px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; color: #111; line-height: 0.88; margin-bottom: 40px; }
+  .ab-cta__links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .ab-cta__btn { display: inline-block; border: 2px solid #111; color: #111; padding: 15px 44px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; text-decoration: none; transition: background 0.2s, color 0.2s; }
+  .ab-cta__btn:hover { background: #111; color: #fff; text-decoration: none; }
+  .ab-cta__btn--fill { background: #111; color: #fff; }
+  .ab-cta__btn--fill:hover { background: #333; color: #fff; }
+
+  /* ── RESPONSIVE ───────────────────────────── */
+  @media (max-width: 900px) {
+    .ab-intro, .ab-collection { grid-template-columns: 1fr; }
+    .ab-intro__img, .ab-collection__img { min-height: 380px; order: 0; }
+    .ab-intro__body, .ab-collection__body { padding: 48px 32px; order: 1; }
+    .ab-values { grid-template-columns: 1fr; gap: 40px; padding: 56px 32px; }
+    .ab-values__item:not(:first-child) { padding-left: 0; border-left: none; border-top: 1px solid rgba(0,0,0,0.12); padding-top: 40px; }
+    .ab-fullbleed { height: 380px; padding: 32px; }
+  }
+  @media (max-width: 600px) {
+    .ab-hero { padding: 72px 24px 60px; }
+    .ab-intro__body, .ab-collection__body { padding: 40px 24px; }
+    .ab-values { padding: 48px 24px; }
+    .ab-cta { padding: 72px 24px; }
+    .ab-fullbleed { height: 300px; padding: 24px; }
+  }
+</style>
+
+<div class="ab">
+
+  <!-- ── HERO ── -->
+  <div class="ab-hero">
+    <span class="ab-hero__label">About the brand</span>
+    <h1 class="ab-hero__title">Not what<br>you <em>expect.</em></h1>
+    <p class="ab-hero__sub">Unexpected outside. Bold inside.</p>
   </div>
+
+  <!-- ── INTRO SPLIT ── -->
+  <!-- ⚠️ Replace PHOTO_URL_1 in the CSS above with your Shopify CDN link for the green candle + tin photo -->
+  <div class="ab-intro">
+    <div class="ab-intro__img"></div>
+    <div class="ab-intro__body">
+      <span class="ab-intro__label">Who we are</span>
+      <h2 class="ab-intro__title">Objects for<br>the home.</h2>
+      <p class="ab-intro__text">A Paris-based brand designing eco-conscious objects for the home. Each piece combines clean, minimalist forms with bold colors and sculptural details — creating a subtle tension between simplicity and expression.</p>
+      <p class="ab-intro__text">Inspired by industrial materials, contemporary design, and playful contrasts, we turn everyday objects into unexpected design pieces.</p>
+    </div>
+  </div>
+
+  <!-- ── FULL BLEED IMAGE ── -->
+  <!-- ⚠️ Replace PHOTO_URL_3 in the CSS above with your Shopify CDN link for the oval architecture photo -->
+  <div class="ab-fullbleed">
+    <p class="ab-fullbleed__quote">Inspired by industrial materials, contemporary design, and playful contrasts.</p>
+  </div>
+
+  <!-- ── VALUES ── -->
+  <div class="ab-values">
+    <div class="ab-values__item">
+      <span class="ab-values__num">01</span>
+      <div class="ab-values__title">Eco-conscious</div>
+      <div class="ab-values__text">Natural soy wax. Clean materials. Reusable vessels designed to outlast the candle itself. Nothing goes to waste.</div>
+    </div>
+    <div class="ab-values__item">
+      <span class="ab-values__num">02</span>
+      <div class="ab-values__title">Sculptural</div>
+      <div class="ab-values__text">Every object is conceived as a design piece first. Form, texture, and color carry as much weight as function.</div>
+    </div>
+    <div class="ab-values__item">
+      <span class="ab-values__num">03</span>
+      <div class="ab-values__title">Unexpected</div>
+      <div class="ab-values__text">We don't do safe. Each piece is built on contrast — something familiar and something that shouldn't work, but does.</div>
+    </div>
+  </div>
+
+  <!-- ── COLLECTION SPLIT ── -->
+  <!-- ⚠️ Replace PHOTO_URL_5 in the CSS above with your Shopify CDN link for the 4 candles on concrete cube photo -->
+  <div class="ab-collection">
+    <div class="ab-collection__body">
+      <span class="ab-collection__label">The Collection</span>
+      <h2 class="ab-collection__title">Three scents.<br>One <em>vision.</em></h2>
+      <p class="ab-collection__text">Hand-poured in small batches in Paris. Each candle is a study in contrast — the vessel bold and sculptural, the scent unexpected, the experience entirely its own.</p>
+      <a href="/collections/all" class="ab-collection__cta">Shop the Collection</a>
+    </div>
+    <div class="ab-collection__img"></div>
+  </div>
+
+  <!-- ── MARQUEE ── -->
+  <div class="ab-marquee">
+    <div class="ab-marquee__track">
+      <span>Not What You Expect</span><span>Paris</span><span>Eco-conscious</span><span>Hand-Poured</span><span>Unexpected Outside</span><span>Bold Inside</span><span>Not What You Expect</span><span>Paris</span><span>Eco-conscious</span><span>Hand-Poured</span><span>Unexpected Outside</span><span>Bold Inside</span>
+    </div>
+  </div>
+
+  <!-- ── CLOSING CTA ── -->
+  <div class="ab-cta">
+    <h2 class="ab-cta__title">Still not<br>convinced?</h2>
+    <div class="ab-cta__links">
+      <a href="/collections/all" class="ab-cta__btn ab-cta__btn--fill">Shop Now</a>
+      <a href="/pages/candle-care" class="ab-cta__btn">Care Guide</a>
+      <a href="/pages/contact" class="ab-cta__btn">Contact</a>
+    </div>
+  </div>
+
 </div>
-
-{% stylesheet %}
-  .logo-section {
-    width: calc(var(--logo-width) + var(--padding-inline-start) + var(--padding-inline-end));
-    max-width: 100%;
-    max-height: calc(var(--logo-height, 100%) + var(--padding-block-start) + var(--padding-block-end));
-    font-size: var(--logo-height);
-    display: flex;
-
-    @media screen and (max-width: 749px) {
-      max-height: calc(
-        var(--logo-height-mobile, var(--logo-height, 100%)) + var(--padding-block-start) + var(--padding-block-end)
-      );
-      font-size: var(--logo-height-mobile, var(--logo-height));
-      width: calc(
-        var(--logo-width-mobile, var(--logo-width)) + var(--padding-inline-start) + var(--padding-inline-end)
-      );
-    }
-  }
-
-  .logo-section--center {
-    margin-inline: auto;
-  }
-
-  .logo-section--flex-end {
-    margin-inline-start: auto;
-  }
-
-  .logo-section--flex-start {
-    margin-inline-end: auto;
-  }
-
-  .logo-section__image-wrapper {
-    display: flex;
-    width: 100%;
-    max-width: 100%;
-    max-height: 100%;
-  }
-
-  .logo-section__image {
-    object-fit: contain;
-    width: 100%;
-  }
-{% endstylesheet %}
-
-{% schema %}
-{
-  "name": "t:names.logo",
-  "enabled_on": {
-    "groups": ["footer"]
-  },
-  "settings": [
-    {
-      "type": "checkbox",
-      "label": "t:settings.use_inverse_logo",
-      "id": "inverse",
-      "default": false,
-      "visible_if": "{{ settings.logo_inverse }}"
-    },
-    {
-      "type": "select",
-      "id": "font",
-      "label": "t:settings.font",
-      "options": [
-        {
-          "value": "body",
-          "label": "t:options.body"
-        },
-        {
-          "value": "subheading",
-          "label": "t:options.subheading"
-        },
-        {
-          "value": "heading",
-          "label": "t:options.heading"
-        },
-        {
-          "value": "accent",
-          "label": "t:options.accent"
-        }
-      ],
-      "default": "heading",
-      "visible_if": "{{ settings.logo == blank and settings.logo_inverse == blank or section.settings.inverse == false }}"
-    },
-    {
-      "type": "paragraph",
-      "content": "t:content.edit_logo_in_theme_settings"
-    },
-    {
-      "type": "header",
-      "content": "t:content.size"
-    },
-    {
-      "type": "select",
-      "id": "unit",
-      "label": "t:settings.unit",
-      "options": [
-        {
-          "value": "pixel",
-          "label": "t:options.pixel"
-        },
-        {
-          "value": "percent",
-          "label": "t:options.percent"
-        }
-      ],
-      "default": "percent"
-    },
-    {
-      "type": "range",
-      "id": "pixel_height",
-      "label": "t:settings.height",
-      "min": 16,
-      "max": 320,
-      "step": 8,
-      "unit": "px",
-      "default": 48,
-      "visible_if": "{{ section.settings.unit == 'pixel' }}"
-    },
-    {
-      "type": "range",
-      "id": "percent_width",
-      "label": "t:settings.width",
-      "min": 10,
-      "max": 100,
-      "step": 1,
-      "unit": "%",
-      "default": 100,
-      "visible_if": "{{ section.settings.unit == 'percent' }}"
-    },
-    {
-      "type": "checkbox",
-      "id": "custom_mobile_size",
-      "label": "t:settings.custom_mobile_size",
-      "default": false
-    },
-    {
-      "type": "header",
-      "content": "t:content.mobile_size",
-      "visible_if": "{{ section.settings.custom_mobile_size == true }}"
-    },
-    {
-      "type": "select",
-      "id": "unit_mobile",
-      "label": "t:settings.unit",
-      "options": [
-        {
-          "value": "pixel",
-          "label": "t:options.pixel"
-        },
-        {
-          "value": "percent",
-          "label": "t:options.percent"
-        }
-      ],
-      "default": "percent",
-      "visible_if": "{{ section.settings.custom_mobile_size == true }}"
-    },
-    {
-      "type": "range",
-      "id": "percent_width_mobile",
-      "label": "t:settings.width",
-      "min": 10,
-      "max": 100,
-      "step": 1,
-      "unit": "%",
-      "default": 100,
-      "visible_if": "{{ section.settings.unit_mobile == 'percent' and section.settings.custom_mobile_size == true}}"
-    },
-    {
-      "type": "range",
-      "id": "pixel_height_mobile",
-      "label": "t:settings.height",
-      "min": 16,
-      "max": 160,
-      "step": 8,
-      "unit": "px",
-      "default": 120,
-      "visible_if": "{{ section.settings.unit_mobile == 'pixel' and section.settings.custom_mobile_size == true}}"
-    },
-    {
-      "type": "header",
-      "content": "t:content.layout"
-    },
-    {
-      "type": "select",
-      "id": "section_width",
-      "label": "t:settings.width",
-      "options": [
-        {
-          "value": "page-width",
-          "label": "t:options.page"
-        },
-        {
-          "value": "full-width",
-          "label": "t:options.full"
-        }
-      ],
-      "default": "page-width"
-    },
-    {
-      "type": "select",
-      "id": "alignment_horizontal",
-      "label": "t:settings.alignment",
-      "options": [
-        {
-          "value": "flex-start",
-          "label": "t:options.left"
-        },
-        {
-          "value": "center",
-          "label": "t:options.center"
-        },
-        {
-          "value": "flex-end",
-          "label": "t:options.right"
-        }
-      ],
-      "default": "center"
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:settings.color_scheme",
-      "default": "scheme-1"
-    },
-    {
-      "type": "header",
-      "content": "t:content.padding"
-    },
-    {
-      "type": "range",
-      "id": "padding-block-start",
-      "label": "t:settings.top",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 32
-    },
-    {
-      "type": "range",
-      "id": "padding-block-end",
-      "label": "t:settings.bottom",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 32
-    }
-  ],
-  "presets": [
-    {
-      "name": "t:names.logo",
-      "category": "t:categories.storytelling",
-      "settings": {
-        "unit": "pixel",
-        "pixel_height": 48,
-        "alignment_horizontal": "center"
-      }
-    }
-  ]
-}
-{% endschema %}
