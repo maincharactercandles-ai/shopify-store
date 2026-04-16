@@ -133,18 +133,6 @@
         "gap_between_elements": 72
       }
     },
-    "nwye_collection_r7rEti": {
-      "type": "nwye-collection",
-      "name": "The Collection",
-      "settings": {
-        "title": "The Collection.",
-        "collection": "",
-        "products_count": 4,
-        "columns": 4,
-        "show_view_all": true,
-        "view_all_label": "View all"
-      }
-    },
     "177626714700396d40": {
       "type": "_blocks",
       "settings": {
@@ -173,6 +161,18 @@
         "gradient_direction": "to top",
         "padding-block-start": 0,
         "padding-block-end": 0
+      }
+    },
+    "nwye_collection_r7rEti": {
+      "type": "nwye-collection",
+      "name": "The Collection",
+      "settings": {
+        "title": "The Collection.",
+        "collection": "",
+        "products_count": 4,
+        "columns": 3,
+        "show_view_all": true,
+        "view_all_label": "View all"
       }
     },
     "ss_feature_1_features_ADUAyp": {
@@ -506,8 +506,8 @@
   "order": [
     "hero_jVaWmY",
     "marquee_ENJYE9",
-    "nwye_collection_r7rEti",
     "177626714700396d40",
+    "nwye_collection_r7rEti",
     "ss_feature_1_features_ADUAyp",
     "media_with_content_BqgNbP",
     "nwye_pillars_idgR4w"
