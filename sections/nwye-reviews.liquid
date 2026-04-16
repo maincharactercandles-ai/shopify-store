@@ -1,0 +1,195 @@
+
+<div class="section-background" style="background: {{ section.settings.background_color }};"></div>
+
+<div
+  class="section section--page-width nwye-reviews"
+  style="
+    background: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    border-top: 1px solid #e6e6e6;
+  "
+>
+  <div class="nwye-reviews__wrap">
+
+    <div class="nwye-reviews__header">
+      {%- if section.settings.label != blank -%}
+        <p class="nwye-reviews__label">{{ section.settings.label }}</p>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 class="nwye-reviews__title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+    </div>
+
+    <div class="nwye-reviews__grid">
+      {%- for block in section.blocks -%}
+        <div class="nwye-review" {{ block.shopify_attributes }}>
+          <div class="nwye-review__stars">★★★★★</div>
+          {%- if block.settings.text != blank -%}
+            <p class="nwye-review__text">"{{ block.settings.text }}"</p>
+          {%- endif -%}
+          {%- if block.settings.author != blank -%}
+            <span class="nwye-review__author">— {{ block.settings.author }}</span>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+{% stylesheet %}
+.nwye-reviews__wrap {
+  max-width: var(--page-width, 1200px);
+  margin: 0 auto;
+  padding: 0 var(--page-width-padding, 24px);
+}
+.nwye-reviews__header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.nwye-reviews__label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.4;
+  margin-bottom: 16px;
+}
+.nwye-reviews__title {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.nwye-reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.nwye-review {
+  padding: 40px 36px;
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+.nwye-review__stars {
+  color: #fbb91d;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  letter-spacing: 3px;
+}
+.nwye-review__text {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  opacity: 0.8;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.nwye-review__author {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+@media screen and (max-width: 900px) {
+  .nwye-reviews__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Reviews",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label (small caps)",
+      "default": "What they're saying"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Real people.\nReal reactions."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 148,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 148,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Review text",
+          "default": "I was looking for something original for my living room. I didn't know what to expect — and that's exactly what convinced me."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Camille R., Paris"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "text": "I was looking for something original for my living room. I didn't know what to expect — and that's exactly what convinced me.",
+            "author": "Camille R., Paris"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "text": "A gift that made an immediate impression. The person I gave it to placed it straight on their coffee table. Not in a drawer.",
+            "author": "Thomas M., Lyon"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "text": "The scent lingers for hours after you blow it out. And the design is genuinely unlike anything else. I really didn't expect that.",
+            "author": "Inès B., Bordeaux"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

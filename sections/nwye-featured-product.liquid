@@ -1,0 +1,258 @@
+
+{%- assign featured = section.settings.product -%}
+
+<div class="section-background" style="background: {{ section.settings.background_color }};"></div>
+
+<div
+  class="section section--page-width nwye-featured-product"
+  style="
+    background: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="nwye-featured-product__inner">
+
+    <div class="nwye-featured-product__content">
+      {%- if section.settings.badge != blank -%}
+        <span class="nwye-featured-product__badge">★ {{ section.settings.badge }}</span>
+      {%- endif -%}
+
+      {%- if section.settings.title != blank -%}
+        <h2 class="nwye-featured-product__title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.subtitle != blank -%}
+        <p class="nwye-featured-product__sub">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+
+      {%- if featured != blank -%}
+        <div class="nwye-featured-product__price">
+          {{ featured.price | money }}
+        </div>
+        <a href="{{ featured.url }}" class="nwye-featured-product__btn">
+          {{ section.settings.button_label | default: 'Add to cart' }}
+        </a>
+      {%- else -%}
+        {%- if section.settings.price != blank -%}
+          <div class="nwye-featured-product__price">{{ section.settings.price }}</div>
+        {%- endif -%}
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_link }}" class="nwye-featured-product__btn">
+            {{ section.settings.button_label }}
+          </a>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+
+    <div class="nwye-featured-product__visual">
+      {%- if featured != blank and featured.featured_image != blank -%}
+        {{
+          featured.featured_image
+          | image_url: width: 900
+          | image_tag:
+            loading: 'lazy',
+            widths: '400, 600, 900',
+            class: 'nwye-featured-product__img'
+        }}
+      {%- elsif section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 900
+          | image_tag:
+            loading: 'lazy',
+            widths: '400, 600, 900',
+            class: 'nwye-featured-product__img'
+        }}
+      {%- else -%}
+        <div class="nwye-featured-product__img-placeholder">
+          {{ 'product-1' | placeholder_svg_tag }}
+        </div>
+      {%- endif -%}
+    </div>
+
+  </div>
+</div>
+
+{% stylesheet %}
+.nwye-featured-product__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: var(--page-width, 1200px);
+  margin: 0 auto;
+  padding: 0 var(--page-width-padding, 24px);
+}
+.nwye-featured-product__badge {
+  display: inline-block;
+  background: #000000;
+  color: #ffffff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
+.nwye-featured-product__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+.nwye-featured-product__sub {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.7;
+  margin-bottom: 32px;
+}
+.nwye-featured-product__price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+.nwye-featured-product__btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 14px;
+  transition: background 0.2s;
+}
+.nwye-featured-product__btn:hover {
+  background: #333333;
+}
+.nwye-featured-product__visual {
+  aspect-ratio: 4 / 5;
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.07);
+}
+.nwye-featured-product__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.nwye-featured-product__img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.2;
+}
+.nwye-featured-product__img-placeholder svg {
+  width: 80px;
+  height: 80px;
+}
+@media screen and (max-width: 900px) {
+  .nwye-featured-product__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .nwye-featured-product__visual {
+    order: -1;
+    aspect-ratio: 3 / 2;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Featured Product",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#fbb91d"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product (auto-fills price & image)"
+    },
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge text",
+      "default": "Best-seller"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "THE SIGNATURE\nPIECE."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Our boldest candle. A design that provokes, a scent that lingers. The one you give, the one you keep, the one people talk about."
+    },
+    {
+      "type": "text",
+      "id": "price",
+      "label": "Price (if no product selected)",
+      "default": "42 €"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Add to cart"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link (if no product selected)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image (if no product selected)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 148,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 148,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Product"
+    }
+  ]
+}
+{% endschema %}
