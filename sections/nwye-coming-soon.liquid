@@ -1,0 +1,553 @@
+<div class="nwye-cs-bg"></div>
+
+<div class="nwye-cs-wrapper">
+
+  {%- if section.settings.eyebrow != blank -%}
+    <p class="nwye-cs-eyebrow">{{ section.settings.eyebrow }}</p>
+  {%- endif -%}
+
+  <h1 class="nwye-cs-title">{{ section.settings.title | default: 'Something is coming.' }}</h1>
+
+  {%- if section.settings.subtitle != blank -%}
+    <p class="nwye-cs-subtitle">{{ section.settings.subtitle }}</p>
+  {%- endif -%}
+
+  {%- if section.settings.show_countdown -%}
+    <div class="nwye-cs-countdown" id="nwye-countdown" aria-label="Compte à rebours avant ouverture">
+      <div class="nwye-cs-countdown__unit">
+        <span class="nwye-cs-countdown__number" id="nwye-days">--</span>
+        <span class="nwye-cs-countdown__label">{{ section.settings.label_days | default: 'jours' }}</span>
+      </div>
+      <div class="nwye-cs-countdown__sep" aria-hidden="true">:</div>
+      <div class="nwye-cs-countdown__unit">
+        <span class="nwye-cs-countdown__number" id="nwye-hours">--</span>
+        <span class="nwye-cs-countdown__label">{{ section.settings.label_hours | default: 'heures' }}</span>
+      </div>
+      <div class="nwye-cs-countdown__sep" aria-hidden="true">:</div>
+      <div class="nwye-cs-countdown__unit">
+        <span class="nwye-cs-countdown__number" id="nwye-minutes">--</span>
+        <span class="nwye-cs-countdown__label">{{ section.settings.label_minutes | default: 'min' }}</span>
+      </div>
+      <div class="nwye-cs-countdown__sep" aria-hidden="true">:</div>
+      <div class="nwye-cs-countdown__unit">
+        <span class="nwye-cs-countdown__number" id="nwye-seconds">--</span>
+        <span class="nwye-cs-countdown__label">{{ section.settings.label_seconds | default: 'sec' }}</span>
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div class="nwye-cs-email-block">
+    {%- if section.settings.email_heading != blank -%}
+      <p class="nwye-cs-email-heading">{{ section.settings.email_heading }}</p>
+    {%- endif -%}
+
+    {%- form 'customer', id: 'nwye-cs-form' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter,coming-soon">
+      <div class="nwye-cs-form-row">
+        <label for="nwye-cs-email" class="visually-hidden">{{ 'general.newsletter_form.email_placeholder' | t }}</label>
+        <input
+          id="nwye-cs-email"
+          class="nwye-cs-input"
+          type="email"
+          name="contact[email]"
+          autocomplete="email"
+          autocorrect="off"
+          autocapitalize="off"
+          placeholder="{{ section.settings.email_placeholder | default: 'votre@email.com' }}"
+          required
+          aria-required="true"
+        >
+        <button class="nwye-cs-btn" type="submit">
+          {{ section.settings.button_label | default: 'Me prévenir' }}
+        </button>
+      </div>
+      {%- if form.posted_successfully? -%}
+        <p class="nwye-cs-success" role="status">{{ section.settings.success_message | default: "Parfait — on vous previent des l'ouverture !" }}</p>
+      {%- elsif form.errors -%}
+        <p class="nwye-cs-error" role="alert">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</p>
+      {%- endif -%}
+    {%- endform -%}
+
+    {%- if section.settings.privacy_note != blank -%}
+      <p class="nwye-cs-privacy">{{ section.settings.privacy_note }}</p>
+    {%- endif -%}
+  </div>
+
+  {%- if section.settings.show_social -%}
+    <div class="nwye-cs-social">
+      {%- if section.settings.instagram_url != blank -%}
+        <a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener" class="nwye-cs-social__link" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Instagram
+        </a>
+      {%- endif -%}
+      {%- if section.settings.tiktok_url != blank -%}
+        <a href="{{ section.settings.tiktok_url }}" target="_blank" rel="noopener" class="nwye-cs-social__link" aria-label="TikTok">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.24 8.24 0 0 0 4.83 1.55V6.79a4.85 4.85 0 0 1-1.06-.1z"/></svg>
+          TikTok
+        </a>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+</div>
+
+{%- if section.settings.show_countdown -%}
+<script>
+  (function() {
+    var target = new Date('{{ section.settings.launch_date }}T00:00:00');
+    if (isNaN(target.getTime())) return;
+
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+    function tick() {
+      var now = new Date();
+      var diff = target - now;
+
+      if (diff <= 0) {
+        document.getElementById('nwye-countdown').innerHTML = '<p class="nwye-cs-launched">{{ section.settings.launched_message | default: "C est ouvert !" | escape }}</p>';
+        return;
+      }
+
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+
+      var elD = document.getElementById('nwye-days');
+      var elH = document.getElementById('nwye-hours');
+      var elM = document.getElementById('nwye-minutes');
+      var elS = document.getElementById('nwye-seconds');
+
+      if (elD) elD.textContent = pad(d);
+      if (elH) elH.textContent = pad(h);
+      if (elM) elM.textContent = pad(m);
+      if (elS) elS.textContent = pad(s);
+
+      setTimeout(tick, 1000);
+    }
+
+    tick();
+  })();
+</script>
+{%- endif -%}
+
+{% stylesheet %}
+
+  .nwye-cs-bg {
+    position: fixed;
+    inset: 0;
+    background: {{ section.settings.bg_color | default: '#ffffff' }};
+    z-index: -1;
+  }
+
+  .nwye-cs-wrapper {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    gap: 1.5rem;
+    max-width: 680px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  /* Eyebrow */
+  .nwye-cs-eyebrow {
+    margin: 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: {{ section.settings.accent_color | default: '#888888' }};
+  }
+
+  /* Title */
+  .nwye-cs-title {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: {{ section.settings.text_color | default: '#000000' }};
+  }
+
+  /* Subtitle */
+  .nwye-cs-subtitle {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: {{ section.settings.text_color | default: '#000000' }};
+    opacity: 0.65;
+    max-width: 480px;
+  }
+
+  /* Countdown */
+  .nwye-cs-countdown {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .nwye-cs-countdown__unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    min-width: 3.5rem;
+  }
+
+  .nwye-cs-countdown__number {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: {{ section.settings.text_color | default: '#000000' }};
+    font-variant-numeric: tabular-nums;
+  }
+
+  .nwye-cs-countdown__label {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: {{ section.settings.accent_color | default: '#888888' }};
+  }
+
+  .nwye-cs-countdown__sep {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    line-height: 1;
+    color: {{ section.settings.accent_color | default: '#888888' }};
+    padding-top: 0.05em;
+    opacity: 0.4;
+  }
+
+  .nwye-cs-launched {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: {{ section.settings.text_color | default: '#000000' }};
+  }
+
+  /* Email block */
+  .nwye-cs-email-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 460px;
+  }
+
+  .nwye-cs-email-heading {
+    margin: 0;
+    font-size: 0.85rem;
+    color: {{ section.settings.text_color | default: '#000000' }};
+    opacity: 0.7;
+  }
+
+  .nwye-cs-form-row {
+    display: flex;
+    width: 100%;
+    gap: 0;
+    border: 1px solid {{ section.settings.border_color | default: '#000000' }};
+    border-radius: {{ section.settings.border_radius | default: 0 }}px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .nwye-cs-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
+    background: transparent;
+    color: #000;
+    min-width: 0;
+  }
+
+  .nwye-cs-input::placeholder {
+    color: #aaa;
+  }
+
+  .nwye-cs-btn {
+    border: none;
+    background: {{ section.settings.btn_bg | default: '#000000' }};
+    color: {{ section.settings.btn_text | default: '#ffffff' }};
+    padding: 0.85rem 1.4rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    font-weight: 600;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+  }
+
+  .nwye-cs-btn:hover {
+    opacity: 0.85;
+  }
+
+  .nwye-cs-success {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #2e7d32;
+  }
+
+  .nwye-cs-error {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #c62828;
+  }
+
+  .nwye-cs-privacy {
+    margin: 0;
+    font-size: 0.7rem;
+    color: {{ section.settings.text_color | default: '#000000' }};
+    opacity: 0.4;
+  }
+
+  /* Social */
+  .nwye-cs-social {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+
+  .nwye-cs-social__link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: {{ section.settings.text_color | default: '#000000' }};
+    text-decoration: none;
+    opacity: 0.55;
+    transition: opacity 0.2s;
+  }
+
+  .nwye-cs-social__link:hover {
+    opacity: 1;
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 480px) {
+    .nwye-cs-form-row {
+      flex-direction: column;
+      border-radius: {{ section.settings.border_radius | default: 0 }}px;
+    }
+
+    .nwye-cs-btn {
+      border-top: 1px solid {{ section.settings.border_color | default: '#000000' }};
+      padding: 0.9rem;
+      width: 100%;
+    }
+
+    .nwye-cs-countdown {
+      gap: 0.25rem;
+    }
+
+    .nwye-cs-countdown__unit {
+      min-width: 2.8rem;
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "NWYE — Coming Soon",
+  "class": "section-wrapper nwye-cs-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenu"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Texte au-dessus du titre",
+      "default": "Not What You Expect"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre principal",
+      "default": "Something is coming."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "Des bougies qui ne ressemblent à rien de ce que vous connaissez. Bientôt."
+    },
+    {
+      "type": "header",
+      "content": "Compte à rebours"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_countdown",
+      "label": "Afficher le countdown",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "launch_date",
+      "label": "Date de lancement (YYYY-MM-DD)",
+      "default": "2026-05-05",
+      "info": "Format : 2026-05-05"
+    },
+    {
+      "type": "text",
+      "id": "label_days",
+      "label": "Libellé jours",
+      "default": "jours"
+    },
+    {
+      "type": "text",
+      "id": "label_hours",
+      "label": "Libellé heures",
+      "default": "heures"
+    },
+    {
+      "type": "text",
+      "id": "label_minutes",
+      "label": "Libellé minutes",
+      "default": "min"
+    },
+    {
+      "type": "text",
+      "id": "label_seconds",
+      "label": "Libellé secondes",
+      "default": "sec"
+    },
+    {
+      "type": "text",
+      "id": "launched_message",
+      "label": "Message affiché à l'ouverture",
+      "default": "C'est ouvert !"
+    },
+    {
+      "type": "header",
+      "content": "Formulaire email"
+    },
+    {
+      "type": "text",
+      "id": "email_heading",
+      "label": "Texte au-dessus du formulaire",
+      "default": "Soyez les premiers informés :"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Placeholder email",
+      "default": "votre@email.com"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton",
+      "default": "Me prévenir"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Message de confirmation",
+      "default": "✓ Parfait — on vous prévient dès l'ouverture !"
+    },
+    {
+      "type": "text",
+      "id": "privacy_note",
+      "label": "Note confidentialité (sous le formulaire)",
+      "default": "Pas de spam. Désabonnement en 1 clic."
+    },
+    {
+      "type": "header",
+      "content": "Réseaux sociaux"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "label": "Afficher les liens sociaux",
+      "default": false
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "URL Instagram"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "URL TikTok"
+    },
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Fond de page",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur texte",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Couleur secondaire (labels countdown, eyebrow…)",
+      "default": "#888888"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg",
+      "label": "Fond bouton",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "btn_text",
+      "label": "Texte bouton",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Couleur bordure formulaire",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Arrondi formulaire (px)",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}
