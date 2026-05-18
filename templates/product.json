@@ -268,7 +268,7 @@
                   "type": "_accordion-row",
                   "settings": {
                     "heading": "SCENT PROFILE",
-                    "open_by_default": false,
+                    "open_by_default": true,
                     "icon": "none",
                     "width": 20
                   },
@@ -277,7 +277,7 @@
                       "type": "text",
                       "name": "t:names.heading",
                       "settings": {
-                        "text": "<h2>New arrivals</h2>",
+                        "text": "<h5><strong>Agrumes & Sauge</strong></h5>",
                         "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",
