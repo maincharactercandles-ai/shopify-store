@@ -68,27 +68,6 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "buy_box_buy_box_wrapper_d7TzaU": {
-              "type": "shopify://apps/buy-box/blocks/buy-box-wrapper/17b7c6ef-0c82-4743-acf4-050c34e5b233",
-              "settings": {
-                "use_in_mobile": false,
-                "box_shadow": "small",
-                "ht": "",
-                "hb": "#f0f0f0",
-                "htc": "#000000",
-                "background_color": "#ffffff",
-                "border_color": "#dadce0",
-                "header_font_size": 23,
-                "border_radius": 5,
-                "border_width": 1,
-                "padding_top": 3,
-                "padding_bottom": 8,
-                "padding_sides": 20,
-                "margin_sides_mobile": 0,
-                "margin_left": 0,
-                "max-width": "44rem"
-              }
-            },
             "group_icgrde": {
               "type": "group",
               "name": "Header",
@@ -188,22 +167,6 @@
                   },
                   "blocks": {}
                 },
-                "buy_box_star_rating_gpE9nd": {
-                  "type": "shopify://apps/buy-box/blocks/star-rating/17b7c6ef-0c82-4743-acf4-050c34e5b233",
-                  "settings": {
-                    "rating": 5,
-                    "text": "6+ Ratings",
-                    "link": "",
-                    "star_color": "#00b67a",
-                    "star_background_color": "#eaeaea",
-                    "text_color": "#000000",
-                    "star_size": 16,
-                    "font_size": 14,
-                    "margin_top": 0,
-                    "margin_bottom": 0,
-                    "max-width": "44rem"
-                  }
-                },
                 "price_tVjtKg": {
                   "type": "price",
                   "settings": {
@@ -260,36 +223,14 @@
                     }
                   },
                   "block_order": []
-                },
-                "buy_box_selling_points_jUcUde": {
-                  "type": "shopify://apps/buy-box/blocks/selling-points/17b7c6ef-0c82-4743-acf4-050c34e5b233",
-                  "settings": {
-                    "sellingPoint_1_text": "Up to 40 hours of slow burn",
-                    "sellingPoint_2_text": "Hand-poured in Paris",
-                    "sellingPoint_3_text": "Fragrance from Grasse",
-                    "sellingPoint_4_text": "100% natural soy wax",
-                    "sellingPoint_5_text": "",
-                    "icon": "checkmark",
-                    "icon_color": "#037e05",
-                    "text_color": "#212121",
-                    "icon_size": 16,
-                    "text_size": 12,
-                    "alignment": "start",
-                    "row_spacing": 8,
-                    "margin_top": 11,
-                    "margin_bottom": -13,
-                    "max-width": "44rem"
-                  }
                 }
               },
               "block_order": [
                 "essential_trust_badges_app_block_jXKFhx",
                 "text_xrnftG",
                 "text_PEgt4r",
-                "buy_box_star_rating_gpE9nd",
                 "price_tVjtKg",
-                "buy_buttons_rU9iBA",
-                "buy_box_selling_points_jUcUde"
+                "buy_buttons_rU9iBA"
               ]
             },
             "divider_4fzypz": {
@@ -303,24 +244,6 @@
                 "padding-block-end": 0
               },
               "blocks": {}
-            },
-            "buy_box_trust_badges_zUeUzt": {
-              "type": "shopify://apps/buy-box/blocks/trust-badges/17b7c6ef-0c82-4743-acf4-050c34e5b233",
-              "settings": {
-                "i1": "gift",
-                "t1": "<p><strong>Free Delivery<br/></strong>over 49€</p>",
-                "i2": "delivery",
-                "t2": "<p><strong>Fast Delivery</strong><br/>2-4 business days</p>",
-                "i3": "guarantee",
-                "t3": "<p><strong>100% Secure<br/></strong>Payment</p>",
-                "ic": "#000000",
-                "e": "#000000",
-                "d": 26,
-                "f": 12,
-                "a": -10,
-                "b": -10,
-                "c": "100%"
-              }
             },
             "accordion_NfK7fn": {
               "type": "accordion",
@@ -392,7 +315,7 @@
                     "text_cJt7BE": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "<p>Every object is hand-poured in Paris, in small batches. We use a natural soy wax with high-concentration fragrances from Grasse. No mass production. Each piece is made to order.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -470,7 +393,7 @@
                     "text_WqQpk3": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "<p>We accept returns on unused, unopened items within 14 days of delivery. Once a candle has been lit, it cannot be returned.</p><p>To request a return, contact us at <a href=\"mailto:contact@notwhatyouexpect.fr\">contact@notwhatyouexpect.fr</a>. Return shipping is at the customer's expense. Refunds are processed within 14 days of receiving the item.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -507,10 +430,8 @@
             }
           },
           "block_order": [
-            "buy_box_buy_box_wrapper_d7TzaU",
             "group_icgrde",
             "divider_4fzypz",
-            "buy_box_trust_badges_zUeUzt",
             "accordion_NfK7fn"
           ]
         }
