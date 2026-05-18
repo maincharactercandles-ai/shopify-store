@@ -277,7 +277,7 @@
                       "type": "text",
                       "name": "t:names.heading",
                       "settings": {
-                        "text": "<h5><strong>Agrumes & Sauge</strong></h5>",
+                        "text": "<h5><strong>Matcha & Bois</strong></h5>",
                         "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",
