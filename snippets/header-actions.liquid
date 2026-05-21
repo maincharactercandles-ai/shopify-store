@@ -343,6 +343,7 @@
 
   .cart-drawer__dialog {
     position: fixed;
+    inset: 0; 
     overflow: hidden;
     border-radius: 0;
     width: 100%;
@@ -665,8 +666,7 @@
   :active-view-transition {
     .cart-drawer__header,
     .cart-drawer__content {
-      background: transparent;
-    }
+   background: var(--color-background);    }
   }
 
   ::view-transition-old(cart-drawer-content) {
