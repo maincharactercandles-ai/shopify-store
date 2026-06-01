@@ -145,7 +145,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>A candle you didn't expect.<br/>Light it when you have nowhere to be.<br/>This one doesn't rush. Slow Burn Baby opens with thyme and a whisper of saffron — sharp, a little dangerous. Then midnight jasmine arrives and softens everything. The dry-down is all leather and black suede, deep and unhurried.<br/>For the ones who like their evenings slow and their spaces darker.</p>",
+                    "text": "<p>{{ closest.product.metafields.custom.candle_description_story_telling | metafield_tag }}</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
