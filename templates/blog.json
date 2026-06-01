@@ -252,7 +252,7 @@
       },
       "name": "t:names.blog_posts_editorial",
       "settings": {
-        "blog": "blog",
+        "blog": "{{ blog }}",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "post_limit": 3,
