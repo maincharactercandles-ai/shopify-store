@@ -61,7 +61,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/Banner_web.png",
+        "image_1": "shopify://shop_images/NOT_WHAT_YOU_EXPECT._sculptural_design_candles_handmade_in_Paris_-_bold_minimal_aesthetics.png",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": true,
@@ -133,8 +133,19 @@
         "gap_between_elements": 72
       }
     },
-    "177626714700396d40": {
+    "178025717907cd8ddf": {
       "type": "_blocks",
+      "blocks": {
+        "square_instagram_feed_insta_feed_BWRhwb": {
+          "type": "shopify://apps/square-instagram-feed/blocks/insta-feed/8c9f3786-8bb5-488d-a397-b1285ed978df",
+          "settings": {
+            "hide_mock_data": false
+          }
+        }
+      },
+      "block_order": [
+        "square_instagram_feed_insta_feed_BWRhwb"
+      ],
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -501,53 +512,11 @@
         "label": "What sets us apart",
         "title": "Made differently. Felt differently."
       }
-    },
-    "178025717907cd8ddf": {
-      "type": "_blocks",
-      "blocks": {
-        "square_instagram_feed_insta_feed_BWRhwb": {
-          "type": "shopify://apps/square-instagram-feed/blocks/insta-feed/8c9f3786-8bb5-488d-a397-b1285ed978df",
-          "settings": {
-            "hide_mock_data": false
-          }
-        }
-      },
-      "block_order": [
-        "square_instagram_feed_insta_feed_BWRhwb"
-      ],
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "color_scheme": "",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
     }
   },
   "order": [
     "hero_jVaWmY",
     "marquee_ENJYE9",
-    "177626714700396d40",
     "178025717907cd8ddf",
     "nwye_collection_r7rEti",
     "ss_feature_1_features_ADUAyp",
