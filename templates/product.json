@@ -145,11 +145,11 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p><em>A candle you didn’t expect.<br/>Designed to slow everything down.</em></p>",
+                    "text": "<p>A candle you didn't expect.<br/><br/>Bright on the outside. Complex underneath.<br/>The one that wakes up a room. Watch Me Glow opens with a sharp hit of bergamot and mandarin — clean, almost electric. </p><p>Then it shifts. Cardamom and basil pull it somewhere warmer, more unexpected. By the time the clary sage and sandalwood settle in, the room feels different. You feel different.</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "paragraph",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
