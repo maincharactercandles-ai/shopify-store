@@ -233,7 +233,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<h4><strong>What you see</strong></h4><p>An industrial aluminium can designed to challenge expectations.</p><h4><strong>What you discover</strong></h4><p>A hand-poured scented candle made in Paris using vegan soy wax and premium fragrance oils.</p><h4><strong>What remains</strong></h4><p>A reusable amber glass vessel designed to stay long after the candle has burned away.</p><h4><strong>The fragrance</strong></h4><p>Fresh citrus meets warm woods.<br/>Top notes of bergamot, lemon and mandarin open bright and energetic.<br/>Cardamom and basil add depth before settling into sandalwood, clary sage and musk.</p>",
+                    "text": "<p>{{ closest.product.metafields.custom.description_de_la_bougie | metafield_tag }}</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
