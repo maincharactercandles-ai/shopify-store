@@ -194,7 +194,7 @@
         "sub_heading_mt": 10,
         "sub_heading_mt_mobile": 16,
         "sub_heading_align": "left",
-        "sub_heading_align_mobile": "center",
+        "sub_heading_align_mobile": "left",
         "images_gap": 6,
         "images_gap_mobile": 10,
         "images_radius": 0,
