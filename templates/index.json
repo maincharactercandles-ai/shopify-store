@@ -59,8 +59,8 @@
             "label": "SHOP THE COLLECTION.",
             "link": "shopify://collections/all",
             "open_in_new_tab": true,
-            "style_class": "button",
-            "width": "custom",
+            "style_class": "button-secondary",
+            "width": "fit-content",
             "custom_width": 32,
             "width_mobile": "fit-content",
             "custom_width_mobile": 100
