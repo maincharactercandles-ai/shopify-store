@@ -962,6 +962,20 @@
         "padding-block-end": 17
       }
     },
+    "divider_7H8dW9": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
+      }
+    },
     "media_with_content_BqgNbP": {
       "type": "media-with-content",
       "blocks": {
@@ -1144,20 +1158,6 @@
         "padding-block-end": 0
       }
     },
-    "divider_7H8dW9": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "",
-        "section_width": "full-width",
-        "thickness": 1,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 16,
-        "padding-block-end": 16
-      }
-    },
     "nwye_pillars_idgR4w": {
       "type": "nwye-pillars",
       "blocks": {
@@ -1213,8 +1213,8 @@
     "178025717907cd8ddf",
     "divider_jDkN8r",
     "section_mCfFRQ",
-    "media_with_content_BqgNbP",
     "divider_7H8dW9",
+    "media_with_content_BqgNbP",
     "nwye_pillars_idgR4w"
   ]
 }
