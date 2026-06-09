@@ -9,6 +9,20 @@
  */
 {
   "sections": {
+    "divider_MkdAHy": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
+      }
+    },
     "hero_jVaWmY": {
       "type": "hero",
       "blocks": {
@@ -135,20 +149,6 @@
       }
     },
     "divider_3DextP": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "",
-        "section_width": "full-width",
-        "thickness": 1,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 16,
-        "padding-block-end": 16
-      }
-    },
-    "divider_MkdAHy": {
       "type": "divider",
       "name": "t:names.divider_section",
       "settings": {
@@ -836,7 +836,7 @@
         "pillar_QftgCM": {
           "type": "pillar",
           "settings": {
-            "name": "Premium Vegan Wax",
+            "name": "Premium Vegan Soy Wax",
             "text": "100% plant-based formula, high-concentration fragrances. A clean, long burn with a scent that truly lasts.",
             "accent_color": "#fbb91d"
           }
