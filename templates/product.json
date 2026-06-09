@@ -233,7 +233,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<h4>What you see</h4><p>An industrial aluminium can.</p><h4>What you discover</h4><p>A hand-poured scented candle.</p><h4>What remains</h4><p>A reusable amber glass object.</p>",
+                    "text": "<h4><strong>What you see</strong></h4><p>An industrial aluminium can designed to challenge expectations.</p><h4><strong>What you discover</strong></h4><p>A hand-poured scented candle made in Paris using vegan soy wax and premium fragrance oils.</p><h4><strong>What remains</strong></h4><p>A reusable amber glass vessel designed to stay long after the candle has burned away.<br/><br/><strong>The fragrance</strong></p><p>Fresh citrus meets warm woods.</p><p>Top notes of bergamot, lemon and mandarin open bright and energetic.</p><p>Cardamom and basil add depth before settling into sandalwood, clary sage and musk.</p>",
                     "width": "100%",
                     "max_width": "narrow",
                     "alignment": "center",
