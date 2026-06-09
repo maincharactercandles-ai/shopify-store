@@ -824,7 +824,6 @@
     },
     "divider_7H8dW9": {
       "type": "divider",
-      "disabled": true,
       "name": "t:names.divider_section",
       "settings": {
         "color_scheme": "",
