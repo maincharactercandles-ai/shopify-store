@@ -822,43 +822,19 @@
         "padding-block-end": 0
       }
     },
-    "nwye_pillars_idgR4w": {
-      "type": "nwye-pillars",
-      "blocks": {
-        "pillar_iGgy6X": {
-          "type": "pillar",
-          "settings": {
-            "name": "Hand-Poured in Paris",
-            "text": "Every candle is poured by hand in our Parisian studio. No mass production. Each piece is one of a kind.",
-            "accent_color": "#1800ad"
-          }
-        },
-        "pillar_QftgCM": {
-          "type": "pillar",
-          "settings": {
-            "name": "Premium Vegan Soy Wax",
-            "text": "100% plant-based formula, high-concentration fragrances. A clean, long burn with a scent that truly lasts.",
-            "accent_color": "#fbb91d"
-          }
-        },
-        "pillar_cgjfbW": {
-          "type": "pillar",
-          "settings": {
-            "name": "Unexpected Design",
-            "text": "Objects that stand as décor just as much as candles. The outside surprises. The inside captivates.",
-            "accent_color": "#097e14"
-          }
-        }
-      },
-      "block_order": [
-        "pillar_iGgy6X",
-        "pillar_QftgCM",
-        "pillar_cgjfbW"
-      ],
-      "name": "What Sets Us Apart",
+    "divider_7H8dW9": {
+      "type": "divider",
+      "disabled": true,
+      "name": "t:names.divider_section",
       "settings": {
-        "label": "What sets us apart",
-        "title": "Made differently. Felt differently."
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
       }
     },
     "section_mCfFRQ": {
@@ -934,8 +910,9 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
+                "image": "shopify://shop_images/E9A65A4B-D7A8-4F8B-B3B7-45DE0F8267E0.png",
                 "link": "",
-                "image_ratio": "square",
+                "image_ratio": "portrait",
                 "width": "fit-content",
                 "custom_width": 100,
                 "width_mobile": "fit-content",
@@ -945,32 +922,6 @@
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "text_zLnW6z": {
-              "type": "text",
-              "name": "t:names.heading",
-              "settings": {
-                "text": "<h2>Fanny P.</h2>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "center",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -1003,12 +954,38 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "text_zLnW6z": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<p>Fanny P.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "h5",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground-heading)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "image_GpH6xT",
-            "text_zLnW6z",
-            "text_QHaqC9"
+            "text_QHaqC9",
+            "text_zLnW6z"
           ]
         },
         "group_zdV8NU": {
@@ -1055,8 +1032,9 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
+                "image": "shopify://shop_images/999395A2-9AFD-4556-B23B-D09F0F939481.png",
                 "link": "",
-                "image_ratio": "adapt",
+                "image_ratio": "portrait",
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
@@ -1073,37 +1051,11 @@
               },
               "blocks": {}
             },
-            "text_FK4CRA": {
-              "type": "text",
-              "name": "t:names.heading",
-              "settings": {
-                "text": "<h2>Doha</h2>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "center",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
             "text_nNxAw8": {
               "type": "text",
               "name": "t:names.description",
               "settings": {
-                "text": "<p>We obsess over the details and strive to deliver the best products at the best prices, every time.</p>",
+                "text": "<p>\"I'm obsessed with the leather candle, the smell stays for a long time\"</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
@@ -1124,12 +1076,38 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "text_FK4CRA": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h2>Doha</h2>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "h5",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground-heading)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "image_6g6hFT",
-            "text_FK4CRA",
-            "text_nNxAw8"
+            "text_nNxAw8",
+            "text_FK4CRA"
           ]
         }
       },
@@ -1147,7 +1125,7 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 54,
+        "gap": 100,
         "section_width": "page-width",
         "section_height": "custom",
         "section_height_custom": 37,
@@ -1155,16 +1133,55 @@
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
+        "border": "solid",
+        "border_width": 1.5,
+        "border_opacity": 18,
         "border_radius": 0,
         "toggle_overlay": false,
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 25,
+        "padding-block-start": 51,
         "padding-block-end": 17
+      }
+    },
+    "nwye_pillars_idgR4w": {
+      "type": "nwye-pillars",
+      "blocks": {
+        "pillar_iGgy6X": {
+          "type": "pillar",
+          "settings": {
+            "name": "Hand-Poured in Paris",
+            "text": "Every candle is poured by hand in our Parisian studio. No mass production. Each piece is one of a kind.",
+            "accent_color": "#1800ad"
+          }
+        },
+        "pillar_QftgCM": {
+          "type": "pillar",
+          "settings": {
+            "name": "Premium Vegan Soy Wax",
+            "text": "100% plant-based formula, high-concentration fragrances. A clean, long burn with a scent that truly lasts.",
+            "accent_color": "#fbb91d"
+          }
+        },
+        "pillar_cgjfbW": {
+          "type": "pillar",
+          "settings": {
+            "name": "Unexpected Design",
+            "text": "Objects that stand as décor just as much as candles. The outside surprises. The inside captivates.",
+            "accent_color": "#097e14"
+          }
+        }
+      },
+      "block_order": [
+        "pillar_iGgy6X",
+        "pillar_QftgCM",
+        "pillar_cgjfbW"
+      ],
+      "name": "What Sets Us Apart",
+      "settings": {
+        "label": "What sets us apart",
+        "title": "Made differently. Felt differently."
       }
     }
   },
@@ -1181,7 +1198,8 @@
     "divider_e4LGB7",
     "178025717907cd8ddf",
     "media_with_content_BqgNbP",
-    "nwye_pillars_idgR4w",
-    "section_mCfFRQ"
+    "divider_7H8dW9",
+    "section_mCfFRQ",
+    "nwye_pillars_idgR4w"
   ]
 }
