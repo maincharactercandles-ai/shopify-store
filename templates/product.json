@@ -233,7 +233,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>{{ closest.product.metafields.custom.description_de_la_bougie | metafield_tag }}</p>",
+                    "text": "",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
