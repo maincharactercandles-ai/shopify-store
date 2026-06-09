@@ -228,6 +228,20 @@
         "lazy": true
       }
     },
+    "divider_3DextP": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
+      }
+    },
     "product_list_AMNG6r": {
       "type": "product-list",
       "blocks": {
@@ -410,7 +424,7 @@
         "columns": 3,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
-        "columns_gap": 27,
+        "columns_gap": 20,
         "rows_gap": 24,
         "icons_style": "arrow",
         "icons_shape": "circle",
@@ -420,6 +434,20 @@
         "color_scheme": "scheme-1",
         "padding-block-start": 48,
         "padding-block-end": 48
+      }
+    },
+    "divider_9gPYQg": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
       }
     },
     "ss_feature_1_features_ADUAyp": {
@@ -526,6 +554,20 @@
         "content_width": 1200,
         "border_thickness": 0,
         "section_radius": 0
+      }
+    },
+    "divider_e4LGB7": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
       }
     },
     "178025717907cd8ddf": {
@@ -795,8 +837,11 @@
     "hero_jVaWmY",
     "marquee_ENJYE9",
     "ss_gallery_1_V8TExq",
+    "divider_3DextP",
     "product_list_AMNG6r",
+    "divider_9gPYQg",
     "ss_feature_1_features_ADUAyp",
+    "divider_e4LGB7",
     "178025717907cd8ddf",
     "media_with_content_BqgNbP",
     "nwye_pillars_idgR4w"
