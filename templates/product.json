@@ -297,7 +297,7 @@
                     "text_WgXqr8": {
                       "type": "text",
                       "settings": {
-                        "text": "{{ closest.product.description }}",
+                        "text": "<p>{{ closest.product.metafields.custom.description_de_la_bougie | metafield_tag }}</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
