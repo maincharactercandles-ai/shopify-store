@@ -47,10 +47,10 @@
         "image_Jajckc": {
           "type": "image",
           "settings": {
-            "feature_title": "Satisfait ou remboursé",
-            "feature_text": "<p>Échange ou remboursement si votre bougie ne vous convient pas.</p>",
+            "feature_title": "ECO-FRIENDLY.",
+            "feature_text": "<p>Made with vegan wax and recyclable materials.</p>",
             "icon_type": "default",
-            "icon": "shield_check",
+            "icon": "earth",
             "feature_url": ""
           }
         }
