@@ -872,7 +872,7 @@
               "type": "text",
               "name": "t:names.description",
               "settings": {
-                "text": "<p><em>\"I'm obsessed with the leather candle, the smell stays for a long time\"</em></p>",
+                "text": "<p><em>\"I'm obsessed with the leather candle.\"</em></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
