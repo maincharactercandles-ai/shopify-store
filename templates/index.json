@@ -62,8 +62,8 @@
             "open_in_new_tab": true,
             "style_class": "button-secondary",
             "width": "fit-content",
-            "custom_width": 28,
-            "width_mobile": "custom",
+            "custom_width": 63,
+            "width_mobile": "fit-content",
             "custom_width_mobile": 59
           },
           "blocks": {}
@@ -92,9 +92,9 @@
         "align_baseline": true,
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 48,
-        "section_width": "full-width",
-        "section_height": "auto",
+        "gap": 100,
+        "section_width": "page-width",
+        "section_height": "large",
         "section_height_custom": 67,
         "color_scheme": "scheme-5",
         "toggle_overlay": true,
@@ -103,8 +103,8 @@
         "gradient_direction": "to bottom",
         "blurred_reflection": false,
         "reflection_opacity": 10,
-        "padding-block-start": 100,
-        "padding-block-end": 29
+        "padding-block-start": 89,
+        "padding-block-end": 84
       }
     },
     "marquee_ENJYE9": {
