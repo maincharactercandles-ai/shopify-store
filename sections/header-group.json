@@ -61,14 +61,14 @@
             "menu": "main-menu",
             "color_scheme": "scheme-5",
             "type_font_primary_size": "1rem",
-            "menu_font_style": "inverse_large",
+            "menu_font_style": "inverse",
             "type_font_primary_link": "heading",
             "type_case_primary_link": "uppercase",
             "menu_style": "featured_products",
             "featured_products_aspect_ratio": "1 / 1",
             "featured_collections_aspect_ratio": "16 / 9",
             "image_border_radius": 21,
-            "navigation_bar": true,
+            "navigation_bar": false,
             "color_scheme_navigation_bar": "",
             "drawer_accordion": true,
             "drawer_accordion_expand_first": false,
@@ -112,10 +112,25 @@
         "enable_transparent_header_collection": false,
         "collection_color_scheme": "default"
       }
+    },
+    "divider_BkeBaC": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
+      }
     }
   },
   "order": [
     "header_announcements_9jGBFp",
-    "header_section"
+    "header_section",
+    "divider_BkeBaC"
   ]
 }
