@@ -255,24 +255,22 @@
         "padding-block-end": 15
       }
     },
-    "divider_8T9b3t": {
-      "type": "divider",
-      "name": "t:names.divider_section",
+    "nwye_collection_y847A9": {
+      "type": "nwye-collection",
+      "name": "The Collection",
       "settings": {
-        "color_scheme": "",
-        "section_width": "full-width",
-        "thickness": 1,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 16,
-        "padding-block-end": 16
+        "title": "The Collection.",
+        "collection": "",
+        "products_count": 3,
+        "columns": 3,
+        "show_view_all": true,
+        "view_all_label": "View all"
       }
     }
   },
   "order": [
     "main",
     "section_3tNNTG",
-    "divider_8T9b3t"
+    "nwye_collection_y847A9"
   ]
 }
