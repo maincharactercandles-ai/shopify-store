@@ -962,6 +962,20 @@
         "padding-block-end": 0
       }
     },
+    "divider_w7prNp": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
+      }
+    },
     "media_with_content_BqgNbP": {
       "type": "media-with-content",
       "blocks": {
@@ -1072,8 +1086,8 @@
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
-                    "padding-block-start": 23,
-                    "padding-block-end": 0,
+                    "padding-block-start": 36,
+                    "padding-block-end": 39,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   },
@@ -1084,7 +1098,7 @@
                   "settings": {
                     "text": "<p>Objects designed to slow things down and surprise the way you experience them.</p>",
                     "width": "100%",
-                    "max_width": "narrow",
+                    "max_width": "normal",
                     "alignment": "center",
                     "type_preset": "h5",
                     "font": "var(--font-body--family)",
@@ -1199,6 +1213,7 @@
     "section_mCfFRQ",
     "divider_7H8dW9",
     "178025717907cd8ddf",
+    "divider_w7prNp",
     "media_with_content_BqgNbP",
     "nwye_pillars_idgR4w"
   ]
