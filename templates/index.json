@@ -729,8 +729,8 @@
               "settings": {
                 "image": "shopify://shop_images/E9A65A4B-D7A8-4F8B-B3B7-45DE0F8267E0.png",
                 "link": "",
-                "image_ratio": "square",
-                "width": "custom",
+                "image_ratio": "adapt",
+                "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fit-content",
                 "custom_width_mobile": 100,
@@ -851,7 +851,7 @@
               "settings": {
                 "image": "shopify://shop_images/999395A2-9AFD-4556-B23B-D09F0F939481.png",
                 "link": "",
-                "image_ratio": "square",
+                "image_ratio": "adapt",
                 "width": "custom",
                 "custom_width": 100,
                 "width_mobile": "fit-content",
