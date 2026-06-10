@@ -85,7 +85,7 @@
         "feature_row_mobile": 2,
         "feature_gap": 20,
         "feature_gap_mobile": 20,
-        "feature_background": false,
+        "feature_background": true,
         "feature_bg": "#f5f5f5",
         "feature_padding_horizontal": 24,
         "feature_padding_horizontal_mobile": 16,
@@ -115,6 +115,45 @@
         "content_width": 1200,
         "border_thickness": 0,
         "section_radius": 0
+      }
+    },
+    "nwye_pillars_HgnHXP": {
+      "type": "nwye-pillars",
+      "blocks": {
+        "pillar_aQh8WY": {
+          "type": "pillar",
+          "settings": {
+            "name": "Hand-Poured in Paris",
+            "text": "Every candle is poured by hand in our Parisian studio. No mass production. Each piece is one of a kind.",
+            "accent_color": "#1800ad"
+          }
+        },
+        "pillar_NJdtpC": {
+          "type": "pillar",
+          "settings": {
+            "name": "Premium Vegan Wax",
+            "text": "100% plant-based formula, high-concentration fragrances. A clean, long burn with a scent that truly lasts.",
+            "accent_color": "#fbb91d"
+          }
+        },
+        "pillar_zVEQF6": {
+          "type": "pillar",
+          "settings": {
+            "name": "Unexpected Design",
+            "text": "Objects that stand as décor just as much as candles. The outside surprises. The inside captivates.",
+            "accent_color": "#097e14"
+          }
+        }
+      },
+      "block_order": [
+        "pillar_aQh8WY",
+        "pillar_NJdtpC",
+        "pillar_zVEQF6"
+      ],
+      "name": "What Sets Us Apart",
+      "settings": {
+        "label": "What sets us apart",
+        "title": "Made differently. Felt differently."
       }
     },
     "footer_m9NzUG": {
@@ -325,6 +364,7 @@
   },
   "order": [
     "ss_feature_1_features_bJXgXn",
+    "nwye_pillars_HgnHXP",
     "footer_m9NzUG",
     "footer_utilities_jLGE8U"
   ]
