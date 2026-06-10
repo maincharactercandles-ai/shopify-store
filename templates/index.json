@@ -144,7 +144,7 @@
         "color_scheme": "scheme-1",
         "padding-block-start": 18,
         "padding-block-end": 34,
-        "gap_between_elements": 99
+        "gap_between_elements": 71
       }
     },
     "divider_3DextP": {
@@ -467,6 +467,7 @@
     },
     "divider_9gPYQg": {
       "type": "divider",
+      "disabled": true,
       "name": "t:names.divider_section",
       "settings": {
         "color_scheme": "",
@@ -477,112 +478,6 @@
         "alignment_horizontal": "center",
         "padding-block-start": 16,
         "padding-block-end": 16
-      }
-    },
-    "ss_feature_1_features_ADUAyp": {
-      "type": "ss-feature-1--features",
-      "blocks": {
-        "image_BfF3GY": {
-          "type": "image",
-          "settings": {
-            "feature_title": "HANDMADE IN PARIS.",
-            "feature_text": "<p>Each candle, each design object is handcrafted in our Parisian workshop.</p>",
-            "icon_type": "default",
-            "icon": "heart",
-            "feature_url": ""
-          }
-        },
-        "image_xqiBN9": {
-          "type": "image",
-          "settings": {
-            "feature_title": "READY TO GIFT.",
-            "feature_text": "<p>Carefully packaged to surprise and delight.</p>",
-            "icon_type": "default",
-            "icon": "gift",
-            "feature_url": ""
-          }
-        },
-        "image_rK4RmM": {
-          "type": "image",
-          "settings": {
-            "feature_title": "CAREFUL DELIVERY.",
-            "feature_text": "<p>Fast shipping and protective packaging across Europe.</p>",
-            "icon_type": "default",
-            "icon": "envelope",
-            "feature_url": ""
-          }
-        },
-        "image_atRJAd": {
-          "type": "image",
-          "settings": {
-            "feature_title": "ECO-FRIENDLY.",
-            "feature_text": "<p>Made with vegan wax and recyclable materials.</p>",
-            "icon_type": "default",
-            "icon": "leaf",
-            "feature_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_BfF3GY",
-        "image_xqiBN9",
-        "image_rK4RmM",
-        "image_atRJAd"
-      ],
-      "name": "Features",
-      "settings": {
-        "feature_title_custom": false,
-        "feature_title_font": "josefin_sans_n4",
-        "feature_title_size": 15,
-        "feature_title_size_mobile": 12,
-        "feature_title_advanced": true,
-        "feature_title_height": 130,
-        "feature_title_mt": 8,
-        "feature_title_mt_mobile": 4,
-        "feature_text_custom": false,
-        "feature_text_font": "josefin_sans_n4",
-        "feature_text_size": 12,
-        "feature_text_size_mobile": 12,
-        "feature_text_advanced": true,
-        "feature_text_height": 150,
-        "feature_text_mt": 4,
-        "feature_text_mt_mobile": 4,
-        "feature_icon_size": 26,
-        "feature_icon_size_mobile": 22,
-        "feature_row": 4,
-        "feature_row_mobile": 2,
-        "feature_gap": 64,
-        "feature_gap_mobile": 20,
-        "feature_background": false,
-        "feature_bg": "#f5f5f5",
-        "feature_padding_horizontal": 24,
-        "feature_padding_horizontal_mobile": 16,
-        "feature_padding_vertical": 32,
-        "feature_padding_vertical_mobile": 24,
-        "feature_radius": 16,
-        "feature_border_thickness": 0,
-        "feature_border_color": "#dfdfdf",
-        "feature_shadow": false,
-        "feature_shadow_color": "#000000",
-        "feature_title_color": "#000000",
-        "feature_text_color": "#000000",
-        "feature_icon_color": "#000000",
-        "background_style": "solid",
-        "background_color": "#f7f5f5",
-        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
-        "border_color": "#dfdfdf",
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "margin_horizontal": 0,
-        "margin_horizontal_mobile": 0,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_horizontal": 5,
-        "padding_horizontal_mobile": 1.5,
-        "width": "page",
-        "content_width": 1200,
-        "border_thickness": 0,
-        "section_radius": 0
       }
     },
     "divider_jDkN8r": {
@@ -976,6 +871,126 @@
         "padding-block-end": 16
       }
     },
+    "ss_feature_1_features_ADUAyp": {
+      "type": "ss-feature-1--features",
+      "blocks": {
+        "image_BfF3GY": {
+          "type": "image",
+          "settings": {
+            "feature_title": "HANDMADE IN PARIS.",
+            "feature_text": "<p>Each candle, each design object is handcrafted in our Parisian workshop.</p>",
+            "icon_type": "default",
+            "icon": "heart",
+            "feature_url": ""
+          }
+        },
+        "image_xqiBN9": {
+          "type": "image",
+          "settings": {
+            "feature_title": "READY TO GIFT.",
+            "feature_text": "<p>Carefully packaged to surprise and delight.</p>",
+            "icon_type": "default",
+            "icon": "gift",
+            "feature_url": ""
+          }
+        },
+        "image_rK4RmM": {
+          "type": "image",
+          "settings": {
+            "feature_title": "CAREFUL DELIVERY.",
+            "feature_text": "<p>Fast shipping and protective packaging across Europe.</p>",
+            "icon_type": "default",
+            "icon": "envelope",
+            "feature_url": ""
+          }
+        },
+        "image_atRJAd": {
+          "type": "image",
+          "settings": {
+            "feature_title": "ECO-FRIENDLY.",
+            "feature_text": "<p>Made with vegan wax and recyclable materials.</p>",
+            "icon_type": "default",
+            "icon": "leaf",
+            "feature_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_BfF3GY",
+        "image_xqiBN9",
+        "image_rK4RmM",
+        "image_atRJAd"
+      ],
+      "name": "Features",
+      "settings": {
+        "feature_title_custom": false,
+        "feature_title_font": "josefin_sans_n4",
+        "feature_title_size": 15,
+        "feature_title_size_mobile": 12,
+        "feature_title_advanced": true,
+        "feature_title_height": 130,
+        "feature_title_mt": 8,
+        "feature_title_mt_mobile": 4,
+        "feature_text_custom": false,
+        "feature_text_font": "josefin_sans_n4",
+        "feature_text_size": 12,
+        "feature_text_size_mobile": 12,
+        "feature_text_advanced": true,
+        "feature_text_height": 150,
+        "feature_text_mt": 4,
+        "feature_text_mt_mobile": 4,
+        "feature_icon_size": 26,
+        "feature_icon_size_mobile": 22,
+        "feature_row": 4,
+        "feature_row_mobile": 2,
+        "feature_gap": 64,
+        "feature_gap_mobile": 20,
+        "feature_background": false,
+        "feature_bg": "#f5f5f5",
+        "feature_padding_horizontal": 24,
+        "feature_padding_horizontal_mobile": 16,
+        "feature_padding_vertical": 32,
+        "feature_padding_vertical_mobile": 24,
+        "feature_radius": 16,
+        "feature_border_thickness": 0,
+        "feature_border_color": "#dfdfdf",
+        "feature_shadow": false,
+        "feature_shadow_color": "#000000",
+        "feature_title_color": "#000000",
+        "feature_text_color": "#000000",
+        "feature_icon_color": "#000000",
+        "background_style": "solid",
+        "background_color": "#f7f5f5",
+        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
+        "border_color": "#dfdfdf",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "width": "page",
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0
+      }
+    },
+    "divider_gaKRUA": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
+      }
+    },
     "media_with_content_BqgNbP": {
       "type": "media-with-content",
       "blocks": {
@@ -1208,12 +1223,13 @@
     "divider_BPCPaW",
     "product_list_AMNG6r",
     "divider_9gPYQg",
-    "ss_feature_1_features_ADUAyp",
     "divider_jDkN8r",
     "section_mCfFRQ",
     "divider_7H8dW9",
     "178025717907cd8ddf",
     "divider_w7prNp",
+    "ss_feature_1_features_ADUAyp",
+    "divider_gaKRUA",
     "media_with_content_BqgNbP",
     "nwye_pillars_idgR4w"
   ]
