@@ -661,7 +661,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h2>THEY <br/>OPENED IT.</h2>",
+            "text": "<h2>EARLY REVIEWS.</h2>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "center",
@@ -750,7 +750,7 @@
               "type": "text",
               "name": "t:names.description",
               "settings": {
-                "text": "<p><em>\"Je trouve que c’est incroyable car je les ai beaucoup allumé et elles tiennent grave !!! \"</em></p>",
+                "text": "<p><em>\"I've burned it a lot and the scent still fills the room.\"</em></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "center",
