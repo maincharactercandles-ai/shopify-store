@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "main": {
+      "type": "about-us",
+      "settings": {}
+    },
     "section_3tNNTG": {
       "type": "section",
       "blocks": {
@@ -97,10 +101,10 @@
                   "name": "t:names.heading",
                   "settings": {
                     "text": "<h2>NOT WHAT<br/>YOU EXPECT.</h2>",
-                    "width": "fit-content",
-                    "max_width": "normal",
+                    "width": "100%",
+                    "max_width": "none",
                     "alignment": "left",
-                    "type_preset": "h2",
+                    "type_preset": "h1",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -113,7 +117,7 @@
                     "corner_radius": 0,
                     "padding-block-start": 0,
                     "padding-block-end": 0,
-                    "padding-inline-start": 34,
+                    "padding-inline-start": 0,
                     "padding-inline-end": 0
                   },
                   "blocks": {}
@@ -149,7 +153,7 @@
                   "name": "t:names.text",
                   "settings": {
                     "text": "<h4>What you see</h4><p>An industrial can.</p><h4>What you discover</h4><p>A scented candle handcrafted in Paris.</p><h4>What remains</h4><p>A design object made to stay.</p>",
-                    "width": "fit-content",
+                    "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
                     "type_preset": "rte",
@@ -163,7 +167,7 @@
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
-                    "padding-block-start": 55,
+                    "padding-block-start": 37,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
@@ -196,11 +200,11 @@
             "text_position_horizontal": "start",
             "text_position_vertical": "start",
             "text_background": false,
-            "text_background_color": "#FFFFFF",
+            "text_background_color": "#ffffff",
             "text_corner_radius": 0,
-            "image_ratio": "adapt",
+            "image_ratio": "square",
             "width": "custom",
-            "custom_width": 61,
+            "custom_width": 44,
             "width_mobile": "fit-content",
             "custom_width_mobile": 100,
             "height": "fit",
@@ -226,14 +230,14 @@
       "settings": {
         "content_direction": "row",
         "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
+        "horizontal_alignment": "center",
         "vertical_alignment": "center",
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 41,
-        "section_width": "page-width",
-        "section_height": "small",
+        "gap": 51,
+        "section_width": "full-width",
+        "section_height": "",
         "section_height_custom": 50,
         "color_scheme": "",
         "background_media": "none",
@@ -247,8 +251,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 19,
-        "padding-block-end": 46
+        "padding-block-start": 28,
+        "padding-block-end": 15
       }
     },
     "divider_8T9b3t": {
@@ -264,15 +268,11 @@
         "padding-block-start": 16,
         "padding-block-end": 16
       }
-    },
-    "main": {
-      "type": "about-us",
-      "settings": {}
     }
   },
   "order": [
+    "main",
     "section_3tNNTG",
-    "divider_8T9b3t",
-    "main"
+    "divider_8T9b3t"
   ]
 }
