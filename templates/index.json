@@ -112,18 +112,18 @@
         "text_hUdnWJ": {
           "type": "text",
           "settings": {
-            "text": "<p>Made to surprise, keep, and display.<br/></p><p><br/><br/></p>",
+            "text": "<p><a href=\"https://www.instagram.com/p/DZXi3bFDGdZ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==\" target=\"_blank\" title=\"https://www.instagram.com/p/DZXi3bFDGdZ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==\">Featured in FANG Magazine.</a></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
-            "type_preset": "h5",
+            "type_preset": "h4",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "tight",
             "letter_spacing": "tight",
             "case": "none",
             "wrap": "nowrap",
-            "color": "var(--color-foreground)",
+            "color": "var(--color-primary)",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -138,18 +138,18 @@
       "block_order": [
         "text_hUdnWJ"
       ],
-      "disabled": true,
       "name": "t:names.marquee_section",
       "settings": {
         "movement_direction": "normal",
         "color_scheme": "scheme-1",
-        "padding-block-start": 20,
-        "padding-block-end": 0,
-        "gap_between_elements": 72
+        "padding-block-start": 18,
+        "padding-block-end": 34,
+        "gap_between_elements": 99
       }
     },
     "divider_3DextP": {
       "type": "divider",
+      "disabled": true,
       "name": "t:names.divider_section",
       "settings": {
         "color_scheme": "",
