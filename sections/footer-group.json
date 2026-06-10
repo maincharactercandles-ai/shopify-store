@@ -37,10 +37,10 @@
         "image_8Vhjth": {
           "type": "image",
           "settings": {
-            "feature_title": "Livraison soignée",
-            "feature_text": "<p>Expédition rapide et emballage protecteur dans toute l'Europe.</p>",
+            "feature_title": "CAREFUL DELIVERY.",
+            "feature_text": "<p>Fast shipping and protective packaging across Europe.</p>",
             "icon_type": "default",
-            "icon": "box",
+            "icon": "envelope",
             "feature_url": ""
           }
         },
