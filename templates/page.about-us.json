@@ -15,7 +15,7 @@
         "text_DdgcqB": {
           "type": "text",
           "settings": {
-            "text": "<p>THE CONCEPT</p>",
+            "text": "<h1>THE CONCEPT</h1>",
             "width": "100%",
             "max_width": "narrow",
             "alignment": "center",
@@ -72,6 +72,7 @@
     },
     "main": {
       "type": "about-us",
+      "name": "THE CONCEPT",
       "settings": {}
     },
     "section_3tNNTG": {
