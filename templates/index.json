@@ -34,7 +34,7 @@
             "text": "<h6>Bold inside. <br/>Unexpected outside.</h6>",
             "width": "fit-content",
             "max_width": "narrow",
-            "alignment": "center",
+            "alignment": "right",
             "type_preset": "h2",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
@@ -42,14 +42,14 @@
             "letter_spacing": "normal",
             "case": "none",
             "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
+            "color": "var(--color-foreground)",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
-            "padding-block-start": 27,
-            "padding-block-end": 66,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-end": 100
           },
           "blocks": {}
         },
@@ -59,8 +59,8 @@
           "settings": {
             "label": "SHOP THE COLLECTION.",
             "link": "shopify://collections/all",
-            "open_in_new_tab": true,
-            "style_class": "button-secondary",
+            "open_in_new_tab": false,
+            "style_class": "button",
             "width": "fit-content",
             "custom_width": 63,
             "width_mobile": "fit-content",
@@ -76,7 +76,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/NOT_03.png",
+        "image_1": "shopify://shop_images/Capture_d_ecran_2026-06-10_a_03.07.17.png",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": true,
@@ -85,15 +85,15 @@
         "media_type_2_mobile": "image",
         "link": "shopify://collections/bougies-design-paris",
         "open_in_new_tab": true,
-        "content_direction": "column",
+        "content_direction": "row",
         "vertical_on_mobile": true,
         "horizontal_alignment": "center",
         "vertical_alignment": "center",
         "align_baseline": true,
         "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 100,
-        "section_width": "page-width",
+        "vertical_alignment_flex_direction_column": "space-between",
+        "gap": 80,
+        "section_width": "full-width",
         "section_height": "large",
         "section_height_custom": 67,
         "color_scheme": "scheme-5",
@@ -103,8 +103,8 @@
         "gradient_direction": "to bottom",
         "blurred_reflection": false,
         "reflection_opacity": 10,
-        "padding-block-start": 89,
-        "padding-block-end": 84
+        "padding-block-start": 100,
+        "padding-block-end": 70
       }
     },
     "marquee_ENJYE9": {
@@ -143,9 +143,9 @@
       "settings": {
         "movement_direction": "normal",
         "color_scheme": "scheme-1",
-        "padding-block-start": 18,
-        "padding-block-end": 34,
-        "gap_between_elements": 71
+        "padding-block-start": 23,
+        "padding-block-end": 30,
+        "gap_between_elements": 100
       }
     },
     "divider_3DextP": {
