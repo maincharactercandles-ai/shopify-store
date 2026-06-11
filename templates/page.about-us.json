@@ -195,10 +195,25 @@
         "padding-block-start": 28,
         "padding-block-end": 15
       }
+    },
+    "divider_GhAJ4c": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
+      }
     }
   },
   "order": [
     "main",
+    "divider_GhAJ4c",
     "section_3tNNTG"
   ]
 }
