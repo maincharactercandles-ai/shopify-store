@@ -78,8 +78,9 @@
         "media_type_1": "image",
         "image_1": "shopify://shop_images/Capture_d_ecran_2026-06-10_a_03.07.17.png",
         "media_type_2": "image",
+        "image_2": "shopify://shop_images/ChatGPT_Image_10_juin_2026_03_02_51.png",
         "stack_media_on_mobile": false,
-        "custom_mobile_media": true,
+        "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "image_1_mobile": "shopify://shop_images/NOT_03.png",
         "media_type_2_mobile": "image",
@@ -101,10 +102,10 @@
         "overlay_color": "#12121287",
         "overlay_style": "solid",
         "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 10,
+        "blurred_reflection": true,
+        "reflection_opacity": 0,
         "padding-block-start": 0,
-        "padding-block-end": 33
+        "padding-block-end": 49
       }
     },
     "marquee_ENJYE9": {
