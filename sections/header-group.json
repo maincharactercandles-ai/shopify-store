@@ -59,8 +59,8 @@
           "static": true,
           "settings": {
             "menu": "main-menu",
-            "color_scheme": "scheme-5",
-            "type_font_primary_size": "1rem",
+            "color_scheme": "scheme-1",
+            "type_font_primary_size": "0.875rem",
             "menu_font_style": "inverse",
             "type_font_primary_link": "heading",
             "type_case_primary_link": "uppercase",
