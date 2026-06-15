@@ -175,10 +175,10 @@
               "name": "t:names.email_signup",
               "settings": {
                 "width": "custom",
-                "custom_width": 46,
+                "custom_width": 53,
                 "inherit_color_scheme": false,
                 "color_scheme": "scheme-1",
-                "heading": "Join the mailing list. Get 10% off your first order.",
+                "heading": "Join the mailing list.                                       Get 10% off your first order.",
                 "heading_preset": "h4",
                 "border_style": "all",
                 "border_width": 1.5,
