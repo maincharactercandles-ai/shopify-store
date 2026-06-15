@@ -66,8 +66,8 @@
             "text_hit8Qd": {
               "type": "text",
               "settings": {
-                "text": "<p>At first glance, it looks like an ordinary can.</p><p>Open it.</p><p>Inside, you'll discover a hand-poured scented candle.</p><p>Created to surprise.</p><p>Made to stay.</p>",
-                "width": "fit-content",
+                "text": "<p>Looks like a can.</p><p>Open it.</p><p>It's a candle.</p><p>Handmade in Paris.</p>",
+                "width": "100%",
                 "max_width": "narrow",
                 "alignment": "center",
                 "type_preset": "custom",
@@ -76,12 +76,12 @@
                 "line_height": "tight",
                 "letter_spacing": "normal",
                 "case": "none",
-                "wrap": "balance",
+                "wrap": "pretty",
                 "color": "var(--color-foreground)",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 58,
+                "padding-block-start": 29,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
