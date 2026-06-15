@@ -42,41 +42,16 @@
               "name": "t:names.heading",
               "settings": {
                 "text": "<h2>THIS IS NOT A CANDLE.</h2>",
-                "width": "fit-content",
-                "max_width": "normal",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "left",
-                "type_preset": "rte",
+                "type_preset": "h1",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 70,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "text_hit8Qd": {
-              "type": "text",
-              "settings": {
-                "text": "<p>At first glance, it looks like an ordinary can.</p><p>Open it.</p><p>Inside, you'll discover a hand-poured scented candle.</p><p>Created to surprise.</p><p>Made to stay.</p>",
-                "width": "100%",
-                "max_width": "narrow",
-                "alignment": "center",
-                "type_preset": "custom",
-                "font": "var(--font-body--family)",
-                "font_size": "1.125rem",
-                "line_height": "tight",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "balance",
                 "color": "var(--color-foreground)",
                 "background": false,
                 "background_color": "#00000026",
@@ -88,25 +63,35 @@
               },
               "blocks": {}
             },
-            "button_B7L6Eg": {
-              "type": "button",
+            "text_hit8Qd": {
+              "type": "text",
               "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": true,
-                "style_class": "button-secondary",
-                "width": "custom",
-                "custom_width": 27,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
+                "text": "<p>At first glance, it looks like an ordinary can.</p><p>Open it.</p><p>Inside, you'll discover a hand-poured scented candle.</p><p>Created to surprise.</p><p>Made to stay.</p>",
+                "width": "fit-content",
+                "max_width": "narrow",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1.25rem",
+                "line_height": "tight",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "balance",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 58,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             }
           },
           "block_order": [
             "text_gfdQiX",
-            "text_hit8Qd",
-            "button_B7L6Eg"
+            "text_hit8Qd"
           ]
         },
         "slide_fNTyjj": {
