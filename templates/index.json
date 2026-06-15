@@ -1143,7 +1143,7 @@
               "type": "button",
               "settings": {
                 "label": "SHOP THE COLLECTION.",
-                "link": "shopify://collections/all",
+                "link": "https://notwhatyouexpect.fr/collections/bougies-design-paris",
                 "open_in_new_tab": false,
                 "style_class": "button",
                 "width": "fit-content",
