@@ -644,7 +644,7 @@
             "vertical_alignment_flex_direction_column": "center",
             "gap": 2,
             "width": "custom",
-            "custom_width": 12,
+            "custom_width": 24,
             "width_mobile": "custom",
             "custom_width_mobile": 100,
             "height": "fit",
