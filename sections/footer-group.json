@@ -74,17 +74,17 @@
         "feature_text_custom": false,
         "feature_text_font": "josefin_sans_n4",
         "feature_text_size": 12,
-        "feature_text_size_mobile": 12,
+        "feature_text_size_mobile": 9,
         "feature_text_advanced": false,
         "feature_text_height": 150,
         "feature_text_mt": 4,
         "feature_text_mt_mobile": 4,
         "feature_icon_size": 32,
-        "feature_icon_size_mobile": 36,
+        "feature_icon_size_mobile": 20,
         "feature_row": 4,
         "feature_row_mobile": 2,
         "feature_gap": 42,
-        "feature_gap_mobile": 20,
+        "feature_gap_mobile": 12,
         "feature_background": false,
         "feature_bg": "#f5f5f5",
         "feature_padding_horizontal": 0,
@@ -117,53 +117,13 @@
         "section_radius": 0
       }
     },
-    "nwye_pillars_HgnHXP": {
-      "type": "nwye-pillars",
-      "blocks": {
-        "pillar_aQh8WY": {
-          "type": "pillar",
-          "settings": {
-            "name": "Hand-Poured in Paris",
-            "text": "Every candle is poured by hand in our Parisian studio. No mass production. Each piece is one of a kind.",
-            "accent_color": "#1800ad"
-          }
-        },
-        "pillar_NJdtpC": {
-          "type": "pillar",
-          "settings": {
-            "name": "Premium Vegan Wax",
-            "text": "100% plant-based formula, high-concentration fragrances. A clean, long burn with a scent that truly lasts.",
-            "accent_color": "#fbb91d"
-          }
-        },
-        "pillar_zVEQF6": {
-          "type": "pillar",
-          "settings": {
-            "name": "Unexpected Design",
-            "text": "Objects that stand as décor just as much as candles. The outside surprises. The inside captivates.",
-            "accent_color": "#097e14"
-          }
-        }
-      },
-      "block_order": [
-        "pillar_aQh8WY",
-        "pillar_NJdtpC",
-        "pillar_zVEQF6"
-      ],
-      "disabled": true,
-      "name": "What Sets Us Apart",
-      "settings": {
-        "label": "What sets us apart",
-        "title": "Made differently. Felt differently."
-      }
-    },
     "footer_m9NzUG": {
       "type": "footer",
       "blocks": {
         "group_H6VpwJ": {
           "type": "group",
           "settings": {
-            "content_direction": "column",
+            "content_direction": "row",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
@@ -173,7 +133,7 @@
             "gap": 6,
             "width": "fill",
             "custom_width": 100,
-            "width_mobile": "fill",
+            "width_mobile": "fit-content",
             "custom_width_mobile": 100,
             "height": "fit",
             "custom_height": 100,
@@ -193,8 +153,8 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
+            "padding-block-start": 13,
+            "padding-block-end": 20,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
@@ -271,15 +231,15 @@
         "email_signup_crihX7": {
           "type": "email-signup",
           "settings": {
-            "width": "fill",
-            "custom_width": 100,
+            "width": "custom",
+            "custom_width": 75,
             "inherit_color_scheme": true,
             "color_scheme": "",
             "heading": "",
-            "heading_preset": "h3",
+            "heading_preset": "",
             "border_style": "all",
-            "border_width": 1,
-            "border_radius": 100,
+            "border_width": 1.5,
+            "border_radius": 35,
             "input_type_preset": "paragraph",
             "style_class": "button-unstyled",
             "display_type": "arrow",
@@ -300,7 +260,7 @@
       ],
       "name": "t:names.footer",
       "settings": {
-        "section_width": "full-width",
+        "section_width": "page-width",
         "gap": 0,
         "color_scheme": "scheme-58084d4c-a86e-4d0a-855e-a0966e5043f7",
         "padding-block-start": 9,
@@ -365,7 +325,6 @@
   },
   "order": [
     "ss_feature_1_features_bJXgXn",
-    "nwye_pillars_HgnHXP",
     "footer_m9NzUG",
     "footer_utilities_jLGE8U"
   ]
