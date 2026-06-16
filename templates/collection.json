@@ -228,22 +228,10 @@
         "padding-block-start": 0,
         "padding-block-end": 32
       }
-    },
-    "custom_liquid_7a9HBL": {
-      "type": "custom-liquid",
-      "name": "t:names.custom_liquid",
-      "settings": {
-        "custom_liquid": "",
-        "color_scheme": "",
-        "section_width": "page-width",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
     }
   },
   "order": [
     "section",
-    "main",
-    "custom_liquid_7a9HBL"
+    "main"
   ]
 }
