@@ -31,8 +31,8 @@
             "overlay_color": "#00000066",
             "overlay_style": "solid",
             "gradient_direction": "to top",
-            "padding-block-start": 48,
-            "padding-block-end": 48,
+            "padding-block-start": 78,
+            "padding-block-end": 49,
             "padding-inline-start": 48,
             "padding-inline-end": 48
           },
@@ -87,38 +87,11 @@
                 "padding-inline-end": 28
               },
               "blocks": {}
-            },
-            "email_signup_f64Mde": {
-              "type": "email-signup",
-              "name": "t:names.email_signup",
-              "settings": {
-                "width": "fill",
-                "custom_width": 100,
-                "inherit_color_scheme": true,
-                "color_scheme": "",
-                "heading": "Get 10% off your first online order.",
-                "heading_preset": "h4",
-                "border_style": "none",
-                "border_width": 1,
-                "border_radius": 100,
-                "input_type_preset": "",
-                "style_class": "button-unstyled",
-                "display_type": "arrow",
-                "label": "Sign up",
-                "integrated_button": false,
-                "button_type_preset": "paragraph",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
             }
           },
           "block_order": [
             "text_DHxAhR",
-            "text_gmaaJn",
-            "email_signup_f64Mde"
+            "text_gmaaJn"
           ]
         },
         "slide_N6wkiJ": {
@@ -241,6 +214,94 @@
         "padding-block-end": 0
       }
     },
+    "section_zNYaLB": {
+      "type": "section",
+      "blocks": {
+        "text_A8hMba": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h4>Get 10% off your first online order.</h4>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "email_signup_Njx3Pr": {
+          "type": "email-signup",
+          "settings": {
+            "width": "fill",
+            "custom_width": 44,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "heading": "",
+            "heading_preset": "h3",
+            "border_style": "all",
+            "border_width": 1,
+            "border_radius": 100,
+            "input_type_preset": "paragraph",
+            "style_class": "button",
+            "display_type": "arrow",
+            "label": "Sign up",
+            "integrated_button": true,
+            "button_type_preset": "paragraph",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_A8hMba",
+        "email_signup_Njx3Pr"
+      ],
+      "name": "t:names.email_signup",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 31,
+        "section_width": "page-width",
+        "section_height": "small",
+        "section_height_custom": 0,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 19
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -308,6 +369,7 @@
   },
   "order": [
     "slideshow_ATxxGD",
+    "section_zNYaLB",
     "main",
     "nwye_collection_bLdGaL",
     "17815625374a7d3acb"
