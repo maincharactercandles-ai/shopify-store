@@ -105,7 +105,7 @@
                 "style_class": "button",
                 "display_type": "arrow",
                 "label": "Sign up",
-                "integrated_button": true,
+                "integrated_button": false,
                 "button_type_preset": "paragraph",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
