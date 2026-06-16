@@ -56,7 +56,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 0,
+                "padding-block-start": 63,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -72,17 +72,17 @@
                 "alignment": "left",
                 "type_preset": "custom",
                 "font": "var(--font-body--family)",
-                "font_size": "1.125rem",
-                "line_height": "normal",
-                "letter_spacing": "tight",
+                "font_size": "1.25rem",
+                "line_height": "loose",
+                "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "nowrap",
                 "color": "var(--color-foreground)",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 20,
+                "padding-block-start": 58,
+                "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
@@ -107,7 +107,7 @@
                 "label": "Sign up",
                 "integrated_button": false,
                 "button_type_preset": "",
-                "padding-block-start": 0,
+                "padding-block-start": 56,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -230,7 +230,7 @@
         "full_frame_on_mobile": false,
         "slideshow_gap": 12,
         "corner_radius": 0,
-        "slide_height": "small",
+        "slide_height": "medium",
         "content_position": "on-media",
         "color_scheme": "",
         "icons_style": "arrows_large",
@@ -240,6 +240,47 @@
         "autoplay_speed": 4,
         "padding-block-start": 0,
         "padding-block-end": 0
+      }
+    },
+    "marquee_chKiNg": {
+      "type": "marquee",
+      "blocks": {
+        "text_zzVkV6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>🇫🇷 Handmade in Paris</p>",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "center",
+            "type_preset": "custom",
+            "font": "var(--font-subheading--family)",
+            "font_size": "1.125rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_zzVkV6"
+      ],
+      "name": "t:names.marquee_section",
+      "settings": {
+        "movement_direction": "normal",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 24,
+        "padding-block-end": 24,
+        "gap_between_elements": 100
       }
     },
     "section": {
@@ -465,6 +506,7 @@
   },
   "order": [
     "slideshow_TqWa3H",
+    "marquee_chKiNg",
     "section",
     "main"
   ]
