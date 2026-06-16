@@ -255,7 +255,7 @@
       "disabled": true,
       "settings": {
         "content_direction": "column",
-        "gap": 12,
+        "gap": 10,
         "color_scheme": "",
         "padding-block-start": 0,
         "padding-block-end": 0
@@ -267,7 +267,7 @@
       "settings": {
         "title": "SHOP THE COLLECTION.",
         "collection": "",
-        "products_count": 5,
+        "products_count": 4,
         "columns": 4,
         "show_view_all": true,
         "view_all_label": "View all"
@@ -318,8 +318,8 @@
   "order": [
     "slideshow_ATxxGD",
     "section_zNYaLB",
-    "main",
     "nwye_collection_bLdGaL",
+    "main",
     "17815625374a7d3acb"
   ]
 }
