@@ -279,8 +279,8 @@
             "open_in_new_tab": false,
             "style_class": "button",
             "width": "custom",
-            "custom_width": 56,
-            "width_mobile": "fit-content",
+            "custom_width": 45,
+            "width_mobile": "custom",
             "custom_width_mobile": 100
           },
           "blocks": {}
@@ -295,7 +295,7 @@
             "style_class": "button",
             "width": "custom",
             "custom_width": 56,
-            "width_mobile": "fit-content",
+            "width_mobile": "custom",
             "custom_width_mobile": 100
           },
           "blocks": {}
@@ -310,7 +310,7 @@
             "style_class": "button-secondary",
             "width": "custom",
             "custom_width": 56,
-            "width_mobile": "fit-content",
+            "width_mobile": "custom",
             "custom_width_mobile": 100
           },
           "blocks": {}
