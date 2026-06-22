@@ -294,7 +294,7 @@
             "open_in_new_tab": false,
             "style_class": "button",
             "width": "custom",
-            "custom_width": 56,
+            "custom_width": 45,
             "width_mobile": "custom",
             "custom_width_mobile": 100
           },
@@ -308,7 +308,7 @@
             "link": "mailto:contact@notwhatyouexpect.fr",
             "open_in_new_tab": true,
             "style_class": "button-secondary",
-            "width": "custom",
+            "width": "fit-content",
             "custom_width": 56,
             "width_mobile": "custom",
             "custom_width_mobile": 100
