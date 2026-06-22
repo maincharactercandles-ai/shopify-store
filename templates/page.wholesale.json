@@ -289,10 +289,25 @@
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "Shop now",
+            "label": "VIEW OUR ANKORSTORE SHOWROOM",
             "link": "shopify://collections/all",
             "open_in_new_tab": false,
             "style_class": "button",
+            "width": "custom",
+            "custom_width": 56,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        },
+        "button_CpjJdk": {
+          "type": "button",
+          "name": "t:names.button",
+          "settings": {
+            "label": "CONTACT US",
+            "link": "mailto:contact@notwhatyouexpect.fr",
+            "open_in_new_tab": true,
+            "style_class": "button-secondary",
             "width": "custom",
             "custom_width": 56,
             "width_mobile": "fit-content",
@@ -305,7 +320,8 @@
         "text_e8GKMz",
         "text_dyHKwA",
         "button_e7fjMc",
-        "button_fxfcjj"
+        "button_fxfcjj",
+        "button_CpjJdk"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
