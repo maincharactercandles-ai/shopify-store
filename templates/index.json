@@ -124,6 +124,7 @@
       "block_order": [
         "text_hUdnWJ"
       ],
+      "disabled": true,
       "name": "t:names.marquee_section",
       "settings": {
         "movement_direction": "normal",
@@ -135,6 +136,7 @@
     },
     "divider_3DextP": {
       "type": "divider",
+      "disabled": true,
       "name": "t:names.divider_section",
       "settings": {
         "color_scheme": "",
@@ -144,6 +146,17 @@
         "width_percent": 100,
         "alignment_horizontal": "center",
         "padding-block-start": 13,
+        "padding-block-end": 0
+      }
+    },
+    "custom_liquid_8gYDjh": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"nwye-press-retail\">\n  <div class=\"nwye-press-retail__inner\">\n\n    <a class=\"nwye-press-retail__block\" href=\"https://www.instagram.com/fang.magazine/\" target=\"_blank\">\n      <p class=\"nwye-press-retail__label\">AS SEEN IN</p>\n      <h3>FANG MAGAZINE</h3>\n    </a>\n\n    <a class=\"nwye-press-retail__block\" href=\"https://www.reiner-upcycling.com/\" target=\"_blank\">\n      <p class=\"nwye-press-retail__label\">AVAILABLE AT</p>\n      <h3>REINER PARIS</h3>\n      <p class=\"nwye-press-retail__sub\">Galeries Lafayette • Printemps</p>\n    </a>\n\n  </div>\n</section>\n\n<style>\n  .nwye-press-retail {\n    width: 100%;\n    padding: 38px 20px;\n    background: #f7f7f4;\n    border-top: 1px solid #e5e5e0;\n    border-bottom: 1px solid #e5e5e0;\n  }\n\n  .nwye-press-retail__inner {\n    max-width: 980px;\n    margin: 0 auto;\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 14px;\n  }\n\n  .nwye-press-retail__block {\n    text-align: center;\n    text-decoration: none;\n    color: #000;\n    padding: 28px 18px;\n    background: #fff;\n    border: 1px solid #deded8;\n    transition: opacity .2s ease, transform .2s ease;\n  }\n\n  .nwye-press-retail__block:hover {\n    opacity: .75;\n    transform: translateY(-2px);\n  }\n\n  .nwye-press-retail__label {\n    font-size: 11px;\n    letter-spacing: .14em;\n    margin: 0 0 10px;\n    text-transform: uppercase;\n    color: #777;\n  }\n\n  .nwye-press-retail h3 {\n    font-size: 22px;\n    line-height: 1.1;\n    margin: 0;\n    font-weight: 700;\n    letter-spacing: .03em;\n  }\n\n  .nwye-press-retail__sub {\n    margin: 10px 0 0;\n    font-size: 13px;\n    color: #555;\n    letter-spacing: .02em;\n  }\n\n  @media screen and (max-width: 749px) {\n    .nwye-press-retail__inner {\n      grid-template-columns: 1fr;\n    }\n\n    .nwye-press-retail {\n      padding: 28px 16px;\n    }\n\n    .nwye-press-retail h3 {\n      font-size: 19px;\n    }\n  }\n</style>",
+        "color_scheme": "",
+        "section_width": "full-width",
+        "padding-block-start": 0,
         "padding-block-end": 0
       }
     },
@@ -1149,6 +1162,7 @@
     "hero_jVaWmY",
     "marquee_ENJYE9",
     "divider_3DextP",
+    "custom_liquid_8gYDjh",
     "ss_gallery_1_V8TExq",
     "divider_BPCPaW",
     "product_list_AMNG6r",
