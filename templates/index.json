@@ -9,21 +9,6 @@
  */
 {
   "sections": {
-    "divider_MkdAHy": {
-      "type": "divider",
-      "disabled": true,
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "",
-        "section_width": "full-width",
-        "thickness": 1,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 16,
-        "padding-block-end": 16
-      }
-    },
     "hero_jVaWmY": {
       "type": "hero",
       "blocks": {
@@ -90,9 +75,9 @@
         "horizontal_alignment": "center",
         "vertical_alignment": "flex-end",
         "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
+        "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 83,
+        "gap": 100,
         "section_width": "page-width",
         "section_height": "large",
         "section_height_custom": 93,
@@ -1161,7 +1146,6 @@
     }
   },
   "order": [
-    "divider_MkdAHy",
     "hero_jVaWmY",
     "marquee_ENJYE9",
     "divider_3DextP",
