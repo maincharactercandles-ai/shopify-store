@@ -20,7 +20,20 @@
     style="{% render 'spacing-style', settings: section.settings %}"
   >
     {% content_for 'blocks' %}
+<div class="nwye-journal-header">
 
+  <span class="nwye-overline">
+    NOT WHAT YOU EXPECT.
+  </span>
+
+  <h1>Journal.</h1>
+
+  <p>
+    Design studies, materials, fragrances and the unexpected beauty of ordinary objects.
+    Stories behind each collection, written from our Paris studio.
+  </p>
+
+</div>
     <div
       ref="grid"
       class="blog-posts-container"
@@ -107,6 +120,45 @@
       {% endfor %}
     </div>
   </div>
+  <style>
+
+.nwye-journal-header{
+max-width:1200px;
+margin:0 auto 80px;
+padding:0 40px;
+}
+
+.nwye-overline{
+font-size:12px;
+letter-spacing:.2em;
+text-transform:uppercase;
+color:#666;
+}
+
+.nwye-journal-header h1{
+font-size:82px;
+font-weight:700;
+letter-spacing:-4px;
+margin:18px 0;
+line-height:.95;
+}
+
+.nwye-journal-header p{
+max-width:620px;
+font-size:20px;
+line-height:1.6;
+color:#555;
+}
+
+.blog-post-card img{
+transition:.45s;
+}
+
+.blog-post-card:hover img{
+transform:scale(1.03);
+}
+
+</style>
 </blog-posts-list>
 
 {% stylesheet %}
