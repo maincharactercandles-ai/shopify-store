@@ -516,6 +516,7 @@
         "image_YJRDfP": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/object-03-green-tea-matcha-scented-candle-9527230.png",
             "url": "",
             "hide_mobile": false
           }
@@ -554,6 +555,7 @@
         "images_position_mobile": "column-reverse",
         "images_mt": 30,
         "images_mt_mobile": 24,
+        "main_image": "shopify://shop_images/u5863776713_Editorial_luxury_campaign._A_blue_glass_candle_sl_e19733ab-7e0e-4b14-bfc1-a0e9f3abb54b_0.png",
         "main_image_url": "",
         "main_image_width": 38,
         "small_images_row": 2,
