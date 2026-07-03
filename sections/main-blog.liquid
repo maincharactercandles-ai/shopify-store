@@ -1,197 +1,278 @@
-<style>
-  .nwye-journal {
-    max-width: 1360px;
-    margin: 0 auto;
-    padding: 90px 40px 120px;
-  }
 
-  .nwye-journal__header {
-    margin-bottom: 70px;
-  }
 
-  .nwye-journal__eyebrow {
-    font-size: 12px;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: #777;
-    margin-bottom: 18px;
-  }
+<script
+  src="{{ 'blog-posts-list.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
 
-  .nwye-journal__title {
-    font-size: clamp(56px, 9vw, 140px);
-    line-height: .86;
-    letter-spacing: -0.075em;
-    text-transform: uppercase;
-    margin: 0 0 28px;
-  }
+<blog-posts-list section-id="{{ section.id }}">
+  <div class="section-background color-{{ section.settings.color_scheme }}"></div>
+  <div
+    class="
+      section
+      color-{{ section.settings.color_scheme }}
+      blog-posts
+      spacing-style
+      size-style
+    "
+    data-testid="blog-posts"
+    style="{% render 'spacing-style', settings: section.settings %}"
+  >
+    {% content_for 'blocks' %}
+<div class="nwye-journal-header">
 
-  .nwye-journal__intro {
-    max-width: 680px;
-    font-size: 20px;
-    line-height: 1.45;
-    color: #444;
-  }
+  <span class="nwye-overline">
+    NOT WHAT YOU EXPECT.
+  </span>
 
-  .nwye-journal__grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 64px 34px;
-  }
+  <h1>Journal.</h1>
 
-  .nwye-article {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-  }
+  <p>
+    Design studies, materials, fragrances and the unexpected beauty of ordinary objects.
+    Stories behind each collection, written from our Paris studio.
+  </p>
 
-  .nwye-article:first-child {
-    grid-column: span 2;
-  }
-
-  .nwye-article__image {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    background: #f4f1ec;
-    margin-bottom: 18px;
-  }
-
-  .nwye-article:first-child .nwye-article__image {
-    aspect-ratio: 16 / 7;
-  }
-
-  .nwye-article__image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform .7s ease;
-  }
-
-  .nwye-article:hover img {
-    transform: scale(1.035);
-  }
-
-  .nwye-article__meta {
-    display: flex;
-    gap: 14px;
-    align-items: center;
-    font-size: 11px;
-    letter-spacing: .13em;
-    text-transform: uppercase;
-    color: #777;
-    margin-bottom: 10px;
-  }
-
-  .nwye-article__title {
-    font-size: clamp(28px, 3vw, 54px);
-    line-height: .98;
-    letter-spacing: -0.055em;
-    margin: 0 0 14px;
-  }
-
-  .nwye-article:not(:first-child) .nwye-article__title {
-    font-size: clamp(24px, 2vw, 34px);
-  }
-
-  .nwye-article__excerpt {
-    max-width: 620px;
-    font-size: 16px;
-    line-height: 1.45;
-    color: #555;
-  }
-
-  .nwye-journal__empty {
-    font-size: 18px;
-    color: #555;
-  }
-
-  .nwye-journal__footer {
-    margin-top: 90px;
-    padding-top: 28px;
-    border-top: 1px solid #ddd;
-    font-size: 12px;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color: #777;
-  }
-
-  @media screen and (max-width: 749px) {
-    .nwye-journal {
-      padding: 54px 20px 80px;
-    }
-
-    .nwye-journal__header {
-      margin-bottom: 46px;
-    }
-
-    .nwye-journal__intro {
-      font-size: 17px;
-    }
-
-    .nwye-journal__grid {
-      grid-template-columns: 1fr;
-      gap: 44px;
-    }
-
-    .nwye-article:first-child {
-      grid-column: span 1;
-    }
-
-    .nwye-article:first-child .nwye-article__image {
-      aspect-ratio: 4 / 3;
-    }
-  }
-</style>
-
-<section class="nwye-journal">
-  <header class="nwye-journal__header">
-    <div class="nwye-journal__eyebrow">NOT WHAT YOU EXPECT.</div>
-    <h1 class="nwye-journal__title">Journal.</h1>
-    <p class="nwye-journal__intro">
-      Design studies, material notes and stories behind our objects.
-      A space for what inspires each collection before it becomes a candle.
-    </p>
-  </header>
-
-  {% if blog.articles_count > 0 %}
-    <div class="nwye-journal__grid">
+</div>
+    <div
+      ref="grid"
+      class="blog-posts-container"
+    >
+      {% liquid
+        assign items_on_page = blog.articles.size
+      %}
       {% for article in blog.articles %}
-        <a class="nwye-article" href="{{ article.url }}">
-          {% if article.image %}
-            <div class="nwye-article__image">
-              <img
-                src="{{ article.image | image_url: width: 1600 }}"
-                alt="{{ article.image.alt | default: article.title | escape }}"
-                loading="lazy"
-              >
-            </div>
-          {% endif %}
+        {% liquid
+          # Defaults for compact layout
+          assign col_span = 2
+          assign scale = 0.6
+          assign is_horizontal = false
 
-          <div class="nwye-article__meta">
-            <span>{{ article.published_at | date: "%B %d, %Y" }}</span>
-            <span>—</span>
-            <span>Design Study</span>
-          </div>
+          case items_on_page
+            when 1
+              # Single post: full width hero
+              assign col_span = 6
+              assign scale = 1
+              assign is_horizontal = true
+            when 2
+              # Two posts: both standard side by side
+              assign col_span = 3
+              assign scale = 0.8
+            when 3
+              # Three posts: hero + 2 standard
+              if forloop.index == 1
+                assign col_span = 6
+                assign scale = 1
+                assign is_horizontal = true
+              else
+                assign col_span = 3
+                assign scale = 0.8
+              endif
+            when 4
+              # Four posts: all standard in 2x2 grid
+              assign col_span = 3
+              assign scale = 0.8
+            when 5
+              # Five posts: hero + 4 standard
+              if forloop.index == 1
+                assign col_span = 6
+                assign scale = 1
+                assign is_horizontal = true
+              else
+                assign col_span = 3
+                assign scale = 0.8
+              endif
+            else
+              # 6+ posts: hero, 2 standard, rest compact
+              if forloop.index == 1
+                assign col_span = 6
+                assign scale = 1
+                assign is_horizontal = true
+              elsif forloop.index <= 3
+                assign col_span = 3
+                assign scale = 0.8
+              else
+                assign col_span = 2
+                assign scale = 0.6
+              endif
+          endcase
+        %}
+        {% style %}
+          [data-blog-index="{{ section.id }}-{{ forloop.index }}"] {
+            --col-span: {{ col_span }};
+            --blog-post-card-scale: {{ scale }};
+          }
 
-          <h2 class="nwye-article__title">{{ article.title }}</h2>
-
-          {% if article.excerpt != blank %}
-            <div class="nwye-article__excerpt">
-              {{ article.excerpt | strip_html | truncate: 190 }}
-            </div>
-          {% else %}
-            <div class="nwye-article__excerpt">
-              {{ article.content | strip_html | truncate: 190 }}
-            </div>
-          {% endif %}
-        </a>
+          @media screen and (max-width: 749px) {
+            [data-blog-index="{{ section.id }}-{{ forloop.index }}"] {
+              --col-span: 6;
+              --blog-post-card-scale: 0.5;
+            }
+          }
+        {% endstyle %}
+        <div
+          class="blog-post-item{% if is_horizontal %} blog-post-item--horizontal{% endif %}"
+          data-testid="blog-post-item"
+          data-blog-index="{{ section.id }}-{{ forloop.index }}"
+        >
+          {% content_for 'block', id: 'static-blog-post-card', type: '_blog-post-card', article: article %}
+        </div>
       {% endfor %}
     </div>
-  {% else %}
-    <p class="nwye-journal__empty">No articles yet.</p>
-  {% endif %}
-
-  <div class="nwye-journal__footer">
-    New studies added regularly.
   </div>
-</section>
+  <style>
+
+.nwye-journal-header{
+max-width:1200px;
+margin:0 auto 80px;
+padding:0 40px;
+}
+
+.nwye-overline{
+font-size:12px;
+letter-spacing:.2em;
+text-transform:uppercase;
+color:#666;
+}
+
+.nwye-journal-header h1{
+font-size:82px;
+font-weight:700;
+letter-spacing:-4px;
+margin:18px 0;
+line-height:.95;
+}
+
+.nwye-journal-header p{
+max-width:620px;
+font-size:20px;
+line-height:1.6;
+color:#555;
+}
+
+.blog-post-card img{
+transition:.45s;
+}
+
+.blog-post-card:hover img{
+transform:scale(1.03);
+}
+
+</style>
+</blog-posts-list>
+
+{% stylesheet %}
+  /**
+   * Blog posts page layout
+   */
+  .blog-posts {
+    --page-content-width: var(--narrow-page-width);
+    --page-width: calc(var(--page-content-width) + (var(--page-margin) * 2));
+    --columns-gap: 36px;
+    --rows-gap: 36px;
+  }
+
+  .blog-posts-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    width: 100%;
+    column-gap: var(--columns-gap);
+    row-gap: var(--rows-gap);
+  }
+
+  /**
+   * Blog post item grid positioning and scaling.
+   * Layout is calculated in Liquid based on total article count.
+   * Mobile overrides are applied per-item in inline styles for proper specificity.
+   */
+  .blog-post-item {
+    grid-column: span var(--col-span);
+  }
+
+  /**
+   * When there's no image, the blog post item has a border.
+   */
+  .blog-post-item {
+    border: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-20));
+    padding: 0 1rem 1rem;
+  }
+
+  .blog-post-item:has(.blog-post-card__image-container) {
+    border: none;
+    padding: 0;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.blog_posts",
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "text"
+    },
+    {
+      "type": "icon"
+    },
+    {
+      "type": "image"
+    },
+    {
+      "type": "button"
+    },
+    {
+      "type": "video"
+    },
+    {
+      "type": "group"
+    },
+    {
+      "type": "spacer"
+    },
+    {
+      "type": "_divider"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}
