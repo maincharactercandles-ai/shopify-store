@@ -364,14 +364,6 @@
             "hide_mobile": false
           }
         },
-        "image_QRTnVd": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/object-02-leather-wood-scented-candle-8279767.png",
-            "url": "",
-            "hide_mobile": false
-          }
-        },
         "image_izXPV4": {
           "type": "image",
           "settings": {
@@ -379,21 +371,11 @@
             "url": "",
             "hide_mobile": false
           }
-        },
-        "image_mqrWmw": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/1_12cf0c62-2a8d-49c0-8df6-1d0204bffcde.png",
-            "url": "",
-            "hide_mobile": false
-          }
         }
       },
       "block_order": [
         "image_wkp3ER",
-        "image_QRTnVd",
-        "image_izXPV4",
-        "image_mqrWmw"
+        "image_izXPV4"
       ],
       "name": "SS - Gallery #1",
       "settings": {
@@ -418,13 +400,13 @@
         "images_gap": 16,
         "images_gap_mobile": 10,
         "images_radius": 14,
-        "images_position": "row-reverse",
+        "images_position": "row",
         "images_position_mobile": "column",
         "images_mt": 38,
         "images_mt_mobile": 12,
-        "main_image": "shopify://shop_images/1.png",
+        "main_image": "shopify://shop_images/NWYE.png",
         "main_image_url": "",
-        "main_image_width": 46,
+        "main_image_width": 50,
         "small_images_row": 2,
         "small_images_row_mobile": 2,
         "heading_color": "#000000",
