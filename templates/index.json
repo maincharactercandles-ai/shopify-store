@@ -66,7 +66,6 @@
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
-        "image_1_mobile": "shopify://shop_images/NOT_03.png",
         "media_type_2_mobile": "image",
         "link": "shopify://collections/bougies-design-paris",
         "open_in_new_tab": true,
@@ -158,115 +157,6 @@
         "section_width": "full-width",
         "padding-block-start": 0,
         "padding-block-end": 0
-      }
-    },
-    "ss_gallery_1_V8TExq": {
-      "type": "ss-gallery-1",
-      "blocks": {
-        "image_wkp3ER": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/NOT_02.png",
-            "url": "",
-            "hide_mobile": false
-          }
-        },
-        "image_QRTnVd": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/NOT_04.png",
-            "url": "",
-            "hide_mobile": false
-          }
-        },
-        "image_izXPV4": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/NOT_05.png",
-            "url": "",
-            "hide_mobile": false
-          }
-        },
-        "image_mqrWmw": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/NOT_06.png",
-            "url": "",
-            "hide_mobile": false
-          }
-        }
-      },
-      "block_order": [
-        "image_wkp3ER",
-        "image_QRTnVd",
-        "image_izXPV4",
-        "image_mqrWmw"
-      ],
-      "name": "SS - Gallery #1",
-      "settings": {
-        "heading": "<h2>THE CONCEPT.</h2>",
-        "heading_custom": true,
-        "heading_font": "inter_n7",
-        "heading_size": 32,
-        "heading_size_mobile": 28,
-        "heading_height": 200,
-        "heading_align": "left",
-        "heading_align_mobile": "center",
-        "sub_heading": "<p>A metal can. Cold, industrial, anonymous.<br/>Open it. Find something you didn't expect.</p><p>Every object has two lives — the outside that surprises, and the inside that stays.</p>",
-        "sub_heading_custom": true,
-        "sub_heading_font": "inter_n4",
-        "sub_heading_size": 20,
-        "sub_heading_size_mobile": 16,
-        "sub_heading_height": 170,
-        "sub_heading_mt": 26,
-        "sub_heading_mt_mobile": 16,
-        "sub_heading_align": "center",
-        "sub_heading_align_mobile": "center",
-        "images_gap": 16,
-        "images_gap_mobile": 10,
-        "images_radius": 14,
-        "images_position": "row-reverse",
-        "images_position_mobile": "column",
-        "images_mt": 38,
-        "images_mt_mobile": 12,
-        "main_image": "shopify://shop_images/NOT_03.png",
-        "main_image_url": "",
-        "main_image_width": 46,
-        "small_images_row": 2,
-        "small_images_row_mobile": 2,
-        "heading_color": "#000000",
-        "sub_heading_color": "#000000",
-        "image_overlay": "#000000",
-        "background_color": "#ffffff",
-        "background_gradient": "",
-        "border_color": "#000000",
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "margin_horizontal": 0,
-        "margin_horizontal_mobile": 0,
-        "padding_top": 28,
-        "padding_bottom": 20,
-        "padding_horizontal": 3,
-        "padding_horizontal_mobile": 1.5,
-        "full_width": true,
-        "content_width": 1200,
-        "border_thickness": 0,
-        "section_radius": 0,
-        "lazy": true
-      }
-    },
-    "divider_BPCPaW": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "",
-        "section_width": "full-width",
-        "thickness": 1,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 16,
-        "padding-block-end": 16
       }
     },
     "product_list_AMNG6r": {
@@ -461,6 +351,115 @@
         "color_scheme": "scheme-1",
         "padding-block-start": 26,
         "padding-block-end": 63
+      }
+    },
+    "ss_gallery_1_V8TExq": {
+      "type": "ss-gallery-1",
+      "blocks": {
+        "image_wkp3ER": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/NOT_02.png",
+            "url": "",
+            "hide_mobile": false
+          }
+        },
+        "image_QRTnVd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/object-02-leather-wood-scented-candle-8279767.png",
+            "url": "",
+            "hide_mobile": false
+          }
+        },
+        "image_izXPV4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_10_juin_2026_03_02_51.png",
+            "url": "",
+            "hide_mobile": false
+          }
+        },
+        "image_mqrWmw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1_12cf0c62-2a8d-49c0-8df6-1d0204bffcde.png",
+            "url": "",
+            "hide_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "image_wkp3ER",
+        "image_QRTnVd",
+        "image_izXPV4",
+        "image_mqrWmw"
+      ],
+      "name": "SS - Gallery #1",
+      "settings": {
+        "heading": "<h2>THE CONCEPT.</h2>",
+        "heading_custom": true,
+        "heading_font": "inter_n7",
+        "heading_size": 32,
+        "heading_size_mobile": 28,
+        "heading_height": 200,
+        "heading_align": "left",
+        "heading_align_mobile": "center",
+        "sub_heading": "<p>A metal can. Cold, industrial, anonymous.<br/>Open it. Find something you didn't expect.</p><p>Every object has two lives — the outside that surprises, and the inside that stays.</p>",
+        "sub_heading_custom": true,
+        "sub_heading_font": "inter_n4",
+        "sub_heading_size": 20,
+        "sub_heading_size_mobile": 16,
+        "sub_heading_height": 170,
+        "sub_heading_mt": 26,
+        "sub_heading_mt_mobile": 16,
+        "sub_heading_align": "center",
+        "sub_heading_align_mobile": "center",
+        "images_gap": 16,
+        "images_gap_mobile": 10,
+        "images_radius": 14,
+        "images_position": "row-reverse",
+        "images_position_mobile": "column",
+        "images_mt": 38,
+        "images_mt_mobile": 12,
+        "main_image": "shopify://shop_images/1.png",
+        "main_image_url": "",
+        "main_image_width": 46,
+        "small_images_row": 2,
+        "small_images_row_mobile": 2,
+        "heading_color": "#000000",
+        "sub_heading_color": "#000000",
+        "image_overlay": "#000000",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 28,
+        "padding_bottom": 20,
+        "padding_horizontal": 3,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": true,
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    },
+    "divider_BPCPaW": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
       }
     },
     "divider_9gPYQg": {
@@ -1163,9 +1162,9 @@
     "marquee_ENJYE9",
     "divider_3DextP",
     "custom_liquid_8gYDjh",
+    "product_list_AMNG6r",
     "ss_gallery_1_V8TExq",
     "divider_BPCPaW",
-    "product_list_AMNG6r",
     "divider_9gPYQg",
     "section_mCfFRQ",
     "divider_7H8dW9",
