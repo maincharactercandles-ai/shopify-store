@@ -1,0 +1,715 @@
+{% liquid
+  assign selected_collection = section.settings.collection
+  assign products_limit = section.settings.products_to_show
+  assign heading_tag = section.settings.heading_tag
+  assign button_url = section.settings.button_link
+
+  if button_url == blank and selected_collection != blank
+    assign button_url = selected_collection.url
+  endif
+%}
+
+<section
+  id="NWY-Drop-{{ section.id }}"
+  class="nwy-drop"
+  style="
+    --nwy-bg: {{ section.settings.background_color }};
+    --nwy-text: {{ section.settings.text_color }};
+    --nwy-muted: {{ section.settings.muted_text_color }};
+    --nwy-line: {{ section.settings.line_color }};
+    --nwy-card-bg: {{ section.settings.card_background }};
+    --nwy-button-bg: {{ section.settings.button_background }};
+    --nwy-button-text: {{ section.settings.button_text_color }};
+    --nwy-media-ratio: {{ section.settings.image_ratio }};
+    --nwy-section-pt: {{ section.settings.padding_top }}px;
+    --nwy-section-pb: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="nwy-drop__inner page-width">
+    <div class="nwy-drop__layout">
+      <div class="nwy-drop__intro">
+        {% if section.settings.eyebrow != blank %}
+          <p class="nwy-drop__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {% endif %}
+
+        {% if section.settings.title != blank %}
+          <{{ heading_tag }} class="nwy-drop__title">
+            {{ section.settings.title | escape }}
+          </{{ heading_tag }}>
+        {% endif %}
+
+        {% if section.settings.tagline != blank %}
+          <p class="nwy-drop__tagline">{{ section.settings.tagline | escape | newline_to_br }}</p>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="nwy-drop__description rte">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank and button_url != blank %}
+          <a
+            class="nwy-drop__button"
+            href="{{ button_url }}"
+            {% if section.settings.button_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+          >
+            <span>{{ section.settings.button_label | escape }}</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        {% endif %}
+      </div>
+
+      <div class="nwy-drop__products">
+        {% if selected_collection != blank and selected_collection.products_count > 0 %}
+          <div
+            class="nwy-drop__grid"
+            role="list"
+            style="--nwy-columns-desktop: {{ section.settings.columns_desktop }};"
+          >
+            {% for product in selected_collection.products limit: products_limit %}
+              {% liquid
+                assign primary_media = product.featured_media
+                assign secondary_media = blank
+
+                if section.settings.show_second_image and product.media.size > 1
+                  for media in product.media
+                    if media.id != primary_media.id and media.media_type == 'image'
+                      assign secondary_media = media
+                      break
+                    endif
+                  endfor
+                endif
+              %}
+
+              <article class="nwy-product-card" role="listitem">
+                <a
+                  class="nwy-product-card__link"
+                  href="{{ product.url }}"
+                  aria-label="{{ product.title | escape }}"
+                >
+                  <div class="nwy-product-card__media">
+                    {% if primary_media != blank %}
+                      {{
+                        primary_media
+                        | image_url: width: 1200
+                        | image_tag:
+                          class: 'nwy-product-card__image nwy-product-card__image--primary',
+                          widths: '320, 480, 640, 800, 1000, 1200',
+                          sizes: '(min-width: 1200px) 22vw, (min-width: 750px) 30vw, 78vw',
+                          loading: 'lazy',
+                          alt: primary_media.alt | default: product.title
+                      }}
+
+                      {% if secondary_media != blank %}
+                        {{
+                          secondary_media
+                          | image_url: width: 1200
+                          | image_tag:
+                            class: 'nwy-product-card__image nwy-product-card__image--secondary',
+                            widths: '320, 480, 640, 800, 1000, 1200',
+                            sizes: '(min-width: 1200px) 22vw, (min-width: 750px) 30vw, 78vw',
+                            loading: 'lazy',
+                            alt: secondary_media.alt | default: product.title
+                        }}
+                      {% endif %}
+                    {% else %}
+                      {{ 'product-1' | placeholder_svg_tag: 'nwy-product-card__placeholder' }}
+                    {% endif %}
+
+                    {% if section.settings.show_badge %}
+                      {% if product.available == false %}
+                        <span class="nwy-product-card__badge">
+                          {{ section.settings.sold_out_label | escape }}
+                        </span>
+                      {% elsif product.compare_at_price > product.price %}
+                        <span class="nwy-product-card__badge">
+                          {{ section.settings.sale_label | escape }}
+                        </span>
+                      {% endif %}
+                    {% endif %}
+                  </div>
+
+                  <div class="nwy-product-card__content">
+                    <div class="nwy-product-card__heading">
+                      {% if section.settings.show_product_number %}
+                        {% assign product_index = forloop.index | plus: section.settings.object_start_number | minus: 1 %}
+                        <p class="nwy-product-card__object">
+                          OBJECT {{ product_index | prepend: '0' | slice: -2, 2 }}
+                        </p>
+                      {% endif %}
+
+                      <h3 class="nwy-product-card__title">{{ product.title | escape }}</h3>
+                    </div>
+
+                    {% if section.settings.show_price %}
+                      <div class="nwy-product-card__price">
+                        {% if product.price_varies %}
+                          <span>{{ section.settings.from_label | escape }} {{ product.price_min | money }}</span>
+                        {% else %}
+                          <span>{{ product.price | money }}</span>
+                        {% endif %}
+
+                        {% if product.compare_at_price > product.price %}
+                          <s>{{ product.compare_at_price | money }}</s>
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                  </div>
+                </a>
+              </article>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="nwy-drop__empty">
+            <p>Sélectionne une collection dans les réglages de cette section.</p>
+
+            <div
+              class="nwy-drop__grid nwy-drop__grid--placeholder"
+              role="list"
+              style="--nwy-columns-desktop: {{ section.settings.columns_desktop }};"
+            >
+              {% for i in (1..3) %}
+                <article class="nwy-product-card" role="listitem">
+                  <div class="nwy-product-card__media">
+                    {{ 'product-' | append: i | placeholder_svg_tag: 'nwy-product-card__placeholder' }}
+                  </div>
+                  <div class="nwy-product-card__content">
+                    <div>
+                      <p class="nwy-product-card__object">OBJECT 0{{ i }}</p>
+                      <h3 class="nwy-product-card__title">Product title</h3>
+                    </div>
+                    <span class="nwy-product-card__price">39,00 €</span>
+                  </div>
+                </article>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% style %}
+  #NWY-Drop-{{ section.id }} {
+    background: var(--nwy-bg);
+    color: var(--nwy-text);
+    padding-block: var(--nwy-section-pt) var(--nwy-section-pb);
+  }
+
+  #NWY-Drop-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-drop__inner {
+    width: 100%;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-drop__layout {
+    display: grid;
+    grid-template-columns: minmax(240px, 0.82fr) minmax(0, 2.18fr);
+    gap: clamp(40px, 5vw, 88px);
+    align-items: start;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-drop__intro {
+    position: sticky;
+    top: 96px;
+    padding-right: clamp(0px, 1vw, 18px);
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-drop__eyebrow {
+    margin: 0 0 18px;
+    color: var(--nwy-muted);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-drop__title {
+    max-width: 9ch;
+    margin: 0;
+    color: var(--nwy-text);
+    font-size: clamp(34px, 4vw, 68px);
+    font-weight: 700;
+    line-height: 0.92;
+    letter-spacing: -0.055em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-drop__tagline {
+    max-width: 18ch;
+    margin: 30px 0 0;
+    color: var(--nwy-text);
+    font-size: clamp(20px, 2vw, 30px);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-drop__description {
+    max-width: 40ch;
+    margin-top: 26px;
+    color: var(--nwy-muted);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-drop__description > *:first-child {
+    margin-top: 0;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-drop__description > *:last-child {
+    margin-bottom: 0;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-drop__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    min-width: min(100%, 230px);
+    margin-top: 34px;
+    padding: 15px 17px;
+    border: 1px solid var(--nwy-button-bg);
+    background: var(--nwy-button-bg);
+    color: var(--nwy-button-text);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.09em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-drop__button:hover {
+    background: transparent;
+    color: var(--nwy-text);
+    transform: translateY(-2px);
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-drop__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--nwy-columns-desktop), minmax(0, 1fr));
+    gap: clamp(18px, 2.2vw, 38px);
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-product-card {
+    min-width: 0;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-product-card__link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-product-card__media {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: var(--nwy-media-ratio);
+    background: var(--nwy-card-bg);
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-product-card__image,
+  #NWY-Drop-{{ section.id }} .nwy-product-card__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-product-card__image {
+    object-fit: cover;
+    transform: scale(1.001);
+    transition:
+      opacity 340ms ease,
+      transform 700ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-product-card__image--secondary {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-product-card__link:hover .nwy-product-card__image--primary {
+    transform: scale(1.035);
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-product-card__link:hover .nwy-product-card__image--secondary {
+    opacity: 1;
+    transform: scale(1.035);
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-product-card__badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    padding: 8px 10px;
+    background: var(--nwy-text);
+    color: var(--nwy-bg);
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-product-card__content {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    padding-top: 15px;
+    border-top: 1px solid transparent;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-product-card__object {
+    margin: 0 0 7px;
+    color: var(--nwy-muted);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-product-card__title {
+    margin: 0;
+    color: var(--nwy-text);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-product-card__price {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    color: var(--nwy-text);
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-product-card__price s {
+    color: var(--nwy-muted);
+    font-size: 10px;
+  }
+
+  #NWY-Drop-{{ section.id }} .nwy-drop__empty > p {
+    margin: 0 0 24px;
+    color: var(--nwy-muted);
+    font-size: 13px;
+  }
+
+  @media screen and (max-width: 1199px) {
+    #NWY-Drop-{{ section.id }} .nwy-drop__layout {
+      grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.6fr);
+      gap: 42px;
+    }
+
+    #NWY-Drop-{{ section.id }} .nwy-drop__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #NWY-Drop-{{ section.id }} {
+      padding-block: calc(var(--nwy-section-pt) * 0.7) calc(var(--nwy-section-pb) * 0.7);
+    }
+
+    #NWY-Drop-{{ section.id }} .nwy-drop__layout {
+      display: block;
+    }
+
+    #NWY-Drop-{{ section.id }} .nwy-drop__intro {
+      position: static;
+      margin-bottom: 46px;
+      padding-right: 0;
+    }
+
+    #NWY-Drop-{{ section.id }} .nwy-drop__title {
+      max-width: 10ch;
+      font-size: clamp(42px, 13vw, 64px);
+    }
+
+    #NWY-Drop-{{ section.id }} .nwy-drop__tagline {
+      margin-top: 24px;
+    }
+
+    #NWY-Drop-{{ section.id }} .nwy-drop__description {
+      max-width: 34ch;
+    }
+
+    #NWY-Drop-{{ section.id }} .nwy-drop__grid {
+      grid-template-columns: 1fr;
+      gap: 38px;
+    }
+
+    #NWY-Drop-{{ section.id }} .nwy-product-card__media {
+      aspect-ratio: 4 / 5;
+    }
+
+    #NWY-Drop-{{ section.id }} .nwy-product-card__content {
+      padding-top: 13px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #NWY-Drop-{{ section.id }} *,
+    #NWY-Drop-{{ section.id }} *::before,
+    #NWY-Drop-{{ section.id }} *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "NWY — Drop éditorial",
+  "tag": "section",
+  "class": "section-nwy-drop",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenu"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Numéro du drop",
+      "default": "DROP 01"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "INDUSTRIAL OBJECTS"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Balise du titre",
+      "default": "h2",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ]
+    },
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Phrase signature",
+      "default": "Industrial materials.\nUnexpected purpose."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Industrial objects transformed into collectible scented candles. Hand-poured in Paris using vegan soy wax and fragrances from Grasse.</p>"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "label": "Produits à afficher",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Colonnes sur ordinateur",
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Bouton"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton",
+      "default": "DISCOVER DROP 01"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_new_tab",
+      "label": "Ouvrir dans un nouvel onglet",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Cartes produits"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Format des images",
+      "default": "4 / 5",
+      "options": [
+        { "value": "1 / 1", "label": "Carré" },
+        { "value": "4 / 5", "label": "Portrait" },
+        { "value": "3 / 4", "label": "Portrait long" },
+        { "value": "4 / 3", "label": "Paysage" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_second_image",
+      "label": "Afficher la deuxième image au survol",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_number",
+      "label": "Afficher OBJECT 01, OBJECT 02…",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "object_start_number",
+      "min": 1,
+      "max": 99,
+      "step": 1,
+      "label": "Premier numéro d’objet",
+      "default": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Afficher le prix",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "from_label",
+      "label": "Texte avant un prix variable",
+      "default": "À partir de"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Afficher les badges",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "sold_out_label",
+      "label": "Badge épuisé",
+      "default": "SOLD OUT"
+    },
+    {
+      "type": "text",
+      "id": "sale_label",
+      "label": "Badge promotion",
+      "default": "SALE"
+    },
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fond de la section",
+      "default": "#F6F5F1"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Texte principal",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "muted_text_color",
+      "label": "Texte secondaire",
+      "default": "#6E6E68"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Traits",
+      "default": "#D8D7D1"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Fond des images",
+      "default": "#ECEBE6"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Fond du bouton",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Texte du bouton",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Espacement"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge haute",
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge basse",
+      "default": 96
+    }
+  ],
+  "presets": [
+    {
+      "name": "NWY — Drop éditorial"
+    }
+  ]
+}
+{% endschema %}
