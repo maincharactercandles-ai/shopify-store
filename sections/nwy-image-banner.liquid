@@ -1,0 +1,518 @@
+{% liquid
+  assign desktop_image = section.settings.image
+  assign mobile_image = section.settings.mobile_image | default: desktop_image
+  assign has_content = false
+
+  if section.settings.eyebrow != blank or section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank
+    assign has_content = true
+  endif
+%}
+
+<section
+  id="NWY-ImageBanner-{{ section.id }}"
+  class="nwy-image-banner{% if section.settings.full_bleed %} nwy-image-banner--full{% endif %}"
+  style="
+    --nwy-banner-overlay: {{ section.settings.overlay_color }};
+    --nwy-banner-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --nwy-banner-text: {{ section.settings.text_color }};
+    --nwy-banner-height-desktop: {{ section.settings.height_desktop }}px;
+    --nwy-banner-height-mobile: {{ section.settings.height_mobile }}px;
+    --nwy-banner-gutter: {{ section.settings.side_gutter }}px;
+    --nwy-banner-max-width: {{ section.settings.max_width }}px;
+    --nwy-banner-pt: {{ section.settings.padding_top }}px;
+    --nwy-banner-pb: {{ section.settings.padding_bottom }}px;
+    --nwy-content-width: {{ section.settings.content_width }}px;
+  "
+>
+  <div class="nwy-image-banner__outer">
+    <div class="nwy-image-banner__media">
+      {% if desktop_image != blank %}
+        <picture>
+          {% if mobile_image != blank %}
+            <source
+              media="(max-width: 749px)"
+              srcset="
+                {{ mobile_image | image_url: width: 480 }} 480w,
+                {{ mobile_image | image_url: width: 750 }} 750w,
+                {{ mobile_image | image_url: width: 1000 }} 1000w
+              "
+              sizes="100vw"
+            >
+          {% endif %}
+
+          {{
+            desktop_image
+            | image_url: width: 2400
+            | image_tag:
+              class: 'nwy-image-banner__image',
+              widths: '750, 1000, 1250, 1500, 1800, 2100, 2400',
+              sizes: '100vw',
+              loading: 'lazy',
+              alt: desktop_image.alt | default: section.settings.title
+          }}
+        </picture>
+      {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'nwy-image-banner__placeholder' }}
+      {% endif %}
+
+      {% if section.settings.show_overlay %}
+        <span class="nwy-image-banner__overlay" aria-hidden="true"></span>
+      {% endif %}
+
+      {% if has_content %}
+        <div class="nwy-image-banner__content nwy-image-banner__content--{{ section.settings.content_position }}">
+          <div class="nwy-image-banner__content-inner">
+            {% if section.settings.eyebrow != blank %}
+              <p class="nwy-image-banner__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+            {% endif %}
+
+            {% if section.settings.title != blank %}
+              <h2 class="nwy-image-banner__title">{{ section.settings.title | escape }}</h2>
+            {% endif %}
+
+            {% if section.settings.text != blank %}
+              <div class="nwy-image-banner__text rte">
+                {{ section.settings.text }}
+              </div>
+            {% endif %}
+
+            {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+              <a class="nwy-image-banner__button" href="{{ section.settings.button_link }}">
+                <span>{{ section.settings.button_label | escape }}</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if section.settings.caption != blank %}
+      <p class="nwy-image-banner__caption">{{ section.settings.caption | escape }}</p>
+    {% endif %}
+  </div>
+</section>
+
+{% style %}
+  #NWY-ImageBanner-{{ section.id }} {
+    padding-block: var(--nwy-banner-pt) var(--nwy-banner-pb);
+  }
+
+  #NWY-ImageBanner-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__outer {
+    width: min(
+      calc(100% - (var(--nwy-banner-gutter) * 2)),
+      var(--nwy-banner-max-width)
+    );
+    margin-inline: auto;
+  }
+
+  #NWY-ImageBanner-{{ section.id }}.nwy-image-banner--full .nwy-image-banner__outer {
+    width: 100%;
+    max-width: none;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__media {
+    position: relative;
+    overflow: hidden;
+    min-height: var(--nwy-banner-height-desktop);
+    background: #e8e7e2;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__image,
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__placeholder {
+    display: block;
+    width: 100%;
+    height: var(--nwy-banner-height-desktop);
+    object-fit: cover;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: var(--nwy-banner-overlay);
+    opacity: var(--nwy-banner-overlay-opacity);
+    pointer-events: none;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    padding: clamp(24px, 4vw, 72px);
+    color: var(--nwy-banner-text);
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__content--top-left {
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__content--top-center {
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__content--top-right {
+    align-items: flex-start;
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__content--center-left {
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__content--center {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__content--center-right {
+    align-items: center;
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__content--bottom-left {
+    align-items: flex-end;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__content--bottom-center {
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__content--bottom-right {
+    align-items: flex-end;
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__content-inner {
+    width: min(100%, var(--nwy-content-width));
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__eyebrow {
+    margin: 0 0 16px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__title {
+    margin: 0;
+    color: inherit;
+    font-size: clamp(42px, 6.4vw, 112px);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.065em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__text {
+    margin-top: 22px;
+    font-size: clamp(15px, 1.4vw, 21px);
+    line-height: 1.35;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__text > *:first-child {
+    margin-top: 0;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__text > *:last-child {
+    margin-bottom: 0;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 28px;
+    margin-top: 28px;
+    padding: 14px 16px;
+    border: 1px solid currentColor;
+    color: inherit;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.09em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__button:hover {
+    background: var(--nwy-banner-text);
+    color: #111111;
+    transform: translateY(-2px);
+  }
+
+  #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__caption {
+    margin: 10px 0 0;
+    color: #6e6e68;
+    font-size: 10px;
+    line-height: 1.3;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 749px) {
+    #NWY-ImageBanner-{{ section.id }} {
+      padding-block:
+        calc(var(--nwy-banner-pt) * 0.72)
+        calc(var(--nwy-banner-pb) * 0.72);
+    }
+
+    #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__outer {
+      width: calc(100% - 32px);
+    }
+
+    #NWY-ImageBanner-{{ section.id }}.nwy-image-banner--full .nwy-image-banner__outer {
+      width: 100%;
+    }
+
+    #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__media {
+      min-height: var(--nwy-banner-height-mobile);
+    }
+
+    #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__image,
+    #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__placeholder {
+      height: var(--nwy-banner-height-mobile);
+    }
+
+    #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__content {
+      padding: 24px 18px;
+    }
+
+    #NWY-ImageBanner-{{ section.id }} .nwy-image-banner__title {
+      font-size: clamp(42px, 14vw, 68px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #NWY-ImageBanner-{{ section.id }} *,
+    #NWY-ImageBanner-{{ section.id }} *::before,
+    #NWY-ImageBanner-{{ section.id }} *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "NWY — Image immersive",
+  "tag": "section",
+  "class": "section-nwy-image-banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image ordinateur"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Image mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_bleed",
+      "label": "Image bord à bord",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "height_desktop",
+      "min": 360,
+      "max": 1100,
+      "step": 20,
+      "unit": "px",
+      "label": "Hauteur sur ordinateur",
+      "default": 720
+    },
+    {
+      "type": "range",
+      "id": "height_mobile",
+      "min": 360,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "label": "Hauteur sur mobile",
+      "default": 560
+    },
+    {
+      "type": "header",
+      "content": "Texte optionnel"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Surtitre"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texte"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "Position du texte",
+      "default": "bottom-left",
+      "options": [
+        { "value": "top-left", "label": "En haut à gauche" },
+        { "value": "top-center", "label": "En haut au centre" },
+        { "value": "top-right", "label": "En haut à droite" },
+        { "value": "center-left", "label": "Au centre à gauche" },
+        { "value": "center", "label": "Au centre" },
+        { "value": "center-right", "label": "Au centre à droite" },
+        { "value": "bottom-left", "label": "En bas à gauche" },
+        { "value": "bottom-center", "label": "En bas au centre" },
+        { "value": "bottom-right", "label": "En bas à droite" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "min": 280,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "label": "Largeur maximale du texte",
+      "default": 620
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "Légende sous l’image"
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Ajouter un voile sur l’image",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Couleur du voile",
+      "default": "#111111"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacité du voile",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Largeur et marges"
+    },
+    {
+      "type": "range",
+      "id": "side_gutter",
+      "min": 16,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Marges latérales",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1200,
+      "max": 2400,
+      "step": 100,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 2200
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge haute",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge basse",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "NWY — Image immersive"
+    }
+  ]
+}
+{% endschema %}
