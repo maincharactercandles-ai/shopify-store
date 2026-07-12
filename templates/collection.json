@@ -121,7 +121,7 @@
       "type": "nwy-drop",
       "name": "NWY — Drop éditorial",
       "settings": {
-        "eyebrow": "{{ collection.title }}",
+        "eyebrow": "DROP 01",
         "title": "INDUSTRIAL OBJECTS",
         "heading_tag": "h2",
         "tagline": "",
@@ -414,6 +414,44 @@
         "padding-block-start": 40,
         "padding-block-end": 40
       }
+    },
+    "nwy_coming_soon_BdDzF8": {
+      "type": "nwy-coming-soon",
+      "name": "NWY — Drop à venir",
+      "settings": {
+        "eyebrow": "DROP 02",
+        "title": "GLASS OBJECTS",
+        "heading_tag": "h2",
+        "tagline": "New chapter.\nSame philosophy.",
+        "description": "<p>Glass, colour and transparency. A new collection of objects designed to diffuse light, elevate spaces and remain long after the candle is gone.</p><p><strong>Coming soon.</strong></p>",
+        "collection": "drop-02-glass-objects",
+        "products_to_show": 3,
+        "columns_desktop": 3,
+        "form_heading": "BE THE FIRST TO KNOW.",
+        "email_label": "Email",
+        "email_placeholder": "Your email address",
+        "button_label": "NOTIFY ME",
+        "customer_tag": "drop-02-waitlist",
+        "success_message": "YOU’RE ON THE LIST.",
+        "image_ratio": "4 / 5",
+        "show_object_number": true,
+        "object_start_number": 4,
+        "show_description": true,
+        "description_words": 8,
+        "badge_text": "COMING SOON",
+        "card_link_label": "DISCOVER",
+        "show_overlay": true,
+        "overlay_opacity": 20,
+        "side_gutter": 40,
+        "max_width": 2000,
+        "background_color": "#F1F0EB",
+        "text_color": "#111111",
+        "muted_text_color": "#6E6E68",
+        "card_background": "#E3E1DA",
+        "overlay_color": "#111111",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
     }
   },
   "order": [
@@ -421,6 +459,7 @@
     "nwy_drop_JDJXgW",
     "main",
     "ss_gallery_1_6WqD4b",
-    "hero_z6m4Xe"
+    "hero_z6m4Xe",
+    "nwy_coming_soon_BdDzF8"
   ]
 }
