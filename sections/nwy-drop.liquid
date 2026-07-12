@@ -203,8 +203,10 @@
   }
 
   #NWY-Drop-{{ section.id }} .nwy-drop__inner {
-    width: 100%;
-  }
+  max-width: 1800px;
+  width: calc(100% - 80px);
+  margin: 0 auto;
+}
 
   #NWY-Drop-{{ section.id }} .nwy-drop__layout {
     display: grid;
