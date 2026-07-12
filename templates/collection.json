@@ -580,10 +580,22 @@
         "section_radius": 0,
         "lazy": true
       }
+    },
+    "custom_liquid_L8UwGj": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
     }
   },
   "order": [
     "slideshow_TqWa3H",
+    "custom_liquid_L8UwGj",
     "section",
     "main",
     "divider_gnCree",
