@@ -25,8 +25,7 @@
     --nwy-section-pb: {{ section.settings.padding_bottom }}px;
   "
 >
-<div class="nwy-drop__inner">
-
+  <div class="nwy-drop__inner page-width">
     <div class="nwy-drop__layout">
       <div class="nwy-drop__intro">
         {% if section.settings.eyebrow != blank %}
@@ -211,7 +210,7 @@
 
   #NWY-Drop-{{ section.id }} .nwy-drop__layout {
     display: grid;
-    grid-template-columns: 420px 1fr;
+    grid-template-columns: minmax(240px, 0.82fr) minmax(0, 2.18fr);
     gap: clamp(40px, 5vw, 88px);
     align-items: start;
   }
