@@ -1,0 +1,454 @@
+{% liquid
+  assign left_link = section.settings.left_link
+  assign right_link = section.settings.right_link
+%}
+
+<section
+  id="NWY-SplitCTA-{{ section.id }}"
+  class="nwy-split-cta"
+  style="
+    --nwy-split-bg: {{ section.settings.background_color }};
+    --nwy-split-text: {{ section.settings.text_color }};
+    --nwy-split-muted: {{ section.settings.muted_text_color }};
+    --nwy-split-line: {{ section.settings.line_color }};
+    --nwy-split-gutter: {{ section.settings.side_gutter }}px;
+    --nwy-split-max-width: {{ section.settings.max_width }}px;
+    --nwy-split-pt: {{ section.settings.padding_top }}px;
+    --nwy-split-pb: {{ section.settings.padding_bottom }}px;
+    --nwy-split-height: {{ section.settings.block_height }}px;
+  "
+>
+  <div class="nwy-split-cta__inner">
+    <div class="nwy-split-cta__grid">
+      <article class="nwy-split-cta__panel nwy-split-cta__panel--left">
+        {% if section.settings.left_image != blank %}
+          {{
+            section.settings.left_image
+            | image_url: width: 1800
+            | image_tag:
+              class: 'nwy-split-cta__image',
+              widths: '600, 900, 1200, 1500, 1800',
+              sizes: '(min-width: 750px) 50vw, 100vw',
+              loading: 'lazy',
+              alt: section.settings.left_image.alt | default: section.settings.left_title
+          }}
+        {% else %}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'nwy-split-cta__placeholder' }}
+        {% endif %}
+
+        <span class="nwy-split-cta__overlay" aria-hidden="true"></span>
+
+        <div class="nwy-split-cta__content">
+          {% if section.settings.left_eyebrow != blank %}
+            <p class="nwy-split-cta__eyebrow">{{ section.settings.left_eyebrow | escape }}</p>
+          {% endif %}
+
+          {% if section.settings.left_title != blank %}
+            <h2 class="nwy-split-cta__title">{{ section.settings.left_title | escape }}</h2>
+          {% endif %}
+
+          {% if section.settings.left_text != blank %}
+            <div class="nwy-split-cta__text rte">{{ section.settings.left_text }}</div>
+          {% endif %}
+
+          {% if section.settings.left_button_label != blank and left_link != blank %}
+            <a class="nwy-split-cta__button" href="{{ left_link }}">
+              <span>{{ section.settings.left_button_label | escape }}</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          {% endif %}
+        </div>
+      </article>
+
+      <article class="nwy-split-cta__panel nwy-split-cta__panel--right">
+        {% if section.settings.right_image != blank %}
+          {{
+            section.settings.right_image
+            | image_url: width: 1800
+            | image_tag:
+              class: 'nwy-split-cta__image',
+              widths: '600, 900, 1200, 1500, 1800',
+              sizes: '(min-width: 750px) 50vw, 100vw',
+              loading: 'lazy',
+              alt: section.settings.right_image.alt | default: section.settings.right_title
+          }}
+        {% else %}
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'nwy-split-cta__placeholder' }}
+        {% endif %}
+
+        <span class="nwy-split-cta__overlay" aria-hidden="true"></span>
+
+        <div class="nwy-split-cta__content">
+          {% if section.settings.right_eyebrow != blank %}
+            <p class="nwy-split-cta__eyebrow">{{ section.settings.right_eyebrow | escape }}</p>
+          {% endif %}
+
+          {% if section.settings.right_title != blank %}
+            <h2 class="nwy-split-cta__title">{{ section.settings.right_title | escape }}</h2>
+          {% endif %}
+
+          {% if section.settings.right_text != blank %}
+            <div class="nwy-split-cta__text rte">{{ section.settings.right_text }}</div>
+          {% endif %}
+
+          {% if section.settings.right_button_label != blank and right_link != blank %}
+            <a class="nwy-split-cta__button" href="{{ right_link }}">
+              <span>{{ section.settings.right_button_label | escape }}</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          {% endif %}
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% style %}
+  #NWY-SplitCTA-{{ section.id }} {
+    background: var(--nwy-split-bg);
+    padding-block: var(--nwy-split-pt) var(--nwy-split-pb);
+  }
+
+  #NWY-SplitCTA-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__inner {
+    width: min(
+      calc(100% - (var(--nwy-split-gutter) * 2)),
+      var(--nwy-split-max-width)
+    );
+    margin-inline: auto;
+  }
+
+  #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: var(--nwy-split-height);
+  }
+
+  #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__panel {
+    position: relative;
+    overflow: hidden;
+    min-height: var(--nwy-split-height);
+    background: #d8d7d1;
+    color: #fff;
+  }
+
+  #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__panel + .nwy-split-cta__panel {
+    border-left: 1px solid var(--nwy-split-line);
+  }
+
+  #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__image,
+  #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__placeholder {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__image {
+    object-fit: cover;
+    transform: scale(1.001);
+    transition: transform 900ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  }
+
+  #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: #111;
+    opacity: 0.26;
+  }
+
+  #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    min-height: var(--nwy-split-height);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: clamp(28px, 4vw, 68px);
+  }
+
+  #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__eyebrow {
+    margin: 0 0 14px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__title {
+    max-width: 9ch;
+    margin: 0;
+    color: inherit;
+    font-size: clamp(42px, 5.5vw, 88px);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__text {
+    max-width: 34ch;
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__text > *:first-child {
+    margin-top: 0;
+  }
+
+  #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__text > *:last-child {
+    margin-bottom: 0;
+  }
+
+  #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 26px;
+    margin-top: 28px;
+    padding: 14px 16px;
+    border: 1px solid currentColor;
+    color: inherit;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.09em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__button:hover {
+    background: #fff;
+    color: #111;
+    transform: translateY(-2px);
+  }
+
+  #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__panel:hover .nwy-split-cta__image {
+    transform: scale(1.035);
+  }
+
+  @media screen and (max-width: 749px) {
+    #NWY-SplitCTA-{{ section.id }} {
+      padding-block:
+        calc(var(--nwy-split-pt) * 0.72)
+        calc(var(--nwy-split-pb) * 0.72);
+    }
+
+    #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__inner {
+      width: calc(100% - 32px);
+    }
+
+    #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__grid {
+      grid-template-columns: 1fr;
+    }
+
+    #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__panel + .nwy-split-cta__panel {
+      border-top: 1px solid var(--nwy-split-line);
+      border-left: 0;
+    }
+
+    #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__panel,
+    #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__content {
+      min-height: 520px;
+    }
+
+    #NWY-SplitCTA-{{ section.id }} .nwy-split-cta__title {
+      font-size: clamp(44px, 14vw, 70px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #NWY-SplitCTA-{{ section.id }} *,
+    #NWY-SplitCTA-{{ section.id }} *::before,
+    #NWY-SplitCTA-{{ section.id }} *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "NWY — Double CTA",
+  "tag": "section",
+  "class": "section-nwy-split-cta",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Bloc gauche"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "left_eyebrow",
+      "label": "Surtitre",
+      "default": "DROP 01"
+    },
+    {
+      "type": "text",
+      "id": "left_title",
+      "label": "Titre",
+      "default": "AVAILABLE NOW."
+    },
+    {
+      "type": "richtext",
+      "id": "left_text",
+      "label": "Texte",
+      "default": "<p>Industrial Objects are available now.</p>"
+    },
+    {
+      "type": "text",
+      "id": "left_button_label",
+      "label": "Bouton",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "left_link",
+      "label": "Lien"
+    },
+    {
+      "type": "header",
+      "content": "Bloc droit"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "right_eyebrow",
+      "label": "Surtitre",
+      "default": "DROP 02"
+    },
+    {
+      "type": "text",
+      "id": "right_title",
+      "label": "Titre",
+      "default": "COMING SOON."
+    },
+    {
+      "type": "richtext",
+      "id": "right_text",
+      "label": "Texte",
+      "default": "<p>Glass Objects are coming soon.</p>"
+    },
+    {
+      "type": "text",
+      "id": "right_button_label",
+      "label": "Bouton",
+      "default": "JOIN THE WAITLIST"
+    },
+    {
+      "type": "url",
+      "id": "right_link",
+      "label": "Lien"
+    },
+    {
+      "type": "header",
+      "content": "Mise en page"
+    },
+    {
+      "type": "range",
+      "id": "block_height",
+      "min": 420,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "label": "Hauteur des blocs",
+      "default": 620
+    },
+    {
+      "type": "range",
+      "id": "side_gutter",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Marges latérales",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1200,
+      "max": 2400,
+      "step": 100,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 2400
+    },
+    {
+      "type": "header",
+      "content": "Couleurs et espacement"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fond de la section",
+      "default": "#F6F5F1"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Texte",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "muted_text_color",
+      "label": "Texte secondaire",
+      "default": "#D8D7D1"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Séparation",
+      "default": "#F6F5F1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge haute",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge basse",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "NWY — Double CTA"
+    }
+  ]
+}
+{% endschema %}
