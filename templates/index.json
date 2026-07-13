@@ -107,6 +107,66 @@
         "padding-block-end": 49
       }
     },
+    "nwy_process_73MqMA": {
+      "type": "nwy-process",
+      "blocks": {
+        "step_zBEGML": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/canette_m_tallique_fond_neutre.png",
+            "number": "",
+            "title": "Ordinary objects.",
+            "text": "<p>Industrial cans.<br/>Laboratory glass.<br/>Unexpected materials.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "step_fGmVpV": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/object-03-green-tea-matcha-scented-candle-9527230.png",
+            "number": "",
+            "title": "Reinvented.",
+            "text": "<p>Each object becomes a scented candle hand-poured in Paris.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "step_zaEjc7": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_11_03_21_a1f58bd7-46da-488d-b98f-9308703c71c4.png",
+            "number": "",
+            "title": "Designed to stay.",
+            "text": "<p>Once burned, every object is meant to become part of your home.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "step_zBEGML",
+        "step_fGmVpV",
+        "step_zaEjc7"
+      ],
+      "name": "NWY — Process",
+      "settings": {
+        "eyebrow": "",
+        "title": "WHY \"NOT WHAT YOU EXPECT\" ?",
+        "button_label": "",
+        "button_link": "",
+        "image_ratio": "1 / 1",
+        "side_gutter": 36,
+        "max_width": 2200,
+        "background_color": "#F6F5F1",
+        "text_color": "#111111",
+        "muted_text_color": "#6E6E68",
+        "line_color": "#D8D7D1",
+        "card_background": "#E8E6E0",
+        "padding_top": 60,
+        "padding_bottom": 68
+      }
+    },
     "product_list_AMNG6r": {
       "type": "product-list",
       "blocks": {
@@ -1290,70 +1350,11 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
-    },
-    "nwy_process_73MqMA": {
-      "type": "nwy-process",
-      "blocks": {
-        "step_zBEGML": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/canette_m_tallique_fond_neutre.png",
-            "number": "",
-            "title": "Ordinary objects.",
-            "text": "<p>Industrial cans.<br/>Laboratory glass.<br/>Unexpected materials.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "step_fGmVpV": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/object-03-green-tea-matcha-scented-candle-9527230.png",
-            "number": "",
-            "title": "Reinvented.",
-            "text": "<p>Each object becomes a scented candle hand-poured in Paris.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "step_zaEjc7": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_11_03_21_a1f58bd7-46da-488d-b98f-9308703c71c4.png",
-            "number": "",
-            "title": "Designed to stay.",
-            "text": "<p>Once burned, every object is meant to become part of your home.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "step_zBEGML",
-        "step_fGmVpV",
-        "step_zaEjc7"
-      ],
-      "name": "NWY — Process",
-      "settings": {
-        "eyebrow": "",
-        "title": "WHY NOT WHAT YOU EXPECT ?",
-        "button_label": "",
-        "button_link": "",
-        "image_ratio": "4 / 3",
-        "side_gutter": 36,
-        "max_width": 2200,
-        "background_color": "#F6F5F1",
-        "text_color": "#111111",
-        "muted_text_color": "#6E6E68",
-        "line_color": "#D8D7D1",
-        "card_background": "#E8E6E0",
-        "padding_top": 60,
-        "padding_bottom": 68
-      }
     }
   },
   "order": [
     "hero_jVaWmY",
+    "nwy_process_73MqMA",
     "product_list_AMNG6r",
     "product_list_NhCbLa",
     "ss_gallery_1_V8TExq",
@@ -1366,7 +1367,6 @@
     "divider_w7prNp",
     "ss_feature_1_features_ADUAyp",
     "divider_gaKRUA",
-    "media_with_content_BqgNbP",
-    "nwy_process_73MqMA"
+    "media_with_content_BqgNbP"
   ]
 }
