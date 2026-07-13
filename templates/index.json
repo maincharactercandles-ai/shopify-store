@@ -45,17 +45,17 @@
         "heading": "THIS IS NOT\nA CANDLE.",
         "text": "<p>Industrial objects transformed into collectible scented candles.</p><p>Hand-poured in Paris using vegan soy wax and fine fragrances from Grasse.</p><p>Designed to be reused long after the wax has burned away.</p>",
         "button_label": "DISCOVER THE CONCEPT",
-        "button_link": "",
+        "button_link": "shopify://pages/concept",
         "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_10_11_50.png",
-        "image_height": 480,
-        "image_height_mobile": 460,
-        "side_gutter": 40,
-        "max_width": 2000,
+        "image_height": 440,
+        "image_height_mobile": 380,
+        "side_gutter": 100,
+        "max_width": 1600,
         "background_color": "#F4F2ED",
         "text_color": "#111111",
         "muted_text_color": "#6E6E68",
-        "padding_top": 48,
-        "padding_bottom": 32
+        "padding_top": 80,
+        "padding_bottom": 60
       }
     },
     "nwy_process_73MqMA": {
