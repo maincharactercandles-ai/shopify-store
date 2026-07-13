@@ -149,7 +149,7 @@
         "button_background": "#111111",
         "button_text_color": "#ffffff",
         "padding_top": 64,
-        "padding_bottom": 96
+        "padding_bottom": 56
       }
     },
     "hero_mh839J": {
@@ -333,7 +333,7 @@
         "right_text": "<p>Discover the new Glass Objects collection.</p>",
         "right_button_label": "JOIN THE WAITLIST",
         "right_link": "",
-        "block_height": 460,
+        "block_height": 540,
         "side_gutter": 0,
         "max_width": 2400,
         "background_color": "#f6f5f1",
