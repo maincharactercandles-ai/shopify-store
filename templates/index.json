@@ -1108,7 +1108,7 @@
               "type": "button",
               "settings": {
                 "label": "SHOP THE COLLECTION.",
-                "link": "shopify://collections/bougies-design-paris-drop-01",
+                "link": "shopify://collections/shop",
                 "open_in_new_tab": false,
                 "style_class": "button",
                 "width": "fit-content",
