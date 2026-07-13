@@ -1,0 +1,589 @@
+{% liquid
+  assign selected_blog = section.settings.blog
+  assign articles_limit = section.settings.articles_to_show
+%}
+
+<section
+  id="NWY-Journal-{{ section.id }}"
+  class="nwy-journal"
+  style="
+    --nwy-journal-bg: {{ section.settings.background_color }};
+    --nwy-journal-text: {{ section.settings.text_color }};
+    --nwy-journal-muted: {{ section.settings.muted_text_color }};
+    --nwy-journal-line: {{ section.settings.line_color }};
+    --nwy-journal-card-bg: {{ section.settings.card_background }};
+    --nwy-journal-gutter: {{ section.settings.side_gutter }}px;
+    --nwy-journal-max-width: {{ section.settings.max_width }}px;
+    --nwy-journal-pt: {{ section.settings.padding_top }}px;
+    --nwy-journal-pb: {{ section.settings.padding_bottom }}px;
+    --nwy-journal-ratio: {{ section.settings.image_ratio }};
+  "
+>
+  <div class="nwy-journal__inner">
+    <div class="nwy-journal__header">
+      <div class="nwy-journal__heading-wrap">
+        {% if section.settings.eyebrow != blank %}
+          <p class="nwy-journal__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {% endif %}
+
+        {% if section.settings.title != blank %}
+          <h2 class="nwy-journal__title">{{ section.settings.title | escape }}</h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="nwy-journal__description rte">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+      </div>
+
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a class="nwy-journal__header-link" href="{{ section.settings.button_link }}">
+          <span>{{ section.settings.button_label | escape }}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      {% elsif selected_blog != blank and section.settings.button_label != blank %}
+        <a class="nwy-journal__header-link" href="{{ selected_blog.url }}">
+          <span>{{ section.settings.button_label | escape }}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      {% endif %}
+    </div>
+
+    {% if selected_blog != blank and selected_blog.articles_count > 0 %}
+      <div
+        class="nwy-journal__grid"
+        role="list"
+        style="--nwy-journal-columns: {{ section.settings.columns_desktop }};"
+      >
+        {% for article in selected_blog.articles limit: articles_limit %}
+          <article class="nwy-journal-card" role="listitem">
+            <a class="nwy-journal-card__link" href="{{ article.url }}">
+              <div class="nwy-journal-card__media">
+                {% if article.image != blank %}
+                  {{
+                    article.image
+                    | image_url: width: 1600
+                    | image_tag:
+                      class: 'nwy-journal-card__image',
+                      widths: '360, 540, 720, 900, 1200, 1600',
+                      sizes: '(min-width: 990px) 31vw, (min-width: 750px) 48vw, 86vw',
+                      loading: 'lazy',
+                      alt: article.image.alt | default: article.title
+                  }}
+                {% else %}
+                  {{ 'image' | placeholder_svg_tag: 'nwy-journal-card__placeholder' }}
+                {% endif %}
+
+                {% if section.settings.show_category %}
+                  <span class="nwy-journal-card__category">
+                    {{ article.tags.first | default: selected_blog.title | escape }}
+                  </span>
+                {% endif %}
+              </div>
+
+              <div class="nwy-journal-card__content">
+                {% if section.settings.show_date %}
+                  <p class="nwy-journal-card__meta">
+                    {{ article.published_at | date: section.settings.date_format }}
+                  </p>
+                {% endif %}
+
+                <h3 class="nwy-journal-card__title">{{ article.title | escape }}</h3>
+
+                {% if section.settings.show_excerpt %}
+                  <div class="nwy-journal-card__excerpt">
+                    {% if article.excerpt != blank %}
+                      {{ article.excerpt | strip_html | truncatewords: section.settings.excerpt_words }}
+                    {% else %}
+                      {{ article.content | strip_html | truncatewords: section.settings.excerpt_words }}
+                    {% endif %}
+                  </div>
+                {% endif %}
+
+                <span class="nwy-journal-card__read">
+                  {{ section.settings.card_link_label | escape }}
+                  <span aria-hidden="true">→</span>
+                </span>
+              </div>
+            </a>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="nwy-journal__empty">
+        <p>Sélectionne ton blog dans les réglages de la section.</p>
+
+        <div
+          class="nwy-journal__grid"
+          role="list"
+          style="--nwy-journal-columns: {{ section.settings.columns_desktop }};"
+        >
+          {% for i in (1..3) %}
+            <article class="nwy-journal-card" role="listitem">
+              <div class="nwy-journal-card__media">
+                {{ 'image' | placeholder_svg_tag: 'nwy-journal-card__placeholder' }}
+              </div>
+
+              <div class="nwy-journal-card__content">
+                <p class="nwy-journal-card__meta">JULY 2026</p>
+                <h3 class="nwy-journal-card__title">Article title</h3>
+                <div class="nwy-journal-card__excerpt">
+                  Add editorial content about the objects, materials or process.
+                </div>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% style %}
+  #NWY-Journal-{{ section.id }} {
+    background: var(--nwy-journal-bg);
+    color: var(--nwy-journal-text);
+    padding-block: var(--nwy-journal-pt) var(--nwy-journal-pb);
+  }
+
+  #NWY-Journal-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal__inner {
+    width: min(
+      calc(100% - (var(--nwy-journal-gutter) * 2)),
+      var(--nwy-journal-max-width)
+    );
+    margin-inline: auto;
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: clamp(32px, 4vw, 58px);
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal__heading-wrap {
+    max-width: 860px;
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal__eyebrow {
+    margin: 0 0 14px;
+    color: var(--nwy-journal-muted);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal__title {
+    margin: 0;
+    color: var(--nwy-journal-text);
+    font-size: clamp(42px, 5vw, 84px);
+    font-weight: 700;
+    line-height: 0.92;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal__description {
+    max-width: 44ch;
+    margin-top: 20px;
+    color: var(--nwy-journal-muted);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal__description > *:first-child {
+    margin-top: 0;
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal__description > *:last-child {
+    margin-bottom: 0;
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal__header-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid currentColor;
+    color: var(--nwy-journal-text);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.09em;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--nwy-journal-columns), minmax(0, 1fr));
+    gap: clamp(20px, 2.4vw, 42px);
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal-card {
+    min-width: 0;
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal-card__link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal-card__media {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: var(--nwy-journal-ratio);
+    background: var(--nwy-journal-card-bg);
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal-card__image,
+  #NWY-Journal-{{ section.id }} .nwy-journal-card__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal-card__image {
+    object-fit: cover;
+    transform: scale(1.001);
+    transition: transform 800ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal-card:hover .nwy-journal-card__image {
+    transform: scale(1.035);
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal-card__category {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 1;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #111;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    backdrop-filter: blur(6px);
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal-card__content {
+    padding-top: 16px;
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal-card__meta {
+    margin: 0 0 8px;
+    color: var(--nwy-journal-muted);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal-card__title {
+    margin: 0;
+    color: var(--nwy-journal-text);
+    font-size: clamp(19px, 1.8vw, 28px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal-card__excerpt {
+    max-width: 40ch;
+    margin-top: 10px;
+    color: var(--nwy-journal-muted);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal-card__read {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid currentColor;
+    color: var(--nwy-journal-text);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  #NWY-Journal-{{ section.id }} .nwy-journal__empty > p {
+    margin: 0 0 24px;
+    color: var(--nwy-journal-muted);
+    font-size: 13px;
+  }
+
+  @media screen and (max-width: 989px) {
+    #NWY-Journal-{{ section.id }} .nwy-journal__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #NWY-Journal-{{ section.id }} {
+      padding-block:
+        calc(var(--nwy-journal-pt) * 0.72)
+        calc(var(--nwy-journal-pb) * 0.72);
+    }
+
+    #NWY-Journal-{{ section.id }} .nwy-journal__inner {
+      width: calc(100% - 32px);
+    }
+
+    #NWY-Journal-{{ section.id }} .nwy-journal__header {
+      display: block;
+      margin-bottom: 34px;
+    }
+
+    #NWY-Journal-{{ section.id }} .nwy-journal__title {
+      font-size: clamp(42px, 13vw, 66px);
+    }
+
+    #NWY-Journal-{{ section.id }} .nwy-journal__header-link {
+      margin-top: 22px;
+    }
+
+    #NWY-Journal-{{ section.id }} .nwy-journal__grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #NWY-Journal-{{ section.id }} *,
+    #NWY-Journal-{{ section.id }} *::before,
+    #NWY-Journal-{{ section.id }} *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "NWY — Journal",
+  "tag": "section",
+  "class": "section-nwy-journal",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenu"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Surtitre",
+      "default": "JOURNAL"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "STORIES BEHIND THE OBJECTS."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Materials, fragrance, process and the ideas behind each object.</p>"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "range",
+      "id": "articles_to_show",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "label": "Articles à afficher",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Colonnes sur ordinateur",
+      "default": 3
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Lien en haut",
+      "default": "VIEW ALL STORIES"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien personnalisé"
+    },
+    {
+      "type": "header",
+      "content": "Cartes"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Format des images",
+      "default": "4 / 3",
+      "options": [
+        { "value": "1 / 1", "label": "Carré" },
+        { "value": "4 / 3", "label": "Paysage" },
+        { "value": "3 / 2", "label": "Paysage large" },
+        { "value": "4 / 5", "label": "Portrait" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_category",
+      "label": "Afficher la catégorie",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Afficher la date",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "date_format",
+      "label": "Format de date Liquid",
+      "default": "%B %Y"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_excerpt",
+      "label": "Afficher l’extrait",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "excerpt_words",
+      "min": 5,
+      "max": 35,
+      "step": 1,
+      "label": "Nombre de mots",
+      "default": 16
+    },
+    {
+      "type": "text",
+      "id": "card_link_label",
+      "label": "Lien sous les articles",
+      "default": "READ STORY"
+    },
+    {
+      "type": "header",
+      "content": "Largeur et marges"
+    },
+    {
+      "type": "range",
+      "id": "side_gutter",
+      "min": 16,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Marges latérales",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1200,
+      "max": 2400,
+      "step": 100,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 2000
+    },
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fond",
+      "default": "#F6F5F1"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Texte principal",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "muted_text_color",
+      "label": "Texte secondaire",
+      "default": "#6E6E68"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Traits",
+      "default": "#D8D7D1"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Fond des images",
+      "default": "#E8E6E0"
+    },
+    {
+      "type": "header",
+      "content": "Espacement"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge haute",
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge basse",
+      "default": 96
+    }
+  ],
+  "presets": [
+    {
+      "name": "NWY — Journal"
+    }
+  ]
+}
+{% endschema %}
