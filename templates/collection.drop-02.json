@@ -225,44 +225,6 @@
         "padding-block-end": 40
       }
     },
-    "nwy_coming_soon_BdDzF8": {
-      "type": "nwy-coming-soon",
-      "name": "NWY — Drop à venir",
-      "settings": {
-        "eyebrow": "DROP 02",
-        "title": "GLASS OBJECTS",
-        "heading_tag": "h2",
-        "tagline": "New chapter.\nSame philosophy.",
-        "description": "<p>Glass, colour and transparency. A new collection of objects designed to diffuse light, elevate spaces and remain long after the candle is gone.</p><p><strong>Coming soon.</strong></p>",
-        "collection": "drop-02",
-        "products_to_show": 3,
-        "columns_desktop": 3,
-        "form_heading": "BE THE FIRST TO KNOW.",
-        "email_label": "Email",
-        "email_placeholder": "Your email address",
-        "button_label": "NOTIFY ME",
-        "customer_tag": "drop-02-waitlist",
-        "success_message": "YOU’RE ON THE LIST.",
-        "image_ratio": "4 / 5",
-        "show_object_number": true,
-        "object_start_number": 4,
-        "show_description": true,
-        "description_words": 8,
-        "badge_text": "COMING SOON",
-        "card_link_label": "DISCOVER",
-        "show_overlay": true,
-        "overlay_opacity": 20,
-        "side_gutter": 40,
-        "max_width": 2000,
-        "background_color": "#f1f0eb",
-        "text_color": "#111111",
-        "muted_text_color": "#6e6e68",
-        "card_background": "#e3e1da",
-        "overlay_color": "#111111",
-        "padding_top": 100,
-        "padding_bottom": 100
-      }
-    },
     "hero_z6m4Xe": {
       "type": "hero",
       "name": "t:names.hero",
@@ -356,33 +318,6 @@
         "card_background": "#e8e6e0",
         "padding_top": 96,
         "padding_bottom": 96
-      }
-    },
-    "nwy_split_cta_7EwQqM": {
-      "type": "nwy-split-cta",
-      "name": "NWY — Double CTA",
-      "settings": {
-        "left_image": "shopify://shop_images/drop-01-industrial-objects-full-set-7964669.png",
-        "left_eyebrow": "DROP 01",
-        "left_title": "AVAILABLE NOW.",
-        "left_text": "<p>Industrial Objects are available now.</p>",
-        "left_button_label": "SHOP NOW",
-        "left_link": "",
-        "right_image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_06_50_56.png",
-        "right_eyebrow": "DROP 02",
-        "right_title": "COMING SOON.",
-        "right_text": "<p>Glass Objects are coming soon.</p>",
-        "right_button_label": "JOIN THE WAITLIST",
-        "right_link": "",
-        "block_height": 620,
-        "side_gutter": 0,
-        "max_width": 2400,
-        "background_color": "#f6f5f1",
-        "text_color": "#ffffff",
-        "muted_text_color": "#d8d7d1",
-        "line_color": "#f6f5f1",
-        "padding_top": 0,
-        "padding_bottom": 0
       }
     },
     "main": {
@@ -554,10 +489,8 @@
     "nwy_drop_JDJXgW",
     "nwy_drop_9U8mm7",
     "hero_mh839J",
-    "nwy_coming_soon_BdDzF8",
     "hero_z6m4Xe",
     "nwy_process_YCMkKG",
-    "nwy_split_cta_7EwQqM",
     "main",
     "nwy_journal_azmXgM"
   ]
