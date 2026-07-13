@@ -452,6 +452,66 @@
         "padding_top": 100,
         "padding_bottom": 100
       }
+    },
+    "nwy_process_YCMkKG": {
+      "type": "nwy-process",
+      "blocks": {
+        "step_Bcpz6j": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_13_31_27.png",
+            "number": "01",
+            "title": "HAND-POURED",
+            "text": "<p>Each candle is hand-poured in small batches in our Parisian studio.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "step_MV6Wzx": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/3_a6e6479e-9179-431b-9ce6-113213d3345a.png",
+            "number": "02",
+            "title": "SELECTED MATERIALS",
+            "text": "<p>We source distinctive objects, vegan soy wax and premium fragrances.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "step_Up3w9C": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_13_37_48.png",
+            "number": "03",
+            "title": "CRAFTED WITH CARE",
+            "text": "<p>Every detail is finished with care to ensure quality, safety and longevity.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "step_Bcpz6j",
+        "step_MV6Wzx",
+        "step_Up3w9C"
+      ],
+      "name": "NWY — Process",
+      "settings": {
+        "eyebrow": "BEHIND EVERY OBJECT",
+        "title": "DISCOVER THE PROCESS.",
+        "button_label": "VIEW JOURNAL",
+        "button_link": "shopify://blogs/blog",
+        "image_ratio": "4 / 3",
+        "side_gutter": 40,
+        "max_width": 2000,
+        "background_color": "#F6F5F1",
+        "text_color": "#111111",
+        "muted_text_color": "#6E6E68",
+        "line_color": "#D8D7D1",
+        "card_background": "#E8E6E0",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
     }
   },
   "order": [
@@ -460,6 +520,7 @@
     "main",
     "ss_gallery_1_6WqD4b",
     "hero_z6m4Xe",
-    "nwy_coming_soon_BdDzF8"
+    "nwy_coming_soon_BdDzF8",
+    "nwy_process_YCMkKG"
   ]
 }
