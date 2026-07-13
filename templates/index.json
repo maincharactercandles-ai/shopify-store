@@ -37,6 +37,27 @@
         "max_width": 2600
       }
     },
+    "nwy_concept_intro_BLVFmz": {
+      "type": "nwy-concept-intro",
+      "name": "NWY — Concept intro",
+      "settings": {
+        "eyebrow": "THE CONCEPT",
+        "heading": "THIS IS NOT\nA CANDLE.",
+        "text": "<p>Industrial objects transformed into collectible scented candles.</p><p>Hand-poured in Paris using vegan soy wax and fine fragrances from Grasse.</p><p>Designed to be reused long after the wax has burned away.</p>",
+        "button_label": "DISCOVER THE CONCEPT",
+        "button_link": "",
+        "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_10_11_50.png",
+        "image_height": 620,
+        "image_height_mobile": 460,
+        "side_gutter": 40,
+        "max_width": 2000,
+        "background_color": "#F4F2ED",
+        "text_color": "#111111",
+        "muted_text_color": "#6E6E68",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
     "nwy_process_73MqMA": {
       "type": "nwy-process",
       "blocks": {
@@ -1102,6 +1123,7 @@
   },
   "order": [
     "nwy_home_hero_Wainfp",
+    "nwy_concept_intro_BLVFmz",
     "nwy_process_73MqMA",
     "product_list_AMNG6r",
     "product_list_NhCbLa",
