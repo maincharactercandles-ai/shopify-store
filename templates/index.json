@@ -67,7 +67,7 @@
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
-        "link": "shopify://collections/bougies-design-paris-drop-01",
+        "link": "shopify://collections/drop-01-industrial-objects",
         "open_in_new_tab": true,
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -334,7 +334,7 @@
       },
       "name": "t:names.products_carousel",
       "settings": {
-        "collection": "bougies-design-paris-drop-01",
+        "collection": "drop-01-industrial-objects",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 4,
