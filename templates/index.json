@@ -394,7 +394,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h2>DROP 01 - GLASS OBJECTS</h2>",
+                "text": "<h2>DROP 2 - GLASS OBJECTS</h2>",
                 "width": "fit-content",
                 "max_width": "none",
                 "alignment": "left",
@@ -422,7 +422,7 @@
               "settings": {
                 "label": "View all",
                 "open_in_new_tab": false,
-                "style_class": "link",
+                "style_class": "button",
                 "width": "fit-content",
                 "custom_width": 100,
                 "width_mobile": "fit-content",
