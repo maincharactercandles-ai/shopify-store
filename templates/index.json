@@ -233,6 +233,112 @@
         "padding-block-end": 0
       }
     },
+    "ss_feature_1_features_fqqzdc": {
+      "type": "ss-feature-1--features",
+      "blocks": {
+        "image_99YyMa": {
+          "type": "image",
+          "settings": {
+            "feature_title": "HANDMADE IN PARIS.",
+            "feature_text": "<p>Each candle, each design object is handcrafted in our Parisian workshop.</p>",
+            "icon_type": "default",
+            "icon": "heart",
+            "feature_url": ""
+          }
+        },
+        "image_CDaaGE": {
+          "type": "image",
+          "settings": {
+            "feature_title": "READY TO GIFT.",
+            "feature_text": "<p>Carefully packaged to surprise and delight.</p>",
+            "icon_type": "default",
+            "icon": "gift",
+            "feature_url": ""
+          }
+        },
+        "image_pABJgH": {
+          "type": "image",
+          "settings": {
+            "feature_title": "CAREFUL DELIVERY.",
+            "feature_text": "<p>Fast shipping and protective packaging across Europe.</p>",
+            "icon_type": "default",
+            "icon": "envelope",
+            "feature_url": ""
+          }
+        },
+        "image_tfhaeX": {
+          "type": "image",
+          "settings": {
+            "feature_title": "ECO-FRIENDLY.",
+            "feature_text": "<p>Made with vegan wax and recyclable materials.</p>",
+            "icon_type": "default",
+            "icon": "earth",
+            "feature_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_99YyMa",
+        "image_CDaaGE",
+        "image_pABJgH",
+        "image_tfhaeX"
+      ],
+      "name": "Features",
+      "settings": {
+        "feature_title_custom": false,
+        "feature_title_font": "josefin_sans_n4",
+        "feature_title_size": 13,
+        "feature_title_size_mobile": 12,
+        "feature_title_advanced": false,
+        "feature_title_height": 130,
+        "feature_title_mt": 8,
+        "feature_title_mt_mobile": 8,
+        "feature_text_custom": false,
+        "feature_text_font": "josefin_sans_n4",
+        "feature_text_size": 13,
+        "feature_text_size_mobile": 11,
+        "feature_text_advanced": false,
+        "feature_text_height": 150,
+        "feature_text_mt": 4,
+        "feature_text_mt_mobile": 4,
+        "feature_icon_size": 32,
+        "feature_icon_size_mobile": 20,
+        "feature_row": 4,
+        "feature_row_mobile": 2,
+        "feature_gap": 100,
+        "feature_gap_mobile": 22,
+        "feature_background": true,
+        "feature_bg": "#f1f0f0",
+        "feature_padding_horizontal": 0,
+        "feature_padding_horizontal_mobile": 16,
+        "feature_padding_vertical": 18,
+        "feature_padding_vertical_mobile": 24,
+        "feature_radius": 0,
+        "feature_border_thickness": 0,
+        "feature_border_color": "#dfdfdf",
+        "feature_shadow": false,
+        "feature_shadow_color": "#000000",
+        "feature_title_color": "#000000",
+        "feature_text_color": "#000000",
+        "feature_icon_color": "#000000",
+        "background_style": "solid",
+        "background_color": "#f1f0f0",
+        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
+        "border_color": "#f1f0f0",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 12,
+        "padding_bottom": 20,
+        "padding_horizontal": 7,
+        "padding_horizontal_mobile": 1.5,
+        "width": "full",
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0
+      }
+    },
     "section_mCfFRQ": {
       "type": "section",
       "blocks": {
@@ -552,15 +658,15 @@
         "articles_to_show": 3,
         "columns_desktop": 3,
         "button_label": "VIEW ALL STORIES",
-        "button_link": "",
+        "button_link": "shopify://blogs/blog",
         "image_ratio": "1 / 1",
         "show_category": false,
         "show_date": true,
         "date_format": "%B %Y",
-        "show_excerpt": true,
+        "show_excerpt": false,
         "excerpt_words": 16,
         "card_link_label": "READ STORY",
-        "side_gutter": 40,
+        "side_gutter": 52,
         "max_width": 2000,
         "background_color": "#F6F5F1",
         "text_color": "#111111",
@@ -579,6 +685,7 @@
     "nwy_split_cta_iWLffL",
     "ss_gallery_1_V8TExq",
     "custom_liquid_8gYDjh",
+    "ss_feature_1_features_fqqzdc",
     "section_mCfFRQ",
     "nwy_journal_KDWWTF"
   ]
