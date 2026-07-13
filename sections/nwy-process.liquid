@@ -1,0 +1,534 @@
+{% liquid
+  assign has_blocks = false
+  if section.blocks.size > 0
+    assign has_blocks = true
+  endif
+%}
+
+<section
+  id="NWY-Process-{{ section.id }}"
+  class="nwy-process"
+  style="
+    --nwy-process-bg: {{ section.settings.background_color }};
+    --nwy-process-text: {{ section.settings.text_color }};
+    --nwy-process-muted: {{ section.settings.muted_text_color }};
+    --nwy-process-line: {{ section.settings.line_color }};
+    --nwy-process-card-bg: {{ section.settings.card_background }};
+    --nwy-process-gutter: {{ section.settings.side_gutter }}px;
+    --nwy-process-max-width: {{ section.settings.max_width }}px;
+    --nwy-process-pt: {{ section.settings.padding_top }}px;
+    --nwy-process-pb: {{ section.settings.padding_bottom }}px;
+    --nwy-process-ratio: {{ section.settings.image_ratio }};
+  "
+>
+  <div class="nwy-process__inner">
+    <div class="nwy-process__header">
+      <div>
+        {% if section.settings.eyebrow != blank %}
+          <p class="nwy-process__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {% endif %}
+
+        {% if section.settings.title != blank %}
+          <h2 class="nwy-process__title">{{ section.settings.title | escape }}</h2>
+        {% endif %}
+      </div>
+
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a class="nwy-process__header-link" href="{{ section.settings.button_link }}">
+          <span>{{ section.settings.button_label | escape }}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      {% endif %}
+    </div>
+
+    {% if has_blocks %}
+      <div class="nwy-process__grid" role="list">
+        {% for block in section.blocks %}
+          <article class="nwy-process-card" role="listitem" {{ block.shopify_attributes }}>
+            <div class="nwy-process-card__media">
+              {% if block.settings.image != blank %}
+                {{
+                  block.settings.image
+                  | image_url: width: 1600
+                  | image_tag:
+                    class: 'nwy-process-card__image',
+                    widths: '360, 540, 720, 900, 1200, 1600',
+                    sizes: '(min-width: 990px) 31vw, (min-width: 750px) 48vw, 86vw',
+                    loading: 'lazy',
+                    alt: block.settings.image.alt | default: block.settings.title
+                }}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'nwy-process-card__placeholder' }}
+              {% endif %}
+
+              {% if block.settings.number != blank %}
+                <span class="nwy-process-card__number">{{ block.settings.number | escape }}</span>
+              {% endif %}
+            </div>
+
+            <div class="nwy-process-card__content">
+              {% if block.settings.title != blank %}
+                <h3 class="nwy-process-card__title">{{ block.settings.title | escape }}</h3>
+              {% endif %}
+
+              {% if block.settings.text != blank %}
+                <div class="nwy-process-card__text rte">
+                  {{ block.settings.text }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.link_label != blank and block.settings.link != blank %}
+                <a class="nwy-process-card__link" href="{{ block.settings.link }}">
+                  <span>{{ block.settings.link_label | escape }}</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="nwy-process__empty">
+        <p>Ajoute des étapes dans cette section.</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% style %}
+  #NWY-Process-{{ section.id }} {
+    background: var(--nwy-process-bg);
+    color: var(--nwy-process-text);
+    padding-block: var(--nwy-process-pt) var(--nwy-process-pb);
+  }
+
+  #NWY-Process-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process__inner {
+    width: min(
+      calc(100% - (var(--nwy-process-gutter) * 2)),
+      var(--nwy-process-max-width)
+    );
+    margin-inline: auto;
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: clamp(30px, 4vw, 58px);
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process__eyebrow {
+    margin: 0 0 14px;
+    color: var(--nwy-process-muted);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process__title {
+    max-width: 12ch;
+    margin: 0;
+    color: var(--nwy-process-text);
+    font-size: clamp(38px, 5vw, 84px);
+    font-weight: 700;
+    line-height: 0.92;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process__header-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid currentColor;
+    color: var(--nwy-process-text);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.09em;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(20px, 2.4vw, 42px);
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process-card {
+    min-width: 0;
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process-card__media {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: var(--nwy-process-ratio);
+    background: var(--nwy-process-card-bg);
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process-card__image,
+  #NWY-Process-{{ section.id }} .nwy-process-card__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process-card__image {
+    object-fit: cover;
+    transform: scale(1.001);
+    transition: transform 800ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process-card:hover .nwy-process-card__image {
+    transform: scale(1.035);
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process-card__number {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    height: 34px;
+    padding-inline: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: rgba(17, 17, 17, 0.24);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    backdrop-filter: blur(6px);
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process-card__content {
+    padding-top: 16px;
+    border-top: 1px solid transparent;
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process-card__title {
+    margin: 0;
+    color: var(--nwy-process-text);
+    font-size: clamp(18px, 1.7vw, 26px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process-card__text {
+    max-width: 38ch;
+    margin-top: 10px;
+    color: var(--nwy-process-muted);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process-card__text > *:first-child {
+    margin-top: 0;
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process-card__text > *:last-child {
+    margin-bottom: 0;
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid currentColor;
+    color: var(--nwy-process-text);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  #NWY-Process-{{ section.id }} .nwy-process__empty {
+    padding: 50px 0;
+    border-top: 1px solid var(--nwy-process-line);
+    color: var(--nwy-process-muted);
+    font-size: 13px;
+  }
+
+  @media screen and (max-width: 989px) {
+    #NWY-Process-{{ section.id }} .nwy-process__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #NWY-Process-{{ section.id }} {
+      padding-block:
+        calc(var(--nwy-process-pt) * 0.72)
+        calc(var(--nwy-process-pb) * 0.72);
+    }
+
+    #NWY-Process-{{ section.id }} .nwy-process__inner {
+      width: calc(100% - 32px);
+    }
+
+    #NWY-Process-{{ section.id }} .nwy-process__header {
+      display: block;
+      margin-bottom: 34px;
+    }
+
+    #NWY-Process-{{ section.id }} .nwy-process__title {
+      font-size: clamp(42px, 13vw, 66px);
+    }
+
+    #NWY-Process-{{ section.id }} .nwy-process__header-link {
+      margin-top: 22px;
+    }
+
+    #NWY-Process-{{ section.id }} .nwy-process__grid {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 84%;
+      grid-template-columns: none;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      padding-bottom: 6px;
+    }
+
+    #NWY-Process-{{ section.id }} .nwy-process__grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    #NWY-Process-{{ section.id }} .nwy-process-card {
+      scroll-snap-align: start;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #NWY-Process-{{ section.id }} *,
+    #NWY-Process-{{ section.id }} *::before,
+    #NWY-Process-{{ section.id }} *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "NWY — Process",
+  "tag": "section",
+  "class": "section-nwy-process",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "header",
+      "content": "En-tête"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Surtitre",
+      "default": "BEHIND EVERY OBJECT"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "DISCOVER THE PROCESS."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du lien",
+      "default": "VIEW JOURNAL"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien"
+    },
+    {
+      "type": "header",
+      "content": "Mise en page"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Format des images",
+      "default": "4 / 3",
+      "options": [
+        { "value": "1 / 1", "label": "Carré" },
+        { "value": "4 / 3", "label": "Paysage" },
+        { "value": "3 / 2", "label": "Paysage large" },
+        { "value": "4 / 5", "label": "Portrait" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "side_gutter",
+      "min": 16,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Marges latérales",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1200,
+      "max": 2400,
+      "step": 100,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 2000
+    },
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fond",
+      "default": "#F6F5F1"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Texte principal",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "muted_text_color",
+      "label": "Texte secondaire",
+      "default": "#6E6E68"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Traits",
+      "default": "#D8D7D1"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Fond des images",
+      "default": "#E8E6E0"
+    },
+    {
+      "type": "header",
+      "content": "Espacement"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge haute",
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge basse",
+      "default": 96
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Étape",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Numéro",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "HAND-POURED"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Texte",
+          "default": "<p>Each candle is hand-poured in small batches in our Parisian studio.</p>"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Texte du lien"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Lien"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NWY — Process",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "HAND-POURED",
+            "text": "<p>Each candle is hand-poured in small batches in our Parisian studio.</p>"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "number": "02",
+            "title": "SELECTED MATERIALS",
+            "text": "<p>We source distinctive objects, vegan soy wax and premium fragrances.</p>"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "number": "03",
+            "title": "CRAFTED WITH CARE",
+            "text": "<p>Every detail is finished with care to ensure quality, safety and longevity.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
