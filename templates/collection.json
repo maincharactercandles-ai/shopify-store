@@ -504,13 +504,40 @@
         "image_ratio": "4 / 3",
         "side_gutter": 40,
         "max_width": 2000,
-        "background_color": "#F6F5F1",
+        "background_color": "#f6f5f1",
         "text_color": "#111111",
-        "muted_text_color": "#6E6E68",
-        "line_color": "#D8D7D1",
-        "card_background": "#E8E6E0",
+        "muted_text_color": "#6e6e68",
+        "line_color": "#d8d7d1",
+        "card_background": "#e8e6e0",
         "padding_top": 96,
         "padding_bottom": 96
+      }
+    },
+    "nwy_split_cta_7EwQqM": {
+      "type": "nwy-split-cta",
+      "name": "NWY — Double CTA",
+      "settings": {
+        "left_image": "shopify://shop_images/drop-01-industrial-objects-full-set-7964669.png",
+        "left_eyebrow": "DROP 01",
+        "left_title": "AVAILABLE NOW.",
+        "left_text": "<p>Industrial Objects are available now.</p>",
+        "left_button_label": "SHOP NOW",
+        "left_link": "",
+        "right_image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_06_50_56.png",
+        "right_eyebrow": "DROP 02",
+        "right_title": "COMING SOON.",
+        "right_text": "<p>Glass Objects are coming soon.</p>",
+        "right_button_label": "JOIN THE WAITLIST",
+        "right_link": "",
+        "block_height": 620,
+        "side_gutter": 0,
+        "max_width": 2400,
+        "background_color": "#F6F5F1",
+        "text_color": "#FFFFFF",
+        "muted_text_color": "#D8D7D1",
+        "line_color": "#F6F5F1",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },
@@ -521,6 +548,7 @@
     "ss_gallery_1_6WqD4b",
     "hero_z6m4Xe",
     "nwy_coming_soon_BdDzF8",
-    "nwy_process_YCMkKG"
+    "nwy_process_YCMkKG",
+    "nwy_split_cta_7EwQqM"
   ]
 }
