@@ -1,0 +1,415 @@
+{% liquid
+  assign collection_link = section.settings.collection_link
+
+  if collection_link == blank and section.settings.collection != blank
+    assign collection_link = section.settings.collection.url
+  endif
+%}
+
+<section
+  id="NWY-ProductCollectionCTA-{{ section.id }}"
+  class="nwy-product-collection-cta"
+  style="
+    --nwy-cta-height-desktop: {{ section.settings.height_desktop }}px;
+    --nwy-cta-height-mobile: {{ section.settings.height_mobile }}px;
+    --nwy-cta-overlay: {{ section.settings.overlay_color }};
+    --nwy-cta-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --nwy-cta-text: {{ section.settings.text_color }};
+    --nwy-cta-gutter: {{ section.settings.side_gutter }}px;
+    --nwy-cta-max-width: {{ section.settings.max_width }}px;
+    --nwy-cta-pt: {{ section.settings.padding_top }}px;
+    --nwy-cta-pb: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="nwy-product-collection-cta__inner">
+    <div class="nwy-product-collection-cta__media">
+      {% if section.settings.image != blank %}
+        {{
+          section.settings.image
+          | image_url: width: 2400
+          | image_tag:
+            class: 'nwy-product-collection-cta__image',
+            widths: '750, 1000, 1250, 1500, 1800, 2100, 2400',
+            sizes: '100vw',
+            loading: 'lazy',
+            alt: section.settings.image.alt | default: section.settings.title
+        }}
+      {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'nwy-product-collection-cta__placeholder' }}
+      {% endif %}
+
+      <span class="nwy-product-collection-cta__overlay" aria-hidden="true"></span>
+
+      <div class="nwy-product-collection-cta__content nwy-product-collection-cta__content--{{ section.settings.content_position }}">
+        <div class="nwy-product-collection-cta__content-inner">
+          {% if section.settings.eyebrow != blank %}
+            <p class="nwy-product-collection-cta__eyebrow">
+              {{ section.settings.eyebrow | escape }}
+            </p>
+          {% endif %}
+
+          {% if section.settings.title != blank %}
+            <h2 class="nwy-product-collection-cta__title">
+              {{ section.settings.title | escape }}
+            </h2>
+          {% endif %}
+
+          {% if section.settings.text != blank %}
+            <div class="nwy-product-collection-cta__text rte">
+              {{ section.settings.text }}
+            </div>
+          {% endif %}
+
+          {% if section.settings.button_label != blank and collection_link != blank %}
+            <a class="nwy-product-collection-cta__button" href="{{ collection_link }}">
+              <span>{{ section.settings.button_label | escape }}</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% style %}
+  #NWY-ProductCollectionCTA-{{ section.id }} {
+    padding-block: var(--nwy-cta-pt) var(--nwy-cta-pb);
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__inner {
+    width: min(
+      calc(100% - (var(--nwy-cta-gutter) * 2)),
+      var(--nwy-cta-max-width)
+    );
+    margin-inline: auto;
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__media {
+    position: relative;
+    overflow: hidden;
+    min-height: var(--nwy-cta-height-desktop);
+    background: #d8d7d1;
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__image,
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__placeholder {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__image {
+    object-fit: cover;
+    transform: scale(1.001);
+    transition: transform 1000ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__media:hover .nwy-product-collection-cta__image {
+    transform: scale(1.03);
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: var(--nwy-cta-overlay);
+    opacity: var(--nwy-cta-overlay-opacity);
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    min-height: var(--nwy-cta-height-desktop);
+    padding: clamp(28px, 5vw, 80px);
+    color: var(--nwy-cta-text);
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__content--bottom-left {
+    align-items: flex-end;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__content--center {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__content--bottom-center {
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__content-inner {
+    width: min(100%, 720px);
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__eyebrow {
+    margin: 0 0 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__title {
+    max-width: 10ch;
+    margin: 0;
+    color: inherit;
+    font-size: clamp(48px, 7vw, 118px);
+    font-weight: 700;
+    line-height: 0.88;
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__content--center .nwy-product-collection-cta__title,
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__content--bottom-center .nwy-product-collection-cta__title {
+    margin-inline: auto;
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__text {
+    max-width: 38ch;
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__content--center .nwy-product-collection-cta__text,
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__content--bottom-center .nwy-product-collection-cta__text {
+    margin-inline: auto;
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__text > *:first-child {
+    margin-top: 0;
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__text > *:last-child {
+    margin-bottom: 0;
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 26px;
+    margin-top: 28px;
+    padding: 14px 16px;
+    border: 1px solid currentColor;
+    color: inherit;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.09em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__button:hover {
+    background: var(--nwy-cta-text);
+    color: #111111;
+    transform: translateY(-2px);
+  }
+
+  @media screen and (max-width: 749px) {
+    #NWY-ProductCollectionCTA-{{ section.id }} {
+      padding-block:
+        calc(var(--nwy-cta-pt) * 0.72)
+        calc(var(--nwy-cta-pb) * 0.72);
+    }
+
+    #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__inner {
+      width: calc(100% - 32px);
+    }
+
+    #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__media,
+    #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__content {
+      min-height: var(--nwy-cta-height-mobile);
+    }
+
+    #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__content {
+      padding: 24px 18px;
+    }
+
+    #NWY-ProductCollectionCTA-{{ section.id }} .nwy-product-collection-cta__title {
+      font-size: clamp(48px, 15vw, 74px);
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "NWY — Collection CTA",
+  "tag": "section",
+  "class": "section-nwy-product-collection-cta",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenu"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Surtitre",
+      "default": "DROP 02"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "GLASS OBJECTS."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texte",
+      "default": "<p>Discover the complete collection of coloured glass objects.</p>"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "url",
+      "id": "collection_link",
+      "label": "Lien personnalisé"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton",
+      "default": "DISCOVER THE DROP"
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "Position du contenu",
+      "default": "bottom-left",
+      "options": [
+        { "value": "bottom-left", "label": "En bas à gauche" },
+        { "value": "center", "label": "Au centre" },
+        { "value": "bottom-center", "label": "En bas au centre" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Mise en page"
+    },
+    {
+      "type": "range",
+      "id": "height_desktop",
+      "min": 420,
+      "max": 1000,
+      "step": 20,
+      "unit": "px",
+      "label": "Hauteur sur ordinateur",
+      "default": 680
+    },
+    {
+      "type": "range",
+      "id": "height_mobile",
+      "min": 420,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "label": "Hauteur sur mobile",
+      "default": 560
+    },
+    {
+      "type": "range",
+      "id": "side_gutter",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Marges latérales",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1200,
+      "max": 2400,
+      "step": 100,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 2400
+    },
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Couleur du voile",
+      "default": "#111111"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacité du voile",
+      "default": 25
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Espacement"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge haute",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge basse",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "NWY — Collection CTA"
+    }
+  ]
+}
+{% endschema %}
