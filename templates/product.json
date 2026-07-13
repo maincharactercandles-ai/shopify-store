@@ -581,11 +581,11 @@
       "type": "nwy-product-collection-cta",
       "name": "NWY — Collection CTA",
       "settings": {
-        "image": "{{ section.settings.collection.image }}",
+        "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_12_42_12_dd5fccb1-6375-400a-bdcb-6237c303df47.png",
         "eyebrow": "DROP 02",
         "title": "GLASS OBJECTS.",
         "text": "<p>Discover the complete collection of coloured glass objects.</p>",
-        "collection": "",
+        "collection": "drop-02",
         "collection_link": "",
         "button_label": "DISCOVER THE DROP",
         "content_position": "bottom-left",
