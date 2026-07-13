@@ -1,0 +1,471 @@
+{% liquid
+  assign note_top = product.metafields.custom.top_notes.value
+  assign note_heart = product.metafields.custom.heart_notes.value
+  assign note_base = product.metafields.custom.base_notes.value
+%}
+
+<section
+  id="NWY-ProductDetails-{{ section.id }}"
+  class="nwy-product-details"
+  style="
+    --nwy-details-bg: {{ section.settings.background_color }};
+    --nwy-details-text: {{ section.settings.text_color }};
+    --nwy-details-muted: {{ section.settings.muted_text_color }};
+    --nwy-details-line: {{ section.settings.line_color }};
+    --nwy-details-gutter: {{ section.settings.side_gutter }}px;
+    --nwy-details-max-width: {{ section.settings.max_width }}px;
+    --nwy-details-pt: {{ section.settings.padding_top }}px;
+    --nwy-details-pb: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="nwy-product-details__inner">
+    <div class="nwy-product-details__intro">
+      <div>
+        {% if section.settings.eyebrow != blank %}
+          <p class="nwy-product-details__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {% endif %}
+
+        {% if section.settings.title != blank %}
+          <h2 class="nwy-product-details__title">{{ section.settings.title | escape }}</h2>
+        {% endif %}
+      </div>
+
+      {% if section.settings.description != blank %}
+        <div class="nwy-product-details__description rte">
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="nwy-product-details__grid">
+      <div class="nwy-product-details__panel">
+        <p class="nwy-product-details__panel-label">
+          {{ section.settings.fragrance_heading | escape }}
+        </p>
+
+        <div class="nwy-product-details__notes">
+          <div class="nwy-product-details__note">
+            <span>{{ section.settings.top_label | escape }}</span>
+            <p>
+              {% if section.settings.top_notes != blank %}
+                {{ section.settings.top_notes | escape }}
+              {% elsif note_top != blank %}
+                {{ note_top }}
+              {% else %}
+                Add top notes
+              {% endif %}
+            </p>
+          </div>
+
+          <div class="nwy-product-details__note">
+            <span>{{ section.settings.heart_label | escape }}</span>
+            <p>
+              {% if section.settings.heart_notes != blank %}
+                {{ section.settings.heart_notes | escape }}
+              {% elsif note_heart != blank %}
+                {{ note_heart }}
+              {% else %}
+                Add heart notes
+              {% endif %}
+            </p>
+          </div>
+
+          <div class="nwy-product-details__note">
+            <span>{{ section.settings.base_label | escape }}</span>
+            <p>
+              {% if section.settings.base_notes != blank %}
+                {{ section.settings.base_notes | escape }}
+              {% elsif note_base != blank %}
+                {{ note_base }}
+              {% else %}
+                Add base notes
+              {% endif %}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="nwy-product-details__panel">
+        <p class="nwy-product-details__panel-label">
+          {{ section.settings.specs_heading | escape }}
+        </p>
+
+        <div class="nwy-product-details__specs">
+          {% for block in section.blocks %}
+            <div class="nwy-product-details__spec" {{ block.shopify_attributes }}>
+              <span>{{ block.settings.label | escape }}</span>
+              <p>{{ block.settings.value | escape | newline_to_br }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% style %}
+  #NWY-ProductDetails-{{ section.id }} {
+    background: var(--nwy-details-bg);
+    color: var(--nwy-details-text);
+    padding-block: var(--nwy-details-pt) var(--nwy-details-pb);
+  }
+
+  #NWY-ProductDetails-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__inner {
+    width: min(calc(100% - (var(--nwy-details-gutter) * 2)), var(--nwy-details-max-width));
+    margin-inline: auto;
+  }
+
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__intro {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(36px, 7vw, 120px);
+    align-items: end;
+    margin-bottom: clamp(44px, 6vw, 84px);
+  }
+
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__eyebrow {
+    margin: 0 0 14px;
+    color: var(--nwy-details-muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__title {
+    max-width: 10ch;
+    margin: 0;
+    font-size: clamp(42px, 5.5vw, 90px);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.065em;
+    text-transform: uppercase;
+  }
+
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__description {
+    max-width: 46ch;
+    color: var(--nwy-details-muted);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__description > *:first-child {
+    margin-top: 0;
+  }
+
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__description > *:last-child {
+    margin-bottom: 0;
+  }
+
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--nwy-details-line);
+    border-bottom: 1px solid var(--nwy-details-line);
+  }
+
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__panel {
+    padding: clamp(26px, 4vw, 54px) 0;
+  }
+
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__panel + .nwy-product-details__panel {
+    padding-left: clamp(26px, 4vw, 54px);
+    border-left: 1px solid var(--nwy-details-line);
+  }
+
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__panel:first-child {
+    padding-right: clamp(26px, 4vw, 54px);
+  }
+
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__panel-label {
+    margin: 0 0 28px;
+    color: var(--nwy-details-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__note,
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__spec {
+    display: grid;
+    grid-template-columns: minmax(90px, 0.35fr) minmax(0, 1fr);
+    gap: 24px;
+    padding-block: 18px;
+    border-top: 1px solid var(--nwy-details-line);
+  }
+
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__note:first-child,
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__spec:first-child {
+    border-top: 0;
+  }
+
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__note span,
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__spec span {
+    color: var(--nwy-details-muted);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__note p,
+  #NWY-ProductDetails-{{ section.id }} .nwy-product-details__spec p {
+    margin: 0;
+    font-size: clamp(14px, 1.3vw, 18px);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+  }
+
+  @media screen and (max-width: 749px) {
+    #NWY-ProductDetails-{{ section.id }} {
+      padding-block: calc(var(--nwy-details-pt) * 0.72) calc(var(--nwy-details-pb) * 0.72);
+    }
+
+    #NWY-ProductDetails-{{ section.id }} .nwy-product-details__inner {
+      width: calc(100% - 32px);
+    }
+
+    #NWY-ProductDetails-{{ section.id }} .nwy-product-details__intro,
+    #NWY-ProductDetails-{{ section.id }} .nwy-product-details__grid {
+      grid-template-columns: 1fr;
+    }
+
+    #NWY-ProductDetails-{{ section.id }} .nwy-product-details__intro {
+      gap: 28px;
+    }
+
+    #NWY-ProductDetails-{{ section.id }} .nwy-product-details__title {
+      font-size: clamp(44px, 14vw, 70px);
+    }
+
+    #NWY-ProductDetails-{{ section.id }} .nwy-product-details__panel,
+    #NWY-ProductDetails-{{ section.id }} .nwy-product-details__panel:first-child,
+    #NWY-ProductDetails-{{ section.id }} .nwy-product-details__panel + .nwy-product-details__panel {
+      padding: 30px 0;
+      border-left: 0;
+    }
+
+    #NWY-ProductDetails-{{ section.id }} .nwy-product-details__panel + .nwy-product-details__panel {
+      border-top: 1px solid var(--nwy-details-line);
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "NWY — Product details",
+  "tag": "section",
+  "class": "section-nwy-product-details",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "header",
+      "content": "En-tête"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Surtitre",
+      "default": "DETAILS"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "SCENT & SPECIFICATIONS."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>A closer look at the fragrance composition and the object itself.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Parfum"
+    },
+    {
+      "type": "text",
+      "id": "fragrance_heading",
+      "label": "Titre du bloc",
+      "default": "THE FRAGRANCE"
+    },
+    {
+      "type": "text",
+      "id": "top_label",
+      "label": "Libellé notes de tête",
+      "default": "TOP"
+    },
+    {
+      "type": "textarea",
+      "id": "top_notes",
+      "label": "Notes de tête",
+      "info": "Laisse vide pour utiliser le métachamp custom.top_notes."
+    },
+    {
+      "type": "text",
+      "id": "heart_label",
+      "label": "Libellé notes de cœur",
+      "default": "HEART"
+    },
+    {
+      "type": "textarea",
+      "id": "heart_notes",
+      "label": "Notes de cœur",
+      "info": "Laisse vide pour utiliser le métachamp custom.heart_notes."
+    },
+    {
+      "type": "text",
+      "id": "base_label",
+      "label": "Libellé notes de fond",
+      "default": "BASE"
+    },
+    {
+      "type": "textarea",
+      "id": "base_notes",
+      "label": "Notes de fond",
+      "info": "Laisse vide pour utiliser le métachamp custom.base_notes."
+    },
+    {
+      "type": "header",
+      "content": "Caractéristiques"
+    },
+    {
+      "type": "text",
+      "id": "specs_heading",
+      "label": "Titre du bloc",
+      "default": "THE OBJECT"
+    },
+    {
+      "type": "header",
+      "content": "Largeur et couleurs"
+    },
+    {
+      "type": "range",
+      "id": "side_gutter",
+      "min": 16,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Marges latérales",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1200,
+      "max": 2400,
+      "step": 100,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 2000
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fond",
+      "default": "#F6F5F1"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Texte principal",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "muted_text_color",
+      "label": "Texte secondaire",
+      "default": "#6E6E68"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Traits",
+      "default": "#D8D7D1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge haute",
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge basse",
+      "default": 96
+    }
+  ],
+  "blocks": [
+    {
+      "type": "spec",
+      "name": "Caractéristique",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Libellé",
+          "default": "MATERIAL"
+        },
+        {
+          "type": "textarea",
+          "id": "value",
+          "label": "Valeur",
+          "default": "Double-wall coloured glass"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NWY — Product details",
+      "blocks": [
+        {
+          "type": "spec",
+          "settings": {
+            "label": "MATERIAL",
+            "value": "Double-wall coloured glass"
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "WAX",
+            "value": "Vegan soy wax"
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "BURN TIME",
+            "value": "Approx. 45 hours"
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "MADE IN",
+            "value": "Paris, France"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
