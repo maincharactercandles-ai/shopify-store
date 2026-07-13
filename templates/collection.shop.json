@@ -1,0 +1,493 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_TqWa3H": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_tQEjzz": {
+          "type": "_slide",
+          "settings": {
+            "media_type_1": "image",
+            "image_1": "shopify://shop_images/canette_m_tallique_fond_neutre.png",
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-6",
+            "toggle_overlay": true,
+            "overlay_color": "#0000004d",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "padding-block-start": 36,
+            "padding-block-end": 18,
+            "padding-inline-start": 48,
+            "padding-inline-end": 48
+          },
+          "blocks": {
+            "text_WqeXRf": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h1>THIS IS NOT A CANDLE.</h1><p></p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_7Ly87G": {
+              "type": "text",
+              "settings": {
+                "text": "<p>At first glance, it looks like an ordinary can.<br/>Open it.<br/>Inside, you'll discover a hand-poured scented candle.</p><p><strong>Created to surprise.</strong></p><p><strong>Designed to stay.</strong></p><p></p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1.25rem",
+                "line_height": "normal",
+                "letter_spacing": "tight",
+                "case": "none",
+                "wrap": "balance",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 66,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_WqeXRf",
+            "text_7Ly87G"
+          ]
+        }
+      },
+      "block_order": [
+        "slide_tQEjzz"
+      ],
+      "name": "t:names.slideshow_full_frame",
+      "settings": {
+        "display_mode": "full_frame",
+        "section_width": "full-width",
+        "full_frame_on_mobile": false,
+        "slideshow_gap": 12,
+        "corner_radius": 0,
+        "slide_height": "medium",
+        "content_position": "on-media",
+        "color_scheme": "scheme-58084d4c-a86e-4d0a-855e-a0966e5043f7",
+        "icons_style": "arrows_large",
+        "icons_shape": "none",
+        "slideshow_controls_style": "dots",
+        "autoplay": true,
+        "autoplay_speed": 3,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "nwy_drop_JDJXgW": {
+      "type": "nwy-drop",
+      "name": "NWY — Drop éditorial",
+      "settings": {
+        "eyebrow": "DROP 01",
+        "title": "INDUSTRIAL OBJECTS",
+        "heading_tag": "h2",
+        "tagline": "",
+        "description": "{{ collection.description }}",
+        "collection": "bougies-design-paris-drop-01",
+        "products_to_show": 4,
+        "columns_desktop": 2,
+        "button_label": "DISCOVER DROP 01",
+        "button_link": "shopify://collections/bougies-design-paris-drop-01",
+        "button_new_tab": false,
+        "image_ratio": "4 / 5",
+        "show_second_image": true,
+        "show_product_number": true,
+        "object_start_number": 1,
+        "show_price": true,
+        "from_label": "À partir de",
+        "show_badge": true,
+        "sold_out_label": "SOLD OUT",
+        "sale_label": "SALE",
+        "background_color": "#f6f5f1",
+        "text_color": "#111111",
+        "muted_text_color": "#6e6e68",
+        "line_color": "#d8d7d1",
+        "card_background": "#ecebe6",
+        "button_background": "#111111",
+        "button_text_color": "#ffffff",
+        "padding_top": 64,
+        "padding_bottom": 96
+      }
+    },
+    "hero_mh839J": {
+      "type": "hero",
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/object-01-citrus-ambre-scented-candle-5229026.png",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "page-width",
+        "section_height": "custom",
+        "section_height_custom": 77,
+        "color_scheme": "scheme-5",
+        "toggle_overlay": true,
+        "overlay_color": "#00000026",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "nwy_coming_soon_BdDzF8": {
+      "type": "nwy-coming-soon",
+      "name": "NWY — Drop à venir",
+      "settings": {
+        "eyebrow": "DROP 02",
+        "title": "GLASS OBJECTS",
+        "heading_tag": "h2",
+        "tagline": "New chapter.\nSame philosophy.",
+        "description": "<p>Glass, colour and transparency. A new collection of objects designed to diffuse light, elevate spaces and remain long after the candle is gone.</p><p><strong>Coming soon.</strong></p>",
+        "collection": "bougies-design-paris-drop-02",
+        "products_to_show": 3,
+        "columns_desktop": 3,
+        "form_heading": "BE THE FIRST TO KNOW.",
+        "email_label": "Email",
+        "email_placeholder": "Your email address",
+        "button_label": "NOTIFY ME",
+        "customer_tag": "drop-02-waitlist",
+        "success_message": "YOU’RE ON THE LIST.",
+        "image_ratio": "4 / 5",
+        "show_object_number": true,
+        "object_start_number": 4,
+        "show_description": true,
+        "description_words": 8,
+        "badge_text": "COMING SOON",
+        "card_link_label": "DISCOVER",
+        "show_overlay": true,
+        "overlay_opacity": 20,
+        "side_gutter": 40,
+        "max_width": 2000,
+        "background_color": "#f1f0eb",
+        "text_color": "#111111",
+        "muted_text_color": "#6e6e68",
+        "card_background": "#e3e1da",
+        "overlay_color": "#111111",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "hero_z6m4Xe": {
+      "type": "hero",
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/ChatGPT_Image_10_juil._2026_12_42_12_dd5fccb1-6375-400a-bdcb-6237c303df47.png",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "page-width",
+        "section_height": "custom",
+        "section_height_custom": 77,
+        "color_scheme": "scheme-5",
+        "toggle_overlay": true,
+        "overlay_color": "#00000026",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "nwy_process_YCMkKG": {
+      "type": "nwy-process",
+      "blocks": {
+        "step_Bcpz6j": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_13_31_27_44b4b6aa-bf3d-4ecb-88f9-47ea274f7325.png",
+            "number": "01",
+            "title": "HAND-POURED",
+            "text": "<p>Each candle is hand-poured in small batches in our Parisian studio.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "step_MV6Wzx": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_13_48_19_69f22e63-839d-4c61-ae44-e8fbd3d2cddf.png",
+            "number": "02",
+            "title": "SELECTED MATERIALS",
+            "text": "<p>We source distinctive objects, vegan soy wax and premium fragrances.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "step_Up3w9C": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_13_37_48.png",
+            "number": "03",
+            "title": "CRAFTED WITH CARE",
+            "text": "<p>Every detail is finished with care to ensure quality, safety and longevity.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "step_Bcpz6j",
+        "step_MV6Wzx",
+        "step_Up3w9C"
+      ],
+      "name": "NWY — Process",
+      "settings": {
+        "eyebrow": "BEHIND EVERY OBJECT",
+        "title": "DISCOVER THE PROCESS.",
+        "button_label": "VIEW JOURNAL",
+        "button_link": "shopify://blogs/blog",
+        "image_ratio": "4 / 3",
+        "side_gutter": 40,
+        "max_width": 2000,
+        "background_color": "#f6f5f1",
+        "text_color": "#111111",
+        "muted_text_color": "#6e6e68",
+        "line_color": "#d8d7d1",
+        "card_background": "#e8e6e0",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "nwy_split_cta_7EwQqM": {
+      "type": "nwy-split-cta",
+      "name": "NWY — Double CTA",
+      "settings": {
+        "left_image": "shopify://shop_images/drop-01-industrial-objects-full-set-7964669.png",
+        "left_eyebrow": "DROP 01",
+        "left_title": "AVAILABLE NOW.",
+        "left_text": "<p>Industrial Objects are available now.</p>",
+        "left_button_label": "SHOP NOW",
+        "left_link": "",
+        "right_image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_06_50_56.png",
+        "right_eyebrow": "DROP 02",
+        "right_title": "COMING SOON.",
+        "right_text": "<p>Glass Objects are coming soon.</p>",
+        "right_button_label": "JOIN THE WAITLIST",
+        "right_link": "",
+        "block_height": 620,
+        "side_gutter": 0,
+        "max_width": 2400,
+        "background_color": "#F6F5F1",
+        "text_color": "#FFFFFF",
+        "muted_text_color": "#D8D7D1",
+        "line_color": "#F6F5F1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "filters": {
+          "type": "filters",
+          "disabled": true,
+          "static": true,
+          "settings": {
+            "enable_filtering": true,
+            "filter_style": "horizontal",
+            "filter_width": "centered",
+            "text_label_case": "default",
+            "show_swatch_label": false,
+            "show_filter_label": false,
+            "enable_sorting": true,
+            "enable_grid_density": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "padding-block-start": 8,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "facets_margin_bottom": 8,
+            "facets_margin_right": 20
+          },
+          "blocks": {}
+        },
+        "product-card": {
+          "type": "_product-card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-58084d4c-a86e-4d0a-855e-a0966e5043f7",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "card-gallery": {
+              "type": "_product-card-gallery",
+              "settings": {
+                "image_ratio": "square",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_4nY4eT": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "h5",
+                "font": "var(--font-subheading--family)",
+                "font_size": "1.125rem",
+                "line_height": "tight",
+                "letter_spacing": "tight",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 10,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_EzJzMm": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "",
+                "width": "100%",
+                "alignment": "center",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground-heading)",
+                "padding-block-start": 1,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "card-gallery",
+            "product_title_4nY4eT",
+            "price_EzJzMm"
+          ]
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "layout_type": "grid",
+        "product_card_size": "medium",
+        "mobile_product_card_size": "small",
+        "enable_infinite_scroll": true,
+        "products_per_page": 24,
+        "product_grid_width": "centered",
+        "full_width_on_mobile": false,
+        "columns_gap_horizontal": 16,
+        "columns_gap_vertical": 24,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 0,
+        "padding-block-end": 32
+      }
+    }
+  },
+  "order": [
+    "slideshow_TqWa3H",
+    "nwy_drop_JDJXgW",
+    "hero_mh839J",
+    "nwy_coming_soon_BdDzF8",
+    "hero_z6m4Xe",
+    "nwy_process_YCMkKG",
+    "nwy_split_cta_7EwQqM",
+    "main"
+  ]
+}
