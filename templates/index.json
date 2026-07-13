@@ -277,18 +277,6 @@
         "lazy": true
       }
     },
-    "custom_liquid_8gYDjh": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "name": "t:names.custom_liquid",
-      "settings": {
-        "custom_liquid": "<section class=\"nwye-proof\">\n  <div class=\"nwye-proof__title\">SELECTED BY</div>\n\n  <div class=\"nwye-proof__inner\">\n    <a class=\"nwye-proof__block\" href=\"https://www.instagram.com/fang.magazine/\" target=\"_blank\" rel=\"noopener\">\n      <span class=\"nwye-proof__external\">↗</span>\n      <p class=\"nwye-proof__label\">AS FEATURED IN</p>\n      <img\n        class=\"nwye-proof__logo nwye-proof__logo--fang\"\n        src=\"https://cdn.shopify.com/s/files/1/0940/6791/7178/files/FANG_MAGAZINE.png?v=1782772192\"\n        alt=\"FANG Magazine\"\n      >\n    </a>\n\n    <a class=\"nwye-proof__block\" href=\"https://www.reiner-upcycling.com/\" target=\"_blank\" rel=\"noopener\">\n      <span class=\"nwye-proof__external\">↗</span>\n      <p class=\"nwye-proof__label\">AVAILABLE THROUGH</p>\n      <img\n        class=\"nwye-proof__logo nwye-proof__logo--reiner\"\n        src=\"https://cdn.shopify.com/s/files/1/0940/6791/7178/files/reiner_logo.png?v=1782772204\"\n        alt=\"Reiner Paris\"\n      >\n      <p class=\"nwye-proof__sub\">Corners at Galeries Lafayette • Printemps</p>\n    </a>\n  </div>\n</section>\n\n<style>\n  .nwye-proof {\n    width: 100%;\n    padding: 34px 20px 38px;\n    background: #f7f7f4;\n    border-top: 1px solid #e7e7e2;\n    border-bottom: 1px solid #e7e7e2;\n  }\n\n  .nwye-proof__title {\n    text-align: center;\n    font-size: 11px;\n    letter-spacing: .18em;\n    color: #8a8a84;\n    margin-bottom: 16px;\n    font-weight: 500;\n  }\n\n  .nwye-proof__inner {\n    max-width: 960px;\n    margin: 0 auto;\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 16px;\n  }\n\n  .nwye-proof__block {\n    position: relative;\n    min-height: 90px;\n    padding: 24px 18px 22px;\n    background: #fff;\n    border: 1px solid #deded8;\n    text-align: center;\n    text-decoration: none;\n    color: #000;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    transition: opacity .2s ease, transform .2s ease, box-shadow .2s ease;\n  }\n\n  .nwye-proof__block:hover {\n    opacity: .9;\n    transform: translateY(-2px);\n    box-shadow: 0 8px 18px rgba(0,0,0,.04);\n  }\n\n  .nwye-proof__external {\n    position: absolute;\n    top: 12px;\n    right: 14px;\n    font-size: 12px;\n    color: #8a8a84;\n  }\n\n  .nwye-proof__label {\n    font-size: 10px;\n    letter-spacing: .16em;\n    margin: 0 0 14px;\n    color: #8a8a84;\n    text-transform: uppercase;\n  }\n\n  .nwye-proof__logo {\n    display: block;\n    max-width: 190px;\n    max-height: 90px;\n    width: auto;\n    height: auto;\n    object-fit: contain;\n  }\n\n  .nwye-proof__logo--fang {\n    max-width: 165px;\n  }\n\n  .nwye-proof__logo--reiner {\n    max-width: 170px;\n  }\n\n  .nwye-proof__sub {\n    margin: 14px 0 0;\n    font-size: 12px;\n    line-height: 1.3;\n    color: #5f5f5a;\n    letter-spacing: .02em;\n  }\n\n  @media screen and (max-width: 749px) {\n    .nwye-proof {\n      padding: 28px 16px 30px;\n    }\n\n    .nwye-proof__inner {\n      grid-template-columns: 1fr;\n      gap: 10px;\n    }\n\n    .nwye-proof__block {\n      min-height: 118px;\n      padding: 22px 16px;\n    }\n\n    .nwye-proof__logo {\n      max-width: 150px;\n      max-height: 38px;\n    }\n  }\n</style>",
-        "color_scheme": "",
-        "section_width": "full-width",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
-    },
     "divider_8jetpX": {
       "type": "divider",
       "name": "t:names.divider_section",
@@ -409,7 +397,7 @@
         "section_radius": 0
       }
     },
-    "divider_UDwhAp": {
+    "divider_Xt3xag": {
       "type": "divider",
       "name": "t:names.divider_section",
       "settings": {
@@ -421,6 +409,31 @@
         "alignment_horizontal": "center",
         "padding-block-start": 16,
         "padding-block-end": 16
+      }
+    },
+    "divider_4qNrrk": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
+      }
+    },
+    "custom_liquid_8gYDjh": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"nwye-proof\">\n  <div class=\"nwye-proof__title\">SELECTED BY</div>\n\n  <div class=\"nwye-proof__inner\">\n    <a class=\"nwye-proof__block\" href=\"https://www.instagram.com/fang.magazine/\" target=\"_blank\" rel=\"noopener\">\n      <span class=\"nwye-proof__external\">↗</span>\n      <p class=\"nwye-proof__label\">AS FEATURED IN</p>\n      <img\n        class=\"nwye-proof__logo nwye-proof__logo--fang\"\n        src=\"https://cdn.shopify.com/s/files/1/0940/6791/7178/files/FANG_MAGAZINE.png?v=1782772192\"\n        alt=\"FANG Magazine\"\n      >\n    </a>\n\n    <a class=\"nwye-proof__block\" href=\"https://www.reiner-upcycling.com/\" target=\"_blank\" rel=\"noopener\">\n      <span class=\"nwye-proof__external\">↗</span>\n      <p class=\"nwye-proof__label\">AVAILABLE THROUGH</p>\n      <img\n        class=\"nwye-proof__logo nwye-proof__logo--reiner\"\n        src=\"https://cdn.shopify.com/s/files/1/0940/6791/7178/files/reiner_logo.png?v=1782772204\"\n        alt=\"Reiner Paris\"\n      >\n      <p class=\"nwye-proof__sub\">Corners at Galeries Lafayette • Printemps</p>\n    </a>\n  </div>\n</section>\n\n<style>\n  .nwye-proof {\n    width: 100%;\n    padding: 34px 20px 38px;\n    background: #f7f7f4;\n    border-top: 1px solid #e7e7e2;\n    border-bottom: 1px solid #e7e7e2;\n  }\n\n  .nwye-proof__title {\n    text-align: center;\n    font-size: 11px;\n    letter-spacing: .18em;\n    color: #8a8a84;\n    margin-bottom: 16px;\n    font-weight: 500;\n  }\n\n  .nwye-proof__inner {\n    max-width: 960px;\n    margin: 0 auto;\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 16px;\n  }\n\n  .nwye-proof__block {\n    position: relative;\n    min-height: 90px;\n    padding: 24px 18px 22px;\n    background: #fff;\n    border: 1px solid #deded8;\n    text-align: center;\n    text-decoration: none;\n    color: #000;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    transition: opacity .2s ease, transform .2s ease, box-shadow .2s ease;\n  }\n\n  .nwye-proof__block:hover {\n    opacity: .9;\n    transform: translateY(-2px);\n    box-shadow: 0 8px 18px rgba(0,0,0,.04);\n  }\n\n  .nwye-proof__external {\n    position: absolute;\n    top: 12px;\n    right: 14px;\n    font-size: 12px;\n    color: #8a8a84;\n  }\n\n  .nwye-proof__label {\n    font-size: 10px;\n    letter-spacing: .16em;\n    margin: 0 0 14px;\n    color: #8a8a84;\n    text-transform: uppercase;\n  }\n\n  .nwye-proof__logo {\n    display: block;\n    max-width: 190px;\n    max-height: 90px;\n    width: auto;\n    height: auto;\n    object-fit: contain;\n  }\n\n  .nwye-proof__logo--fang {\n    max-width: 165px;\n  }\n\n  .nwye-proof__logo--reiner {\n    max-width: 170px;\n  }\n\n  .nwye-proof__sub {\n    margin: 14px 0 0;\n    font-size: 12px;\n    line-height: 1.3;\n    color: #5f5f5a;\n    letter-spacing: .02em;\n  }\n\n  @media screen and (max-width: 749px) {\n    .nwye-proof {\n      padding: 28px 16px 30px;\n    }\n\n    .nwye-proof__inner {\n      grid-template-columns: 1fr;\n      gap: 10px;\n    }\n\n    .nwye-proof__block {\n      min-height: 118px;\n      padding: 22px 16px;\n    }\n\n    .nwye-proof__logo {\n      max-width: 150px;\n      max-height: 38px;\n    }\n  }\n</style>",
+        "color_scheme": "",
+        "section_width": "full-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "section_mCfFRQ": {
@@ -702,6 +715,7 @@
         "group_RqtGJM",
         "group_zdV8NU"
       ],
+      "disabled": true,
       "name": "t:names.multicolumn",
       "settings": {
         "content_direction": "row",
@@ -784,10 +798,11 @@
     "nwy_process_73MqMA",
     "nwy_split_cta_iWLffL",
     "ss_gallery_1_V8TExq",
-    "custom_liquid_8gYDjh",
     "divider_8jetpX",
     "ss_feature_1_features_fqqzdc",
-    "divider_UDwhAp",
+    "divider_Xt3xag",
+    "custom_liquid_8gYDjh",
+    "divider_4qNrrk",
     "section_mCfFRQ",
     "nwy_journal_KDWWTF",
     "divider_FdDTii"
