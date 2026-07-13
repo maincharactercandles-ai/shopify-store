@@ -28,7 +28,7 @@
         "secondary_link": "shopify://pages/concept",
         "show_overlay": true,
         "overlay_color": "#f6f5f1",
-        "overlay_opacity": 15,
+        "overlay_opacity": 45,
         "background_color": "#f6f5f1",
         "text_color": "#151414",
         "accent_color": "#f2a900",
