@@ -844,6 +844,30 @@
         "padding-block-start": 22,
         "padding-block-end": 23
       }
+    },
+    "nwy_related_objects_8WDEAJ": {
+      "type": "nwy-related-objects",
+      "name": "NWY — Related objects",
+      "settings": {
+        "eyebrow": "THE COLLECTION",
+        "title": "MORE OBJECTS.",
+        "collection": "",
+        "products_to_show": 2,
+        "columns_desktop": 2,
+        "button_label": "DISCOVER THE DROP",
+        "image_ratio": "1 / 1",
+        "show_object_number": false,
+        "show_price": true,
+        "side_gutter": 40,
+        "max_width": 2000,
+        "background_color": "#F6F5F1",
+        "text_color": "#111111",
+        "muted_text_color": "#6E6E68",
+        "line_color": "#D8D7D1",
+        "card_background": "#E8E6E0",
+        "padding_top": 68,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -852,6 +876,7 @@
     "nwy_product_media_RhcnwC",
     "nwye_collection_nWAxUK",
     "1780287965d9defd32",
-    "section_ydyUpm"
+    "section_ydyUpm",
+    "nwy_related_objects_8WDEAJ"
   ]
 }
