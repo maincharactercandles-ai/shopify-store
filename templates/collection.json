@@ -444,10 +444,10 @@
         "overlay_opacity": 20,
         "side_gutter": 40,
         "max_width": 2000,
-        "background_color": "#F1F0EB",
+        "background_color": "#f1f0eb",
         "text_color": "#111111",
-        "muted_text_color": "#6E6E68",
-        "card_background": "#E3E1DA",
+        "muted_text_color": "#6e6e68",
+        "card_background": "#e3e1da",
         "overlay_color": "#111111",
         "padding_top": 100,
         "padding_bottom": 100
