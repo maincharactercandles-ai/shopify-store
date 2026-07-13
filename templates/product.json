@@ -465,7 +465,63 @@
         "enable_sticky_add_to_cart": true,
         "color_scheme": "",
         "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-end": 33
+      }
+    },
+    "nwy_product_story_DegChf": {
+      "type": "nwy-product-story",
+      "blocks": {
+        "fact_R4JwwC": {
+          "type": "fact",
+          "settings": {
+            "label": "MADE IN",
+            "value": "Paris, France"
+          }
+        },
+        "fact_Ph9LUK": {
+          "type": "fact",
+          "settings": {
+            "label": "WAX",
+            "value": "Vegan soy wax"
+          }
+        },
+        "fact_A6pcqx": {
+          "type": "fact",
+          "settings": {
+            "label": "BURN TIME",
+            "value": "Approx. 45 hours"
+          }
+        },
+        "fact_WML9yY": {
+          "type": "fact",
+          "settings": {
+            "label": "AFTER THE BURN",
+            "value": "Reusable object"
+          }
+        }
+      },
+      "block_order": [
+        "fact_R4JwwC",
+        "fact_Ph9LUK",
+        "fact_A6pcqx",
+        "fact_WML9yY"
+      ],
+      "name": "NWY — Product story",
+      "settings": {
+        "eyebrow": "THE OBJECT",
+        "heading": "THIS IS NOT A CANDLE.",
+        "show_object_label": true,
+        "object_label": "",
+        "text": "<p>A scented object designed to surprise at first sight and remain long after the last burn. Hand-poured in Paris using vegan soy wax and premium fragrance oils from Grasse.</p>",
+        "columns_desktop": 4,
+        "side_gutter": 40,
+        "max_width": 2000,
+        "background_color": "#F6F5F1",
+        "text_color": "#111111",
+        "muted_text_color": "#6E6E68",
+        "line_color": "#D8D7D1",
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "nwye_collection_nWAxUK": {
@@ -772,6 +828,7 @@
   },
   "order": [
     "main",
+    "nwy_product_story_DegChf",
     "nwye_collection_nWAxUK",
     "1780287965d9defd32",
     "section_ydyUpm"
