@@ -52,11 +52,27 @@
             "custom_width_mobile": 59
           },
           "blocks": {}
+        },
+        "button_q96QF3": {
+          "type": "button",
+          "name": "t:names.button",
+          "settings": {
+            "label": "SHOP THE COLLECTION.",
+            "link": "shopify://collections/shop",
+            "open_in_new_tab": false,
+            "style_class": "button-secondary",
+            "width": "custom",
+            "custom_width": 26,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 59
+          },
+          "blocks": {}
         }
       },
       "block_order": [
         "text_NztqDE",
-        "button_H9gpTf"
+        "button_H9gpTf",
+        "button_q96QF3"
       ],
       "name": "t:names.hero",
       "settings": {
@@ -67,7 +83,7 @@
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
-        "link": "shopify://collections/drop-01",
+        "link": "shopify://collections/shop",
         "open_in_new_tab": true,
         "content_direction": "column",
         "vertical_on_mobile": true,
