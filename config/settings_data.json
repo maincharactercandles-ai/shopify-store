@@ -160,7 +160,7 @@
       },
       "scheme-2": {
         "settings": {
-          "background": "#F6F5F1",
+          "background": "#f6f5f1",
           "foreground_heading": "#000000",
           "foreground": "#000000cf",
           "primary": "#000000cf",
@@ -316,9 +316,9 @@
       },
       "scheme-6": {
         "settings": {
-          "background": "rgba(0,0,0,0)",
+          "background": "#F6F5F1",
           "foreground_heading": "#ffffff",
-          "foreground": "#ffffff",
+          "foreground": "#151414",
           "primary": "#ffffff",
           "primary_hover": "#ffffffb0",
           "border": "#e6e6e6",
