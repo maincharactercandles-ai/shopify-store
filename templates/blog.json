@@ -181,7 +181,7 @@
               "type": "_featured-blog-posts-image",
               "static": true,
               "settings": {
-                "image_ratio": "square",
+                "image_ratio": "portrait",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -256,7 +256,7 @@
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "post_limit": 5,
-        "columns": 3,
+        "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
         "columns_gap": 34,
