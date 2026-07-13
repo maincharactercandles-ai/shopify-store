@@ -187,6 +187,41 @@
         "padding-block-end": 40
       }
     },
+    "nwy_drop_GTxfQr": {
+      "type": "nwy-drop",
+      "name": "NWY — Drop éditorial",
+      "settings": {
+        "eyebrow": "DROP 02",
+        "title": "GLASS OBJECTS",
+        "heading_tag": "h2",
+        "tagline": "New chapter.\nSame philosophy.",
+        "description": "<p>Glass, colour and transparency. A new collection of objects designed to diffuse light, elevate spaces and remain long after the candle is gone.</p>",
+        "collection": "drop-02",
+        "products_to_show": 3,
+        "columns_desktop": 3,
+        "button_label": "DISCOVER DROP 02",
+        "button_link": "shopify://collections/drop-02",
+        "button_new_tab": false,
+        "image_ratio": "1 / 1",
+        "show_second_image": true,
+        "show_product_number": true,
+        "object_start_number": 4,
+        "show_price": true,
+        "from_label": "À partir de",
+        "show_badge": true,
+        "sold_out_label": "SOLD OUT",
+        "sale_label": "SALE",
+        "background_color": "#F6F5F1",
+        "text_color": "#111111",
+        "muted_text_color": "#6E6E68",
+        "line_color": "#D8D7D1",
+        "card_background": "#ECEBE6",
+        "button_background": "#111111",
+        "button_text_color": "#FFFFFF",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
     "hero_z6m4Xe": {
       "type": "hero",
       "name": "t:names.hero",
@@ -440,51 +475,16 @@
         "padding-block-start": 0,
         "padding-block-end": 32
       }
-    },
-    "nwy_drop_GTxfQr": {
-      "type": "nwy-drop",
-      "name": "NWY — Drop éditorial",
-      "settings": {
-        "eyebrow": "DROP 02",
-        "title": "GLASS OBJECTS",
-        "heading_tag": "h2",
-        "tagline": "New chapter.\nSame philosophy.",
-        "description": "<p>Glass, colour and transparency. A new collection of objects designed to diffuse light, elevate spaces and remain long after the candle is gone.</p>",
-        "collection": "drop-02",
-        "products_to_show": 3,
-        "columns_desktop": 3,
-        "button_label": "DISCOVER DROP 02",
-        "button_link": "shopify://collections/drop-02",
-        "button_new_tab": false,
-        "image_ratio": "1 / 1",
-        "show_second_image": true,
-        "show_product_number": true,
-        "object_start_number": 4,
-        "show_price": true,
-        "from_label": "À partir de",
-        "show_badge": true,
-        "sold_out_label": "SOLD OUT",
-        "sale_label": "SALE",
-        "background_color": "#F6F5F1",
-        "text_color": "#111111",
-        "muted_text_color": "#6E6E68",
-        "line_color": "#D8D7D1",
-        "card_background": "#ECEBE6",
-        "button_background": "#111111",
-        "button_text_color": "#FFFFFF",
-        "padding_top": 96,
-        "padding_bottom": 96
-      }
     }
   },
   "order": [
     "slideshow_TqWa3H",
     "nwy_drop_JDJXgW",
     "hero_mh839J",
+    "nwy_drop_GTxfQr",
     "hero_z6m4Xe",
     "nwy_process_YCMkKG",
     "nwy_split_cta_7EwQqM",
-    "main",
-    "nwy_drop_GTxfQr"
+    "main"
   ]
 }
