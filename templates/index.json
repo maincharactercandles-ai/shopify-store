@@ -13,7 +13,7 @@
       "type": "nwy-home-hero",
       "name": "NWY — Home hero",
       "settings": {
-        "desktop_image": "shopify://shop_images/ChatGPT_Image_10_juin_2026_03_41_02_7a9c23c6-4de7-4099-9de4-15d285fcb1f8.png",
+        "desktop_image": "shopify://shop_images/canette_m_tallique_fond_neutre.png",
         "mobile_image": "shopify://shop_images/ChatGPT_Image_10_juin_2026_03_41_02_7a9c23c6-4de7-4099-9de4-15d285fcb1f8.png",
         "layout": "full",
         "height_desktop": 520,
@@ -51,9 +51,9 @@
         "image_height_mobile": 380,
         "side_gutter": 100,
         "max_width": 1600,
-        "background_color": "#F4F2ED",
+        "background_color": "#f4f2ed",
         "text_color": "#111111",
-        "muted_text_color": "#6E6E68",
+        "muted_text_color": "#6e6e68",
         "padding_top": 80,
         "padding_bottom": 60
       }
@@ -135,10 +135,10 @@
         "block_height": 620,
         "side_gutter": 0,
         "max_width": 2400,
-        "background_color": "#F6F5F1",
-        "text_color": "#FFFFFF",
-        "muted_text_color": "#D8D7D1",
-        "line_color": "#F6F5F1",
+        "background_color": "#f6f5f1",
+        "text_color": "#ffffff",
+        "muted_text_color": "#d8d7d1",
+        "line_color": "#f6f5f1",
         "padding_top": 0,
         "padding_bottom": 0
       }
