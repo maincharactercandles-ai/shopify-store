@@ -529,9 +529,9 @@
       "name": "The Collection",
       "settings": {
         "title": "The Collection.",
-        "collection": "",
-        "products_count": 4,
-        "columns": 4,
+        "collection": "shop",
+        "products_count": 3,
+        "columns": 3,
         "show_view_all": true,
         "view_all_label": "View all"
       }
