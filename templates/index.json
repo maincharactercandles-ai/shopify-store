@@ -16,8 +16,8 @@
         "desktop_image": "shopify://shop_images/ChatGPT_Image_10_juin_2026_03_41_02_7a9c23c6-4de7-4099-9de4-15d285fcb1f8.png",
         "mobile_image": "shopify://shop_images/ChatGPT_Image_10_juin_2026_03_41_02_7a9c23c6-4de7-4099-9de4-15d285fcb1f8.png",
         "layout": "full",
-        "height_desktop": 660,
-        "height_mobile": 680,
+        "height_desktop": 520,
+        "height_mobile": 580,
         "eyebrow": "",
         "heading": "Bold inside.\nUnexpected outside.",
         "text": "<p>Industrial objects transformed into collectible scented candles, hand-poured in Paris.</p>",
@@ -28,10 +28,10 @@
         "secondary_label": "DISCOVER THE CONCEPT",
         "secondary_link": "shopify://pages/concept",
         "show_overlay": true,
-        "overlay_color": "#000000",
-        "overlay_opacity": 55,
-        "background_color": "#000000",
-        "text_color": "#DFDFDF",
+        "overlay_color": "#F6F5F1",
+        "overlay_opacity": 25,
+        "background_color": "#F6F5F1",
+        "text_color": "#000000",
         "accent_color": "#F2A900",
         "side_gutter": 0,
         "max_width": 2600
@@ -58,9 +58,9 @@
           "type": "_content-without-appearance",
           "static": true,
           "settings": {
-            "horizontal_alignment_flex_direction_column": "center",
+            "horizontal_alignment_flex_direction_column": "flex-end",
             "vertical_alignment_flex_direction_column": "center",
-            "gap": 44
+            "gap": 0
           },
           "blocks": {
             "text_wCGkga": {
@@ -197,11 +197,11 @@
         "media_position": "right",
         "media_width": "medium",
         "media_height": "50svh",
-        "section_width": "page-width",
+        "section_width": "full-width",
         "extend_media": true,
         "color_scheme": "scheme-2",
         "padding-block-start": 0,
-        "padding-block-end": 31
+        "padding-block-end": 0
       }
     },
     "nwy_process_73MqMA": {
