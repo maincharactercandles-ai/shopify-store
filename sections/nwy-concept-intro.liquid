@@ -1,0 +1,239 @@
+{% liquid
+  assign image = section.settings.image
+  assign mobile_image = section.settings.mobile_image | default: image
+%}
+
+<section
+  id="NWY-ConceptIntro-{{ section.id }}"
+  class="nwy-concept-intro"
+  style="
+    --nwy-concept-bg: {{ section.settings.background_color }};
+    --nwy-concept-text: {{ section.settings.text_color }};
+    --nwy-concept-muted: {{ section.settings.muted_text_color }};
+    --nwy-concept-gutter: {{ section.settings.side_gutter }}px;
+    --nwy-concept-max-width: {{ section.settings.max_width }}px;
+    --nwy-concept-pt: {{ section.settings.padding_top }}px;
+    --nwy-concept-pb: {{ section.settings.padding_bottom }}px;
+    --nwy-concept-image-height: {{ section.settings.image_height }}px;
+    --nwy-concept-image-height-mobile: {{ section.settings.image_height_mobile }}px;
+  "
+>
+  <div class="nwy-concept-intro__inner">
+    <div class="nwy-concept-intro__grid">
+      <div class="nwy-concept-intro__content">
+        {% if section.settings.eyebrow != blank %}
+          <p class="nwy-concept-intro__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="nwy-concept-intro__heading">{{ section.settings.heading | newline_to_br }}</h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="nwy-concept-intro__text rte">{{ section.settings.text }}</div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          <a class="nwy-concept-intro__link" href="{{ section.settings.button_link }}">
+            <span>{{ section.settings.button_label | escape }}</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        {% endif %}
+      </div>
+
+      <div class="nwy-concept-intro__media">
+        {% if image != blank %}
+          <picture>
+            {% if mobile_image != blank %}
+              <source
+                media="(max-width: 749px)"
+                srcset="
+                  {{ mobile_image | image_url: width: 480 }} 480w,
+                  {{ mobile_image | image_url: width: 750 }} 750w,
+                  {{ mobile_image | image_url: width: 1000 }} 1000w
+                "
+                sizes="100vw"
+              >
+            {% endif %}
+
+            {{
+              image
+              | image_url: width: 1800
+              | image_tag:
+                class: 'nwy-concept-intro__image',
+                widths: '600, 900, 1200, 1500, 1800',
+                sizes: '(min-width: 750px) 55vw, 100vw',
+                loading: 'lazy',
+                alt: image.alt | default: section.settings.heading
+            }}
+          </picture>
+        {% else %}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'nwy-concept-intro__placeholder' }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% style %}
+  #NWY-ConceptIntro-{{ section.id }} {
+    background: var(--nwy-concept-bg);
+    color: var(--nwy-concept-text);
+    padding-block: var(--nwy-concept-pt) var(--nwy-concept-pb);
+  }
+
+  #NWY-ConceptIntro-{{ section.id }} * { box-sizing: border-box; }
+
+  #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__inner {
+    width: min(calc(100% - (var(--nwy-concept-gutter) * 2)), var(--nwy-concept-max-width));
+    margin-inline: auto;
+  }
+
+  #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__grid {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(48px, 7vw, 120px);
+    align-items: center;
+  }
+
+  #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__content { max-width: 620px; }
+
+  #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__eyebrow {
+    margin: 0 0 16px;
+    color: var(--nwy-concept-muted);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__heading {
+    max-width: 8.5ch;
+    margin: 0;
+    color: var(--nwy-concept-text);
+    font-size: clamp(46px, 4.8vw, 78px);
+    font-weight: 700;
+    line-height: 0.92;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__text {
+    max-width: 46ch;
+    margin-top: 28px;
+    color: var(--nwy-concept-text);
+    font-size: clamp(15px, 1.2vw, 18px);
+    line-height: 1.6;
+  }
+
+  #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__text > *:first-child { margin-top: 0; }
+  #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__text > *:last-child { margin-bottom: 0; }
+
+  #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 28px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid currentColor;
+    color: var(--nwy-concept-text);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.09em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__media {
+    overflow: hidden;
+    height: var(--nwy-concept-image-height);
+    background: #e8e6e0;
+  }
+
+  #NWY-ConceptIntro-{{ section.id }} picture,
+  #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__image,
+  #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__image {
+    object-fit: cover;
+    transform: scale(1.001);
+    transition: transform 900ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  }
+
+  #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__media:hover .nwy-concept-intro__image {
+    transform: scale(1.025);
+  }
+
+  @media screen and (max-width: 989px) {
+    #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__grid {
+      grid-template-columns: 1fr;
+      gap: 42px;
+    }
+
+    #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__content { max-width: 760px; }
+    #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__heading { max-width: 10ch; }
+  }
+
+  @media screen and (max-width: 749px) {
+    #NWY-ConceptIntro-{{ section.id }} {
+      padding-block: calc(var(--nwy-concept-pt) * 0.72) calc(var(--nwy-concept-pb) * 0.72);
+    }
+
+    #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__inner {
+      width: calc(100% - 32px);
+    }
+
+    #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__heading {
+      font-size: clamp(44px, 13vw, 64px);
+    }
+
+    #NWY-ConceptIntro-{{ section.id }} .nwy-concept-intro__media {
+      height: var(--nwy-concept-image-height-mobile);
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "NWY — Concept intro",
+  "tag": "section",
+  "class": "section-nwy-concept-intro",
+  "settings": [
+    { "type": "header", "content": "Contenu" },
+    { "type": "text", "id": "eyebrow", "label": "Surtitre", "default": "THE CONCEPT" },
+    { "type": "textarea", "id": "heading", "label": "Titre", "default": "THIS IS NOT\nA CANDLE." },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texte",
+      "default": "<p>Industrial objects transformed into collectible scented candles.</p><p>Hand-poured in Paris using vegan soy wax and fine fragrances from Grasse.</p><p>Designed to be reused long after the wax has burned away.</p>"
+    },
+    { "type": "text", "id": "button_label", "label": "Lien", "default": "DISCOVER THE CONCEPT" },
+    { "type": "url", "id": "button_link", "label": "Destination du lien" },
+    { "type": "header", "content": "Image" },
+    { "type": "image_picker", "id": "image", "label": "Image ordinateur" },
+    { "type": "image_picker", "id": "mobile_image", "label": "Image mobile" },
+    { "type": "range", "id": "image_height", "min": 420, "max": 900, "step": 20, "unit": "px", "label": "Hauteur image ordinateur", "default": 620 },
+    { "type": "range", "id": "image_height_mobile", "min": 320, "max": 760, "step": 20, "unit": "px", "label": "Hauteur image mobile", "default": 460 },
+    { "type": "header", "content": "Largeur et couleurs" },
+    { "type": "range", "id": "side_gutter", "min": 16, "max": 100, "step": 4, "unit": "px", "label": "Marges latérales", "default": 40 },
+    { "type": "range", "id": "max_width", "min": 1200, "max": 2400, "step": 100, "unit": "px", "label": "Largeur maximale", "default": 2000 },
+    { "type": "color", "id": "background_color", "label": "Fond", "default": "#F4F2ED" },
+    { "type": "color", "id": "text_color", "label": "Texte principal", "default": "#111111" },
+    { "type": "color", "id": "muted_text_color", "label": "Texte secondaire", "default": "#6E6E68" },
+    { "type": "header", "content": "Espacement" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 180, "step": 4, "unit": "px", "label": "Marge haute", "default": 72 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 180, "step": 4, "unit": "px", "label": "Marge basse", "default": 72 }
+  ],
+  "presets": [
+    { "name": "NWY — Concept intro" }
+  ]
+}
+{% endschema %}
