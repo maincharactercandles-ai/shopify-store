@@ -98,6 +98,7 @@
       "block_order": [
         "slide_tQEjzz"
       ],
+      "disabled": true,
       "name": "t:names.slideshow_full_frame",
       "settings": {
         "display_mode": "full_frame",
