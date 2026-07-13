@@ -540,6 +540,36 @@
         "padding-block-start": 17,
         "padding-block-end": 17
       }
+    },
+    "nwy_journal_KDWWTF": {
+      "type": "nwy-journal",
+      "name": "NWY — Journal",
+      "settings": {
+        "eyebrow": "JOURNAL",
+        "title": "STORIES BEHIND THE OBJECTS.",
+        "description": "<p>Materials, fragrance, process and the ideas behind each object.</p>",
+        "blog": "blog",
+        "articles_to_show": 3,
+        "columns_desktop": 3,
+        "button_label": "VIEW ALL STORIES",
+        "button_link": "",
+        "image_ratio": "1 / 1",
+        "show_category": false,
+        "show_date": true,
+        "date_format": "%B %Y",
+        "show_excerpt": true,
+        "excerpt_words": 16,
+        "card_link_label": "READ STORY",
+        "side_gutter": 40,
+        "max_width": 2000,
+        "background_color": "#F6F5F1",
+        "text_color": "#111111",
+        "muted_text_color": "#6E6E68",
+        "line_color": "#D8D7D1",
+        "card_background": "#E8E6E0",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
     }
   },
   "order": [
@@ -549,6 +579,7 @@
     "nwy_split_cta_iWLffL",
     "ss_gallery_1_V8TExq",
     "custom_liquid_8gYDjh",
-    "section_mCfFRQ"
+    "section_mCfFRQ",
+    "nwy_journal_KDWWTF"
   ]
 }
