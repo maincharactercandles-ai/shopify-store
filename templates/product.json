@@ -553,45 +553,51 @@
         "view_all_label": "{{ section.settings.collection.title }}"
       }
     },
-    "1780287965d9defd32": {
-      "type": "_blocks",
-      "blocks": {
-        "aov_ai_bundle_offer_bundle_builder_Gpi4JB": {
-          "type": "shopify://apps/aov-ai-bundle/blocks/offer-bundle-builder/0335d423-143c-4ad7-b224-99a1db74a9ee",
-          "disabled": true,
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "aov_ai_bundle_offer_bundle_builder_Gpi4JB"
-      ],
-      "disabled": true,
+    "nwy_related_objects_8WDEAJ": {
+      "type": "nwy-related-objects",
+      "name": "NWY — Related objects",
       "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "color_scheme": "",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "eyebrow": "THE COLLECTION",
+        "title": "MORE OBJECTS.",
+        "collection": "",
+        "products_to_show": 2,
+        "columns_desktop": 2,
+        "button_label": "DISCOVER THE DROP",
+        "image_ratio": "1 / 1",
+        "show_object_number": false,
+        "show_price": true,
+        "side_gutter": 40,
+        "max_width": 2000,
+        "background_color": "#f6f5f1",
+        "text_color": "#111111",
+        "muted_text_color": "#6e6e68",
+        "line_color": "#d8d7d1",
+        "card_background": "#e8e6e0",
+        "padding_top": 68,
+        "padding_bottom": 60
+      }
+    },
+    "nwy_product_collection_cta_bCQQRa": {
+      "type": "nwy-product-collection-cta",
+      "name": "NWY — Collection CTA",
+      "settings": {
+        "image": "{{ section.settings.collection.image }}",
+        "eyebrow": "DROP 02",
+        "title": "GLASS OBJECTS.",
+        "text": "<p>Discover the complete collection of coloured glass objects.</p>",
+        "collection": "",
+        "collection_link": "",
+        "button_label": "DISCOVER THE DROP",
+        "content_position": "bottom-left",
+        "height_desktop": 680,
+        "height_mobile": 560,
+        "side_gutter": 0,
+        "max_width": 2400,
+        "overlay_color": "#111111",
+        "overlay_opacity": 25,
+        "text_color": "#FFFFFF",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "section_ydyUpm": {
@@ -815,7 +821,6 @@
         "text_dW84ab",
         "accordion_imVVHM"
       ],
-      "disabled": true,
       "name": "t:names.faq_section",
       "settings": {
         "content_direction": "column",
@@ -844,30 +849,6 @@
         "padding-block-start": 22,
         "padding-block-end": 23
       }
-    },
-    "nwy_related_objects_8WDEAJ": {
-      "type": "nwy-related-objects",
-      "name": "NWY — Related objects",
-      "settings": {
-        "eyebrow": "THE COLLECTION",
-        "title": "MORE OBJECTS.",
-        "collection": "",
-        "products_to_show": 2,
-        "columns_desktop": 2,
-        "button_label": "DISCOVER THE DROP",
-        "image_ratio": "1 / 1",
-        "show_object_number": false,
-        "show_price": true,
-        "side_gutter": 40,
-        "max_width": 2000,
-        "background_color": "#F6F5F1",
-        "text_color": "#111111",
-        "muted_text_color": "#6E6E68",
-        "line_color": "#D8D7D1",
-        "card_background": "#E8E6E0",
-        "padding_top": 68,
-        "padding_bottom": 60
-      }
     }
   },
   "order": [
@@ -875,8 +856,8 @@
     "nwy_product_story_DegChf",
     "nwy_product_media_RhcnwC",
     "nwye_collection_nWAxUK",
-    "1780287965d9defd32",
-    "section_ydyUpm",
-    "nwy_related_objects_8WDEAJ"
+    "nwy_related_objects_8WDEAJ",
+    "nwy_product_collection_cta_bCQQRa",
+    "section_ydyUpm"
   ]
 }
