@@ -11,20 +11,6 @@
   "type": "footer",
   "name": "Footer",
   "sections": {
-    "divider_8QihFy": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "",
-        "section_width": "full-width",
-        "thickness": 1,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 16,
-        "padding-block-end": 16
-      }
-    },
     "divider_kytgxD": {
       "type": "divider",
       "name": "t:names.divider_section",
@@ -246,7 +232,6 @@
     }
   },
   "order": [
-    "divider_8QihFy",
     "divider_kytgxD",
     "footer_m9NzUG",
     "footer_utilities_jLGE8U"

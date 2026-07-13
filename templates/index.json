@@ -718,6 +718,20 @@
         "padding_top": 96,
         "padding_bottom": 96
       }
+    },
+    "divider_FdDTii": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
+      }
     }
   },
   "order": [
@@ -730,6 +744,7 @@
     "custom_liquid_8gYDjh",
     "ss_feature_1_features_fqqzdc",
     "section_mCfFRQ",
-    "nwy_journal_KDWWTF"
+    "nwy_journal_KDWWTF",
+    "divider_FdDTii"
   ]
 }
