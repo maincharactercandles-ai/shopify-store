@@ -1,10 +1,7 @@
 {% liquid
-  assign product_drop_collection = product.metafields.custom.drop_collection.value
   assign collection_link = section.settings.collection_link
 
-  if collection_link == blank and product_drop_collection != blank
-    assign collection_link = product_drop_collection.url
-  elsif collection_link == blank and section.settings.collection != blank
+  if collection_link == blank and section.settings.collection != blank
     assign collection_link = section.settings.collection.url
   endif
 %}
