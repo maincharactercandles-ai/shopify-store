@@ -15,11 +15,11 @@
       "settings": {
         "desktop_image": "shopify://shop_images/canette_m_tallique_fond_neutre.png",
         "layout": "full",
-        "height_desktop": 520,
+        "height_desktop": 600,
         "height_mobile": 580,
         "eyebrow": "",
         "heading": "Bold inside.\nUnexpected outside.",
-        "text": "<p>Industrial objects transformed into collectible scented candles, hand-poured in Paris.</p>",
+        "text": "<p>Industrial objects transformed into collectible scented candles. Hand-poured in Paris.</p>",
         "content_position": "left",
         "content_width": 680,
         "primary_label": "SHOP THE COLLECTION",
@@ -96,6 +96,20 @@
         "muted_text_color": "#6e6e68",
         "padding_top": 40,
         "padding_bottom": 48
+      }
+    },
+    "divider_yY39PW": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
       }
     },
     "nwy_process_73MqMA": {
@@ -276,20 +290,6 @@
       }
     },
     "divider_8jetpX": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "",
-        "section_width": "full-width",
-        "thickness": 1,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 16,
-        "padding-block-end": 16
-      }
-    },
-    "divider_yY39PW": {
       "type": "divider",
       "name": "t:names.divider_section",
       "settings": {
