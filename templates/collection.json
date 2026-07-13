@@ -152,6 +152,201 @@
         "padding_bottom": 96
       }
     },
+    "hero_mh839J": {
+      "type": "hero",
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/object-01-citrus-ambre-scented-candle-5229026.png",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "page-width",
+        "section_height": "custom",
+        "section_height_custom": 77,
+        "color_scheme": "scheme-5",
+        "toggle_overlay": true,
+        "overlay_color": "#00000026",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "nwy_coming_soon_BdDzF8": {
+      "type": "nwy-coming-soon",
+      "name": "NWY — Drop à venir",
+      "settings": {
+        "eyebrow": "DROP 02",
+        "title": "GLASS OBJECTS",
+        "heading_tag": "h2",
+        "tagline": "New chapter.\nSame philosophy.",
+        "description": "<p>Glass, colour and transparency. A new collection of objects designed to diffuse light, elevate spaces and remain long after the candle is gone.</p><p><strong>Coming soon.</strong></p>",
+        "collection": "drop-02-glass-objects",
+        "products_to_show": 3,
+        "columns_desktop": 3,
+        "form_heading": "BE THE FIRST TO KNOW.",
+        "email_label": "Email",
+        "email_placeholder": "Your email address",
+        "button_label": "NOTIFY ME",
+        "customer_tag": "drop-02-waitlist",
+        "success_message": "YOU’RE ON THE LIST.",
+        "image_ratio": "4 / 5",
+        "show_object_number": true,
+        "object_start_number": 4,
+        "show_description": true,
+        "description_words": 8,
+        "badge_text": "COMING SOON",
+        "card_link_label": "DISCOVER",
+        "show_overlay": true,
+        "overlay_opacity": 20,
+        "side_gutter": 40,
+        "max_width": 2000,
+        "background_color": "#f1f0eb",
+        "text_color": "#111111",
+        "muted_text_color": "#6e6e68",
+        "card_background": "#e3e1da",
+        "overlay_color": "#111111",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "hero_z6m4Xe": {
+      "type": "hero",
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/ChatGPT_Image_10_juil._2026_12_42_12_dd5fccb1-6375-400a-bdcb-6237c303df47.png",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "page-width",
+        "section_height": "custom",
+        "section_height_custom": 77,
+        "color_scheme": "scheme-5",
+        "toggle_overlay": true,
+        "overlay_color": "#00000026",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "nwy_process_YCMkKG": {
+      "type": "nwy-process",
+      "blocks": {
+        "step_Bcpz6j": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_13_31_27_44b4b6aa-bf3d-4ecb-88f9-47ea274f7325.png",
+            "number": "01",
+            "title": "HAND-POURED",
+            "text": "<p>Each candle is hand-poured in small batches in our Parisian studio.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "step_MV6Wzx": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_13_48_19_69f22e63-839d-4c61-ae44-e8fbd3d2cddf.png",
+            "number": "02",
+            "title": "SELECTED MATERIALS",
+            "text": "<p>We source distinctive objects, vegan soy wax and premium fragrances.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "step_Up3w9C": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_13_37_48.png",
+            "number": "03",
+            "title": "CRAFTED WITH CARE",
+            "text": "<p>Every detail is finished with care to ensure quality, safety and longevity.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "step_Bcpz6j",
+        "step_MV6Wzx",
+        "step_Up3w9C"
+      ],
+      "name": "NWY — Process",
+      "settings": {
+        "eyebrow": "BEHIND EVERY OBJECT",
+        "title": "DISCOVER THE PROCESS.",
+        "button_label": "VIEW JOURNAL",
+        "button_link": "shopify://blogs/blog",
+        "image_ratio": "4 / 3",
+        "side_gutter": 40,
+        "max_width": 2000,
+        "background_color": "#f6f5f1",
+        "text_color": "#111111",
+        "muted_text_color": "#6e6e68",
+        "line_color": "#d8d7d1",
+        "card_background": "#e8e6e0",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "nwy_split_cta_7EwQqM": {
+      "type": "nwy-split-cta",
+      "name": "NWY — Double CTA",
+      "settings": {
+        "left_image": "shopify://shop_images/drop-01-industrial-objects-full-set-7964669.png",
+        "left_eyebrow": "DROP 01",
+        "left_title": "AVAILABLE NOW.",
+        "left_text": "<p>Industrial Objects are available now.</p>",
+        "left_button_label": "SHOP NOW",
+        "left_link": "",
+        "right_image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_06_50_56.png",
+        "right_eyebrow": "DROP 02",
+        "right_title": "COMING SOON.",
+        "right_text": "<p>Glass Objects are coming soon.</p>",
+        "right_button_label": "JOIN THE WAITLIST",
+        "right_link": "",
+        "block_height": 620,
+        "side_gutter": 0,
+        "max_width": 2400,
+        "background_color": "#F6F5F1",
+        "text_color": "#FFFFFF",
+        "muted_text_color": "#D8D7D1",
+        "line_color": "#F6F5F1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "main": {
       "type": "main-collection",
       "blocks": {
@@ -283,272 +478,16 @@
         "padding-block-start": 0,
         "padding-block-end": 32
       }
-    },
-    "ss_gallery_1_6WqD4b": {
-      "type": "ss-gallery-1",
-      "blocks": {
-        "image_UbGPjE": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/NOT_02.png",
-            "url": "",
-            "hide_mobile": false
-          }
-        },
-        "image_k8V7DX": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_10_juin_2026_03_02_51.png",
-            "url": "",
-            "hide_mobile": false
-          }
-        },
-        "image_caxCMN": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/hand_opening_candle.png",
-            "url": "",
-            "hide_mobile": false
-          }
-        },
-        "image_YJRDfP": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/object-03-green-tea-matcha-scented-candle-9527230.png",
-            "url": "",
-            "hide_mobile": false
-          }
-        }
-      },
-      "block_order": [
-        "image_UbGPjE",
-        "image_k8V7DX",
-        "image_caxCMN",
-        "image_YJRDfP"
-      ],
-      "disabled": true,
-      "name": "SS - Gallery #1",
-      "settings": {
-        "heading": "<h2>Gallery #1</h2>",
-        "heading_custom": false,
-        "heading_font": "josefin_sans_n4",
-        "heading_size": 32,
-        "heading_size_mobile": 28,
-        "heading_height": 130,
-        "heading_align": "center",
-        "heading_align_mobile": "center",
-        "sub_heading": "",
-        "sub_heading_custom": false,
-        "sub_heading_font": "josefin_sans_n4",
-        "sub_heading_size": 16,
-        "sub_heading_size_mobile": 16,
-        "sub_heading_height": 130,
-        "sub_heading_mt": 26,
-        "sub_heading_mt_mobile": 16,
-        "sub_heading_align": "center",
-        "sub_heading_align_mobile": "center",
-        "images_gap": 10,
-        "images_gap_mobile": 10,
-        "images_radius": 4,
-        "images_position": "row",
-        "images_position_mobile": "column-reverse",
-        "images_mt": 30,
-        "images_mt_mobile": 24,
-        "main_image": "shopify://shop_images/u5863776713_Editorial_luxury_campaign._A_blue_glass_candle_sl_e19733ab-7e0e-4b14-bfc1-a0e9f3abb54b_0.png",
-        "main_image_url": "",
-        "main_image_width": 38,
-        "small_images_row": 2,
-        "small_images_row_mobile": 2,
-        "heading_color": "#000000",
-        "sub_heading_color": "#000000",
-        "image_overlay": "#000000",
-        "background_color": "#ffffff",
-        "background_gradient": "",
-        "border_color": "#000000",
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "margin_horizontal": 0,
-        "margin_horizontal_mobile": 0,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_horizontal": 5,
-        "padding_horizontal_mobile": 1.5,
-        "full_width": false,
-        "content_width": 1200,
-        "border_thickness": 0,
-        "section_radius": 0,
-        "lazy": true
-      }
-    },
-    "hero_z6m4Xe": {
-      "type": "hero",
-      "name": "t:names.hero",
-      "settings": {
-        "media_type_1": "image",
-        "image_1": "shopify://shop_images/ChatGPT_Image_10_juil._2026_13_08_35.png",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "link": "",
-        "open_in_new_tab": false,
-        "content_direction": "row",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "center",
-        "vertical_alignment": "flex-start",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 0,
-        "section_width": "page-width",
-        "section_height": "custom",
-        "section_height_custom": 77,
-        "color_scheme": "scheme-5",
-        "toggle_overlay": true,
-        "overlay_color": "#00000026",
-        "overlay_style": "gradient",
-        "gradient_direction": "to top",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 40,
-        "padding-block-end": 40
-      }
-    },
-    "nwy_coming_soon_BdDzF8": {
-      "type": "nwy-coming-soon",
-      "name": "NWY — Drop à venir",
-      "settings": {
-        "eyebrow": "DROP 02",
-        "title": "GLASS OBJECTS",
-        "heading_tag": "h2",
-        "tagline": "New chapter.\nSame philosophy.",
-        "description": "<p>Glass, colour and transparency. A new collection of objects designed to diffuse light, elevate spaces and remain long after the candle is gone.</p><p><strong>Coming soon.</strong></p>",
-        "collection": "drop-02-glass-objects",
-        "products_to_show": 3,
-        "columns_desktop": 3,
-        "form_heading": "BE THE FIRST TO KNOW.",
-        "email_label": "Email",
-        "email_placeholder": "Your email address",
-        "button_label": "NOTIFY ME",
-        "customer_tag": "drop-02-waitlist",
-        "success_message": "YOU’RE ON THE LIST.",
-        "image_ratio": "4 / 5",
-        "show_object_number": true,
-        "object_start_number": 4,
-        "show_description": true,
-        "description_words": 8,
-        "badge_text": "COMING SOON",
-        "card_link_label": "DISCOVER",
-        "show_overlay": true,
-        "overlay_opacity": 20,
-        "side_gutter": 40,
-        "max_width": 2000,
-        "background_color": "#f1f0eb",
-        "text_color": "#111111",
-        "muted_text_color": "#6e6e68",
-        "card_background": "#e3e1da",
-        "overlay_color": "#111111",
-        "padding_top": 100,
-        "padding_bottom": 100
-      }
-    },
-    "nwy_process_YCMkKG": {
-      "type": "nwy-process",
-      "blocks": {
-        "step_Bcpz6j": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_13_31_27_44b4b6aa-bf3d-4ecb-88f9-47ea274f7325.png",
-            "number": "01",
-            "title": "HAND-POURED",
-            "text": "<p>Each candle is hand-poured in small batches in our Parisian studio.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "step_MV6Wzx": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_13_48_19_69f22e63-839d-4c61-ae44-e8fbd3d2cddf.png",
-            "number": "02",
-            "title": "SELECTED MATERIALS",
-            "text": "<p>We source distinctive objects, vegan soy wax and premium fragrances.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "step_Up3w9C": {
-          "type": "step",
-          "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_13_37_48.png",
-            "number": "03",
-            "title": "CRAFTED WITH CARE",
-            "text": "<p>Every detail is finished with care to ensure quality, safety and longevity.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "step_Bcpz6j",
-        "step_MV6Wzx",
-        "step_Up3w9C"
-      ],
-      "name": "NWY — Process",
-      "settings": {
-        "eyebrow": "BEHIND EVERY OBJECT",
-        "title": "DISCOVER THE PROCESS.",
-        "button_label": "VIEW JOURNAL",
-        "button_link": "shopify://blogs/blog",
-        "image_ratio": "4 / 3",
-        "side_gutter": 40,
-        "max_width": 2000,
-        "background_color": "#f6f5f1",
-        "text_color": "#111111",
-        "muted_text_color": "#6e6e68",
-        "line_color": "#d8d7d1",
-        "card_background": "#e8e6e0",
-        "padding_top": 96,
-        "padding_bottom": 96
-      }
-    },
-    "nwy_split_cta_7EwQqM": {
-      "type": "nwy-split-cta",
-      "name": "NWY — Double CTA",
-      "settings": {
-        "left_image": "shopify://shop_images/drop-01-industrial-objects-full-set-7964669.png",
-        "left_eyebrow": "DROP 01",
-        "left_title": "AVAILABLE NOW.",
-        "left_text": "<p>Industrial Objects are available now.</p>",
-        "left_button_label": "SHOP NOW",
-        "left_link": "",
-        "right_image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_06_50_56.png",
-        "right_eyebrow": "DROP 02",
-        "right_title": "COMING SOON.",
-        "right_text": "<p>Glass Objects are coming soon.</p>",
-        "right_button_label": "JOIN THE WAITLIST",
-        "right_link": "",
-        "block_height": 620,
-        "side_gutter": 0,
-        "max_width": 2400,
-        "background_color": "#F6F5F1",
-        "text_color": "#FFFFFF",
-        "muted_text_color": "#D8D7D1",
-        "line_color": "#F6F5F1",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
     "slideshow_TqWa3H",
     "nwy_drop_JDJXgW",
-    "main",
-    "ss_gallery_1_6WqD4b",
-    "hero_z6m4Xe",
+    "hero_mh839J",
     "nwy_coming_soon_BdDzF8",
+    "hero_z6m4Xe",
     "nwy_process_YCMkKG",
-    "nwy_split_cta_7EwQqM"
+    "nwy_split_cta_7EwQqM",
+    "main"
   ]
 }
