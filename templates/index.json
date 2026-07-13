@@ -200,7 +200,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h2>THE COLLECTION - DROP 01.</h2>",
+                "text": "<h2>DROP 01 - INDUSTRIAL OBJECTS</h2>",
                 "width": "fit-content",
                 "max_width": "none",
                 "alignment": "left",
