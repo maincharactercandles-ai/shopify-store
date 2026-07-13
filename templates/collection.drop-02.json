@@ -98,6 +98,7 @@
       "block_order": [
         "slide_tQEjzz"
       ],
+      "disabled": true,
       "name": "t:names.slideshow_full_frame",
       "settings": {
         "display_mode": "full_frame",
@@ -119,6 +120,7 @@
     },
     "nwy_drop_JDJXgW": {
       "type": "nwy-drop",
+      "disabled": true,
       "name": "NWY — Drop éditorial",
       "settings": {
         "eyebrow": "DROP 01",
@@ -154,6 +156,7 @@
     },
     "hero_mh839J": {
       "type": "hero",
+      "disabled": true,
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
@@ -481,6 +484,7 @@
     },
     "nwy_journal_azmXgM": {
       "type": "nwy-journal",
+      "disabled": true,
       "name": "NWY — Journal",
       "settings": {
         "eyebrow": "JOURNAL",
@@ -500,11 +504,11 @@
         "card_link_label": "READ STORY",
         "side_gutter": 40,
         "max_width": 2000,
-        "background_color": "#F6F5F1",
+        "background_color": "#f6f5f1",
         "text_color": "#111111",
-        "muted_text_color": "#6E6E68",
-        "line_color": "#D8D7D1",
-        "card_background": "#E8E6E0",
+        "muted_text_color": "#6e6e68",
+        "line_color": "#d8d7d1",
+        "card_background": "#e8e6e0",
         "padding_top": 96,
         "padding_bottom": 96
       }
