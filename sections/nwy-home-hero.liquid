@@ -1,0 +1,502 @@
+{% liquid
+  assign desktop_image = section.settings.desktop_image
+  assign mobile_image = section.settings.mobile_image | default: desktop_image
+  assign image_loading = 'lazy'
+  assign image_fetchpriority = 'auto'
+
+  if section.index == 1
+    assign image_loading = 'eager'
+    assign image_fetchpriority = 'high'
+  endif
+%}
+
+<section
+  id="NWY-Hero-{{ section.id }}"
+  class="nwy-home-hero nwy-home-hero--{{ section.settings.layout }}"
+  style="
+    --hero-bg: {{ section.settings.background_color }};
+    --hero-text: {{ section.settings.text_color }};
+    --hero-accent: {{ section.settings.accent_color }};
+    --hero-overlay: {{ section.settings.overlay_color }};
+    --hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --hero-height-desktop: {{ section.settings.height_desktop }}px;
+    --hero-height-mobile: {{ section.settings.height_mobile }}px;
+    --hero-max-width: {{ section.settings.max_width }}px;
+    --hero-gutter: {{ section.settings.side_gutter }}px;
+  "
+>
+  <div class="nwy-home-hero__inner">
+    <div class="nwy-home-hero__media">
+      {% if desktop_image != blank %}
+        <picture>
+          {% if mobile_image != blank %}
+            <source
+              media="(max-width: 749px)"
+              srcset="
+                {{ mobile_image | image_url: width: 480 }} 480w,
+                {{ mobile_image | image_url: width: 750 }} 750w,
+                {{ mobile_image | image_url: width: 1000 }} 1000w
+              "
+              sizes="100vw"
+            >
+          {% endif %}
+
+          {{
+            desktop_image
+            | image_url: width: 2600
+            | image_tag:
+              class: 'nwy-home-hero__image',
+              widths: '750, 1000, 1250, 1500, 1800, 2200, 2600',
+              sizes: '100vw',
+              loading: image_loading,
+              fetchpriority: image_fetchpriority,
+              alt: desktop_image.alt | default: section.settings.heading
+          }}
+        </picture>
+      {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'nwy-home-hero__placeholder' }}
+      {% endif %}
+
+      {% if section.settings.show_overlay %}
+        <span class="nwy-home-hero__overlay" aria-hidden="true"></span>
+      {% endif %}
+    </div>
+
+    <div class="nwy-home-hero__content nwy-home-hero__content--{{ section.settings.content_position }}">
+      <div class="nwy-home-hero__content-inner">
+        {% if section.settings.eyebrow != blank %}
+          <p class="nwy-home-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h1 class="nwy-home-hero__heading">{{ section.settings.heading | newline_to_br }}</h1>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="nwy-home-hero__text rte">{{ section.settings.text }}</div>
+        {% endif %}
+
+        {% if section.settings.primary_label != blank or section.settings.secondary_label != blank %}
+          <div class="nwy-home-hero__actions">
+            {% if section.settings.primary_label != blank and section.settings.primary_link != blank %}
+              <a class="nwy-home-hero__button nwy-home-hero__button--primary" href="{{ section.settings.primary_link }}">
+                {{ section.settings.primary_label | escape }}
+              </a>
+            {% endif %}
+
+            {% if section.settings.secondary_label != blank and section.settings.secondary_link != blank %}
+              <a class="nwy-home-hero__button nwy-home-hero__button--secondary" href="{{ section.settings.secondary_link }}">
+                {{ section.settings.secondary_label | escape }}
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% style %}
+  #NWY-Hero-{{ section.id }} {
+    background: var(--hero-bg);
+  }
+
+  #NWY-Hero-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__inner {
+    position: relative;
+    width: min(calc(100% - (var(--hero-gutter) * 2)), var(--hero-max-width));
+    min-height: var(--hero-height-desktop);
+    margin-inline: auto;
+    overflow: hidden;
+    background: var(--hero-bg);
+  }
+
+  #NWY-Hero-{{ section.id }}.nwy-home-hero--full .nwy-home-hero__inner {
+    width: 100%;
+    max-width: none;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__media,
+  #NWY-Hero-{{ section.id }} picture {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__image,
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__image {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: var(--hero-overlay);
+    opacity: var(--hero-overlay-opacity);
+    pointer-events: none;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    min-height: var(--hero-height-desktop);
+    padding: clamp(28px, 5vw, 88px);
+    color: var(--hero-text);
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__content--left {
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__content--center {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__content--bottom-left {
+    align-items: flex-end;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__content-inner {
+    width: min(100%, {{ section.settings.content_width }}px);
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__content--center .nwy-home-hero__content-inner {
+    margin-inline: auto;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__eyebrow {
+    margin: 0 0 15px;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__heading {
+    max-width: 11ch;
+    margin: 0;
+    color: inherit;
+    font-size: clamp(48px, 6.1vw, 112px);
+    font-weight: 700;
+    line-height: 0.87;
+    letter-spacing: -0.07em;
+    text-wrap: balance;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__content--center .nwy-home-hero__heading {
+    margin-inline: auto;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__text {
+    max-width: 38ch;
+    margin-top: 22px;
+    font-size: clamp(14px, 1.2vw, 18px);
+    line-height: 1.45;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__content--center .nwy-home-hero__text {
+    margin-inline: auto;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__content--center .nwy-home-hero__actions {
+    justify-content: center;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__button {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 20px;
+    border: 1px solid currentColor;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.09em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 180ms ease;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__button--primary {
+    border-color: var(--hero-text);
+    background: var(--hero-text);
+    color: var(--hero-bg);
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__button--secondary {
+    color: var(--hero-text);
+    background: transparent;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__button:hover {
+    transform: translateY(-2px);
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__button--primary:hover {
+    background: var(--hero-accent);
+    border-color: var(--hero-accent);
+    color: #111;
+  }
+
+  #NWY-Hero-{{ section.id }} .nwy-home-hero__button--secondary:hover {
+    background: var(--hero-text);
+    color: var(--hero-bg);
+  }
+
+  @media screen and (max-width: 749px) {
+    #NWY-Hero-{{ section.id }} .nwy-home-hero__inner,
+    #NWY-Hero-{{ section.id }} .nwy-home-hero__content {
+      min-height: var(--hero-height-mobile);
+    }
+
+    #NWY-Hero-{{ section.id }} .nwy-home-hero__inner {
+      width: calc(100% - 24px);
+    }
+
+    #NWY-Hero-{{ section.id }}.nwy-home-hero--full .nwy-home-hero__inner {
+      width: 100%;
+    }
+
+    #NWY-Hero-{{ section.id }} .nwy-home-hero__content {
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 28px 20px 34px;
+      text-align: left;
+    }
+
+    #NWY-Hero-{{ section.id }} .nwy-home-hero__heading {
+      max-width: 9ch;
+      font-size: clamp(48px, 14.5vw, 72px);
+    }
+
+    #NWY-Hero-{{ section.id }} .nwy-home-hero__actions {
+      display: grid;
+      width: 100%;
+      grid-template-columns: 1fr;
+    }
+
+    #NWY-Hero-{{ section.id }} .nwy-home-hero__button {
+      width: 100%;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "NWY — Home hero",
+  "tag": "section",
+  "class": "section-nwy-home-hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Image ordinateur"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Image mobile"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Largeur",
+      "default": "full",
+      "options": [
+        { "value": "full", "label": "Bord à bord" },
+        { "value": "contained", "label": "Avec marges" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "height_desktop",
+      "min": 520,
+      "max": 1100,
+      "step": 20,
+      "unit": "px",
+      "label": "Hauteur ordinateur",
+      "default": 740
+    },
+    {
+      "type": "range",
+      "id": "height_mobile",
+      "min": 520,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "label": "Hauteur mobile",
+      "default": 680
+    },
+    {
+      "type": "header",
+      "content": "Contenu"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Surtitre"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Titre H1",
+      "default": "Bold inside.\nUnexpected outside."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texte",
+      "default": "<p>Industrial objects transformed into collectible scented candles, hand-poured in Paris.</p>"
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "Position du contenu",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Centre gauche" },
+        { "value": "center", "label": "Centre" },
+        { "value": "bottom-left", "label": "Bas gauche" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "min": 320,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "label": "Largeur maximale du contenu",
+      "default": 620
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Bouton principal",
+      "default": "SHOP THE COLLECTION"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Lien principal"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Bouton secondaire",
+      "default": "DISCOVER THE CONCEPT"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Lien secondaire"
+    },
+    {
+      "type": "header",
+      "content": "Overlay et couleurs"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Ajouter un voile",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Couleur du voile",
+      "default": "#111111"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 75,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacité du voile",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Couleur de fond",
+      "default": "#F5F2EC"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Couleur d’accent",
+      "default": "#F2A900"
+    },
+    {
+      "type": "header",
+      "content": "Largeur"
+    },
+    {
+      "type": "range",
+      "id": "side_gutter",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Marges latérales",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1200,
+      "max": 2600,
+      "step": 100,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 2600
+    }
+  ],
+  "presets": [
+    {
+      "name": "NWY — Home hero"
+    }
+  ]
+}
+{% endschema %}
