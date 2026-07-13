@@ -1,0 +1,257 @@
+{% liquid
+  assign desktop_image = section.settings.image
+  assign mobile_image = section.settings.mobile_image | default: desktop_image
+%}
+
+<section
+  id="NWY-ProductMedia-{{ section.id }}"
+  class="nwy-product-media{% if section.settings.full_bleed %} nwy-product-media--full{% endif %}"
+  style="
+    --nwy-product-media-bg: {{ section.settings.background_color }};
+    --nwy-product-media-gutter: {{ section.settings.side_gutter }}px;
+    --nwy-product-media-max-width: {{ section.settings.max_width }}px;
+    --nwy-product-media-height-desktop: {{ section.settings.height_desktop }}px;
+    --nwy-product-media-height-mobile: {{ section.settings.height_mobile }}px;
+    --nwy-product-media-pt: {{ section.settings.padding_top }}px;
+    --nwy-product-media-pb: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="nwy-product-media__inner">
+    <div class="nwy-product-media__frame">
+      {% if desktop_image != blank %}
+        <picture>
+          {% if mobile_image != blank %}
+            <source
+              media="(max-width: 749px)"
+              srcset="
+                {{ mobile_image | image_url: width: 480 }} 480w,
+                {{ mobile_image | image_url: width: 750 }} 750w,
+                {{ mobile_image | image_url: width: 1000 }} 1000w
+              "
+              sizes="100vw"
+            >
+          {% endif %}
+
+          {{
+            desktop_image
+            | image_url: width: 2400
+            | image_tag:
+              class: 'nwy-product-media__image',
+              widths: '750, 1000, 1250, 1500, 1800, 2100, 2400',
+              sizes: '100vw',
+              loading: 'lazy',
+              alt: desktop_image.alt | default: product.title
+          }}
+        </picture>
+      {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'nwy-product-media__placeholder' }}
+      {% endif %}
+    </div>
+
+    {% if section.settings.caption != blank %}
+      <p class="nwy-product-media__caption">{{ section.settings.caption | escape }}</p>
+    {% endif %}
+  </div>
+</section>
+
+{% style %}
+  #NWY-ProductMedia-{{ section.id }} {
+    background: var(--nwy-product-media-bg);
+    padding-block: var(--nwy-product-media-pt) var(--nwy-product-media-pb);
+  }
+
+  #NWY-ProductMedia-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #NWY-ProductMedia-{{ section.id }} .nwy-product-media__inner {
+    width: min(
+      calc(100% - (var(--nwy-product-media-gutter) * 2)),
+      var(--nwy-product-media-max-width)
+    );
+    margin-inline: auto;
+  }
+
+  #NWY-ProductMedia-{{ section.id }}.nwy-product-media--full .nwy-product-media__inner {
+    width: 100%;
+    max-width: none;
+  }
+
+  #NWY-ProductMedia-{{ section.id }} .nwy-product-media__frame {
+    overflow: hidden;
+    height: var(--nwy-product-media-height-desktop);
+    background: #e8e6e0;
+  }
+
+  #NWY-ProductMedia-{{ section.id }} picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #NWY-ProductMedia-{{ section.id }} .nwy-product-media__image,
+  #NWY-ProductMedia-{{ section.id }} .nwy-product-media__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #NWY-ProductMedia-{{ section.id }} .nwy-product-media__image {
+    object-fit: cover;
+    transform: scale(1.001);
+    transition: transform 1100ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  }
+
+  #NWY-ProductMedia-{{ section.id }} .nwy-product-media__frame:hover .nwy-product-media__image {
+    transform: scale(1.025);
+  }
+
+  #NWY-ProductMedia-{{ section.id }} .nwy-product-media__caption {
+    margin: 10px 0 0;
+    color: #6e6e68;
+    font-size: 10px;
+    line-height: 1.3;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 749px) {
+    #NWY-ProductMedia-{{ section.id }} {
+      padding-block:
+        calc(var(--nwy-product-media-pt) * 0.72)
+        calc(var(--nwy-product-media-pb) * 0.72);
+    }
+
+    #NWY-ProductMedia-{{ section.id }} .nwy-product-media__inner {
+      width: calc(100% - 32px);
+    }
+
+    #NWY-ProductMedia-{{ section.id }}.nwy-product-media--full .nwy-product-media__inner {
+      width: 100%;
+    }
+
+    #NWY-ProductMedia-{{ section.id }} .nwy-product-media__frame {
+      height: var(--nwy-product-media-height-mobile);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #NWY-ProductMedia-{{ section.id }} *,
+    #NWY-ProductMedia-{{ section.id }} *::before,
+    #NWY-ProductMedia-{{ section.id }} *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "NWY — Product media",
+  "tag": "section",
+  "class": "section-nwy-product-media",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image ordinateur"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Image mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_bleed",
+      "label": "Image bord à bord",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "height_desktop",
+      "min": 420,
+      "max": 1200,
+      "step": 20,
+      "unit": "px",
+      "label": "Hauteur sur ordinateur",
+      "default": 760
+    },
+    {
+      "type": "range",
+      "id": "height_mobile",
+      "min": 360,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "label": "Hauteur sur mobile",
+      "default": 560
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "Légende"
+    },
+    {
+      "type": "header",
+      "content": "Largeur et marges"
+    },
+    {
+      "type": "range",
+      "id": "side_gutter",
+      "min": 16,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Marges latérales",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1200,
+      "max": 2400,
+      "step": 100,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 2200
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fond de la section",
+      "default": "#F6F5F1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge haute",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge basse",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "NWY — Product media"
+    }
+  ]
+}
+{% endschema %}
