@@ -1,0 +1,433 @@
+{% liquid
+  assign displayed_object = section.settings.object_label
+  if displayed_object == blank
+    assign displayed_object = product.title
+  endif
+
+  assign displayed_text = section.settings.text
+  if displayed_text == blank and product.description != blank
+    assign displayed_text = product.description
+  endif
+%}
+
+<section
+  id="NWY-ProductStory-{{ section.id }}"
+  class="nwy-product-story"
+  style="
+    --nwy-story-bg: {{ section.settings.background_color }};
+    --nwy-story-text: {{ section.settings.text_color }};
+    --nwy-story-muted: {{ section.settings.muted_text_color }};
+    --nwy-story-line: {{ section.settings.line_color }};
+    --nwy-story-gutter: {{ section.settings.side_gutter }}px;
+    --nwy-story-max-width: {{ section.settings.max_width }}px;
+    --nwy-story-pt: {{ section.settings.padding_top }}px;
+    --nwy-story-pb: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="nwy-product-story__inner">
+    <div class="nwy-product-story__top">
+      <div class="nwy-product-story__heading-wrap">
+        {% if section.settings.eyebrow != blank %}
+          <p class="nwy-product-story__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="nwy-product-story__heading">{{ section.settings.heading | escape }}</h2>
+        {% endif %}
+      </div>
+
+      <div class="nwy-product-story__copy">
+        {% if section.settings.show_object_label and displayed_object != blank %}
+          <p class="nwy-product-story__object">{{ displayed_object | escape }}</p>
+        {% endif %}
+
+        {% if displayed_text != blank %}
+          <div class="nwy-product-story__text rte">{{ displayed_text }}</div>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if section.blocks.size > 0 %}
+      <div
+        class="nwy-product-story__facts"
+        role="list"
+        style="--nwy-story-columns: {{ section.settings.columns_desktop }};"
+      >
+        {% for block in section.blocks %}
+          <div class="nwy-product-story__fact" role="listitem" {{ block.shopify_attributes }}>
+            {% if block.settings.label != blank %}
+              <p class="nwy-product-story__fact-label">{{ block.settings.label | escape }}</p>
+            {% endif %}
+
+            {% if block.settings.value != blank %}
+              <p class="nwy-product-story__fact-value">
+                {{ block.settings.value | escape | newline_to_br }}
+              </p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% style %}
+  #NWY-ProductStory-{{ section.id }} {
+    background: var(--nwy-story-bg);
+    color: var(--nwy-story-text);
+    padding-block: var(--nwy-story-pt) var(--nwy-story-pb);
+  }
+
+  #NWY-ProductStory-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #NWY-ProductStory-{{ section.id }} .nwy-product-story__inner {
+    width: min(calc(100% - (var(--nwy-story-gutter) * 2)), var(--nwy-story-max-width));
+    margin-inline: auto;
+  }
+
+  #NWY-ProductStory-{{ section.id }} .nwy-product-story__top {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.05fr);
+    gap: clamp(40px, 7vw, 120px);
+    align-items: start;
+  }
+
+  #NWY-ProductStory-{{ section.id }} .nwy-product-story__eyebrow {
+    margin: 0 0 16px;
+    color: var(--nwy-story-muted);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #NWY-ProductStory-{{ section.id }} .nwy-product-story__heading {
+    max-width: 8.5ch;
+    margin: 0;
+    color: var(--nwy-story-text);
+    font-size: clamp(46px, 7vw, 118px);
+    font-weight: 700;
+    line-height: 0.88;
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  #NWY-ProductStory-{{ section.id }} .nwy-product-story__copy {
+    max-width: 720px;
+    padding-top: clamp(8px, 2vw, 26px);
+  }
+
+  #NWY-ProductStory-{{ section.id }} .nwy-product-story__object {
+    margin: 0 0 22px;
+    color: var(--nwy-story-text);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+
+  #NWY-ProductStory-{{ section.id }} .nwy-product-story__text {
+    color: var(--nwy-story-text);
+    font-size: clamp(18px, 2vw, 30px);
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.03em;
+  }
+
+  #NWY-ProductStory-{{ section.id }} .nwy-product-story__text > *:first-child {
+    margin-top: 0;
+  }
+
+  #NWY-ProductStory-{{ section.id }} .nwy-product-story__text > *:last-child {
+    margin-bottom: 0;
+  }
+
+  #NWY-ProductStory-{{ section.id }} .nwy-product-story__facts {
+    display: grid;
+    grid-template-columns: repeat(var(--nwy-story-columns), minmax(0, 1fr));
+    margin-top: clamp(58px, 8vw, 120px);
+    border-top: 1px solid var(--nwy-story-line);
+    border-bottom: 1px solid var(--nwy-story-line);
+  }
+
+  #NWY-ProductStory-{{ section.id }} .nwy-product-story__fact {
+    min-width: 0;
+    padding: 22px 20px 26px 0;
+  }
+
+  #NWY-ProductStory-{{ section.id }} .nwy-product-story__fact + .nwy-product-story__fact {
+    padding-left: 20px;
+    border-left: 1px solid var(--nwy-story-line);
+  }
+
+  #NWY-ProductStory-{{ section.id }} .nwy-product-story__fact-label {
+    margin: 0 0 12px;
+    color: var(--nwy-story-muted);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  #NWY-ProductStory-{{ section.id }} .nwy-product-story__fact-value {
+    margin: 0;
+    color: var(--nwy-story-text);
+    font-size: clamp(14px, 1.2vw, 18px);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  @media screen and (max-width: 989px) {
+    #NWY-ProductStory-{{ section.id }} .nwy-product-story__top {
+      grid-template-columns: 1fr;
+      gap: 38px;
+    }
+
+    #NWY-ProductStory-{{ section.id }} .nwy-product-story__heading {
+      max-width: 10ch;
+    }
+
+    #NWY-ProductStory-{{ section.id }} .nwy-product-story__copy {
+      max-width: 760px;
+      padding-top: 0;
+    }
+
+    #NWY-ProductStory-{{ section.id }} .nwy-product-story__facts {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #NWY-ProductStory-{{ section.id }} .nwy-product-story__fact:nth-child(odd) {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    #NWY-ProductStory-{{ section.id }} .nwy-product-story__fact:nth-child(n+3) {
+      border-top: 1px solid var(--nwy-story-line);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #NWY-ProductStory-{{ section.id }} {
+      padding-block: calc(var(--nwy-story-pt) * 0.72) calc(var(--nwy-story-pb) * 0.72);
+    }
+
+    #NWY-ProductStory-{{ section.id }} .nwy-product-story__inner {
+      width: calc(100% - 32px);
+    }
+
+    #NWY-ProductStory-{{ section.id }} .nwy-product-story__heading {
+      font-size: clamp(52px, 16vw, 78px);
+    }
+
+    #NWY-ProductStory-{{ section.id }} .nwy-product-story__text {
+      font-size: clamp(19px, 6vw, 27px);
+    }
+
+    #NWY-ProductStory-{{ section.id }} .nwy-product-story__facts {
+      grid-template-columns: 1fr;
+      margin-top: 54px;
+    }
+
+    #NWY-ProductStory-{{ section.id }} .nwy-product-story__fact,
+    #NWY-ProductStory-{{ section.id }} .nwy-product-story__fact + .nwy-product-story__fact {
+      padding: 18px 0 20px;
+      border-left: 0;
+    }
+
+    #NWY-ProductStory-{{ section.id }} .nwy-product-story__fact + .nwy-product-story__fact {
+      border-top: 1px solid var(--nwy-story-line);
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "NWY — Product story",
+  "tag": "section",
+  "class": "section-nwy-product-story",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenu"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Surtitre",
+      "default": "THE OBJECT"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Grand titre",
+      "default": "THIS IS NOT A CANDLE."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_object_label",
+      "label": "Afficher le nom du produit",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "object_label",
+      "label": "Nom personnalisé du produit",
+      "info": "Laisse vide pour reprendre automatiquement le titre du produit."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texte éditorial",
+      "default": "<p>A scented object designed to surprise at first sight and remain long after the last burn. Hand-poured in Paris using vegan soy wax and premium fragrance oils from Grasse.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Mise en page"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "label": "Colonnes pour les caractéristiques",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "side_gutter",
+      "min": 16,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Marges latérales",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1200,
+      "max": 2400,
+      "step": 100,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 2000
+    },
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fond",
+      "default": "#F6F5F1"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Texte principal",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "muted_text_color",
+      "label": "Texte secondaire",
+      "default": "#6E6E68"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Traits",
+      "default": "#D8D7D1"
+    },
+    {
+      "type": "header",
+      "content": "Espacement"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge haute",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge basse",
+      "default": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "fact",
+      "name": "Caractéristique",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Libellé",
+          "default": "MADE IN"
+        },
+        {
+          "type": "textarea",
+          "id": "value",
+          "label": "Valeur",
+          "default": "Paris, France"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NWY — Product story",
+      "blocks": [
+        {
+          "type": "fact",
+          "settings": {
+            "label": "MADE IN",
+            "value": "Paris, France"
+          }
+        },
+        {
+          "type": "fact",
+          "settings": {
+            "label": "WAX",
+            "value": "Vegan soy wax"
+          }
+        },
+        {
+          "type": "fact",
+          "settings": {
+            "label": "BURN TIME",
+            "value": "Approx. 45 hours"
+          }
+        },
+        {
+          "type": "fact",
+          "settings": {
+            "label": "AFTER THE BURN",
+            "value": "Reusable object"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
