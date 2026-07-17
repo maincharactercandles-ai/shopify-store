@@ -404,15 +404,14 @@
     transform: scaleX(1);
     transform-origin: left center;
   }
-
-  #{{ section_id }} .nwy-footer__newsletter {
-    display: grid;
-    grid-template-columns: minmax(280px, 1fr) minmax(420px, 1fr);
-    gap: clamp(60px, 10vw, 180px);
-    align-items: end;
-    padding-block: clamp(64px, 8vw, 125px);
-    border-top: 1px solid var(--nwy-footer-border);
-  }
+#{{ section_id }} .nwy-footer__newsletter {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(420px, 1fr);
+  gap: clamp(40px, 6vw, 100px);
+  align-items: end;
+padding-block: clamp(36px, 4vw, 60px);
+  border-top: 1px solid var(--nwy-footer-border);
+}
 
   #{{ section_id }} .nwy-footer__newsletter-copy {
     max-width: 760px;
