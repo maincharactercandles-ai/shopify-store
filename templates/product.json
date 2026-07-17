@@ -534,8 +534,8 @@
       "name": "NWY — Product hero",
       "settings": {
         "color_scheme": "",
-        "eyebrow": "OBJECT 01",
-        "short_description": "<p>Fresh citrus meets warm woods.<br/>A scented candle hand-poured in Paris using vegan soy wax and premium fragrance oils. Presented in a reusable amber glass vessel.</p>",
+        "eyebrow": "",
+        "short_description": "<p>{{ product.metafields.custom.product_short_description | metafield_tag }}</p>",
         "show_tax_text": false,
         "tax_text": "Tax included.",
         "quantity_label": "Quantity",
