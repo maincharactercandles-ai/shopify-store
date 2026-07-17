@@ -861,7 +861,7 @@
 }
 
     #{{ section_id }} .nwy-product-hero__gallery {
-      grid-template-columns: 82px minmax(0, 1fr);
+      grid-template-columns: 105px minmax(0, 1fr);
       padding-left: 20px;
     }
 
@@ -937,21 +937,13 @@
     }
 
     /* Miniatures horizontales */
-    #{{ section_id }} .nwy-product-hero__thumbs {
-      order: 2;
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      max-width: 100%;
-      max-height: none;
-      gap: 8px;
-      padding: 0 16px;
-      overflow-x: auto;
-      overflow-y: hidden;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
+   #{{ section_id }} .nwy-product-hero__thumb {
+  flex: 0 0 96px;
+  width: 96px;
+  height: 112px;
+  padding: 0;
+  scroll-snap-align: start;
+}
 
     #{{ section_id }} .nwy-product-hero__thumbs::-webkit-scrollbar {
       display: none;
