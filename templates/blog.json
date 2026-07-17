@@ -253,20 +253,20 @@
       "name": "t:names.blog_posts_editorial",
       "settings": {
         "blog": "{{ blog }}",
-        "layout_type": "carousel",
+        "layout_type": "grid",
         "carousel_on_mobile": false,
-        "post_limit": 5,
-        "columns": 4,
+        "post_limit": 10,
+        "columns": 3,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
-        "columns_gap": 34,
+        "columns_gap": 20,
         "rows_gap": 16,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "page-width",
-        "gap": 53,
+        "gap": 58,
         "color_scheme": "scheme-2",
-        "padding-block-start": 48,
+        "padding-block-start": 28,
         "padding-block-end": 48
       }
     }
