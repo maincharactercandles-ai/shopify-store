@@ -1,0 +1,756 @@
+{% liquid
+  assign section_id = 'nwy-wild-' | append: section.id
+%}
+
+<section
+  id="{{ section_id }}"
+  class="nwy-wild"
+  style="
+    --nwy-wild-bg: {{ section.settings.background_color }};
+    --nwy-wild-text: {{ section.settings.text_color }};
+    --nwy-wild-gap: {{ section.settings.desktop_gap }}px;
+    --nwy-wild-radius: {{ section.settings.image_radius }}px;
+    --nwy-wild-pt: {{ section.settings.padding_top }}px;
+    --nwy-wild-pb: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="nwy-wild__container">
+    {% if section.settings.eyebrow != blank
+      or section.settings.heading != blank
+      or section.settings.description != blank
+    %}
+      <header class="nwy-wild__header">
+        <div class="nwy-wild__header-copy">
+          {% if section.settings.eyebrow != blank %}
+            <p class="nwy-wild__eyebrow">
+              {{ section.settings.eyebrow | escape }}
+            </p>
+          {% endif %}
+
+          {% if section.settings.heading != blank %}
+            <h2 class="nwy-wild__heading">
+              {{ section.settings.heading | escape }}
+            </h2>
+          {% endif %}
+        </div>
+
+        {% if section.settings.description != blank %}
+          <div class="nwy-wild__description">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+      </header>
+    {% endif %}
+
+    <div class="nwy-wild__grid">
+      {% for block in section.blocks %}
+        {% liquid
+          assign item_class = 'nwy-wild__item nwy-wild__item--' | append: block.settings.size
+          assign has_link = false
+
+          if block.settings.link != blank
+            assign has_link = true
+          endif
+        %}
+
+        <article
+          class="{{ item_class }}"
+          {{ block.shopify_attributes }}
+        >
+          {% if has_link %}
+            <a
+              href="{{ block.settings.link }}"
+              class="nwy-wild__link"
+              aria-label="{% if block.settings.title != blank %}{{ block.settings.title | escape }}{% else %}View image{% endif %}"
+            >
+          {% else %}
+            <div class="nwy-wild__link">
+          {% endif %}
+
+            <div class="nwy-wild__media">
+              {% if block.settings.image != blank %}
+                {{
+                  block.settings.image
+                  | image_url: width: 1800
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '420, 640, 900, 1200, 1500, 1800',
+                    sizes: '(min-width: 990px) 50vw, 82vw',
+                    class: 'nwy-wild__image',
+                    alt: block.settings.image.alt
+                }}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'nwy-wild__placeholder' }}
+              {% endif %}
+
+              {% if block.settings.title != blank
+                or block.settings.caption != blank
+                or has_link
+              %}
+                <div class="nwy-wild__overlay">
+                  <div class="nwy-wild__meta">
+                    {% if block.settings.title != blank %}
+                      <p class="nwy-wild__item-title">
+                        {{ block.settings.title | escape }}
+                      </p>
+                    {% endif %}
+
+                    {% if block.settings.caption != blank %}
+                      <p class="nwy-wild__caption">
+                        {{ block.settings.caption | escape }}
+                      </p>
+                    {% endif %}
+                  </div>
+
+                  {% if has_link %}
+                    <span class="nwy-wild__arrow" aria-hidden="true">
+                      ↗︎
+                    </span>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+
+          {% if has_link %}
+            </a>
+          {% else %}
+            </div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.footer_text != blank
+      or section.settings.button_label != blank
+    %}
+      <footer class="nwy-wild__footer">
+        {% if section.settings.footer_text != blank %}
+          <p class="nwy-wild__footer-text">
+            {{ section.settings.footer_text | escape }}
+          </p>
+        {% endif %}
+
+        {% if section.settings.button_label != blank
+          and section.settings.button_link != blank
+        %}
+          <a
+            href="{{ section.settings.button_link }}"
+            class="nwy-wild__button"
+          >
+            <span>{{ section.settings.button_label | escape }}</span>
+            <span class="nwy-wild__button-arrow" aria-hidden="true">↗︎</span>
+          </a>
+        {% endif %}
+      </footer>
+    {% endif %}
+  </div>
+</section>
+
+{% style %}
+  #{{ section_id }} {
+    background: var(--nwy-wild-bg);
+    color: var(--nwy-wild-text);
+    padding-top: var(--nwy-wild-pt);
+    padding-bottom: var(--nwy-wild-pb);
+    overflow: hidden;
+  }
+
+  #{{ section_id }} * {
+    box-sizing: border-box;
+  }
+
+  #{{ section_id }} .nwy-wild__container {
+    width: min(100%, 1720px);
+    margin: 0 auto;
+    padding-inline: clamp(20px, 3vw, 48px);
+  }
+
+  #{{ section_id }} .nwy-wild__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.7fr);
+    gap: 40px;
+    align-items: end;
+    margin-bottom: clamp(36px, 5vw, 76px);
+  }
+
+  #{{ section_id }} .nwy-wild__eyebrow {
+    margin: 0 0 18px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-wild__heading {
+    max-width: 1100px;
+    margin: 0;
+    font-size: clamp(52px, 7vw, 118px);
+    font-weight: 700;
+    line-height: 0.88;
+    letter-spacing: -0.065em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-wild__description {
+    max-width: 420px;
+    justify-self: end;
+    font-size: clamp(17px, 1.35vw, 23px);
+    line-height: 1.4;
+  }
+
+  #{{ section_id }} .nwy-wild__description p {
+    margin: 0;
+  }
+
+  #{{ section_id }} .nwy-wild__grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    gap: var(--nwy-wild-gap);
+  }
+
+  #{{ section_id }} .nwy-wild__item {
+    position: relative;
+    min-width: 0;
+  }
+
+  #{{ section_id }} .nwy-wild__item--large {
+    grid-column: span 6;
+    grid-row: span 2;
+  }
+
+  #{{ section_id }} .nwy-wild__item--portrait {
+    grid-column: span 3;
+  }
+
+  #{{ section_id }} .nwy-wild__item--square {
+    grid-column: span 3;
+  }
+
+  #{{ section_id }} .nwy-wild__item--wide {
+    grid-column: span 6;
+  }
+
+  #{{ section_id }} .nwy-wild__link {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #{{ section_id }} .nwy-wild__media {
+    position: relative;
+    height: 100%;
+    min-height: 250px;
+    overflow: hidden;
+    border-radius: var(--nwy-wild-radius);
+    background: #e7e7e7;
+    isolation: isolate;
+  }
+
+  #{{ section_id }} .nwy-wild__item--large .nwy-wild__media {
+    aspect-ratio: 4 / 5;
+  }
+
+  #{{ section_id }} .nwy-wild__item--portrait .nwy-wild__media {
+    aspect-ratio: 3 / 4;
+  }
+
+  #{{ section_id }} .nwy-wild__item--square .nwy-wild__media {
+    aspect-ratio: 1 / 1;
+  }
+
+  #{{ section_id }} .nwy-wild__item--wide .nwy-wild__media {
+    aspect-ratio: 16 / 9;
+  }
+
+  #{{ section_id }} .nwy-wild__image,
+  #{{ section_id }} .nwy-wild__placeholder {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition:
+      transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 500ms ease;
+  }
+
+  #{{ section_id }} .nwy-wild__placeholder {
+    background: #d8d8d8;
+  }
+
+  #{{ section_id }} .nwy-wild__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    padding: clamp(18px, 2vw, 30px);
+    color: #ffffff;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 45%,
+        rgba(0, 0, 0, 0.65) 100%
+      );
+    opacity: 0;
+    transition: opacity 350ms ease;
+  }
+
+  #{{ section_id }} .nwy-wild__meta {
+    transform: translateY(10px);
+    transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  #{{ section_id }} .nwy-wild__item-title {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 650;
+    line-height: 1.1;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-wild__caption {
+    margin: 7px 0 0;
+    font-size: 15px;
+    line-height: 1.3;
+  }
+
+  #{{ section_id }} .nwy-wild__arrow {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    line-height: 1;
+    transform: translate(-5px, 5px);
+    transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  #{{ section_id }} .nwy-wild__link:hover .nwy-wild__image {
+    transform: scale(1.035);
+  }
+
+  #{{ section_id }} .nwy-wild__link:hover .nwy-wild__overlay {
+    opacity: 1;
+  }
+
+  #{{ section_id }} .nwy-wild__link:hover .nwy-wild__meta,
+  #{{ section_id }} .nwy-wild__link:hover .nwy-wild__arrow {
+    transform: translate(0, 0);
+  }
+
+  #{{ section_id }} .nwy-wild__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-top: clamp(36px, 5vw, 76px);
+    padding-top: 22px;
+    border-top: 1px solid currentColor;
+  }
+
+  #{{ section_id }} .nwy-wild__footer-text {
+    max-width: 760px;
+    margin: 0;
+    font-size: clamp(24px, 3.5vw, 58px);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.045em;
+  }
+
+  #{{ section_id }} .nwy-wild__button {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid currentColor;
+    color: inherit;
+    font-size: 12px;
+    font-weight: 650;
+    line-height: 1;
+    letter-spacing: 0.09em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-wild__button-arrow {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    transition: transform 250ms ease;
+  }
+
+  #{{ section_id }} .nwy-wild__button:hover .nwy-wild__button-arrow {
+    transform: translate(3px, -3px);
+  }
+
+  @media screen and (max-width: 989px) {
+    #{{ section_id }} .nwy-wild__header {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    #{{ section_id }} .nwy-wild__description {
+      justify-self: start;
+    }
+
+    #{{ section_id }} .nwy-wild__item--large,
+    #{{ section_id }} .nwy-wild__item--wide {
+      grid-column: span 8;
+    }
+
+    #{{ section_id }} .nwy-wild__item--portrait,
+    #{{ section_id }} .nwy-wild__item--square {
+      grid-column: span 4;
+    }
+
+    #{{ section_id }} .nwy-wild__overlay {
+      opacity: 1;
+    }
+
+    #{{ section_id }} .nwy-wild__meta,
+    #{{ section_id }} .nwy-wild__arrow {
+      transform: none;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #{{ section_id }} {
+      --nwy-wild-pt: {{ section.settings.mobile_padding_top }}px;
+      --nwy-wild-pb: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    #{{ section_id }} .nwy-wild__container {
+      padding-inline: 20px;
+    }
+
+    #{{ section_id }} .nwy-wild__header {
+      margin-bottom: 30px;
+    }
+
+    #{{ section_id }} .nwy-wild__heading {
+      font-size: clamp(48px, 15vw, 76px);
+      line-height: 0.9;
+    }
+
+    #{{ section_id }} .nwy-wild__description {
+      font-size: 17px;
+    }
+
+    #{{ section_id }} .nwy-wild__grid {
+      display: flex;
+      width: calc(100% + 20px);
+      gap: 12px;
+      overflow-x: auto;
+      margin-right: -20px;
+      padding-right: 20px;
+      padding-bottom: 8px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #{{ section_id }} .nwy-wild__grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    #{{ section_id }} .nwy-wild__item,
+    #{{ section_id }} .nwy-wild__item--large,
+    #{{ section_id }} .nwy-wild__item--portrait,
+    #{{ section_id }} .nwy-wild__item--square,
+    #{{ section_id }} .nwy-wild__item--wide {
+      flex: 0 0 82vw;
+      width: 82vw;
+      scroll-snap-align: start;
+    }
+
+    #{{ section_id }} .nwy-wild__item:nth-child(even) {
+      flex-basis: 68vw;
+      width: 68vw;
+    }
+
+    #{{ section_id }} .nwy-wild__item .nwy-wild__media,
+    #{{ section_id }} .nwy-wild__item--large .nwy-wild__media,
+    #{{ section_id }} .nwy-wild__item--portrait .nwy-wild__media,
+    #{{ section_id }} .nwy-wild__item--square .nwy-wild__media,
+    #{{ section_id }} .nwy-wild__item--wide .nwy-wild__media {
+      aspect-ratio: 4 / 5;
+    }
+
+    #{{ section_id }} .nwy-wild__overlay {
+      padding: 18px;
+    }
+
+    #{{ section_id }} .nwy-wild__footer {
+      align-items: flex-start;
+      flex-direction: column;
+      margin-top: 34px;
+    }
+
+    #{{ section_id }} .nwy-wild__footer-text {
+      font-size: clamp(30px, 9vw, 44px);
+    }
+
+    #{{ section_id }} .nwy-wild__arrow,
+    #{{ section_id }} .nwy-wild__button-arrow {
+      font-family: Arial, Helvetica, sans-serif !important;
+      font-variant-emoji: text;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #{{ section_id }} .nwy-wild__image,
+    #{{ section_id }} .nwy-wild__overlay,
+    #{{ section_id }} .nwy-wild__meta,
+    #{{ section_id }} .nwy-wild__arrow,
+    #{{ section_id }} .nwy-wild__button-arrow {
+      transition: none;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "NWY — In the wild",
+  "tag": "section",
+  "class": "section-nwy-in-the-wild",
+  "max_blocks": 10,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Small title",
+      "default": "IN THE WILD"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "OBJECTS IN REAL LIFE."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Designed to live beyond the flame.</p>"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Bottom statement",
+      "default": "Unexpected outside. Useful long after the wax is gone."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "SHOP THE OBJECTS"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#f4f3ef"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#111111"
+    },
+    {
+      "type": "range",
+      "id": "desktop_gap",
+      "min": 4,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Image gap",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Image corner radius",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Desktop spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 120
+    },
+    {
+      "type": "header",
+      "content": "Mobile spacing"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile top padding",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile bottom padding",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Lifestyle image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "size",
+          "label": "Desktop size",
+          "default": "square",
+          "options": [
+            {
+              "value": "large",
+              "label": "Large"
+            },
+            {
+              "value": "portrait",
+              "label": "Portrait"
+            },
+            {
+              "value": "square",
+              "label": "Square"
+            },
+            {
+              "value": "wide",
+              "label": "Wide"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Hover title",
+          "default": "OBJECT 05."
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Hover caption",
+          "default": "Paris, after hours"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Image link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NWY — In the wild",
+      "blocks": [
+        {
+          "type": "image",
+          "settings": {
+            "size": "large",
+            "title": "OBJECT 05.",
+            "caption": "Coffee after the flame"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "size": "square",
+            "title": "OBJECT 06.",
+            "caption": "Paris, outside"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "size": "square",
+            "title": "OBJECT 05.",
+            "caption": "After dinner"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "size": "square",
+            "title": "DROP 02",
+            "caption": "Hand-poured in Paris"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "size": "square",
+            "title": "OBJECT 06.",
+            "caption": "Peach blossom"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "size": "wide",
+            "title": "THE WORKSHOP",
+            "caption": "Small batch production"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
