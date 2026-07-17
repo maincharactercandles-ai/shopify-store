@@ -18,21 +18,21 @@
           "type": "menu",
           "settings": {
             "heading": "SHOP",
-            "menu": ""
+            "menu": "footer-shop"
           }
         },
         "menu_VTRGVc": {
           "type": "menu",
           "settings": {
             "heading": "ABOUT",
-            "menu": ""
+            "menu": "footer-about"
           }
         },
         "menu_UyLJni": {
           "type": "menu",
           "settings": {
             "heading": "INFORMATION",
-            "menu": ""
+            "menu": "footer-info"
           }
         }
       },
@@ -62,10 +62,10 @@
         "copyright_name": "NOT WHAT YOU EXPECT.",
         "bottom_note": "HAND-POURED IN PARIS.",
         "background_color": "#111111",
-        "text_color": "#F4F3EF",
+        "text_color": "#f4f3ef",
         "border_color": "#444444",
         "input_background": "#111111",
-        "input_text_color": "#F4F3EF",
+        "input_text_color": "#f4f3ef",
         "padding_top": 96,
         "padding_bottom": 40,
         "mobile_padding_top": 64,
