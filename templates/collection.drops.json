@@ -135,7 +135,7 @@
         "button_new_tab": false,
         "image_ratio": "4 / 5",
         "show_second_image": true,
-        "show_product_number": true,
+        "show_product_number": false,
         "object_start_number": 1,
         "show_price": true,
         "from_label": "À partir de",
