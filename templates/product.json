@@ -269,7 +269,6 @@
             "accordion_NfK7fn": {
               "type": "accordion",
               "name": "t:names.accordion",
-              "disabled": true,
               "settings": {
                 "icon": "caret",
                 "dividers": true,
@@ -498,7 +497,7 @@
           "type": "accordion",
           "settings": {
             "heading": "The fragrance",
-            "content": "<p>Fresh citrus meets warm woods. Bergamot, lemon and mandarin open bright before cardamom, sandalwood and musk add depth.</p>"
+            "content": "<p>{{ product.metafields.custom.description_de_la_bougie | metafield_tag }}</p>"
           }
         },
         "accordion_WUd9Lg": {
@@ -537,7 +536,7 @@
         "color_scheme": "",
         "eyebrow": "OBJECT 01",
         "short_description": "<p>Fresh citrus meets warm woods.<br/>A scented candle hand-poured in Paris using vegan soy wax and premium fragrance oils. Presented in a reusable amber glass vessel.</p>",
-        "show_tax_text": true,
+        "show_tax_text": false,
         "tax_text": "Tax included.",
         "quantity_label": "Quantity",
         "add_to_cart_label": "Add to cart",
