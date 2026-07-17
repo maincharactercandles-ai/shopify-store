@@ -151,16 +151,6 @@
             "caption": "Peach blossom",
             "link": "shopify://products/object-04-peach-musk-scented-candle"
           }
-        },
-        "image_zmyfMC": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_13_48_19_69f22e63-839d-4c61-ae44-e8fbd3d2cddf.png",
-            "size": "square",
-            "title": "THE WORKSHOP",
-            "caption": "Small batch production",
-            "link": ""
-          }
         }
       },
       "block_order": [
@@ -168,8 +158,7 @@
         "image_EjCbRR",
         "image_ctPzra",
         "image_whiY6b",
-        "image_6ffHti",
-        "image_zmyfMC"
+        "image_6ffHti"
       ],
       "name": "NWY — In the wild",
       "settings": {
@@ -186,7 +175,7 @@
         "padding_top": 92,
         "padding_bottom": 120,
         "mobile_padding_top": 72,
-        "mobile_padding_bottom": 72
+        "mobile_padding_bottom": 64
       }
     },
     "nwy_process_73MqMA": {
