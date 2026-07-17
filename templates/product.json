@@ -68,14 +68,6 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "custom_liquid_AkLrRf": {
-              "type": "custom-liquid",
-              "name": "t:names.custom_liquid",
-              "settings": {
-                "custom_liquid": ""
-              },
-              "blocks": {}
-            },
             "group_icgrde": {
               "type": "group",
               "name": "Header",
@@ -460,7 +452,6 @@
             }
           },
           "block_order": [
-            "custom_liquid_AkLrRf",
             "group_icgrde",
             "accordion_NfK7fn"
           ]
