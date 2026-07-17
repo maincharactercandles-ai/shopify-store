@@ -869,9 +869,11 @@
       padding-left: 20px;
     }
 
-    #{{ section_id }} .nwy-product-hero__main-media {
-      min-height: 650px;
-    }
+#{{ section_id }} .nwy-product-hero__main-media {
+  aspect-ratio: 4 / 5;
+  max-height: calc(100vh - 190px);
+  overflow: hidden;
+}
 
     #{{ section_id }} .nwy-product-hero__details {
       padding-inline: 26px;
