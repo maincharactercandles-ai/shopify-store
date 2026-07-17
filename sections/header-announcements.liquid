@@ -54,13 +54,25 @@
     }
   }
 
-  .announcement-bar__slides {
-    display: grid;
-    grid: [stack] auto / [stack] auto;
-    width: calc(100% - var(--button-size) * 2);
-    max-width: 680px;
-    margin-inline: auto;
-  }
+.announcement-bar__slides {
+  display: grid;
+  grid: [stack] auto / [stack] auto;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.announcement-bar__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.announcement-bar__text {
+  width: 100%;
+  text-align: center;
+}
 
   .announcement-bar__slides > * {
     grid-area: stack;
