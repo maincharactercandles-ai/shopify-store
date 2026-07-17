@@ -1,0 +1,151 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "care-guide",
+      "settings": {}
+    },
+    "nwy_care_AWYf6L": {
+      "type": "nwy-care",
+      "blocks": {
+        "care_step_dpED39": {
+          "type": "care_step",
+          "settings": {
+            "number": "01",
+            "title": "Trim the wick.",
+            "text": "<p>Before each burn, trim the wick to approximately 5 mm. This helps control the flame, limits smoke and supports a clean burn.</p>",
+            "tip": "Always allow the wax to cool completely before trimming.",
+            "reverse": false
+          }
+        },
+        "care_step_qNd4hi": {
+          "type": "care_step",
+          "settings": {
+            "number": "02",
+            "title": "Let the surface melt.",
+            "text": "<p>During the first burn, allow the wax to melt all the way to the edges. This helps prevent tunnelling and creates a more even burn.</p>",
+            "tip": "The first burn usually takes between two and three hours.",
+            "reverse": true
+          }
+        },
+        "care_step_8wABBy": {
+          "type": "care_step",
+          "settings": {
+            "number": "03",
+            "title": "Burn with care.",
+            "text": "<p>Keep the candle away from drafts, children, pets and flammable materials. Never leave a burning candle unattended.</p>",
+            "tip": "Do not burn for more than four consecutive hours.",
+            "reverse": false
+          }
+        },
+        "care_step_KwnCEL": {
+          "type": "care_step",
+          "settings": {
+            "number": "04",
+            "title": "Stop at the right moment.",
+            "text": "<p>Stop using the candle when approximately 5 mm of wax remains at the bottom. This protects the vessel from excessive heat.</p>",
+            "tip": "Let the vessel cool completely before handling it.",
+            "reverse": true
+          }
+        },
+        "fact_UCtFtU": {
+          "type": "fact",
+          "settings": {
+            "icon": "01",
+            "title": "Trim to 5 mm",
+            "text": "Before every burn."
+          }
+        },
+        "fact_9FL9aJ": {
+          "type": "fact",
+          "settings": {
+            "icon": "02",
+            "title": "First burn",
+            "text": "Allow a full melt pool."
+          }
+        },
+        "fact_WLtEnD": {
+          "type": "fact",
+          "settings": {
+            "icon": "03",
+            "title": "Maximum burn",
+            "text": "Four hours at a time."
+          }
+        },
+        "fact_TMHBRn": {
+          "type": "fact",
+          "settings": {
+            "icon": "04",
+            "title": "Stop at 5 mm",
+            "text": "Protect the vessel."
+          }
+        },
+        "faq_7yUKnk": {
+          "type": "faq",
+          "settings": {
+            "question": "Why is my candle tunnelling?",
+            "answer": "<p>Tunnelling often happens when the first burn is too short. Let the wax melt evenly to the edges whenever possible.</p>"
+          }
+        },
+        "faq_yx7NKw": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I reuse the vessel?",
+            "answer": "<p>Yes. Once the candle is finished and the vessel has fully cooled, remove the remaining wax, clean it carefully and reuse it as you wish.</p>"
+          }
+        },
+        "faq_iMcdwm": {
+          "type": "faq",
+          "settings": {
+            "question": "Why does the wax surface look uneven?",
+            "answer": "<p>Natural wax can develop slight texture or colour variations after cooling. This is normal and does not affect performance.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "care_step_dpED39",
+        "care_step_qNd4hi",
+        "care_step_8wABBy",
+        "care_step_KwnCEL",
+        "fact_UCtFtU",
+        "fact_9FL9aJ",
+        "fact_WLtEnD",
+        "fact_TMHBRn",
+        "faq_7yUKnk",
+        "faq_yx7NKw",
+        "faq_iMcdwm"
+      ],
+      "name": "NWY — Care",
+      "settings": {
+        "hero_image": "shopify://shop_images/ChatGPT_Image_17_juil._2026_a_06_49_55_ea56924d-19f0-4dec-921b-d49eac2455af.png",
+        "overlay_opacity": 75,
+        "eyebrow": "CANDLE CARE",
+        "hero_title": "BURN SLOWLY. KEEP FOREVER.",
+        "hero_text": "<p>A few simple gestures will help your candle burn evenly, last longer and leave behind an object worth keeping.</p>",
+        "intro_heading": "A better burn starts here.",
+        "intro_text": "<p>Every candle behaves differently. Follow these simple care instructions to preserve the fragrance, protect the vessel and get the most from every burn.</p>",
+        "tip_label": "GOOD TO KNOW",
+        "facts_heading": "Care at a glance",
+        "reuse_eyebrow": "AFTER THE FLAME",
+        "reuse_heading": "The object remains.",
+        "reuse_text": "<p>Once the candle is finished, clean the vessel and give it a second life as a storage object, a small vase or anything else you choose.</p>",
+        "reuse_link_label": "Discover the story",
+        "reuse_link": "",
+        "show_faq": true,
+        "faq_heading": "Frequently asked questions"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "nwy_care_AWYf6L"
+  ]
+}
