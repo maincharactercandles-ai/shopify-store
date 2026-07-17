@@ -1,4 +1,7 @@
-
+{% liquid
+  assign section_id = 'nwy-product-hero-' | append: section.id
+  assign selected_variant = product.selected_or_first_available_variant
+%}
 
 <section
   id="{{ section_id }}"
@@ -173,10 +176,8 @@
           {% endfor %}
         </div>
 
-{% assign product_form_id = 'nwy-product-form-' | append: section.id %}
-
-{% form 'product', product, id: product_form_id, class: 'nwy-product-hero__form' %}
-            {% unless product.has_only_default_variant %}
+        {% form 'product', product, id: 'nwy-product-form-' | append: section.id, class: 'nwy-product-hero__form' %}
+          {% unless product.has_only_default_variant %}
             <div class="nwy-product-hero__variants">
               {% for option in product.options_with_values %}
                 <label class="nwy-product-hero__variant-label" for="NWYOption-{{ section.id }}-{{ option.position }}">
