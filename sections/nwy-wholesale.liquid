@@ -7,14 +7,14 @@
     <div class="nwy-wholesale__hero">
       {{ section.settings.hero_image | image_url: width: 2400 | image_tag: class: 'nwy-wholesale__hero-image', loading: 'eager', widths: '750, 1100, 1500, 2000, 2400', sizes: '100vw', alt: section.settings.hero_image.alt }}
       <div class="nwy-wholesale__overlay"></div>
-      <div class="nwy-wholesale__hero-content page-width">
+      <div class="nwy-wholesale__hero-content">
         <h1 class="nwy-wholesale__hero-title">{{ section.settings.hero_title }}</h1>
         <div class="nwy-wholesale__hero-text rte">{{ section.settings.hero_text }}</div>
       </div>
     </div>
   {% endif %}
 
-  <div class="nwy-wholesale__content page-width">
+  <div class="nwy-wholesale__content">
     <header class="nwy-wholesale__intro">
       <h2 class="nwy-wholesale__heading">{{ section.settings.heading }}</h2>
       <div class="nwy-wholesale__intro-text rte">{{ section.settings.intro }}</div>
@@ -121,6 +121,14 @@
     #{{ section_id }} .nwy-wholesale__contact { grid-template-columns:1fr; align-items:start; gap:28px; margin-top:58px; }
     #{{ section_id }} .nwy-wholesale__contact-link { width:max-content; }
   }
+
+  #{{ section_id }} .nwy-wholesale__hero-content,
+  #{{ section_id }} .nwy-wholesale__content {
+    float: none !important;
+    inset: auto !important;
+    transform: none !important;
+  }
+
 </style>
 
 {% schema %}
