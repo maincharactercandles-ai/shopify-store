@@ -151,6 +151,16 @@
             "caption": "Peach blossom",
             "link": "shopify://products/object-04-peach-musk-scented-candle"
           }
+        },
+        "image_TRkTUF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_13_juil._2026_10_29_52.png",
+            "size": "wide",
+            "title": "SHOP ALL",
+            "caption": "",
+            "link": "shopify://collections/shop"
+          }
         }
       },
       "block_order": [
@@ -158,7 +168,8 @@
         "image_EjCbRR",
         "image_whiY6b",
         "image_ctPzra",
-        "image_6ffHti"
+        "image_6ffHti",
+        "image_TRkTUF"
       ],
       "name": "NWY — In the wild",
       "settings": {
