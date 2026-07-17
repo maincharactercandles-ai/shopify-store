@@ -394,7 +394,8 @@
       ],
       "name": "NWY — Wholesale",
       "settings": {
-        "overlay_opacity": 45,
+        "hero_image": "shopify://shop_images/ChatGPT_Image_17_juil._2026_a_10_47_20.png",
+        "overlay_opacity": 70,
         "hero_title": "STOCKISTS & WHOLESALE.",
         "hero_text": "<p>NOT WHAT YOU EXPECT. is available for selected retailers, concept stores, design shops, galleries and hospitality projects.</p>",
         "heading": "Wholesale",
