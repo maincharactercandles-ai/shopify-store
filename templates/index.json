@@ -78,6 +78,27 @@
         "gap_between_elements": 24
       }
     },
+    "nwy_concept_intro_BLVFmz": {
+      "type": "nwy-concept-intro",
+      "name": "NWY — Concept intro",
+      "settings": {
+        "eyebrow": "THE CONCEPT",
+        "heading": "THIS IS NOT\nA CANDLE.",
+        "text": "<p>Industrial objects transformed into collectible scented candles.</p><p>Hand-poured in Paris using vegan soy wax and fine fragrances from Grasse.</p><p>Designed to be reused long after the wax has burned away.</p>",
+        "button_label": "DISCOVER THE CONCEPT",
+        "button_link": "shopify://pages/concept",
+        "image": "shopify://shop_images/ChatGPT_Image_17_juil._2026_a_06_25_25.png",
+        "image_height": 540,
+        "image_height_mobile": 380,
+        "side_gutter": 52,
+        "max_width": 1600,
+        "background_color": "#f6f5f1",
+        "text_color": "#111111",
+        "muted_text_color": "#6e6e68",
+        "padding_top": 40,
+        "padding_bottom": 48
+      }
+    },
     "nwy_split_cta_iWLffL": {
       "type": "nwy-split-cta",
       "name": "NWY — Double CTA",
@@ -103,27 +124,6 @@
         "line_color": "#f6f5f1",
         "padding_top": 0,
         "padding_bottom": 44
-      }
-    },
-    "nwy_concept_intro_BLVFmz": {
-      "type": "nwy-concept-intro",
-      "name": "NWY — Concept intro",
-      "settings": {
-        "eyebrow": "THE CONCEPT",
-        "heading": "THIS IS NOT\nA CANDLE.",
-        "text": "<p>Industrial objects transformed into collectible scented candles.</p><p>Hand-poured in Paris using vegan soy wax and fine fragrances from Grasse.</p><p>Designed to be reused long after the wax has burned away.</p>",
-        "button_label": "DISCOVER THE CONCEPT",
-        "button_link": "shopify://pages/concept",
-        "image": "shopify://shop_images/ChatGPT_Image_17_juil._2026_a_06_25_25.png",
-        "image_height": 540,
-        "image_height_mobile": 380,
-        "side_gutter": 52,
-        "max_width": 1600,
-        "background_color": "#f6f5f1",
-        "text_color": "#111111",
-        "muted_text_color": "#6e6e68",
-        "padding_top": 40,
-        "padding_bottom": 48
       }
     },
     "nwye_into_the_wild_4Xth6i": {
@@ -436,15 +436,30 @@
         "padding-block-start": 16,
         "padding-block-end": 16
       }
+    },
+    "divider_NQEJTM": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
+      }
     }
   },
   "order": [
     "nwy_home_hero_Wainfp",
     "marquee_mqh9yJ",
-    "nwy_split_cta_iWLffL",
     "nwy_concept_intro_BLVFmz",
+    "nwy_split_cta_iWLffL",
     "nwye_into_the_wild_4Xth6i",
     "nwy_process_73MqMA",
+    "divider_NQEJTM",
     "ss_feature_1_features_fqqzdc",
     "custom_liquid_8gYDjh",
     "nwy_journal_KDWWTF",
