@@ -125,7 +125,17 @@
         {% if section.settings.eyebrow != blank %}
           <p class="nwy-product-hero__eyebrow">{{ section.settings.eyebrow }}</p>
         {% endif %}
+<nav class="nwy-product-hero__breadcrumb" aria-label="Breadcrumb">
 
+  <a href="{{ routes.collections_url }}">
+    Shop
+  </a>
+
+  <span>/</span>
+
+  <span>{{ product.title }}</span>
+
+</nav>
         <h1 class="nwy-product-hero__title">{{ product.title }}</h1>
 
         {% if section.settings.short_description != blank %}
@@ -921,6 +931,34 @@
       height: 40px;
       font-size: 34px;
     }
+    #{{ section_id }} .nwy-product-hero__breadcrumb{
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  margin-bottom:22px;
+
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+
+  color:rgba(17,17,17,.55);
+}
+
+#{{ section_id }} .nwy-product-hero__breadcrumb a{
+  color:inherit;
+  text-decoration:none;
+  transition:opacity .2s ease;
+}
+
+#{{ section_id }} .nwy-product-hero__breadcrumb a:hover{
+  opacity:1;
+}
+
+#{{ section_id }} .nwy-product-hero__breadcrumb span:last-child{
+  color:#111;
+}
   }
 </style>
 
