@@ -16,23 +16,25 @@
       {% if product.media.size > 1 %}
         <div class="nwy-product-hero__thumbs" aria-label="Product media thumbnails">
           {% for media in product.media %}
-            <button
-              type="button"
-              class="nwy-product-hero__thumb{% if forloop.first %} is-active{% endif %}"
-              data-media-index="{{ forloop.index0 }}"
-              aria-label="View media {{ forloop.index }}"
-              aria-current="{% if forloop.first %}true{% else %}false{% endif %}"
-            >
-              {{
-                media.preview_image
-                | image_url: width: 220
-                | image_tag:
-                  loading: 'lazy',
-                  widths: '80, 120, 160, 220',
-                  sizes: '84px',
-                  alt: media.alt | default: product.title
-              }}
-            </button>
+      <button
+type="submit"
+class="nwy-product-hero__submit"
+{% unless selected_variant.available %}disabled{% endunless %}
+>
+
+<span>
+{% if selected_variant.available %}
+{{ section.settings.add_to_cart_label }}
+{% else %}
+Sold out
+{% endif %}
+</span>
+
+<span class="nwy-product-hero__arrow">
+→
+</span>
+
+</button>
           {% endfor %}
         </div>
       {% endif %}
@@ -897,6 +899,27 @@ font-weight: 700;
       height: 40px;
       font-size: 34px;
     }
+    .nwy-product-hero__submit{
+
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+
+}
+
+.nwy-product-hero__arrow{
+
+font-size:18px;
+transition:.2s ease;
+
+}
+
+.nwy-product-hero__submit:hover .nwy-product-hero__arrow{
+
+transform:translateX(4px);
+
+}
   }
 </style>
 
