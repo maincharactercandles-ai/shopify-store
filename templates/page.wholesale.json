@@ -143,6 +143,7 @@
         "slide_fNTyjj",
         "slide_N6wkiJ"
       ],
+      "disabled": true,
       "name": "t:names.slideshow_inset",
       "settings": {
         "display_mode": "full_frame",
@@ -323,6 +324,7 @@
         "button_fxfcjj",
         "button_CpjJdk"
       ],
+      "disabled": true,
       "name": "t:names.rich_text_section",
       "settings": {
         "content_direction": "column",
@@ -351,12 +353,72 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "nwy_wholesale_WUxPH4": {
+      "type": "nwy-wholesale",
+      "blocks": {
+        "fact_9nmcnG": {
+          "type": "fact",
+          "settings": {
+            "title": "Made in small batches",
+            "text": "Produced with close attention to quality and consistency."
+          }
+        },
+        "fact_LtjBbe": {
+          "type": "fact",
+          "settings": {
+            "title": "Designed in Paris",
+            "text": "Distinctive objects created for concept stores and design-led retailers."
+          }
+        },
+        "fact_hmp3hz": {
+          "type": "fact",
+          "settings": {
+            "title": "Gift-ready packaging",
+            "text": "Products arrive ready for premium retail presentation."
+          }
+        },
+        "fact_tBcHJG": {
+          "type": "fact",
+          "settings": {
+            "title": "Hospitality projects",
+            "text": "Custom requests are reviewed directly with our team."
+          }
+        }
+      },
+      "block_order": [
+        "fact_9nmcnG",
+        "fact_LtjBbe",
+        "fact_hmp3hz",
+        "fact_tBcHJG"
+      ],
+      "name": "NWY — Wholesale",
+      "settings": {
+        "overlay_opacity": 45,
+        "hero_title": "STOCKISTS & WHOLESALE.",
+        "hero_text": "<p>NOT WHAT YOU EXPECT. is available for selected retailers, concept stores, design shops, galleries and hospitality projects.</p>",
+        "heading": "Wholesale",
+        "intro": "<p>Choose your preferred ordering platform below. For hospitality projects or custom collaborations, contact us directly.</p>",
+        "faire_label": "Faire",
+        "faire_description": "Recommended for independent retailers and concept stores.",
+        "faire_url": "https://www.faire.com/direct/notwhatyouexpect?utm_source=embed",
+        "ankorstore_label": "Ankorstore",
+        "ankorstore_description": "Order our wholesale collection through Ankorstore.",
+        "ankorstore_url": "https://fr.ankorstore.com/lift/not-what-you-expect-57548?utm_campaign=not-what-you-expect-widget&utm_content=widget-57548&utm_medium=widget-v1&utm_source=widget",
+        "platform_cta": "Browse catalogue",
+        "facts_heading": "Wholesale at a glance",
+        "contact_heading": "Hospitality or custom project?",
+        "contact_text": "<p>Contact us directly for hotels, restaurants, events, gifting and special collaborations.</p>",
+        "contact_label": "Contact us",
+        "contact_url": "mailto:contact@notwhatyouexpect.fr"
+      }
     }
   },
   "order": [
     "slideshow_ATxxGD",
     "main",
     "17815625374a7d3acb",
-    "section_tpUxkx"
+    "section_tpUxkx",
+    "nwy_wholesale_WUxPH4"
   ]
 }
