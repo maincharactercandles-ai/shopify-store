@@ -112,31 +112,31 @@
             "link": "shopify://products/object-05-oriental-night"
           }
         },
-        "image_EjCbRR": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_11_03_21_a1f58bd7-46da-488d-b98f-9308703c71c4.png",
-            "size": "square",
-            "title": "OBJECT 06.",
-            "caption": "Paris, inside",
-            "link": "shopify://products/object-04-peach-musk-scented-candle"
-          }
-        },
         "image_whiY6b": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/ChatGPT_Image_13_juil._2026_10_15_05.png",
-            "size": "square",
+            "size": "wide",
             "title": "DROP 02",
             "caption": "Hand-poured in Paris",
             "link": "shopify://collections/drop-02"
+          }
+        },
+        "image_EjCbRR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_11_03_21_a1f58bd7-46da-488d-b98f-9308703c71c4.png",
+            "size": "portrait",
+            "title": "OBJECT 06.",
+            "caption": "Paris, inside",
+            "link": "shopify://products/object-04-peach-musk-scented-candle"
           }
         },
         "image_ctPzra": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/ChatGPT_Image_13_juil._2026_10_34_49_2.png",
-            "size": "large",
+            "size": "portrait",
             "title": "OBJECT 05.",
             "caption": "After dinner",
             "link": "shopify://products/object-05-oriental-night"
@@ -165,8 +165,8 @@
       },
       "block_order": [
         "image_mFLbmM",
-        "image_EjCbRR",
         "image_whiY6b",
+        "image_EjCbRR",
         "image_ctPzra",
         "image_6ffHti",
         "image_TRkTUF"
