@@ -115,6 +115,7 @@
         "image_EjCbRR": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/object-06-peach-musk-scented-candle-9778748.png",
             "size": "square",
             "title": "OBJECT 06.",
             "caption": "Paris, outside",
