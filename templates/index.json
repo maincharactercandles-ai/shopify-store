@@ -99,6 +99,91 @@
         "padding_bottom": 48
       }
     },
+    "nwye_into_the_wild_4Xth6i": {
+      "type": "nwye-into-the-wild",
+      "blocks": {
+        "image_mFLbmM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_10_11_50_c61511e6-2cde-4e3e-88e5-6ecd13ed8012.png",
+            "size": "large",
+            "title": "OBJECT 05.",
+            "caption": "Coffee after the flame",
+            "link": "shopify://products/object-05-oriental-night"
+          }
+        },
+        "image_EjCbRR": {
+          "type": "image",
+          "settings": {
+            "size": "square",
+            "title": "OBJECT 06.",
+            "caption": "Paris, outside",
+            "link": ""
+          }
+        },
+        "image_ctPzra": {
+          "type": "image",
+          "settings": {
+            "size": "square",
+            "title": "OBJECT 05.",
+            "caption": "After dinner",
+            "link": ""
+          }
+        },
+        "image_whiY6b": {
+          "type": "image",
+          "settings": {
+            "size": "square",
+            "title": "DROP 02",
+            "caption": "Hand-poured in Paris",
+            "link": ""
+          }
+        },
+        "image_6ffHti": {
+          "type": "image",
+          "settings": {
+            "size": "square",
+            "title": "OBJECT 06.",
+            "caption": "Peach blossom",
+            "link": ""
+          }
+        },
+        "image_zmyfMC": {
+          "type": "image",
+          "settings": {
+            "size": "wide",
+            "title": "THE WORKSHOP",
+            "caption": "Small batch production",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_mFLbmM",
+        "image_EjCbRR",
+        "image_ctPzra",
+        "image_whiY6b",
+        "image_6ffHti",
+        "image_zmyfMC"
+      ],
+      "name": "NWY — In the wild",
+      "settings": {
+        "eyebrow": "IN THE WILD",
+        "heading": "OBJECTS IN REAL LIFE.",
+        "description": "<p>Designed to live beyond the flame.</p>",
+        "footer_text": "Unexpected outside. Useful long after the wax is gone.",
+        "button_label": "SHOP THE OBJECTS",
+        "button_link": "",
+        "background_color": "#f4f3ef",
+        "text_color": "#111111",
+        "desktop_gap": 12,
+        "image_radius": 0,
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "mobile_padding_top": 72,
+        "mobile_padding_bottom": 72
+      }
+    },
     "nwy_process_73MqMA": {
       "type": "nwy-process",
       "blocks": {
@@ -739,6 +824,7 @@
     "nwy_home_hero_Wainfp",
     "marquee_mqh9yJ",
     "nwy_concept_intro_BLVFmz",
+    "nwye_into_the_wild_4Xth6i",
     "nwy_process_73MqMA",
     "nwy_split_cta_iWLffL",
     "ss_gallery_1_V8TExq",
