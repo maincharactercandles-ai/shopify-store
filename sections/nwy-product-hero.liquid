@@ -176,8 +176,10 @@
           {% endfor %}
         </div>
 
-        {% form 'product', product, id: 'nwy-product-form-' | append: section.id, class: 'nwy-product-hero__form' %}
-          {% unless product.has_only_default_variant %}
+{% assign product_form_id = 'nwy-product-form-' | append: section.id %}
+
+{% form 'product', product, id: product_form_id, class: 'nwy-product-hero__form' %}
+            {% unless product.has_only_default_variant %}
             <div class="nwy-product-hero__variants">
               {% for option in product.options_with_values %}
                 <label class="nwy-product-hero__variant-label" for="NWYOption-{{ section.id }}-{{ option.position }}">
