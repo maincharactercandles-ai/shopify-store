@@ -231,7 +231,11 @@
             >
               <span data-nwy-add-text>
                 {% if selected_variant.available %}
-                  {{ section.settings.add_to_cart_label }}
+                  <span>{{ section.settings.add_to_cart_label }}</span>
+
+<span class="nwy-product-hero__arrow">
+    →
+</span>
                 {% else %}
                   {{ section.settings.sold_out_label }}
                 {% endif %}
@@ -582,7 +586,7 @@
   }
 
   #{{ section_id }} .nwy-product-hero__price {
-    font-size: 26px;
+    font-size: 34px;
     font-weight: 650;
     letter-spacing: -0.025em;
   }
@@ -845,7 +849,10 @@
     }
 
     #{{ section_id }} .nwy-product-hero__title {
-      font-size: clamp(36px, 11vw, 50px);
+      font-size: clamp(34px, 2.9vw, 52px);
+line-height: 0.95;
+letter-spacing: -0.04em;
+font-weight: 700;
     }
 
     #{{ section_id }} .nwy-product-hero__description {
