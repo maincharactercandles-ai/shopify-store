@@ -1,0 +1,1369 @@
+{% liquid
+  assign section_id = 'nwy-about-' | append: section.id
+%}
+
+<section
+  id="{{ section_id }}"
+  class="nwy-about"
+  style="
+    --nwy-about-bg: {{ section.settings.background_color }};
+    --nwy-about-text: {{ section.settings.text_color }};
+    --nwy-about-muted: {{ section.settings.muted_text_color }};
+    --nwy-about-border: {{ section.settings.border_color }};
+  "
+>
+  <div class="nwy-about__hero">
+    <div class="nwy-about__container">
+      <div class="nwy-about__hero-grid">
+        <div class="nwy-about__hero-copy nwy-reveal">
+          {% if section.settings.hero_eyebrow != blank %}
+            <p class="nwy-about__eyebrow">
+              {{ section.settings.hero_eyebrow | escape }}
+            </p>
+          {% endif %}
+
+          {% if section.settings.hero_heading != blank %}
+            <h1 class="nwy-about__hero-heading">
+              {{ section.settings.hero_heading | escape | newline_to_br }}
+            </h1>
+          {% endif %}
+        </div>
+
+        {% if section.settings.hero_intro != blank %}
+          <div class="nwy-about__hero-intro nwy-reveal">
+            {{ section.settings.hero_intro }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if section.settings.hero_image != blank %}
+      <div class="nwy-about__hero-media nwy-reveal">
+        {{
+          section.settings.hero_image
+          | image_url: width: 2400
+          | image_tag:
+            loading: 'eager',
+            widths: '750, 1100, 1500, 1900, 2400',
+            sizes: '100vw',
+            class: 'nwy-about__hero-image',
+            alt: section.settings.hero_image.alt
+        }}
+      </div>
+    {% else %}
+      <div class="nwy-about__hero-media nwy-reveal">
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'nwy-about__placeholder' }}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="nwy-about__container">
+
+    <section class="nwy-about__intro nwy-about__section">
+      <div class="nwy-about__section-label nwy-reveal">
+        {% if section.settings.idea_eyebrow != blank %}
+          <p class="nwy-about__eyebrow">
+            {{ section.settings.idea_eyebrow | escape }}
+          </p>
+        {% endif %}
+      </div>
+
+      <div class="nwy-about__intro-content">
+        {% if section.settings.idea_heading != blank %}
+          <h2 class="nwy-about__display-heading nwy-reveal">
+            {{ section.settings.idea_heading | escape | newline_to_br }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.idea_text != blank %}
+          <div class="nwy-about__body nwy-about__body--large nwy-reveal">
+            {{ section.settings.idea_text }}
+          </div>
+        {% endif %}
+      </div>
+    </section>
+
+    <div class="nwy-about__divider"></div>
+
+    <section class="nwy-about__object-section nwy-about__section">
+      <div class="nwy-about__object-copy">
+        {% if section.settings.object_heading != blank %}
+          <h2 class="nwy-about__display-heading nwy-reveal">
+            {{ section.settings.object_heading | escape | newline_to_br }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.object_text != blank %}
+          <div class="nwy-about__body nwy-reveal">
+            {{ section.settings.object_text }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="nwy-about__object-media nwy-reveal">
+        {% if section.settings.object_image != blank %}
+          {{
+            section.settings.object_image
+            | image_url: width: 1600
+            | image_tag:
+              loading: 'lazy',
+              widths: '600, 900, 1200, 1600',
+              sizes: '(min-width: 990px) 46vw, 100vw',
+              class: 'nwy-about__image',
+              alt: section.settings.object_image.alt
+          }}
+        {% else %}
+          {{ 'product-1' | placeholder_svg_tag: 'nwy-about__placeholder' }}
+        {% endif %}
+      </div>
+    </section>
+  </div>
+
+  <section class="nwy-about__statement-block">
+    <div class="nwy-about__container">
+      {% if section.settings.statement_text != blank %}
+        <p class="nwy-about__statement nwy-reveal">
+          {{ section.settings.statement_text | escape | newline_to_br }}
+        </p>
+      {% endif %}
+    </div>
+  </section>
+
+  <div class="nwy-about__container">
+    <section class="nwy-about__process nwy-about__section">
+      <div class="nwy-about__process-header">
+        <div class="nwy-reveal">
+          {% if section.settings.process_eyebrow != blank %}
+            <p class="nwy-about__eyebrow">
+              {{ section.settings.process_eyebrow | escape }}
+            </p>
+          {% endif %}
+        </div>
+
+        {% if section.settings.process_heading != blank %}
+          <h2 class="nwy-about__display-heading nwy-reveal">
+            {{ section.settings.process_heading | escape | newline_to_br }}
+          </h2>
+        {% endif %}
+      </div>
+
+      <div class="nwy-about__steps">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'process_step' %}
+              <article
+                class="nwy-about__step nwy-reveal"
+                {{ block.shopify_attributes }}
+              >
+                <p class="nwy-about__step-number">
+                  {{ block.settings.number | escape }}
+                </p>
+
+                {% if block.settings.heading != blank %}
+                  <h3 class="nwy-about__step-heading">
+                    {{ block.settings.heading | escape }}
+                  </h3>
+                {% endif %}
+
+                {% if block.settings.text != blank %}
+                  <div class="nwy-about__step-text">
+                    {{ block.settings.text }}
+                  </div>
+                {% endif %}
+              </article>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+
+  <section class="nwy-about__wide-image nwy-reveal">
+    {% if section.settings.process_image != blank %}
+      {{
+        section.settings.process_image
+        | image_url: width: 2400
+        | image_tag:
+          loading: 'lazy',
+          widths: '750, 1100, 1500, 1900, 2400',
+          sizes: '100vw',
+          class: 'nwy-about__wide-image-element',
+          alt: section.settings.process_image.alt
+      }}
+    {% else %}
+      {{ 'lifestyle-2' | placeholder_svg_tag: 'nwy-about__placeholder' }}
+    {% endif %}
+  </section>
+
+  <div class="nwy-about__container">
+    <section class="nwy-about__materials nwy-about__section">
+      <div class="nwy-about__materials-copy">
+        {% if section.settings.materials_heading != blank %}
+          <h2 class="nwy-about__display-heading nwy-reveal">
+            {{ section.settings.materials_heading | escape | newline_to_br }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.materials_text != blank %}
+          <div class="nwy-about__body nwy-reveal">
+            {{ section.settings.materials_text }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="nwy-about__materials-list">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'material' %}
+              <div
+                class="nwy-about__material nwy-reveal"
+                {{ block.shopify_attributes }}
+              >
+                {% if block.settings.number != blank %}
+                  <span class="nwy-about__material-number">
+                    {{ block.settings.number | escape }}
+                  </span>
+                {% endif %}
+
+                <p>{{ block.settings.title | escape }}</p>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <div class="nwy-about__divider"></div>
+
+    <section class="nwy-about__after nwy-about__section">
+      <div class="nwy-about__after-heading">
+        {% if section.settings.after_heading != blank %}
+          <h2 class="nwy-about__display-heading nwy-reveal">
+            {{ section.settings.after_heading | escape | newline_to_br }}
+          </h2>
+        {% endif %}
+      </div>
+
+      <div class="nwy-about__after-copy">
+        {% if section.settings.after_text != blank %}
+          <div class="nwy-about__body nwy-about__body--large nwy-reveal">
+            {{ section.settings.after_text }}
+          </div>
+        {% endif %}
+      </div>
+    </section>
+
+    <section class="nwy-about__gallery">
+      <div class="nwy-about__gallery-main nwy-reveal">
+        {% if section.settings.gallery_image_1 != blank %}
+          {{
+            section.settings.gallery_image_1
+            | image_url: width: 1800
+            | image_tag:
+              loading: 'lazy',
+              widths: '750, 1100, 1400, 1800',
+              sizes: '(min-width: 990px) 60vw, 100vw',
+              class: 'nwy-about__image',
+              alt: section.settings.gallery_image_1.alt
+          }}
+        {% else %}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'nwy-about__placeholder' }}
+        {% endif %}
+      </div>
+
+      <div class="nwy-about__gallery-side">
+        <div class="nwy-about__gallery-small nwy-reveal">
+          {% if section.settings.gallery_image_2 != blank %}
+            {{
+              section.settings.gallery_image_2
+              | image_url: width: 1000
+              | image_tag:
+                loading: 'lazy',
+                widths: '420, 640, 850, 1000',
+                sizes: '(min-width: 990px) 34vw, 100vw',
+                class: 'nwy-about__image',
+                alt: section.settings.gallery_image_2.alt
+            }}
+          {% else %}
+            {{ 'product-2' | placeholder_svg_tag: 'nwy-about__placeholder' }}
+          {% endif %}
+        </div>
+
+        <div class="nwy-about__gallery-small nwy-reveal">
+          {% if section.settings.gallery_image_3 != blank %}
+            {{
+              section.settings.gallery_image_3
+              | image_url: width: 1000
+              | image_tag:
+                loading: 'lazy',
+                widths: '420, 640, 850, 1000',
+                sizes: '(min-width: 990px) 34vw, 100vw',
+                class: 'nwy-about__image',
+                alt: section.settings.gallery_image_3.alt
+            }}
+          {% else %}
+            {{ 'product-3' | placeholder_svg_tag: 'nwy-about__placeholder' }}
+          {% endif %}
+        </div>
+      </div>
+    </section>
+
+    <section class="nwy-about__studio nwy-about__section">
+      <div class="nwy-about__studio-media nwy-reveal">
+        {% if section.settings.studio_image != blank %}
+          {{
+            section.settings.studio_image
+            | image_url: width: 1600
+            | image_tag:
+              loading: 'lazy',
+              widths: '600, 900, 1200, 1600',
+              sizes: '(min-width: 990px) 48vw, 100vw',
+              class: 'nwy-about__image',
+              alt: section.settings.studio_image.alt
+          }}
+        {% else %}
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'nwy-about__placeholder' }}
+        {% endif %}
+      </div>
+
+      <div class="nwy-about__studio-copy">
+        {% if section.settings.studio_eyebrow != blank %}
+          <p class="nwy-about__eyebrow nwy-reveal">
+            {{ section.settings.studio_eyebrow | escape }}
+          </p>
+        {% endif %}
+
+        {% if section.settings.studio_heading != blank %}
+          <h2 class="nwy-about__display-heading nwy-reveal">
+            {{ section.settings.studio_heading | escape | newline_to_br }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.studio_text != blank %}
+          <div class="nwy-about__body nwy-reveal">
+            {{ section.settings.studio_text }}
+          </div>
+        {% endif %}
+      </div>
+    </section>
+
+    <section class="nwy-about__final">
+      {% if section.settings.final_heading != blank %}
+        <h2 class="nwy-about__final-heading nwy-reveal">
+          {{ section.settings.final_heading | escape | newline_to_br }}
+        </h2>
+      {% endif %}
+
+      <div class="nwy-about__final-bottom">
+        {% if section.settings.final_text != blank %}
+          <p class="nwy-about__final-text nwy-reveal">
+            {{ section.settings.final_text | escape }}
+          </p>
+        {% endif %}
+
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          <a
+            href="{{ section.settings.button_link }}"
+            class="nwy-about__button nwy-reveal"
+          >
+            <span>{{ section.settings.button_label | escape }}</span>
+
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 9H15M10 4L15 9L10 14"
+                stroke="currentColor"
+                stroke-width="1.4"
+                stroke-linecap="square"
+              />
+            </svg>
+          </a>
+        {% endif %}
+      </div>
+    </section>
+  </div>
+</section>
+
+{% style %}
+  #{{ section_id }} {
+    overflow: hidden;
+    background: var(--nwy-about-bg);
+    color: var(--nwy-about-text);
+  }
+
+  #{{ section_id }} *,
+  #{{ section_id }} *::before,
+  #{{ section_id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #{{ section_id }} h1,
+  #{{ section_id }} h2,
+  #{{ section_id }} h3,
+  #{{ section_id }} p {
+    margin-top: 0;
+  }
+
+  #{{ section_id }} .nwy-about__container {
+    width: min(100%, 1860px);
+    margin: 0 auto;
+    padding-inline: clamp(20px, 4vw, 72px);
+  }
+
+  #{{ section_id }} .nwy-about__section {
+    padding-block: clamp(90px, 11vw, 190px);
+  }
+
+  #{{ section_id }} .nwy-about__divider {
+    width: 100%;
+    height: 1px;
+    background: var(--nwy-about-border);
+  }
+
+  #{{ section_id }} .nwy-about__eyebrow {
+    margin-bottom: 22px;
+    font-size: 11px;
+    font-weight: 650;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-about__hero {
+    padding-top: clamp(70px, 9vw, 140px);
+  }
+
+  #{{ section_id }} .nwy-about__hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.55fr);
+    gap: clamp(60px, 10vw, 180px);
+    align-items: end;
+    padding-bottom: clamp(65px, 8vw, 120px);
+  }
+
+  #{{ section_id }} .nwy-about__hero-heading {
+    max-width: 1300px;
+    margin-bottom: 0;
+    font-size: clamp(72px, 11vw, 190px);
+    font-weight: 700;
+    line-height: 0.8;
+    letter-spacing: -0.075em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-about__hero-intro {
+    max-width: 460px;
+    padding-bottom: 10px;
+    font-size: clamp(18px, 1.45vw, 24px);
+    line-height: 1.42;
+  }
+
+  #{{ section_id }} .nwy-about__hero-intro p {
+    margin-bottom: 18px;
+  }
+
+  #{{ section_id }} .nwy-about__hero-intro p:last-child {
+    margin-bottom: 0;
+  }
+
+  #{{ section_id }} .nwy-about__hero-media {
+    width: 100%;
+    height: clamp(520px, 72vw, 1050px);
+    overflow: hidden;
+    background: #e7e7e7;
+  }
+
+  #{{ section_id }} .nwy-about__hero-image,
+  #{{ section_id }} .nwy-about__wide-image-element,
+  #{{ section_id }} .nwy-about__image,
+  #{{ section_id }} .nwy-about__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #{{ section_id }} .nwy-about__intro {
+    display: grid;
+    grid-template-columns: minmax(160px, 0.45fr) minmax(0, 1.55fr);
+    gap: clamp(50px, 10vw, 180px);
+  }
+
+  #{{ section_id }} .nwy-about__intro-content {
+    max-width: 1250px;
+  }
+
+  #{{ section_id }} .nwy-about__display-heading {
+    max-width: 1200px;
+    margin-bottom: clamp(42px, 6vw, 90px);
+    font-size: clamp(54px, 7.5vw, 130px);
+    font-weight: 700;
+    line-height: 0.84;
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-about__body {
+    max-width: 690px;
+    margin-left: auto;
+    color: var(--nwy-about-muted);
+    font-size: clamp(17px, 1.35vw, 22px);
+    line-height: 1.5;
+  }
+
+  #{{ section_id }} .nwy-about__body--large {
+    font-size: clamp(20px, 1.85vw, 30px);
+    line-height: 1.42;
+  }
+
+  #{{ section_id }} .nwy-about__body p {
+    margin-bottom: 1.1em;
+  }
+
+  #{{ section_id }} .nwy-about__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  #{{ section_id }} .nwy-about__object-section {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(55px, 9vw, 150px);
+    align-items: center;
+  }
+
+  #{{ section_id }} .nwy-about__object-copy .nwy-about__body {
+    margin-left: 0;
+  }
+
+  #{{ section_id }} .nwy-about__object-media {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: #e7e7e7;
+  }
+
+  #{{ section_id }} .nwy-about__statement-block {
+    padding-block: clamp(100px, 15vw, 250px);
+    background: var(--nwy-about-text);
+    color: var(--nwy-about-bg);
+  }
+
+  #{{ section_id }} .nwy-about__statement {
+    max-width: 1700px;
+    margin-bottom: 0;
+    font-size: clamp(64px, 10vw, 180px);
+    font-weight: 700;
+    line-height: 0.8;
+    letter-spacing: -0.075em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-about__process-header {
+    display: grid;
+    grid-template-columns: minmax(160px, 0.45fr) minmax(0, 1.55fr);
+    gap: clamp(50px, 10vw, 180px);
+  }
+
+  #{{ section_id }} .nwy-about__steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: clamp(70px, 10vw, 150px);
+    border-top: 1px solid var(--nwy-about-border);
+  }
+
+  #{{ section_id }} .nwy-about__step {
+    min-height: 340px;
+    padding: 26px clamp(20px, 2.5vw, 42px) 30px 0;
+    border-right: 1px solid var(--nwy-about-border);
+  }
+
+  #{{ section_id }} .nwy-about__step:not(:first-child) {
+    padding-left: clamp(20px, 2.5vw, 42px);
+  }
+
+  #{{ section_id }} .nwy-about__step:last-child {
+    border-right: 0;
+  }
+
+  #{{ section_id }} .nwy-about__step-number {
+    margin-bottom: 85px;
+    font-size: 11px;
+    font-weight: 650;
+    letter-spacing: 0.12em;
+  }
+
+  #{{ section_id }} .nwy-about__step-heading {
+    margin-bottom: 18px;
+    font-size: clamp(22px, 2vw, 34px);
+    font-weight: 650;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-about__step-text {
+    max-width: 300px;
+    color: var(--nwy-about-muted);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  #{{ section_id }} .nwy-about__step-text p {
+    margin-bottom: 0;
+  }
+
+  #{{ section_id }} .nwy-about__wide-image {
+    width: 100%;
+    height: clamp(500px, 70vw, 1050px);
+    overflow: hidden;
+  }
+
+  #{{ section_id }} .nwy-about__materials {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(350px, 0.85fr);
+    gap: clamp(65px, 10vw, 170px);
+    align-items: end;
+  }
+
+  #{{ section_id }} .nwy-about__materials-copy .nwy-about__body {
+    margin-left: 0;
+  }
+
+  #{{ section_id }} .nwy-about__materials-list {
+    border-top: 1px solid var(--nwy-about-border);
+  }
+
+  #{{ section_id }} .nwy-about__material {
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    gap: 20px;
+    align-items: center;
+    padding-block: 26px;
+    border-bottom: 1px solid var(--nwy-about-border);
+  }
+
+  #{{ section_id }} .nwy-about__material-number {
+    color: var(--nwy-about-muted);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+
+  #{{ section_id }} .nwy-about__material p {
+    margin-bottom: 0;
+    font-size: clamp(19px, 1.6vw, 27px);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-about__after {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+    gap: clamp(65px, 10vw, 170px);
+    align-items: end;
+  }
+
+  #{{ section_id }} .nwy-about__after .nwy-about__display-heading {
+    margin-bottom: 0;
+  }
+
+  #{{ section_id }} .nwy-about__after-copy .nwy-about__body {
+    margin-left: 0;
+  }
+
+  #{{ section_id }} .nwy-about__gallery {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.75fr);
+    gap: 12px;
+    padding-bottom: clamp(100px, 13vw, 220px);
+  }
+
+  #{{ section_id }} .nwy-about__gallery-main {
+    min-height: 740px;
+    overflow: hidden;
+  }
+
+  #{{ section_id }} .nwy-about__gallery-side {
+    display: grid;
+    gap: 12px;
+  }
+
+  #{{ section_id }} .nwy-about__gallery-small {
+    min-height: 360px;
+    overflow: hidden;
+  }
+
+  #{{ section_id }} .nwy-about__studio {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(60px, 10vw, 170px);
+    align-items: center;
+    border-top: 1px solid var(--nwy-about-border);
+  }
+
+  #{{ section_id }} .nwy-about__studio-media {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+
+  #{{ section_id }} .nwy-about__studio-copy .nwy-about__body {
+    margin-left: 0;
+  }
+
+  #{{ section_id }} .nwy-about__final {
+    padding-block: clamp(120px, 16vw, 260px) clamp(85px, 10vw, 150px);
+    border-top: 1px solid var(--nwy-about-border);
+  }
+
+  #{{ section_id }} .nwy-about__final-heading {
+    max-width: 1600px;
+    margin-bottom: clamp(70px, 10vw, 150px);
+    font-size: clamp(70px, 11vw, 190px);
+    font-weight: 700;
+    line-height: 0.8;
+    letter-spacing: -0.075em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-about__final-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    align-items: flex-end;
+  }
+
+  #{{ section_id }} .nwy-about__final-text {
+    max-width: 600px;
+    margin-bottom: 0;
+    font-size: clamp(18px, 1.7vw, 27px);
+    line-height: 1.4;
+  }
+
+  #{{ section_id }} .nwy-about__button {
+    display: inline-flex;
+    min-height: 52px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    border: 1px solid currentColor;
+    padding: 0 20px;
+    color: inherit;
+    font-size: 11px;
+    font-weight: 650;
+    letter-spacing: 0.11em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+      background 300ms ease,
+      color 300ms ease;
+  }
+
+  #{{ section_id }} .nwy-about__button svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  #{{ section_id }} .nwy-about__button:hover {
+    background: var(--nwy-about-text);
+    color: var(--nwy-about-bg);
+  }
+
+  #{{ section_id }} .nwy-about__button:hover svg {
+    transform: translateX(5px);
+  }
+
+  #{{ section_id }} .nwy-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 850ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  #{{ section_id }} .nwy-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media screen and (max-width: 989px) {
+    #{{ section_id }} .nwy-about__hero-grid,
+    #{{ section_id }} .nwy-about__intro,
+    #{{ section_id }} .nwy-about__object-section,
+    #{{ section_id }} .nwy-about__process-header,
+    #{{ section_id }} .nwy-about__materials,
+    #{{ section_id }} .nwy-about__after,
+    #{{ section_id }} .nwy-about__studio {
+      grid-template-columns: 1fr;
+    }
+
+    #{{ section_id }} .nwy-about__hero-grid {
+      gap: 50px;
+      align-items: start;
+    }
+
+    #{{ section_id }} .nwy-about__hero-intro {
+      max-width: 650px;
+    }
+
+    #{{ section_id }} .nwy-about__body {
+      max-width: 700px;
+      margin-left: 0;
+    }
+
+    #{{ section_id }} .nwy-about__steps {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #{{ section_id }} .nwy-about__step:nth-child(2) {
+      border-right: 0;
+    }
+
+    #{{ section_id }} .nwy-about__step:nth-child(-n + 2) {
+      border-bottom: 1px solid var(--nwy-about-border);
+    }
+
+    #{{ section_id }} .nwy-about__gallery {
+      grid-template-columns: 1fr;
+    }
+
+    #{{ section_id }} .nwy-about__gallery-side {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    #{{ section_id }} .nwy-about__studio-copy {
+      order: -1;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #{{ section_id }} .nwy-about__container {
+      padding-inline: 20px;
+    }
+
+    #{{ section_id }} .nwy-about__section {
+      padding-block: 80px;
+    }
+
+    #{{ section_id }} .nwy-about__hero {
+      padding-top: 58px;
+    }
+
+    #{{ section_id }} .nwy-about__hero-grid {
+      gap: 34px;
+      padding-bottom: 52px;
+    }
+
+    #{{ section_id }} .nwy-about__hero-heading {
+      font-size: clamp(66px, 21vw, 106px);
+      line-height: 0.81;
+    }
+
+    #{{ section_id }} .nwy-about__hero-intro {
+      font-size: 17px;
+    }
+
+    #{{ section_id }} .nwy-about__hero-media {
+      height: 72vh;
+      min-height: 500px;
+      max-height: 720px;
+    }
+
+    #{{ section_id }} .nwy-about__display-heading {
+      margin-bottom: 42px;
+      font-size: clamp(51px, 15vw, 78px);
+      line-height: 0.86;
+    }
+
+    #{{ section_id }} .nwy-about__body,
+    #{{ section_id }} .nwy-about__body--large {
+      font-size: 17px;
+      line-height: 1.52;
+    }
+
+    #{{ section_id }} .nwy-about__object-section {
+      gap: 55px;
+    }
+
+    #{{ section_id }} .nwy-about__statement-block {
+      padding-block: 95px;
+    }
+
+    #{{ section_id }} .nwy-about__statement {
+      font-size: clamp(58px, 18vw, 92px);
+      line-height: 0.82;
+    }
+
+    #{{ section_id }} .nwy-about__steps {
+      grid-template-columns: 1fr;
+      margin-top: 65px;
+    }
+
+    #{{ section_id }} .nwy-about__step,
+    #{{ section_id }} .nwy-about__step:not(:first-child) {
+      min-height: 0;
+      border-right: 0;
+      border-bottom: 1px solid var(--nwy-about-border);
+      padding: 28px 0 44px;
+    }
+
+    #{{ section_id }} .nwy-about__step:last-child {
+      border-bottom: 0;
+    }
+
+    #{{ section_id }} .nwy-about__step-number {
+      margin-bottom: 50px;
+    }
+
+    #{{ section_id }} .nwy-about__wide-image {
+      height: 70vh;
+      min-height: 500px;
+    }
+
+    #{{ section_id }} .nwy-about__materials {
+      gap: 65px;
+    }
+
+    #{{ section_id }} .nwy-about__after {
+      gap: 46px;
+    }
+
+    #{{ section_id }} .nwy-about__gallery {
+      gap: 10px;
+      padding-bottom: 100px;
+    }
+
+    #{{ section_id }} .nwy-about__gallery-main {
+      min-height: 520px;
+    }
+
+    #{{ section_id }} .nwy-about__gallery-side {
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    #{{ section_id }} .nwy-about__gallery-small {
+      min-height: 240px;
+    }
+
+    #{{ section_id }} .nwy-about__studio {
+      gap: 58px;
+    }
+
+    #{{ section_id }} .nwy-about__final {
+      padding-block: 100px 75px;
+    }
+
+    #{{ section_id }} .nwy-about__final-heading {
+      font-size: clamp(64px, 20vw, 100px);
+      line-height: 0.81;
+    }
+
+    #{{ section_id }} .nwy-about__final-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    #{{ section_id }} .nwy-about__button {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #{{ section_id }} .nwy-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    #{{ section_id }} .nwy-about__button,
+    #{{ section_id }} .nwy-about__button svg {
+      transition: none;
+    }
+  }
+{% endstyle %}
+
+<script>
+  (() => {
+    const section = document.getElementById('{{ section_id }}');
+
+    if (!section || section.dataset.revealInitialized === 'true') return;
+
+    section.dataset.revealInitialized = 'true';
+
+    const elements = section.querySelectorAll('.nwy-reveal');
+
+    if (!('IntersectionObserver' in window)) {
+      elements.forEach((element) => element.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, revealObserver) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: '0px 0px -5% 0px'
+      }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "NWY — About page",
+  "tag": "section",
+  "class": "section-nwy-about-page",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero"
+    },
+    {
+      "type": "text",
+      "id": "hero_eyebrow",
+      "label": "Small title",
+      "default": "THE STORY"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_heading",
+      "label": "Heading",
+      "default": "THIS IS NOT\nA CANDLE."
+    },
+    {
+      "type": "richtext",
+      "id": "hero_intro",
+      "label": "Introduction",
+      "default": "<p>NOT WHAT YOU EXPECT transforms familiar industrial forms into collectible scented objects.</p><p>Each candle is hand-poured in Paris and designed to remain part of your interior long after the flame has disappeared.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "header",
+      "content": "The idea"
+    },
+    {
+      "type": "text",
+      "id": "idea_eyebrow",
+      "label": "Small title",
+      "default": "THE IDEA"
+    },
+    {
+      "type": "textarea",
+      "id": "idea_heading",
+      "label": "Heading",
+      "default": "EXPECT\nSOMETHING ELSE."
+    },
+    {
+      "type": "richtext",
+      "id": "idea_text",
+      "label": "Text",
+      "default": "<p>The project began with a simple question: why should a candle disappear once it has finished burning?</p><p>We wanted to create objects that feel unexpected at first sight, but become familiar through use.</p><p>The candle is only the beginning. What remains is an object designed to be kept, reused and reinterpreted.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Objects first"
+    },
+    {
+      "type": "textarea",
+      "id": "object_heading",
+      "label": "Heading",
+      "default": "OBJECTS FIRST.\nCANDLES SECOND."
+    },
+    {
+      "type": "richtext",
+      "id": "object_text",
+      "label": "Text",
+      "default": "<p>Most candles are designed around fragrance and decoration.</p><p>NOT WHAT YOU EXPECT starts with the object itself: its form, material, presence and what it can become after use.</p><p>Industrial packaging, coloured glass and everyday containers are taken out of context and transformed into collectible scented objects.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "object_image",
+      "label": "Object image"
+    },
+    {
+      "type": "textarea",
+      "id": "statement_text",
+      "label": "Large statement",
+      "default": "THE CANDLE IS\nONLY THE BEGINNING."
+    },
+    {
+      "type": "header",
+      "content": "Process"
+    },
+    {
+      "type": "text",
+      "id": "process_eyebrow",
+      "label": "Small title",
+      "default": "THE PROCESS"
+    },
+    {
+      "type": "textarea",
+      "id": "process_heading",
+      "label": "Heading",
+      "default": "MADE IN\nSMALL BATCHES."
+    },
+    {
+      "type": "image_picker",
+      "id": "process_image",
+      "label": "Large process image"
+    },
+    {
+      "type": "header",
+      "content": "Materials"
+    },
+    {
+      "type": "textarea",
+      "id": "materials_heading",
+      "label": "Heading",
+      "default": "WHAT GOES\nINSIDE MATTERS."
+    },
+    {
+      "type": "richtext",
+      "id": "materials_text",
+      "label": "Text",
+      "default": "<p>Our candles are made using vegan soy wax and carefully selected fragrance compositions.</p><p>They are poured in small quantities to ensure a consistent finish and controlled production.</p><p>The vessels are designed to be durable, reusable and kept long after the candle has finished.</p>"
+    },
+    {
+      "type": "header",
+      "content": "After the flame"
+    },
+    {
+      "type": "textarea",
+      "id": "after_heading",
+      "label": "Heading",
+      "default": "THE OBJECT\nREMAINS."
+    },
+    {
+      "type": "richtext",
+      "id": "after_text",
+      "label": "Text",
+      "default": "<p>A glass becomes a drinking vessel. A metal container becomes storage.</p><p>An object moves from one room to another and takes on a new function.</p><p>This second life is not an afterthought. It is part of the design from the beginning.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "gallery_image_1",
+      "label": "Large lifestyle image"
+    },
+    {
+      "type": "image_picker",
+      "id": "gallery_image_2",
+      "label": "Small lifestyle image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "gallery_image_3",
+      "label": "Small lifestyle image 2"
+    },
+    {
+      "type": "header",
+      "content": "Studio"
+    },
+    {
+      "type": "text",
+      "id": "studio_eyebrow",
+      "label": "Small title",
+      "default": "THE STUDIO"
+    },
+    {
+      "type": "textarea",
+      "id": "studio_heading",
+      "label": "Heading",
+      "default": "HAND-POURED\nIN PARIS."
+    },
+    {
+      "type": "richtext",
+      "id": "studio_text",
+      "label": "Text",
+      "default": "<p>Every candle is prepared and poured by hand in Paris.</p><p>Working in small batches allows us to control each stage of production and develop new objects without relying on mass manufacturing.</p><p>The studio operates at the intersection of fragrance, product design and everyday culture.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "studio_image",
+      "label": "Studio image"
+    },
+    {
+      "type": "header",
+      "content": "Final section"
+    },
+    {
+      "type": "textarea",
+      "id": "final_heading",
+      "label": "Heading",
+      "default": "DESIGNED\nTO STAY."
+    },
+    {
+      "type": "text",
+      "id": "final_text",
+      "label": "Text",
+      "default": "Explore the current objects."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "SHOP THE COLLECTION"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#F4F3EF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "muted_text_color",
+      "label": "Secondary text",
+      "default": "#4F4F4B"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Borders",
+      "default": "#CAC9C3"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "process_step",
+      "name": "Process step",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "THE OBJECT"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Each vessel is selected for its shape, material and ability to live beyond its original purpose.</p>"
+        }
+      ]
+    },
+    {
+      "type": "material",
+      "name": "Material detail",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "VEGAN SOY WAX"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NWY — About page",
+      "blocks": [
+        {
+          "type": "process_step",
+          "settings": {
+            "number": "01",
+            "heading": "THE OBJECT",
+            "text": "<p>Each vessel is selected for its shape, material and ability to live beyond its original purpose.</p>"
+          }
+        },
+        {
+          "type": "process_step",
+          "settings": {
+            "number": "02",
+            "heading": "THE FRAGRANCE",
+            "text": "<p>Each scent is developed to create a distinct atmosphere rather than simply reproduce a literal ingredient.</p>"
+          }
+        },
+        {
+          "type": "process_step",
+          "settings": {
+            "number": "03",
+            "heading": "THE POUR",
+            "text": "<p>The candles are hand-poured in Paris using vegan soy wax and fine fragrance compositions.</p>"
+          }
+        },
+        {
+          "type": "process_step",
+          "settings": {
+            "number": "04",
+            "heading": "THE SECOND LIFE",
+            "text": "<p>Once the wax has burned away, the vessel can be cleaned and reused as part of everyday life.</p>"
+          }
+        },
+        {
+          "type": "material",
+          "settings": {
+            "number": "01",
+            "title": "VEGAN SOY WAX"
+          }
+        },
+        {
+          "type": "material",
+          "settings": {
+            "number": "02",
+            "title": "FRAGRANCES FROM GRASSE"
+          }
+        },
+        {
+          "type": "material",
+          "settings": {
+            "number": "03",
+            "title": "HAND-POURED IN PARIS"
+          }
+        },
+        {
+          "type": "material",
+          "settings": {
+            "number": "04",
+            "title": "REUSABLE OBJECTS"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
