@@ -469,52 +469,52 @@
         "padding-block-end": 33
       }
     },
-    "nwy_product_hero_Vq3aK4": {
-      "type": "nwy-product-hero",
+    "nwy_product_hero_final_fkY49L": {
+      "type": "nwy-product-hero-final",
       "blocks": {
-        "benefit_8JUntH": {
+        "benefit_8gL8Lr": {
           "type": "benefit",
           "settings": {
             "icon": "paris",
             "text": "Hand-poured\nin Paris"
           }
         },
-        "benefit_3Eybq4": {
+        "benefit_NQqqBa": {
           "type": "benefit",
           "settings": {
             "icon": "time",
             "text": "Approx. 45h\nburn time"
           }
         },
-        "benefit_Xpgmk4": {
+        "benefit_cXpRk4": {
           "type": "benefit",
           "settings": {
             "icon": "reuse",
             "text": "Reusable\nobject"
           }
         },
-        "accordion_aF4xMf": {
+        "accordion_D6MpWh": {
           "type": "accordion",
           "settings": {
             "heading": "The fragrance",
-            "content": "<p>{{ product.metafields.custom.description_de_la_bougie | metafield_tag }}</p>"
+            "content": "<p>Fresh citrus meets warm woods. Bergamot, lemon and mandarin open bright before cardamom, sandalwood and musk add depth.</p>"
           }
         },
-        "accordion_WUd9Lg": {
+        "accordion_rw6bxA": {
           "type": "accordion",
           "settings": {
             "heading": "The object",
             "content": "<p>An industrial aluminium can containing a reusable amber glass vessel.</p>"
           }
         },
-        "accordion_n8WJAA": {
+        "accordion_p84xFK": {
           "type": "accordion",
           "settings": {
             "heading": "Details",
             "content": "<p>Vegan soy wax · Approx. 45h burn time · 420g total weight.</p>"
           }
         },
-        "accordion_kBF3RF": {
+        "accordion_tBtxmF": {
           "type": "accordion",
           "settings": {
             "heading": "Shipping & returns",
@@ -523,18 +523,18 @@
         }
       },
       "block_order": [
-        "benefit_8JUntH",
-        "benefit_3Eybq4",
-        "benefit_Xpgmk4",
-        "accordion_aF4xMf",
-        "accordion_WUd9Lg",
-        "accordion_n8WJAA",
-        "accordion_kBF3RF"
+        "benefit_8gL8Lr",
+        "benefit_NQqqBa",
+        "benefit_cXpRk4",
+        "accordion_D6MpWh",
+        "accordion_rw6bxA",
+        "accordion_p84xFK",
+        "accordion_tBtxmF"
       ],
       "name": "NWY — Product hero",
       "settings": {
         "color_scheme": "",
-        "eyebrow": "",
+        "eyebrow": "OBJECT 01",
         "short_description": "<p>{{ product.metafields.custom.product_short_description | metafield_tag }}</p>",
         "show_tax_text": false,
         "tax_text": "Tax included.",
@@ -542,8 +542,7 @@
         "add_to_cart_label": "Add to cart",
         "sold_out_label": "Sold out",
         "unavailable_label": "Unavailable",
-        "show_dynamic_checkout": true,
-        "payment_options_text": "More payment options"
+        "show_dynamic_checkout": true
       }
     },
     "nwy_product_story_DegChf": {
@@ -663,6 +662,85 @@
         "text_color": "#ffffff",
         "padding_top": 0,
         "padding_bottom": 0
+      }
+    },
+    "nwy_concept_intro_CekCfy": {
+      "type": "nwy-concept-intro",
+      "disabled": true,
+      "name": "NWY — Concept intro",
+      "settings": {
+        "eyebrow": "THE CONCEPT",
+        "heading": "THIS IS NOT\nA CANDLE.",
+        "text": "<p>Industrial objects transformed into collectible scented candles.</p><p>Hand-poured in Paris using vegan soy wax and fine fragrances from Grasse.</p><p>Designed to be reused long after the wax has burned away.</p>",
+        "button_label": "DISCOVER THE CONCEPT",
+        "button_link": "",
+        "image_height": 620,
+        "image_height_mobile": 460,
+        "side_gutter": 40,
+        "max_width": 2000,
+        "background_color": "#F4F2ED",
+        "text_color": "#111111",
+        "muted_text_color": "#6E6E68",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "nwy_process_GBEGfc": {
+      "type": "nwy-process",
+      "blocks": {
+        "step_LQn9FP": {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "HAND-POURED",
+            "text": "<p>Each candle is hand-poured in small batches in our Parisian studio.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "step_qxQME3": {
+          "type": "step",
+          "settings": {
+            "number": "02",
+            "title": "SELECTED MATERIALS",
+            "text": "<p>We source distinctive objects, vegan soy wax and premium fragrances.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "step_fQatRA": {
+          "type": "step",
+          "settings": {
+            "number": "03",
+            "title": "CRAFTED WITH CARE",
+            "text": "<p>Every detail is finished with care to ensure quality, safety and longevity.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "step_LQn9FP",
+        "step_qxQME3",
+        "step_fQatRA"
+      ],
+      "disabled": true,
+      "name": "NWY — Process",
+      "settings": {
+        "eyebrow": "BEHIND EVERY OBJECT",
+        "title": "DISCOVER THE PROCESS.",
+        "button_label": "VIEW JOURNAL",
+        "button_link": "",
+        "image_ratio": "4 / 3",
+        "side_gutter": 40,
+        "max_width": 2000,
+        "background_color": "#F6F5F1",
+        "text_color": "#111111",
+        "muted_text_color": "#6E6E68",
+        "line_color": "#D8D7D1",
+        "card_background": "#E8E6E0",
+        "padding_top": 96,
+        "padding_bottom": 96
       }
     },
     "section_ydyUpm": {
@@ -918,11 +996,13 @@
   },
   "order": [
     "main",
-    "nwy_product_hero_Vq3aK4",
+    "nwy_product_hero_final_fkY49L",
     "nwy_product_story_DegChf",
     "nwy_product_media_RhcnwC",
     "nwy_related_objects_8WDEAJ",
     "nwy_product_collection_cta_bCQQRa",
+    "nwy_concept_intro_CekCfy",
+    "nwy_process_GBEGfc",
     "section_ydyUpm"
   ]
 }
