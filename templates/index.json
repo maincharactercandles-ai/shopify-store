@@ -125,28 +125,31 @@
         "image_ctPzra": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_13_juil._2026_10_34_49_2.png",
             "size": "square",
             "title": "OBJECT 05.",
             "caption": "After dinner",
-            "link": ""
+            "link": "shopify://products/object-05-oriental-night"
           }
         },
         "image_whiY6b": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_12_42_12_dd5fccb1-6375-400a-bdcb-6237c303df47.png",
             "size": "square",
             "title": "DROP 02",
             "caption": "Hand-poured in Paris",
-            "link": ""
+            "link": "shopify://collections/drop-02"
           }
         },
         "image_6ffHti": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_12_16_49_bbacb773-3429-49a7-a9e3-7202525ec966.png",
             "size": "square",
             "title": "OBJECT 06.",
             "caption": "Peach blossom",
-            "link": ""
+            "link": "shopify://products/object-04-peach-musk-scented-candle"
           }
         },
         "image_zmyfMC": {
