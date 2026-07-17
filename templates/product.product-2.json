@@ -1,0 +1,849 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "carousel",
+            "media_columns": "two",
+            "image_gap": 4,
+            "large_first_image": true,
+            "icons_style": "chevron_large",
+            "slideshow_controls_style": "dots",
+            "slideshow_mobile_controls_style": "dots",
+            "thumbnail_position": "bottom",
+            "thumbnail_width": 72,
+            "thumbnail_radius": 0,
+            "aspect_ratio": "1",
+            "constrain_to_viewport": false,
+            "media_fit": "contain",
+            "media_radius": 0,
+            "extend_media": true,
+            "zoom": true,
+            "video_loop": false,
+            "hide_variants": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 28,
+            "sticky_details_desktop": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "scheme-1",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_icgrde": {
+              "type": "group",
+              "name": "Header",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_cDWbNN": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "essential_trust_badges_app_block_jXKFhx": {
+                  "type": "shopify://apps/essential-trust-badges/blocks/app-block/0ff65b25-07e1-408e-950f-f54dd3d1751b",
+                  "settings": {
+                    "banner_display": "all",
+                    "banner_id": ""
+                  }
+                },
+                "text_xrnftG": {
+                  "type": "text",
+                  "name": "Product title",
+                  "settings": {
+                    "text": "<h1>{{ closest.product.title }}</h1>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h3",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_PEgt4r": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "{{ closest.product.description }}",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 35,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "price_tVjtKg": {
+                  "type": "price",
+                  "settings": {
+                    "show_sale_price_first": true,
+                    "show_installments": true,
+                    "show_tax_info": false,
+                    "type_preset": "custom",
+                    "width": "100%",
+                    "alignment": "left",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "1.25rem",
+                    "line_height": "normal",
+                    "letter_spacing": "loose",
+                    "case": "uppercase",
+                    "color": "var(--color-foreground)",
+                    "padding-block-start": 4,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "buy_buttons_rU9iBA": {
+                  "type": "buy-buttons",
+                  "settings": {
+                    "stacking": true,
+                    "show_pickup_availability": false,
+                    "gift_card_form": true,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {
+                    "quantity": {
+                      "type": "quantity",
+                      "static": true,
+                      "settings": {},
+                      "blocks": {}
+                    },
+                    "add-to-cart": {
+                      "type": "add-to-cart",
+                      "static": true,
+                      "settings": {
+                        "style_class": "button"
+                      },
+                      "blocks": {}
+                    },
+                    "accelerated-checkout": {
+                      "type": "accelerated-checkout",
+                      "static": true,
+                      "settings": {},
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": []
+                },
+                "aov_ai_bundle_offer_volume_XCyk7R": {
+                  "type": "shopify://apps/aov-ai-bundle/blocks/offer-volume/0335d423-143c-4ad7-b224-99a1db74a9ee",
+                  "disabled": true,
+                  "settings": {}
+                }
+              },
+              "block_order": [
+                "text_cDWbNN",
+                "essential_trust_badges_app_block_jXKFhx",
+                "text_xrnftG",
+                "text_PEgt4r",
+                "price_tVjtKg",
+                "buy_buttons_rU9iBA",
+                "aov_ai_bundle_offer_volume_XCyk7R"
+              ]
+            },
+            "accordion_NfK7fn": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "caret",
+                "dividers": true,
+                "type_preset": "h5",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_df7TXW": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "SCENT PROFILE",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 12
+                  },
+                  "blocks": {
+                    "text_WgXqr8": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>{{ closest.product.metafields.custom.description_de_la_bougie | metafield_tag }}</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_WgXqr8"
+                  ]
+                },
+                "accordion_row_8RMQjL": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "MANUFACTURING",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_cJt7BE": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Every object is hand-poured in Paris, in small batches. We use a natural soy wax with high-concentration fragrances from Grasse. No mass production. Each piece is made to order.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_cJt7BE"
+                  ]
+                },
+                "accordion_row_CzRjhK": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "SHIPPING",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_tMxHxJ": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_tMxHxJ"
+                  ]
+                },
+                "accordion_row_j4yhyc": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "RETURN POLICY",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_WqQpk3": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>We accept returns on unused, unopened items within 14 days of delivery. Once a candle has been lit, it cannot be returned.</p><p>To request a return, contact us at <a href=\"mailto:contact@notwhatyouexpect.fr\">contact@notwhatyouexpect.fr</a>. Return shipping is at the customer's expense. Refunds are processed within 14 days of receiving the item.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_WqQpk3"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_df7TXW",
+                "accordion_row_8RMQjL",
+                "accordion_row_CzRjhK",
+                "accordion_row_j4yhyc"
+              ]
+            }
+          },
+          "block_order": [
+            "group_icgrde",
+            "accordion_NfK7fn"
+          ]
+        }
+      },
+      "settings": {
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": false,
+        "limit_details_width": false,
+        "gap": 48,
+        "enable_sticky_add_to_cart": true,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 33
+      }
+    },
+    "nwy_product_story_DegChf": {
+      "type": "nwy-product-story",
+      "blocks": {
+        "fact_R4JwwC": {
+          "type": "fact",
+          "settings": {
+            "label": "MADE IN",
+            "value": "Paris, France"
+          }
+        },
+        "fact_Ph9LUK": {
+          "type": "fact",
+          "settings": {
+            "label": "WAX",
+            "value": "Vegan soy wax"
+          }
+        },
+        "fact_A6pcqx": {
+          "type": "fact",
+          "settings": {
+            "label": "BURN TIME",
+            "value": "Approx. 45 hours"
+          }
+        },
+        "fact_WML9yY": {
+          "type": "fact",
+          "settings": {
+            "label": "AFTER THE BURN",
+            "value": "Reusable object"
+          }
+        }
+      },
+      "block_order": [
+        "fact_R4JwwC",
+        "fact_Ph9LUK",
+        "fact_A6pcqx",
+        "fact_WML9yY"
+      ],
+      "name": "NWY — Product story",
+      "settings": {
+        "eyebrow": "THE OBJECT",
+        "heading": "THIS IS NOT A CANDLE.",
+        "show_object_label": true,
+        "object_label": "",
+        "text": "<p>A scented object designed to surprise at first sight and remain long after the last burn. Hand-poured in Paris using vegan soy wax and premium fragrance oils from Grasse.</p>",
+        "columns_desktop": 4,
+        "side_gutter": 40,
+        "max_width": 1900,
+        "background_color": "#f6f5f1",
+        "text_color": "#111111",
+        "muted_text_color": "#6e6e68",
+        "line_color": "#d8d7d1",
+        "padding_top": 68,
+        "padding_bottom": 64
+      }
+    },
+    "nwy_product_media_RhcnwC": {
+      "type": "nwy-product-media",
+      "name": "NWY — Product media",
+      "settings": {
+        "image": "{{ product.featured_image }}",
+        "full_bleed": true,
+        "height_desktop": 860,
+        "height_mobile": 560,
+        "caption": "",
+        "side_gutter": 40,
+        "max_width": 2100,
+        "background_color": "#f6f5f1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "nwy_related_objects_8WDEAJ": {
+      "type": "nwy-related-objects",
+      "name": "NWY — Related objects",
+      "settings": {
+        "eyebrow": "THE COLLECTION",
+        "title": "MORE OBJECTS.",
+        "collection": "",
+        "products_to_show": 2,
+        "columns_desktop": 2,
+        "button_label": "DISCOVER THE DROP",
+        "image_ratio": "1 / 1",
+        "show_object_number": false,
+        "show_price": true,
+        "side_gutter": 40,
+        "max_width": 2000,
+        "background_color": "#f6f5f1",
+        "text_color": "#111111",
+        "muted_text_color": "#6e6e68",
+        "line_color": "#d8d7d1",
+        "card_background": "#e8e6e0",
+        "padding_top": 68,
+        "padding_bottom": 60
+      }
+    },
+    "nwy_product_collection_cta_bCQQRa": {
+      "type": "nwy-product-collection-cta",
+      "name": "NWY — Collection CTA",
+      "settings": {
+        "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_12_42_12_dd5fccb1-6375-400a-bdcb-6237c303df47.png",
+        "eyebrow": "DROP 02",
+        "title": "GLASS OBJECTS.",
+        "text": "<p>Discover the complete collection of coloured glass objects.</p>",
+        "collection": "drop-02",
+        "collection_link": "",
+        "button_label": "DISCOVER THE DROP",
+        "content_position": "bottom-left",
+        "height_desktop": 680,
+        "height_mobile": 560,
+        "side_gutter": 0,
+        "max_width": 2400,
+        "overlay_color": "#111111",
+        "overlay_opacity": 25,
+        "text_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_ydyUpm": {
+      "type": "section",
+      "blocks": {
+        "text_dW84ab": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h2>Frequently asked questions</h2>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "accordion_imVVHM": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "caret",
+            "dividers": true,
+            "type_preset": "h5",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_row_yyPCMx": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "How long does it burn?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_CGU9TF": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>40 to 50 hours, depending on maintenance. Trim the wick, avoid drafts.</p>",
+                    "width": "fit-content",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_CGU9TF"
+              ]
+            },
+            "accordion_row_qcMMde": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Will it stain?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_cJe9Eg": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Soy wax is water-soluble. Easy to clean with warm soapy water.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_cJe9Eg"
+              ]
+            },
+            "accordion_row_Fe4bqy": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "Is it ready to gift?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_pYFm6Q": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Yes. The packaging is part of the experience — no extra wrapping needed.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_pYFm6Q"
+              ]
+            },
+            "accordion_row_tfrBfw": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "Can I return it?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_VRbCNV": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Unused, unopened items within 14 days. Contact <a href=\"mailto:contact@notwhatyouexpect.fr\">contact@notwhatyouexpect.fr</a>.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_VRbCNV"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_yyPCMx",
+            "accordion_row_qcMMde",
+            "accordion_row_Fe4bqy",
+            "accordion_row_tfrBfw"
+          ]
+        }
+      },
+      "block_order": [
+        "text_dW84ab",
+        "accordion_imVVHM"
+      ],
+      "name": "t:names.faq_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 22,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-58084d4c-a86e-4d0a-855e-a0966e5043f7",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 0,
+        "border_opacity": 0,
+        "border_radius": 0,
+        "toggle_overlay": true,
+        "overlay_color": "#ffffff",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 51,
+        "padding-block-end": 50
+      }
+    }
+  },
+  "order": [
+    "main",
+    "nwy_product_story_DegChf",
+    "nwy_product_media_RhcnwC",
+    "nwy_related_objects_8WDEAJ",
+    "nwy_product_collection_cta_bCQQRa",
+    "section_ydyUpm"
+  ]
+}
