@@ -1,0 +1,1061 @@
+{% liquid
+  assign section_id = 'nwy-care-' | append: section.id
+%}
+
+<section id="{{ section_id }}" class="nwy-care">
+  {% if section.settings.hero_image != blank %}
+    <div class="nwy-care__hero">
+      {{
+        section.settings.hero_image
+        | image_url: width: 2400
+        | image_tag:
+          class: 'nwy-care__hero-image',
+          loading: 'eager',
+          widths: '750, 1100, 1500, 2000, 2400',
+          sizes: '100vw',
+          alt: section.settings.hero_image.alt
+      }}
+
+      <div class="nwy-care__hero-overlay"></div>
+
+      <div class="nwy-care__hero-content">
+        {% if section.settings.eyebrow != blank %}
+          <p class="nwy-care__eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+
+        {% if section.settings.hero_title != blank %}
+          <h1 class="nwy-care__hero-title">{{ section.settings.hero_title }}</h1>
+        {% endif %}
+
+        {% if section.settings.hero_text != blank %}
+          <div class="nwy-care__hero-text rte">
+            {{ section.settings.hero_text }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="nwy-care__container">
+    <header class="nwy-care__intro">
+      {% if section.settings.intro_heading != blank %}
+        <h2 class="nwy-care__intro-heading">
+          {{ section.settings.intro_heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.intro_text != blank %}
+        <div class="nwy-care__intro-text rte">
+          {{ section.settings.intro_text }}
+        </div>
+      {% endif %}
+    </header>
+
+    <div class="nwy-care__steps">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'care_step' %}
+            <article
+              class="nwy-care__step{% if block.settings.reverse %} nwy-care__step--reverse{% endif %}"
+              {{ block.shopify_attributes }}
+            >
+              <div class="nwy-care__step-media">
+                {% if block.settings.image != blank %}
+                  {{
+                    block.settings.image
+                    | image_url: width: 1600
+                    | image_tag:
+                      class: 'nwy-care__step-image',
+                      loading: 'lazy',
+                      widths: '500, 750, 1000, 1300, 1600',
+                      sizes: '(max-width: 749px) 100vw, 50vw',
+                      alt: block.settings.image.alt
+                  }}
+                {% else %}
+                  <div class="nwy-care__placeholder">
+                    {{ 'image' | placeholder_svg_tag: 'nwy-care__placeholder-svg' }}
+                  </div>
+                {% endif %}
+              </div>
+
+              <div class="nwy-care__step-content">
+                {% if block.settings.number != blank %}
+                  <p class="nwy-care__step-number">{{ block.settings.number }}</p>
+                {% endif %}
+
+                {% if block.settings.title != blank %}
+                  <h3 class="nwy-care__step-title">{{ block.settings.title }}</h3>
+                {% endif %}
+
+                {% if block.settings.text != blank %}
+                  <div class="nwy-care__step-text rte">
+                    {{ block.settings.text }}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.tip != blank %}
+                  <div class="nwy-care__tip">
+                    <span class="nwy-care__tip-label">{{ section.settings.tip_label }}</span>
+                    <p>{{ block.settings.tip }}</p>
+                  </div>
+                {% endif %}
+              </div>
+            </article>
+
+          {% when 'fact' %}
+            {% assign has_fact_block = true %}
+        {% endcase %}
+      {% endfor %}
+    </div>
+
+    {% if has_fact_block %}
+      <section class="nwy-care__facts">
+        {% if section.settings.facts_heading != blank %}
+          <h2 class="nwy-care__facts-heading">
+            {{ section.settings.facts_heading }}
+          </h2>
+        {% endif %}
+
+        <div class="nwy-care__facts-grid">
+          {% for block in section.blocks %}
+            {% if block.type == 'fact' %}
+              <div class="nwy-care__fact" {{ block.shopify_attributes }}>
+                {% if block.settings.icon != blank %}
+                  <span class="nwy-care__fact-icon" aria-hidden="true">
+                    {{ block.settings.icon }}
+                  </span>
+                {% endif %}
+
+                <div>
+                  {% if block.settings.title != blank %}
+                    <h3 class="nwy-care__fact-title">
+                      {{ block.settings.title }}
+                    </h3>
+                  {% endif %}
+
+                  {% if block.settings.text != blank %}
+                    <p class="nwy-care__fact-text">
+                      {{ block.settings.text }}
+                    </p>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    <section class="nwy-care__reuse">
+      <div class="nwy-care__reuse-content">
+        {% if section.settings.reuse_eyebrow != blank %}
+          <p class="nwy-care__reuse-eyebrow">
+            {{ section.settings.reuse_eyebrow }}
+          </p>
+        {% endif %}
+
+        {% if section.settings.reuse_heading != blank %}
+          <h2 class="nwy-care__reuse-heading">
+            {{ section.settings.reuse_heading }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.reuse_text != blank %}
+          <div class="nwy-care__reuse-text rte">
+            {{ section.settings.reuse_text }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.reuse_link != blank %}
+          <a href="{{ section.settings.reuse_link }}" class="nwy-care__reuse-link">
+            {{ section.settings.reuse_link_label }}
+            <span aria-hidden="true">→</span>
+          </a>
+        {% endif %}
+      </div>
+
+      <div class="nwy-care__reuse-media">
+        {% if section.settings.reuse_image != blank %}
+          {{
+            section.settings.reuse_image
+            | image_url: width: 1600
+            | image_tag:
+              class: 'nwy-care__reuse-image',
+              loading: 'lazy',
+              widths: '500, 750, 1000, 1300, 1600',
+              sizes: '(max-width: 749px) 100vw, 50vw',
+              alt: section.settings.reuse_image.alt
+          }}
+        {% else %}
+          <div class="nwy-care__placeholder">
+            {{ 'image' | placeholder_svg_tag: 'nwy-care__placeholder-svg' }}
+          </div>
+        {% endif %}
+      </div>
+    </section>
+
+    {% if section.settings.show_faq %}
+      <section class="nwy-care__faq">
+        {% if section.settings.faq_heading != blank %}
+          <h2 class="nwy-care__faq-heading">{{ section.settings.faq_heading }}</h2>
+        {% endif %}
+
+        <div class="nwy-care__faq-list">
+          {% for block in section.blocks %}
+            {% if block.type == 'faq' %}
+              <details class="nwy-care__faq-item" {{ block.shopify_attributes }}>
+                <summary>
+                  <span>{{ block.settings.question }}</span>
+                  <span class="nwy-care__faq-plus" aria-hidden="true">+</span>
+                </summary>
+
+                <div class="nwy-care__faq-answer rte">
+                  {{ block.settings.answer }}
+                </div>
+              </details>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  #{{ section_id }} {
+    --nwy-black: #111111;
+    --nwy-white: #ffffff;
+    --nwy-border: rgba(17, 17, 17, 0.16);
+    --nwy-soft: #f2f0ec;
+    color: var(--nwy-black);
+    background: var(--nwy-white);
+  }
+
+  #{{ section_id }} * {
+    box-sizing: border-box;
+  }
+
+  #{{ section_id }} .nwy-care__hero {
+    position: relative;
+    min-height: 560px;
+    display: grid;
+    align-items: end;
+    overflow: hidden;
+    background: #222;
+  }
+
+  #{{ section_id }} .nwy-care__hero-image,
+  #{{ section_id }} .nwy-care__hero-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  #{{ section_id }} .nwy-care__hero-image {
+    object-fit: cover;
+  }
+
+  #{{ section_id }} .nwy-care__hero-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }}),
+      rgba(0, 0, 0, 0.08)
+    );
+  }
+
+  #{{ section_id }} .nwy-care__hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(1180px, calc(100% - 64px));
+    margin: 0 auto;
+    padding: 84px 0;
+    color: var(--nwy-white);
+  }
+
+  #{{ section_id }} .nwy-care__eyebrow,
+  #{{ section_id }} .nwy-care__reuse-eyebrow,
+  #{{ section_id }} .nwy-care__step-number {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-care__hero-title {
+    max-width: 920px;
+    margin: 18px 0 0;
+    font-family: var(--font-heading-family);
+    font-size: clamp(54px, 7.2vw, 108px);
+    font-weight: 700;
+    line-height: 0.88;
+    letter-spacing: -0.055em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-care__hero-text {
+    max-width: 610px;
+    margin-top: 30px;
+    font-size: clamp(17px, 1.5vw, 22px);
+    line-height: 1.45;
+  }
+
+  #{{ section_id }} .nwy-care__hero-text p,
+  #{{ section_id }} .nwy-care__intro-text p,
+  #{{ section_id }} .nwy-care__step-text p,
+  #{{ section_id }} .nwy-care__reuse-text p,
+  #{{ section_id }} .nwy-care__faq-answer p {
+    margin-top: 0;
+  }
+
+  #{{ section_id }} .nwy-care__container {
+    width: min(1180px, calc(100% - 64px));
+    margin: 0 auto;
+    padding: 110px 0 120px;
+  }
+
+  #{{ section_id }} .nwy-care__intro {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 80px;
+    align-items: start;
+    padding-bottom: 100px;
+  }
+
+  #{{ section_id }} .nwy-care__intro-heading,
+  #{{ section_id }} .nwy-care__facts-heading,
+  #{{ section_id }} .nwy-care__reuse-heading,
+  #{{ section_id }} .nwy-care__faq-heading {
+    margin: 0;
+    font-family: var(--font-heading-family);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+  }
+
+  #{{ section_id }} .nwy-care__intro-heading {
+    font-size: clamp(42px, 5vw, 72px);
+    line-height: 0.95;
+  }
+
+  #{{ section_id }} .nwy-care__intro-text {
+    max-width: 590px;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  #{{ section_id }} .nwy-care__steps {
+    display: grid;
+    gap: 110px;
+  }
+
+  #{{ section_id }} .nwy-care__step {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+    gap: 78px;
+    align-items: center;
+  }
+
+  #{{ section_id }} .nwy-care__step--reverse {
+    grid-template-columns: minmax(340px, 0.85fr) minmax(0, 1.15fr);
+  }
+
+  #{{ section_id }} .nwy-care__step--reverse .nwy-care__step-media {
+    order: 2;
+  }
+
+  #{{ section_id }} .nwy-care__step-media {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--nwy-soft);
+  }
+
+  #{{ section_id }} .nwy-care__step-image,
+  #{{ section_id }} .nwy-care__reuse-image,
+  #{{ section_id }} .nwy-care__placeholder,
+  #{{ section_id }} .nwy-care__placeholder-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #{{ section_id }} .nwy-care__step-image,
+  #{{ section_id }} .nwy-care__reuse-image {
+    object-fit: cover;
+  }
+
+  #{{ section_id }} .nwy-care__placeholder {
+    background: var(--nwy-soft);
+  }
+
+  #{{ section_id }} .nwy-care__placeholder-svg {
+    opacity: 0.35;
+  }
+
+  #{{ section_id }} .nwy-care__step-content {
+    max-width: 470px;
+  }
+
+  #{{ section_id }} .nwy-care__step-number {
+    opacity: 0.55;
+  }
+
+  #{{ section_id }} .nwy-care__step-title {
+    margin: 18px 0 0;
+    font-family: var(--font-heading-family);
+    font-size: clamp(34px, 4vw, 58px);
+    font-weight: 700;
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+  }
+
+  #{{ section_id }} .nwy-care__step-text {
+    margin-top: 26px;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  #{{ section_id }} .nwy-care__tip {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--nwy-border);
+  }
+
+  #{{ section_id }} .nwy-care__tip-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-care__tip p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  #{{ section_id }} .nwy-care__facts {
+    margin-top: 130px;
+    padding: 56px 0;
+    border-top: 1px solid var(--nwy-black);
+    border-bottom: 1px solid var(--nwy-black);
+  }
+
+  #{{ section_id }} .nwy-care__facts-heading {
+    font-size: clamp(34px, 4vw, 52px);
+    line-height: 1;
+  }
+
+  #{{ section_id }} .nwy-care__facts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    margin-top: 42px;
+  }
+
+  #{{ section_id }} .nwy-care__fact {
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    gap: 14px;
+    padding: 0 28px;
+    border-right: 1px solid var(--nwy-border);
+  }
+
+  #{{ section_id }} .nwy-care__fact:first-child {
+    padding-left: 0;
+  }
+
+  #{{ section_id }} .nwy-care__fact:last-child {
+    padding-right: 0;
+    border-right: 0;
+  }
+
+  #{{ section_id }} .nwy-care__fact-icon {
+    font-size: 19px;
+    line-height: 1.2;
+  }
+
+  #{{ section_id }} .nwy-care__fact-title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  #{{ section_id }} .nwy-care__fact-text {
+    margin: 7px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+    opacity: 0.68;
+  }
+
+  #{{ section_id }} .nwy-care__reuse {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: stretch;
+    gap: 70px;
+    margin-top: 130px;
+    padding: 68px;
+    color: var(--nwy-white);
+    background: var(--nwy-black);
+  }
+
+  #{{ section_id }} .nwy-care__reuse-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #{{ section_id }} .nwy-care__reuse-heading {
+    margin-top: 18px;
+    font-size: clamp(40px, 4.5vw, 68px);
+    line-height: 0.94;
+  }
+
+  #{{ section_id }} .nwy-care__reuse-text {
+    max-width: 440px;
+    margin-top: 28px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  #{{ section_id }} .nwy-care__reuse-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    width: max-content;
+    margin-top: 34px;
+    padding-bottom: 6px;
+    color: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid currentColor;
+  }
+
+  #{{ section_id }} .nwy-care__reuse-link span {
+    font-size: 20px;
+    transition: transform 180ms ease;
+  }
+
+  #{{ section_id }} .nwy-care__reuse-link:hover span {
+    transform: translateX(4px);
+  }
+
+  #{{ section_id }} .nwy-care__reuse-media {
+    min-height: 560px;
+    overflow: hidden;
+    background: #272727;
+  }
+
+  #{{ section_id }} .nwy-care__faq {
+    margin-top: 130px;
+  }
+
+  #{{ section_id }} .nwy-care__faq-heading {
+    font-size: clamp(38px, 4.5vw, 62px);
+    line-height: 1;
+  }
+
+  #{{ section_id }} .nwy-care__faq-list {
+    margin-top: 46px;
+    border-top: 1px solid var(--nwy-black);
+  }
+
+  #{{ section_id }} .nwy-care__faq-item {
+    border-bottom: 1px solid var(--nwy-border);
+  }
+
+  #{{ section_id }} .nwy-care__faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 24px 0;
+    font-size: 17px;
+    font-weight: 500;
+    list-style: none;
+    cursor: pointer;
+  }
+
+  #{{ section_id }} .nwy-care__faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  #{{ section_id }} .nwy-care__faq-plus {
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 1;
+    transition: transform 180ms ease;
+  }
+
+  #{{ section_id }} .nwy-care__faq-item[open] .nwy-care__faq-plus {
+    transform: rotate(45deg);
+  }
+
+  #{{ section_id }} .nwy-care__faq-answer {
+    max-width: 760px;
+    padding: 0 0 26px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  @media screen and (max-width: 989px) {
+    #{{ section_id }} .nwy-care__intro,
+    #{{ section_id }} .nwy-care__step,
+    #{{ section_id }} .nwy-care__step--reverse,
+    #{{ section_id }} .nwy-care__reuse {
+      grid-template-columns: 1fr;
+    }
+
+    #{{ section_id }} .nwy-care__step--reverse .nwy-care__step-media {
+      order: 0;
+    }
+
+    #{{ section_id }} .nwy-care__step-content {
+      max-width: 650px;
+    }
+
+    #{{ section_id }} .nwy-care__facts-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 36px;
+    }
+
+    #{{ section_id }} .nwy-care__fact:nth-child(2) {
+      border-right: 0;
+    }
+
+    #{{ section_id }} .nwy-care__fact:nth-child(3) {
+      padding-left: 0;
+    }
+
+    #{{ section_id }} .nwy-care__reuse {
+      padding: 48px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #{{ section_id }} .nwy-care__hero {
+      min-height: 520px;
+    }
+
+    #{{ section_id }} .nwy-care__hero-content {
+      width: calc(100% - 40px);
+      padding: 58px 0;
+    }
+
+    #{{ section_id }} .nwy-care__hero-title {
+      font-size: clamp(44px, 14vw, 68px);
+      line-height: 0.9;
+    }
+
+    #{{ section_id }} .nwy-care__hero-text {
+      margin-top: 24px;
+      font-size: 16px;
+    }
+
+    #{{ section_id }} .nwy-care__container {
+      width: calc(100% - 40px);
+      padding: 70px 0 84px;
+    }
+
+    #{{ section_id }} .nwy-care__intro {
+      gap: 28px;
+      padding-bottom: 70px;
+    }
+
+    #{{ section_id }} .nwy-care__intro-heading {
+      font-size: 40px;
+    }
+
+    #{{ section_id }} .nwy-care__intro-text {
+      font-size: 16px;
+    }
+
+    #{{ section_id }} .nwy-care__steps {
+      gap: 72px;
+    }
+
+    #{{ section_id }} .nwy-care__step {
+      gap: 34px;
+    }
+
+    #{{ section_id }} .nwy-care__step-media {
+      aspect-ratio: 4 / 5;
+    }
+
+    #{{ section_id }} .nwy-care__step-title {
+      font-size: 36px;
+    }
+
+    #{{ section_id }} .nwy-care__step-text {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    #{{ section_id }} .nwy-care__facts {
+      margin-top: 86px;
+      padding: 40px 0;
+    }
+
+    #{{ section_id }} .nwy-care__facts-grid {
+      grid-template-columns: 1fr;
+      margin-top: 30px;
+      row-gap: 0;
+    }
+
+    #{{ section_id }} .nwy-care__fact,
+    #{{ section_id }} .nwy-care__fact:first-child,
+    #{{ section_id }} .nwy-care__fact:nth-child(3),
+    #{{ section_id }} .nwy-care__fact:last-child {
+      padding: 20px 0;
+      border-right: 0;
+      border-bottom: 1px solid var(--nwy-border);
+    }
+
+    #{{ section_id }} .nwy-care__fact:last-child {
+      border-bottom: 0;
+    }
+
+    #{{ section_id }} .nwy-care__reuse {
+      gap: 42px;
+      margin-top: 86px;
+      padding: 34px 24px 24px;
+    }
+
+    #{{ section_id }} .nwy-care__reuse-heading {
+      font-size: 42px;
+    }
+
+    #{{ section_id }} .nwy-care__reuse-media {
+      min-height: 420px;
+    }
+
+    #{{ section_id }} .nwy-care__faq {
+      margin-top: 86px;
+    }
+
+    #{{ section_id }} .nwy-care__faq-heading {
+      font-size: 40px;
+    }
+
+    #{{ section_id }} .nwy-care__faq-list {
+      margin-top: 32px;
+    }
+
+    #{{ section_id }} .nwy-care__faq-item summary {
+      padding: 20px 0;
+      font-size: 15px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "NWY — Care",
+  "tag": "section",
+  "class": "section-nwy-care",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "label": "Hero overlay",
+      "default": 45
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Hero eyebrow",
+      "default": "CANDLE CARE"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero title",
+      "default": "BURN SLOWLY. KEEP FOREVER."
+    },
+    {
+      "type": "richtext",
+      "id": "hero_text",
+      "label": "Hero text",
+      "default": "<p>A few simple gestures will help your candle burn evenly, last longer and leave behind an object worth keeping.</p>"
+    },
+    {
+      "type": "text",
+      "id": "intro_heading",
+      "label": "Introduction heading",
+      "default": "A better burn starts here."
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Introduction text",
+      "default": "<p>Every candle behaves differently. Follow these simple care instructions to preserve the fragrance, protect the vessel and get the most from every burn.</p>"
+    },
+    {
+      "type": "text",
+      "id": "tip_label",
+      "label": "Tip label",
+      "default": "GOOD TO KNOW"
+    },
+    {
+      "type": "text",
+      "id": "facts_heading",
+      "label": "Practical facts heading",
+      "default": "Care at a glance"
+    },
+    {
+      "type": "header",
+      "content": "Reuse section"
+    },
+    {
+      "type": "image_picker",
+      "id": "reuse_image",
+      "label": "Reuse image"
+    },
+    {
+      "type": "text",
+      "id": "reuse_eyebrow",
+      "label": "Reuse eyebrow",
+      "default": "AFTER THE FLAME"
+    },
+    {
+      "type": "text",
+      "id": "reuse_heading",
+      "label": "Reuse heading",
+      "default": "The object remains."
+    },
+    {
+      "type": "richtext",
+      "id": "reuse_text",
+      "label": "Reuse text",
+      "default": "<p>Once the candle is finished, clean the vessel and give it a second life as a storage object, a small vase or anything else you choose.</p>"
+    },
+    {
+      "type": "text",
+      "id": "reuse_link_label",
+      "label": "Reuse link label",
+      "default": "Discover the story"
+    },
+    {
+      "type": "url",
+      "id": "reuse_link",
+      "label": "Reuse link"
+    },
+    {
+      "type": "header",
+      "content": "FAQ"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_faq",
+      "label": "Show FAQ",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "faq_heading",
+      "label": "FAQ heading",
+      "default": "Frequently asked questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "care_step",
+      "name": "Care step",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo"
+        },
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Step number",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Trim the wick."
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Before each burn, trim the wick to approximately 5 mm. This helps control the flame and prevents excess smoke.</p>"
+        },
+        {
+          "type": "text",
+          "id": "tip",
+          "label": "Optional tip",
+          "default": "Always let the wax cool completely before trimming."
+        },
+        {
+          "type": "checkbox",
+          "id": "reverse",
+          "label": "Place image on the right",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "fact",
+      "name": "Quick fact",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon or symbol",
+          "default": "✓"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Trim to 5 mm"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Before every burn."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How long should I burn my candle?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Allow the wax to melt evenly across the surface, without exceeding four hours in a single session.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NWY — Care",
+      "blocks": [
+        {
+          "type": "care_step",
+          "settings": {
+            "number": "01",
+            "title": "Trim the wick.",
+            "text": "<p>Before each burn, trim the wick to approximately 5 mm. This helps control the flame, limits smoke and supports a clean burn.</p>",
+            "tip": "Always allow the wax to cool completely before trimming.",
+            "reverse": false
+          }
+        },
+        {
+          "type": "care_step",
+          "settings": {
+            "number": "02",
+            "title": "Let the surface melt.",
+            "text": "<p>During the first burn, allow the wax to melt all the way to the edges. This helps prevent tunnelling and creates a more even burn.</p>",
+            "tip": "The first burn usually takes between two and three hours.",
+            "reverse": true
+          }
+        },
+        {
+          "type": "care_step",
+          "settings": {
+            "number": "03",
+            "title": "Burn with care.",
+            "text": "<p>Keep the candle away from drafts, children, pets and flammable materials. Never leave a burning candle unattended.</p>",
+            "tip": "Do not burn for more than four consecutive hours.",
+            "reverse": false
+          }
+        },
+        {
+          "type": "care_step",
+          "settings": {
+            "number": "04",
+            "title": "Stop at the right moment.",
+            "text": "<p>Stop using the candle when approximately 5 mm of wax remains at the bottom. This protects the vessel from excessive heat.</p>",
+            "tip": "Let the vessel cool completely before handling it.",
+            "reverse": true
+          }
+        },
+        {
+          "type": "fact",
+          "settings": {
+            "icon": "01",
+            "title": "Trim to 5 mm",
+            "text": "Before every burn."
+          }
+        },
+        {
+          "type": "fact",
+          "settings": {
+            "icon": "02",
+            "title": "First burn",
+            "text": "Allow a full melt pool."
+          }
+        },
+        {
+          "type": "fact",
+          "settings": {
+            "icon": "03",
+            "title": "Maximum burn",
+            "text": "Four hours at a time."
+          }
+        },
+        {
+          "type": "fact",
+          "settings": {
+            "icon": "04",
+            "title": "Stop at 5 mm",
+            "text": "Protect the vessel."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Why is my candle tunnelling?",
+            "answer": "<p>Tunnelling often happens when the first burn is too short. Let the wax melt evenly to the edges whenever possible.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Can I reuse the vessel?",
+            "answer": "<p>Yes. Once the candle is finished and the vessel has fully cooled, remove the remaining wax, clean it carefully and reuse it as you wish.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Why does the wax surface look uneven?",
+            "answer": "<p>Natural wax can develop slight texture or colour variations after cooling. This is normal and does not affect performance.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
