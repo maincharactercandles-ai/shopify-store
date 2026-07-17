@@ -146,7 +146,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_09_46_17_2e6d33cb-3abb-4cf7-9321-cba562121bdd.png",
-            "size": "large",
+            "size": "portrait",
             "title": "OBJECT 06.",
             "caption": "Peach blossom",
             "link": "shopify://products/object-04-peach-musk-scented-candle"
