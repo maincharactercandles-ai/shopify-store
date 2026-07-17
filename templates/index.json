@@ -44,12 +44,12 @@
           "type": "text",
           "settings": {
             "text": "<p>HAND-POURED IN PARIS • VEGAN SOY WAX • GRASSE FRAGRANCES • REUSABLE OBJECTS</p>",
-            "width": "100%",
-            "max_width": "normal",
+            "width": "fit-content",
+            "max_width": "none",
             "alignment": "center",
             "type_preset": "custom",
             "font": "var(--font-body--family)",
-            "font_size": "0.875rem",
+            "font_size": "0.75rem",
             "line_height": "tight",
             "letter_spacing": "normal",
             "case": "uppercase",
@@ -276,6 +276,20 @@
         "padding_bottom": 68
       }
     },
+    "divider_NQEJTM": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
+      }
+    },
     "ss_feature_1_features_fqqzdc": {
       "type": "ss-feature-1--features",
       "blocks": {
@@ -424,20 +438,6 @@
       }
     },
     "divider_FdDTii": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "",
-        "section_width": "full-width",
-        "thickness": 1,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 16,
-        "padding-block-end": 16
-      }
-    },
-    "divider_NQEJTM": {
       "type": "divider",
       "name": "t:names.divider_section",
       "settings": {
