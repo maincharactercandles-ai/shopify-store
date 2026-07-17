@@ -4212,3 +4212,25 @@ product-recommendations:has([data-has-recommendations='false']) {
     translate: 0px var(--atc-destination, 0px);
   }
 }
+/* NWY — remplace les flèches emoji des CTA sur mobile */
+@media screen and (max-width: 749px) {
+  [class*="nwy-"] a > span[aria-hidden="true"]:last-child {
+    font-size: 0 !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+  }
+
+  [class*="nwy-"] a > span[aria-hidden="true"]:last-child::after {
+    content: "\2197\FE0E";
+    display: block;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1;
+    font-style: normal;
+  }
+}
