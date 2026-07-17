@@ -414,11 +414,10 @@
     box-sizing: border-box;
   }
 
-  #{{ section_id }} .nwy-product-hero__layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1.75fr) minmax(380px, 0.85fr);
-    min-height: calc(100vh - var(--header-group-height, 0px));
-  }
+#{{ section_id }} .nwy-product-hero__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 60%) minmax(440px, 40%);
+}
 
   #{{ section_id }} .nwy-product-hero__gallery {
     display: grid;
