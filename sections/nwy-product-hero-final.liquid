@@ -888,20 +888,56 @@
     #{{ section_id }} .nwy-product-hero__layout {
       grid-template-columns: 1fr;
     }
-
-    #{{ section_id }} .nwy-product-hero__gallery {
-      grid-template-columns: 1fr;
-      padding: 0;
-      border-right: 0;
-    }
-
-  #{{ section_id }} .nwy-product-hero__thumbnails {
-  width: 92px;
+#{{ section_id }} .nwy-product-hero__gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
 }
 
-    #{{ section_id }} .nwy-product-hero__main-media {
-      min-height: 90vw;
-    }
+#{{ section_id }} .nwy-product-hero__main-media {
+  order: 1;
+  width: 100%;
+  min-height: 0;
+  aspect-ratio: 4 / 5;
+}
+
+#{{ section_id }} .nwy-product-hero__main-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#{{ section_id }} .nwy-product-hero__thumbnails {
+  order: 2;
+  display: flex;
+  width: 100%;
+  gap: 8px;
+  padding: 0 16px 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+#{{ section_id }} .nwy-product-hero__thumbnails::-webkit-scrollbar {
+  display: none;
+}
+
+#{{ section_id }} .nwy-product-hero__thumbnail {
+  flex: 0 0 72px;
+  width: 72px;
+  height: 88px;
+  padding: 0;
+  scroll-snap-align: start;
+}
+
+#{{ section_id }} .nwy-product-hero__thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
     #{{ section_id }} .nwy-product-hero__details {
       padding: 38px 20px 56px;
