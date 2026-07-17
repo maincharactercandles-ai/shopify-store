@@ -135,7 +135,7 @@
         "image_whiY6b": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_12_42_12_dd5fccb1-6375-400a-bdcb-6237c303df47.png",
+            "image": "shopify://shop_images/ChatGPT_Image_13_juil._2026_10_15_05.png",
             "size": "square",
             "title": "DROP 02",
             "caption": "Hand-poured in Paris",
@@ -155,7 +155,8 @@
         "image_zmyfMC": {
           "type": "image",
           "settings": {
-            "size": "wide",
+            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_13_48_19_69f22e63-839d-4c61-ae44-e8fbd3d2cddf.png",
+            "size": "square",
             "title": "THE WORKSHOP",
             "caption": "Small batch production",
             "link": ""
