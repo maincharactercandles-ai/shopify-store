@@ -14,9 +14,115 @@
       "disabled": true,
       "name": "THE STORY",
       "settings": {}
+    },
+    "nwy_about_page_RFa6VK": {
+      "type": "nwy-about-page",
+      "blocks": {
+        "process_step_xHbmFM": {
+          "type": "process_step",
+          "settings": {
+            "number": "01",
+            "heading": "THE OBJECT",
+            "text": "<p>Each vessel is selected for its shape, material and ability to live beyond its original purpose.</p>"
+          }
+        },
+        "process_step_iPfCtn": {
+          "type": "process_step",
+          "settings": {
+            "number": "02",
+            "heading": "THE FRAGRANCE",
+            "text": "<p>Each scent is developed to create a distinct atmosphere rather than simply reproduce a literal ingredient.</p>"
+          }
+        },
+        "process_step_KJPJJJ": {
+          "type": "process_step",
+          "settings": {
+            "number": "03",
+            "heading": "THE POUR",
+            "text": "<p>The candles are hand-poured in Paris using vegan soy wax and fine fragrance compositions.</p>"
+          }
+        },
+        "process_step_UHi7ta": {
+          "type": "process_step",
+          "settings": {
+            "number": "04",
+            "heading": "THE SECOND LIFE",
+            "text": "<p>Once the wax has burned away, the vessel can be cleaned and reused as part of everyday life.</p>"
+          }
+        },
+        "material_qDjWi7": {
+          "type": "material",
+          "settings": {
+            "number": "01",
+            "title": "VEGAN SOY WAX"
+          }
+        },
+        "material_ryCYMW": {
+          "type": "material",
+          "settings": {
+            "number": "02",
+            "title": "FRAGRANCES FROM GRASSE"
+          }
+        },
+        "material_jkrWKJ": {
+          "type": "material",
+          "settings": {
+            "number": "03",
+            "title": "HAND-POURED IN PARIS"
+          }
+        },
+        "material_6C7FNH": {
+          "type": "material",
+          "settings": {
+            "number": "04",
+            "title": "REUSABLE OBJECTS"
+          }
+        }
+      },
+      "block_order": [
+        "process_step_xHbmFM",
+        "process_step_iPfCtn",
+        "process_step_KJPJJJ",
+        "process_step_UHi7ta",
+        "material_qDjWi7",
+        "material_ryCYMW",
+        "material_jkrWKJ",
+        "material_6C7FNH"
+      ],
+      "name": "NWY — About page",
+      "settings": {
+        "hero_eyebrow": "THE STORY",
+        "hero_heading": "THIS IS NOT\nA CANDLE.",
+        "hero_intro": "<p>NOT WHAT YOU EXPECT transforms familiar industrial forms into collectible scented objects.</p><p>Each candle is hand-poured in Paris and designed to remain part of your interior long after the flame has disappeared.</p>",
+        "hero_image": "shopify://shop_images/object-01-citrus-ambre-scented-candle-5229026.png",
+        "idea_eyebrow": "THE IDEA",
+        "idea_heading": "EXPECT\nSOMETHING ELSE.",
+        "idea_text": "<p>The project began with a simple question: why should a candle disappear once it has finished burning?</p><p>We wanted to create objects that feel unexpected at first sight, but become familiar through use.</p><p>The candle is only the beginning. What remains is an object designed to be kept, reused and reinterpreted.</p>",
+        "object_heading": "OBJECTS FIRST.\nCANDLES SECOND.",
+        "object_text": "<p>Most candles are designed around fragrance and decoration.</p><p>NOT WHAT YOU EXPECT starts with the object itself: its form, material, presence and what it can become after use.</p><p>Industrial packaging, coloured glass and everyday containers are taken out of context and transformed into collectible scented objects.</p>",
+        "statement_text": "THE CANDLE IS\nONLY THE BEGINNING.",
+        "process_eyebrow": "THE PROCESS",
+        "process_heading": "MADE IN\nSMALL BATCHES.",
+        "materials_heading": "WHAT GOES\nINSIDE MATTERS.",
+        "materials_text": "<p>Our candles are made using vegan soy wax and carefully selected fragrance compositions.</p><p>They are poured in small quantities to ensure a consistent finish and controlled production.</p><p>The vessels are designed to be durable, reusable and kept long after the candle has finished.</p>",
+        "after_heading": "THE OBJECT\nREMAINS.",
+        "after_text": "<p>A glass becomes a drinking vessel. A metal container becomes storage.</p><p>An object moves from one room to another and takes on a new function.</p><p>This second life is not an afterthought. It is part of the design from the beginning.</p>",
+        "studio_eyebrow": "THE STUDIO",
+        "studio_heading": "HAND-POURED\nIN PARIS.",
+        "studio_text": "<p>Every candle is prepared and poured by hand in Paris.</p><p>Working in small batches allows us to control each stage of production and develop new objects without relying on mass manufacturing.</p><p>The studio operates at the intersection of fragrance, product design and everyday culture.</p>",
+        "final_heading": "DESIGNED\nTO STAY.",
+        "final_text": "Explore the current objects.",
+        "button_label": "SHOP THE COLLECTION",
+        "button_link": "",
+        "background_color": "#F4F3EF",
+        "text_color": "#111111",
+        "muted_text_color": "#4F4F4B",
+        "border_color": "#CAC9C3"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "nwy_about_page_RFa6VK"
   ]
 }
