@@ -497,7 +497,7 @@
           "type": "accordion",
           "settings": {
             "heading": "The fragrance",
-            "content": "<p>Fresh citrus meets warm woods. Bergamot, lemon and mandarin open bright before cardamom, sandalwood and musk add depth.</p>"
+            "content": "<p>{{ product.metafields.custom.description_de_la_bougie | metafield_tag }}</p>"
           }
         },
         "accordion_rw6bxA": {
@@ -534,7 +534,7 @@
       "name": "NWY — Product hero",
       "settings": {
         "color_scheme": "",
-        "eyebrow": "OBJECT 01",
+        "eyebrow": "",
         "short_description": "<p>{{ product.metafields.custom.product_short_description | metafield_tag }}</p>",
         "show_tax_text": false,
         "tax_text": "Tax included.",
