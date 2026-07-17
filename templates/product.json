@@ -27,7 +27,7 @@
             "thumbnail_width": 72,
             "thumbnail_radius": 0,
             "aspect_ratio": "1",
-            "constrain_to_viewport": false,
+            "constrain_to_viewport": true,
             "media_fit": "contain",
             "media_radius": 0,
             "extend_media": true,
@@ -68,6 +68,14 @@
             "padding-inline-end": 0
           },
           "blocks": {
+            "custom_liquid_AkLrRf": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "settings": {
+                "custom_liquid": ""
+              },
+              "blocks": {}
+            },
             "group_icgrde": {
               "type": "group",
               "name": "Header",
@@ -269,6 +277,7 @@
             "accordion_NfK7fn": {
               "type": "accordion",
               "name": "t:names.accordion",
+              "disabled": true,
               "settings": {
                 "icon": "caret",
                 "dividers": true,
@@ -451,6 +460,7 @@
             }
           },
           "block_order": [
+            "custom_liquid_AkLrRf",
             "group_icgrde",
             "accordion_NfK7fn"
           ]
