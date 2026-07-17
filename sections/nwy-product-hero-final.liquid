@@ -711,8 +711,21 @@
     font: inherit;
     text-align: center;
   }
-  #{{ section_id }} .nwy-product-hero__back-link{
-  margin-bottom: 50px;
+#{{ section_id }} .nwy-product-hero__back-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  margin-bottom:100px; /* ← augmente cette valeur */
+
+  color:rgba(17,17,17,.58);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  text-decoration:none;
+
+  transition:color .2s ease;
 }
 
 #{{ section_id }} .nwy-product-hero__description{
