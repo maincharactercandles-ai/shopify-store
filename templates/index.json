@@ -122,16 +122,6 @@
             "link": "shopify://products/object-04-peach-musk-scented-candle"
           }
         },
-        "image_ctPzra": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_13_juil._2026_10_34_49_2.png",
-            "size": "square",
-            "title": "OBJECT 05.",
-            "caption": "After dinner",
-            "link": "shopify://products/object-05-oriental-night"
-          }
-        },
         "image_whiY6b": {
           "type": "image",
           "settings": {
@@ -142,11 +132,21 @@
             "link": "shopify://collections/drop-02"
           }
         },
+        "image_ctPzra": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_13_juil._2026_10_34_49_2.png",
+            "size": "large",
+            "title": "OBJECT 05.",
+            "caption": "After dinner",
+            "link": "shopify://products/object-05-oriental-night"
+          }
+        },
         "image_6ffHti": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_09_46_17_2e6d33cb-3abb-4cf7-9321-cba562121bdd.png",
-            "size": "square",
+            "size": "large",
             "title": "OBJECT 06.",
             "caption": "Peach blossom",
             "link": "shopify://products/object-04-peach-musk-scented-candle"
@@ -156,8 +156,8 @@
       "block_order": [
         "image_mFLbmM",
         "image_EjCbRR",
-        "image_ctPzra",
         "image_whiY6b",
+        "image_ctPzra",
         "image_6ffHti"
       ],
       "name": "NWY — In the wild",
