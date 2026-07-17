@@ -1,0 +1,1537 @@
+{% liquid
+  assign section_id = 'nwy-product-editorial-' | append: section.id
+  assign current_product = product
+%}
+
+<section
+  id="{{ section_id }}"
+  class="nwy-product-editorial"
+  style="
+    --nwy-bg: {{ section.settings.background_color }};
+    --nwy-text: {{ section.settings.text_color }};
+    --nwy-border: {{ section.settings.border_color }};
+    --nwy-accent: {{ section.settings.accent_color }};
+  "
+>
+  {% if current_product != blank %}
+
+    {% comment %}
+      --------------------------------------------------
+      INTRO / OBJECT MANIFESTO
+      --------------------------------------------------
+    {% endcomment %}
+
+    {% if section.settings.show_manifesto %}
+      <div class="nwy-product-editorial__section nwy-product-editorial__manifesto">
+        <div class="nwy-product-editorial__manifesto-grid">
+
+          <div class="nwy-product-editorial__manifesto-title">
+            {% if section.settings.manifesto_eyebrow != blank %}
+              <p class="nwy-product-editorial__eyebrow">
+                {{ section.settings.manifesto_eyebrow }}
+              </p>
+            {% endif %}
+
+            <h2>
+              {{ section.settings.manifesto_heading | newline_to_br }}
+            </h2>
+          </div>
+
+          <div class="nwy-product-editorial__manifesto-copy">
+            {% if section.settings.product_label != blank %}
+              <p class="nwy-product-editorial__product-label">
+                {{ section.settings.product_label }}
+              </p>
+            {% else %}
+              <p class="nwy-product-editorial__product-label">
+                {{ current_product.title }}
+              </p>
+            {% endif %}
+
+            {% if section.settings.manifesto_text != blank %}
+              <div class="nwy-product-editorial__large-copy rte">
+                {{ section.settings.manifesto_text }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="nwy-product-editorial__facts">
+          {% for block in section.blocks %}
+            {% if block.type == 'fact' %}
+              <div
+                class="nwy-product-editorial__fact"
+                {{ block.shopify_attributes }}
+              >
+                {% if block.settings.label != blank %}
+                  <span class="nwy-product-editorial__fact-label">
+                    {{ block.settings.label }}
+                  </span>
+                {% endif %}
+
+                {% if block.settings.value != blank %}
+                  <span class="nwy-product-editorial__fact-value">
+                    {{ block.settings.value }}
+                  </span>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% comment %}
+      --------------------------------------------------
+      FRAGRANCE
+      --------------------------------------------------
+    {% endcomment %}
+
+    {% if section.settings.show_fragrance %}
+      <div class="nwy-product-editorial__section nwy-product-editorial__fragrance">
+        <div class="nwy-product-editorial__split">
+
+          <div class="nwy-product-editorial__media">
+            {% if section.settings.fragrance_image != blank %}
+              {{
+                section.settings.fragrance_image
+                | image_url: width: 2200
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '600, 900, 1200, 1600, 2200',
+                  sizes: '(min-width: 990px) 58vw, 100vw',
+                  class: 'nwy-product-editorial__image',
+                  alt: section.settings.fragrance_image.alt
+              }}
+            {% elsif current_product.featured_image != blank %}
+              {{
+                current_product.featured_image
+                | image_url: width: 2200
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '600, 900, 1200, 1600, 2200',
+                  sizes: '(min-width: 990px) 58vw, 100vw',
+                  class: 'nwy-product-editorial__image',
+                  alt: current_product.featured_image.alt
+              }}
+            {% else %}
+              {{ 'product-1' | placeholder_svg_tag: 'nwy-product-editorial__placeholder' }}
+            {% endif %}
+          </div>
+
+          <div class="nwy-product-editorial__content">
+            {% if section.settings.fragrance_eyebrow != blank %}
+              <p class="nwy-product-editorial__eyebrow">
+                {{ section.settings.fragrance_eyebrow }}
+              </p>
+            {% endif %}
+
+            {% if section.settings.fragrance_heading != blank %}
+              <h2 class="nwy-product-editorial__heading">
+                {{ section.settings.fragrance_heading | newline_to_br }}
+              </h2>
+            {% endif %}
+
+            {% if section.settings.fragrance_text != blank %}
+              <div class="nwy-product-editorial__body rte">
+                {{ section.settings.fragrance_text }}
+              </div>
+            {% endif %}
+
+            <div class="nwy-product-editorial__notes">
+              {% for block in section.blocks %}
+                {% if block.type == 'fragrance_note' %}
+                  <div
+                    class="nwy-product-editorial__note"
+                    {{ block.shopify_attributes }}
+                  >
+                    {% if block.settings.note_type != blank %}
+                      <span class="nwy-product-editorial__note-label">
+                        {{ block.settings.note_type }}
+                      </span>
+                    {% endif %}
+
+                    {% if block.settings.notes != blank %}
+                      <span class="nwy-product-editorial__note-value">
+                        {{ block.settings.notes }}
+                      </span>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    {% endif %}
+
+    {% comment %}
+      --------------------------------------------------
+      WHY DIFFERENT
+      --------------------------------------------------
+    {% endcomment %}
+
+    {% if section.settings.show_difference %}
+      <div class="nwy-product-editorial__section nwy-product-editorial__difference">
+        <div class="nwy-product-editorial__difference-header">
+          {% if section.settings.difference_eyebrow != blank %}
+            <p class="nwy-product-editorial__eyebrow">
+              {{ section.settings.difference_eyebrow }}
+            </p>
+          {% endif %}
+
+          {% if section.settings.difference_heading != blank %}
+            <h2 class="nwy-product-editorial__heading nwy-product-editorial__heading--wide">
+              {{ section.settings.difference_heading | newline_to_br }}
+            </h2>
+          {% endif %}
+        </div>
+
+        <div class="nwy-product-editorial__difference-grid">
+          {% for block in section.blocks %}
+            {% if block.type == 'difference' %}
+              <div
+                class="nwy-product-editorial__difference-item"
+                {{ block.shopify_attributes }}
+              >
+                <span class="nwy-product-editorial__difference-number">
+                  {{ forloop.index | prepend: '0' }}
+                </span>
+
+                {% if block.settings.heading != blank %}
+                  <h3>{{ block.settings.heading }}</h3>
+                {% endif %}
+
+                {% if block.settings.text != blank %}
+                  <div class="rte">
+                    {{ block.settings.text }}
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% comment %}
+      --------------------------------------------------
+      LARGE STATEMENT
+      --------------------------------------------------
+    {% endcomment %}
+
+    {% if section.settings.show_statement %}
+      <div class="nwy-product-editorial__statement">
+        <p>{{ section.settings.statement_text | newline_to_br }}</p>
+      </div>
+    {% endif %}
+
+    {% comment %}
+      --------------------------------------------------
+      BEFORE / AFTER
+      --------------------------------------------------
+    {% endcomment %}
+
+    {% if section.settings.show_afterlife %}
+      <div class="nwy-product-editorial__section nwy-product-editorial__afterlife">
+
+        <div class="nwy-product-editorial__section-heading">
+          {% if section.settings.afterlife_eyebrow != blank %}
+            <p class="nwy-product-editorial__eyebrow">
+              {{ section.settings.afterlife_eyebrow }}
+            </p>
+          {% endif %}
+
+          {% if section.settings.afterlife_heading != blank %}
+            <h2 class="nwy-product-editorial__heading nwy-product-editorial__heading--wide">
+              {{ section.settings.afterlife_heading | newline_to_br }}
+            </h2>
+          {% endif %}
+
+          {% if section.settings.afterlife_text != blank %}
+            <div class="nwy-product-editorial__body rte">
+              {{ section.settings.afterlife_text }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="nwy-product-editorial__afterlife-grid">
+          <div class="nwy-product-editorial__afterlife-card">
+            <div class="nwy-product-editorial__afterlife-image">
+              {% if section.settings.before_image != blank %}
+                {{
+                  section.settings.before_image
+                  | image_url: width: 1800
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '500, 750, 1000, 1400, 1800',
+                    sizes: '(min-width: 750px) 50vw, 100vw',
+                    class: 'nwy-product-editorial__image',
+                    alt: section.settings.before_image.alt
+                }}
+              {% else %}
+                {{ 'product-1' | placeholder_svg_tag: 'nwy-product-editorial__placeholder' }}
+              {% endif %}
+            </div>
+
+            <div class="nwy-product-editorial__afterlife-caption">
+              <span>{{ section.settings.before_label }}</span>
+              <p>{{ section.settings.before_caption }}</p>
+            </div>
+          </div>
+
+          <div class="nwy-product-editorial__afterlife-card">
+            <div class="nwy-product-editorial__afterlife-image">
+              {% if section.settings.after_image != blank %}
+                {{
+                  section.settings.after_image
+                  | image_url: width: 1800
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '500, 750, 1000, 1400, 1800',
+                    sizes: '(min-width: 750px) 50vw, 100vw',
+                    class: 'nwy-product-editorial__image',
+                    alt: section.settings.after_image.alt
+                }}
+              {% else %}
+                {{ 'lifestyle-1' | placeholder_svg_tag: 'nwy-product-editorial__placeholder' }}
+              {% endif %}
+            </div>
+
+            <div class="nwy-product-editorial__afterlife-caption">
+              <span>{{ section.settings.after_label }}</span>
+              <p>{{ section.settings.after_caption }}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    {% endif %}
+
+    {% comment %}
+      --------------------------------------------------
+      MANUFACTURING
+      --------------------------------------------------
+    {% endcomment %}
+
+    {% if section.settings.show_manufacturing %}
+      <div class="nwy-product-editorial__section nwy-product-editorial__manufacturing">
+
+        <div class="nwy-product-editorial__split nwy-product-editorial__split--reverse">
+
+          <div class="nwy-product-editorial__content">
+            {% if section.settings.manufacturing_eyebrow != blank %}
+              <p class="nwy-product-editorial__eyebrow">
+                {{ section.settings.manufacturing_eyebrow }}
+              </p>
+            {% endif %}
+
+            {% if section.settings.manufacturing_heading != blank %}
+              <h2 class="nwy-product-editorial__heading">
+                {{ section.settings.manufacturing_heading | newline_to_br }}
+              </h2>
+            {% endif %}
+
+            {% if section.settings.manufacturing_text != blank %}
+              <div class="nwy-product-editorial__body rte">
+                {{ section.settings.manufacturing_text }}
+              </div>
+            {% endif %}
+
+            <div class="nwy-product-editorial__material-list">
+              {% for block in section.blocks %}
+                {% if block.type == 'material' %}
+                  <div
+                    class="nwy-product-editorial__material"
+                    {{ block.shopify_attributes }}
+                  >
+                    {% if block.settings.label != blank %}
+                      <span>{{ block.settings.label }}</span>
+                    {% endif %}
+
+                    {% if block.settings.value != blank %}
+                      <strong>{{ block.settings.value }}</strong>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="nwy-product-editorial__media">
+            {% if section.settings.manufacturing_image != blank %}
+              {{
+                section.settings.manufacturing_image
+                | image_url: width: 2200
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '600, 900, 1200, 1600, 2200',
+                  sizes: '(min-width: 990px) 58vw, 100vw',
+                  class: 'nwy-product-editorial__image',
+                  alt: section.settings.manufacturing_image.alt
+              }}
+            {% else %}
+              {{ 'lifestyle-2' | placeholder_svg_tag: 'nwy-product-editorial__placeholder' }}
+            {% endif %}
+          </div>
+
+        </div>
+      </div>
+    {% endif %}
+
+    {% comment %}
+      --------------------------------------------------
+      FINAL PURCHASE CTA
+      --------------------------------------------------
+    {% endcomment %}
+
+    {% if section.settings.show_final_cta %}
+      <div class="nwy-product-editorial__section nwy-product-editorial__final-cta">
+
+        <div class="nwy-product-editorial__final-copy">
+          {% if section.settings.final_eyebrow != blank %}
+            <p class="nwy-product-editorial__eyebrow">
+              {{ section.settings.final_eyebrow }}
+            </p>
+          {% endif %}
+
+          {% if section.settings.final_heading != blank %}
+            <h2>
+              {{ section.settings.final_heading | newline_to_br }}
+            </h2>
+          {% endif %}
+
+          {% if section.settings.final_text != blank %}
+            <div class="nwy-product-editorial__body rte">
+              {{ section.settings.final_text }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="nwy-product-editorial__purchase">
+          <div class="nwy-product-editorial__purchase-info">
+            <div>
+              <p class="nwy-product-editorial__purchase-title">
+                {{ current_product.title }}
+              </p>
+
+              {% unless current_product.has_only_default_variant %}
+                <p class="nwy-product-editorial__purchase-variant">
+                  {{ current_product.selected_or_first_available_variant.title }}
+                </p>
+              {% endunless %}
+            </div>
+
+            <p class="nwy-product-editorial__price">
+              {{ current_product.selected_or_first_available_variant.price | money }}
+            </p>
+          </div>
+
+          {% form 'product',
+            current_product,
+            id: 'nwy-product-editorial-form-' | append: section.id,
+            class: 'nwy-product-editorial__form'
+          %}
+            <input
+              type="hidden"
+              name="id"
+              value="{{ current_product.selected_or_first_available_variant.id }}"
+            >
+
+            <button
+              type="submit"
+              name="add"
+              class="nwy-product-editorial__button"
+              {% unless current_product.selected_or_first_available_variant.available %}
+                disabled
+              {% endunless %}
+            >
+              {% if current_product.selected_or_first_available_variant.available %}
+                {{ section.settings.button_label }}
+              {% else %}
+                Sold out
+              {% endif %}
+            </button>
+          {% endform %}
+
+          {% if section.settings.purchase_reassurance != blank %}
+            <p class="nwy-product-editorial__reassurance">
+              {{ section.settings.purchase_reassurance }}
+            </p>
+          {% endif %}
+        </div>
+
+      </div>
+    {% endif %}
+
+  {% endif %}
+</section>
+
+<style>
+  #{{ section_id }} {
+    background: var(--nwy-bg);
+    color: var(--nwy-text);
+    font-family: var(--font-body-family);
+    overflow: hidden;
+  }
+
+  #{{ section_id }} *,
+  #{{ section_id }} *::before,
+  #{{ section_id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__section {
+    padding: 110px 2vw;
+    border-top: 1px solid var(--nwy-border);
+  }
+
+  #{{ section_id }} .nwy-product-editorial__eyebrow,
+  #{{ section_id }} .nwy-product-editorial__product-label {
+    margin: 0 0 28px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__heading {
+    max-width: 760px;
+    margin: 0;
+    font-family: var(--font-heading-family);
+    font-size: clamp(48px, 6vw, 105px);
+    font-weight: 700;
+    line-height: 0.91;
+    letter-spacing: -0.065em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__heading--wide {
+    max-width: 1150px;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__body {
+    max-width: 590px;
+    margin-top: 36px;
+    font-size: clamp(17px, 1.35vw, 22px);
+    font-weight: 400;
+    line-height: 1.55;
+    letter-spacing: -0.015em;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__body p,
+  #{{ section_id }} .nwy-product-editorial__large-copy p {
+    margin-top: 0;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__body p:last-child,
+  #{{ section_id }} .nwy-product-editorial__large-copy p:last-child {
+    margin-bottom: 0;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__manifesto {
+    padding-top: 130px;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__manifesto-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(350px, 0.95fr);
+    gap: 7vw;
+    align-items: start;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__manifesto-title h2 {
+    max-width: 900px;
+    margin: 0;
+    font-family: var(--font-heading-family);
+    font-size: clamp(72px, 9vw, 168px);
+    font-weight: 700;
+    line-height: 0.81;
+    letter-spacing: -0.08em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__large-copy {
+    max-width: 720px;
+    font-size: clamp(25px, 2.3vw, 42px);
+    line-height: 1.12;
+    letter-spacing: -0.045em;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__facts {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 110px;
+    border-top: 1px solid var(--nwy-border);
+    border-bottom: 1px solid var(--nwy-border);
+  }
+
+  #{{ section_id }} .nwy-product-editorial__fact {
+    min-height: 135px;
+    padding: 28px 22px;
+    border-right: 1px solid var(--nwy-border);
+  }
+
+  #{{ section_id }} .nwy-product-editorial__fact:last-child {
+    border-right: 0;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__fact-label {
+    display: block;
+    margin-bottom: 18px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.62;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__fact-value {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(360px, 0.65fr);
+    min-height: 760px;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__split--reverse {
+    grid-template-columns: minmax(360px, 0.65fr) minmax(0, 1.35fr);
+  }
+
+  #{{ section_id }} .nwy-product-editorial__fragrance,
+  #{{ section_id }} .nwy-product-editorial__manufacturing {
+    padding: 0;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__media {
+    position: relative;
+    min-height: 720px;
+    overflow: hidden;
+    background: #e8e5df;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__image,
+  #{{ section_id }} .nwy-product-editorial__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    object-fit: cover;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 5vw;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__notes {
+    margin-top: 68px;
+    border-top: 1px solid var(--nwy-border);
+  }
+
+  #{{ section_id }} .nwy-product-editorial__note {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--nwy-border);
+  }
+
+  #{{ section_id }} .nwy-product-editorial__note-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__note-value {
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__difference-header {
+    margin-bottom: 80px;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__difference-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    border-top: 1px solid var(--nwy-border);
+    border-bottom: 1px solid var(--nwy-border);
+  }
+
+  #{{ section_id }} .nwy-product-editorial__difference-item {
+    min-height: 300px;
+    padding: 28px 24px 38px;
+    border-right: 1px solid var(--nwy-border);
+  }
+
+  #{{ section_id }} .nwy-product-editorial__difference-item:last-child {
+    border-right: 0;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__difference-number {
+    display: block;
+    margin-bottom: 90px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    opacity: 0.55;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__difference-item h3 {
+    margin: 0 0 18px;
+    font-size: 22px;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__difference-item .rte {
+    font-size: 15px;
+    line-height: 1.5;
+    opacity: 0.72;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__statement {
+    padding: 48px 2vw 64px;
+    background: var(--nwy-text);
+    color: var(--nwy-bg);
+  }
+
+  #{{ section_id }} .nwy-product-editorial__statement p {
+    margin: 0;
+    font-family: var(--font-heading-family);
+    font-size: clamp(80px, 13vw, 230px);
+    font-weight: 700;
+    line-height: 0.78;
+    letter-spacing: -0.09em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__section-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+    gap: 7vw;
+    align-items: end;
+    margin-bottom: 80px;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__section-heading .nwy-product-editorial__eyebrow {
+    grid-column: 1 / -1;
+    margin-bottom: -20px;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__section-heading .nwy-product-editorial__body {
+    margin-top: 0;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__afterlife-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__afterlife-image {
+    height: min(72vw, 900px);
+    min-height: 560px;
+    overflow: hidden;
+    background: #e8e5df;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__afterlife-caption {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 25px;
+    padding: 22px 0 0;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__afterlife-caption span {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__afterlife-caption p {
+    margin: 0;
+    max-width: 470px;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__material-list {
+    margin-top: 60px;
+    border-top: 1px solid var(--nwy-border);
+  }
+
+  #{{ section_id }} .nwy-product-editorial__material {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 25px;
+    padding: 19px 0;
+    border-bottom: 1px solid var(--nwy-border);
+  }
+
+  #{{ section_id }} .nwy-product-editorial__material span {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.58;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__material strong {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__final-cta {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(360px, 0.7fr);
+    gap: 8vw;
+    align-items: end;
+    background: var(--nwy-text);
+    color: var(--nwy-bg);
+  }
+
+  #{{ section_id }} .nwy-product-editorial__final-copy h2 {
+    max-width: 1000px;
+    margin: 0;
+    font-family: var(--font-heading-family);
+    font-size: clamp(72px, 9vw, 170px);
+    font-weight: 700;
+    line-height: 0.8;
+    letter-spacing: -0.08em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__purchase {
+    padding-bottom: 6px;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__purchase-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+  }
+
+  #{{ section_id }} .nwy-product-editorial__purchase-title,
+  #{{ section_id }} .nwy-product-editorial__purchase-variant,
+  #{{ section_id }} .nwy-product-editorial__price {
+    margin: 0;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__purchase-title,
+  #{{ section_id }} .nwy-product-editorial__price {
+    font-size: 18px;
+    line-height: 1.25;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__purchase-variant {
+    margin-top: 7px;
+    font-size: 13px;
+    opacity: 0.65;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__form {
+    margin-top: 22px;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__button {
+    width: 100%;
+    min-height: 64px;
+    padding: 18px 25px;
+    border: 1px solid var(--nwy-bg);
+    border-radius: 0;
+    background: var(--nwy-bg);
+    color: var(--nwy-text);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      background 180ms ease,
+      color 180ms ease;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__button:hover {
+    background: transparent;
+    color: var(--nwy-bg);
+  }
+
+  #{{ section_id }} .nwy-product-editorial__button:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+  }
+
+  #{{ section_id }} .nwy-product-editorial__reassurance {
+    margin: 18px 0 0;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: center;
+    opacity: 0.66;
+  }
+
+  @media screen and (max-width: 989px) {
+    #{{ section_id }} .nwy-product-editorial__section {
+      padding: 78px 20px;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__manifesto {
+      padding-top: 90px;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__manifesto-grid,
+    #{{ section_id }} .nwy-product-editorial__section-heading,
+    #{{ section_id }} .nwy-product-editorial__final-cta {
+      grid-template-columns: 1fr;
+      gap: 55px;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__facts {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 75px;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__fact:nth-child(2n) {
+      border-right: 0;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__fact:nth-child(-n + 2) {
+      border-bottom: 1px solid var(--nwy-border);
+    }
+
+    #{{ section_id }} .nwy-product-editorial__split,
+    #{{ section_id }} .nwy-product-editorial__split--reverse {
+      grid-template-columns: 1fr;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__split--reverse .nwy-product-editorial__content {
+      order: 2;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__split--reverse .nwy-product-editorial__media {
+      order: 1;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__media {
+      min-height: 70vw;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__content {
+      padding: 75px 20px;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__difference-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #{{ section_id }} .nwy-product-editorial__difference-item {
+      border-bottom: 1px solid var(--nwy-border);
+    }
+
+    #{{ section_id }} .nwy-product-editorial__difference-item:nth-child(2n) {
+      border-right: 0;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__difference-item:last-child {
+      grid-column: 1 / -1;
+      border-bottom: 0;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__statement {
+      padding: 35px 20px 48px;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__section-heading .nwy-product-editorial__eyebrow {
+      margin-bottom: -25px;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__afterlife-image {
+      min-height: 460px;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__final-cta {
+      align-items: start;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #{{ section_id }} .nwy-product-editorial__section {
+      padding: 64px 16px;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__manifesto {
+      padding-top: 72px;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__manifesto-title h2 {
+      font-size: clamp(60px, 20vw, 100px);
+    }
+
+    #{{ section_id }} .nwy-product-editorial__large-copy {
+      font-size: 23px;
+      line-height: 1.18;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__facts {
+      grid-template-columns: 1fr;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__fact {
+      min-height: auto;
+      border-right: 0;
+      border-bottom: 1px solid var(--nwy-border);
+    }
+
+    #{{ section_id }} .nwy-product-editorial__fact:last-child {
+      border-bottom: 0;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__media {
+      min-height: 115vw;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__content {
+      padding: 64px 16px;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__heading {
+      font-size: clamp(50px, 15vw, 78px);
+    }
+
+    #{{ section_id }} .nwy-product-editorial__difference-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__difference-item,
+    #{{ section_id }} .nwy-product-editorial__difference-item:nth-child(2n),
+    #{{ section_id }} .nwy-product-editorial__difference-item:last-child {
+      grid-column: auto;
+      min-height: auto;
+      border-right: 0;
+      border-bottom: 1px solid var(--nwy-border);
+    }
+
+    #{{ section_id }} .nwy-product-editorial__difference-item:last-child {
+      border-bottom: 0;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__difference-number {
+      margin-bottom: 55px;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__statement p {
+      font-size: clamp(74px, 24vw, 130px);
+    }
+
+    #{{ section_id }} .nwy-product-editorial__afterlife-grid {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__afterlife-image {
+      height: 125vw;
+      min-height: 440px;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__afterlife-caption {
+      grid-template-columns: 70px 1fr;
+    }
+
+    #{{ section_id }} .nwy-product-editorial__final-copy h2 {
+      font-size: clamp(65px, 20vw, 110px);
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "NWY – Product editorial",
+  "tag": "section",
+  "class": "section-nwy-product-editorial",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#F4F3F0"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Borders",
+      "default": "#D5D2CC"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#111111"
+    },
+    {
+      "type": "header",
+      "content": "Manifesto"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_manifesto",
+      "label": "Show manifesto",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "manifesto_eyebrow",
+      "label": "Eyebrow",
+      "default": "The object"
+    },
+    {
+      "type": "textarea",
+      "id": "manifesto_heading",
+      "label": "Heading",
+      "default": "THIS IS NOT\nA CANDLE."
+    },
+    {
+      "type": "text",
+      "id": "product_label",
+      "label": "Product label",
+      "info": "Leave blank to use the product title."
+    },
+    {
+      "type": "richtext",
+      "id": "manifesto_text",
+      "label": "Text",
+      "default": "<p>A scented object designed to surprise at first sight and remain long after the last burn. Hand-poured in Paris using vegan soy wax and premium fragrance oils from Grasse.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Fragrance"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_fragrance",
+      "label": "Show fragrance section",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "fragrance_image",
+      "label": "Fragrance image"
+    },
+    {
+      "type": "text",
+      "id": "fragrance_eyebrow",
+      "label": "Eyebrow",
+      "default": "The fragrance"
+    },
+    {
+      "type": "textarea",
+      "id": "fragrance_heading",
+      "label": "Heading",
+      "default": "BRIGHT CITRUS.\nWARM WOODS."
+    },
+    {
+      "type": "richtext",
+      "id": "fragrance_text",
+      "label": "Text",
+      "default": "<p>Bergamot and lemon open with a crisp freshness. Cardamom introduces a subtle spice before sandalwood, amber and musk create a warmer atmosphere.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Why it is different"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_difference",
+      "label": "Show difference section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "difference_eyebrow",
+      "label": "Eyebrow",
+      "default": "Why it is different"
+    },
+    {
+      "type": "textarea",
+      "id": "difference_heading",
+      "label": "Heading",
+      "default": "DESIGN FIRST.\nCANDLE SECOND."
+    },
+    {
+      "type": "header",
+      "content": "Large statement"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_statement",
+      "label": "Show statement",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "statement_text",
+      "label": "Statement",
+      "default": "DESIGNED\nTO STAY."
+    },
+    {
+      "type": "header",
+      "content": "After the burn"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_afterlife",
+      "label": "Show afterlife section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "afterlife_eyebrow",
+      "label": "Eyebrow",
+      "default": "After the flame"
+    },
+    {
+      "type": "textarea",
+      "id": "afterlife_heading",
+      "label": "Heading",
+      "default": "THE CANDLE DISAPPEARS.\nTHE OBJECT STAYS."
+    },
+    {
+      "type": "richtext",
+      "id": "afterlife_text",
+      "label": "Text",
+      "default": "<p>Once the wax has burned away, the vessel remains. Clean it, reuse it and give it a new place in your everyday life.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Before image"
+    },
+    {
+      "type": "text",
+      "id": "before_label",
+      "label": "Before label",
+      "default": "Before"
+    },
+    {
+      "type": "text",
+      "id": "before_caption",
+      "label": "Before caption",
+      "default": "A hand-poured scented candle."
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "After image"
+    },
+    {
+      "type": "text",
+      "id": "after_label",
+      "label": "After label",
+      "default": "After"
+    },
+    {
+      "type": "text",
+      "id": "after_caption",
+      "label": "After caption",
+      "default": "A reusable object designed to remain."
+    },
+    {
+      "type": "header",
+      "content": "Manufacturing"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_manufacturing",
+      "label": "Show manufacturing section",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "manufacturing_image",
+      "label": "Manufacturing image"
+    },
+    {
+      "type": "text",
+      "id": "manufacturing_eyebrow",
+      "label": "Eyebrow",
+      "default": "The process"
+    },
+    {
+      "type": "textarea",
+      "id": "manufacturing_heading",
+      "label": "Heading",
+      "default": "HAND-POURED\nIN PARIS."
+    },
+    {
+      "type": "richtext",
+      "id": "manufacturing_text",
+      "label": "Text",
+      "default": "<p>Every candle is poured in small batches using vegan soy wax and premium fragrance oils selected for their quality, diffusion and longevity.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Final purchase section"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_final_cta",
+      "label": "Show final purchase section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "final_eyebrow",
+      "label": "Eyebrow",
+      "default": "Take the object home"
+    },
+    {
+      "type": "textarea",
+      "id": "final_heading",
+      "label": "Heading",
+      "default": "KEEP\nTHE OBJECT."
+    },
+    {
+      "type": "richtext",
+      "id": "final_text",
+      "label": "Text",
+      "default": "<p>A scented object made to be burned, kept and reused.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Add to cart"
+    },
+    {
+      "type": "text",
+      "id": "purchase_reassurance",
+      "label": "Reassurance text",
+      "default": "Free shipping in France · Secure payment"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "fact",
+      "name": "Product fact",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Made in"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "Paris, France"
+        }
+      ]
+    },
+    {
+      "type": "fragrance_note",
+      "name": "Fragrance note",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "note_type",
+          "label": "Note type",
+          "default": "Top"
+        },
+        {
+          "type": "text",
+          "id": "notes",
+          "label": "Notes",
+          "default": "Bergamot, lemon, mandarin"
+        }
+      ]
+    },
+    {
+      "type": "difference",
+      "name": "Difference",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Hand-poured in Paris"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Produced in small batches with particular attention to every detail.</p>"
+        }
+      ]
+    },
+    {
+      "type": "material",
+      "name": "Material detail",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Wax"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "Vegan soy wax"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NWY – Product editorial",
+      "blocks": [
+        {
+          "type": "fact",
+          "settings": {
+            "label": "Made in",
+            "value": "Paris, France"
+          }
+        },
+        {
+          "type": "fact",
+          "settings": {
+            "label": "Wax",
+            "value": "Vegan soy wax"
+          }
+        },
+        {
+          "type": "fact",
+          "settings": {
+            "label": "Burn time",
+            "value": "Approx. 45 hours"
+          }
+        },
+        {
+          "type": "fact",
+          "settings": {
+            "label": "After the burn",
+            "value": "Reusable object"
+          }
+        },
+        {
+          "type": "fragrance_note",
+          "settings": {
+            "note_type": "Top",
+            "notes": "Bergamot, lemon, mandarin"
+          }
+        },
+        {
+          "type": "fragrance_note",
+          "settings": {
+            "note_type": "Heart",
+            "notes": "Cardamom, basil"
+          }
+        },
+        {
+          "type": "fragrance_note",
+          "settings": {
+            "note_type": "Base",
+            "notes": "Amber, sandalwood, musk"
+          }
+        },
+        {
+          "type": "difference",
+          "settings": {
+            "heading": "Industrial object",
+            "text": "<p>A familiar functional form moved into an unexpected context.</p>"
+          }
+        },
+        {
+          "type": "difference",
+          "settings": {
+            "heading": "Hand-poured in Paris",
+            "text": "<p>Produced in small batches with particular attention to every detail.</p>"
+          }
+        },
+        {
+          "type": "difference",
+          "settings": {
+            "heading": "Vegan soy wax",
+            "text": "<p>A plant-based wax selected for a slow and even burn.</p>"
+          }
+        },
+        {
+          "type": "difference",
+          "settings": {
+            "heading": "Fragrance from Grasse",
+            "text": "<p>Premium fragrance oils chosen for their balance and diffusion.</p>"
+          }
+        },
+        {
+          "type": "difference",
+          "settings": {
+            "heading": "Designed to be reused",
+            "text": "<p>The object remains useful long after the candle has disappeared.</p>"
+          }
+        },
+        {
+          "type": "material",
+          "settings": {
+            "label": "Wax",
+            "value": "Vegan soy wax"
+          }
+        },
+        {
+          "type": "material",
+          "settings": {
+            "label": "Fragrance",
+            "value": "Premium fragrance oils from Grasse"
+          }
+        },
+        {
+          "type": "material",
+          "settings": {
+            "label": "Production",
+            "value": "Hand-poured in Paris"
+          }
+        },
+        {
+          "type": "material",
+          "settings": {
+            "label": "Burn time",
+            "value": "Approx. 45 hours"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
