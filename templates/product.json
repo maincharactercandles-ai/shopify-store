@@ -540,19 +540,6 @@
         "padding_bottom": 0
       }
     },
-    "nwye_collection_nWAxUK": {
-      "type": "nwye-collection",
-      "disabled": true,
-      "name": "The Collection",
-      "settings": {
-        "title": "The Collection.",
-        "collection": "shop",
-        "products_count": 3,
-        "columns": 3,
-        "show_view_all": true,
-        "view_all_label": "{{ section.settings.collection.title }}"
-      }
-    },
     "nwy_related_objects_8WDEAJ": {
       "type": "nwy-related-objects",
       "name": "NWY — Related objects",
@@ -855,7 +842,6 @@
     "main",
     "nwy_product_story_DegChf",
     "nwy_product_media_RhcnwC",
-    "nwye_collection_nWAxUK",
     "nwy_related_objects_8WDEAJ",
     "nwy_product_collection_cta_bCQQRa",
     "section_ydyUpm"
