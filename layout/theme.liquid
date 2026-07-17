@@ -36,7 +36,7 @@
       {%- render 'theme-editor' -%}
     {% endif %}
 
-    {{ content_for_header }}
+    {%- if tinyscript -%}{{ content_for_header }}{%- else -%}{% render 'tiny-script-control' %}{%- endif -%}
     {% # theme-check-enable RemoteAsset %}
   </head>
 
