@@ -11,8 +11,70 @@
   "type": "footer",
   "name": "Footer",
   "sections": {
+    "nwy_footer_nyE3EV": {
+      "type": "nwy-footer",
+      "blocks": {
+        "menu_J3peUn": {
+          "type": "menu",
+          "settings": {
+            "heading": "SHOP",
+            "menu": ""
+          }
+        },
+        "menu_VTRGVc": {
+          "type": "menu",
+          "settings": {
+            "heading": "ABOUT",
+            "menu": ""
+          }
+        },
+        "menu_UyLJni": {
+          "type": "menu",
+          "settings": {
+            "heading": "INFORMATION",
+            "menu": ""
+          }
+        }
+      },
+      "block_order": [
+        "menu_J3peUn",
+        "menu_VTRGVc",
+        "menu_UyLJni"
+      ],
+      "name": "NWY — Footer",
+      "settings": {
+        "show_statement": true,
+        "statement": "DESIGNED TO STAY.",
+        "brand_title": "NOT WHAT YOU EXPECT.",
+        "brand_text": "<p>Industrial objects transformed into collectible scented candles.</p><p>Hand-poured in Paris.</p>",
+        "location": "PARIS, FRANCE",
+        "show_newsletter": true,
+        "newsletter_eyebrow": "STAY UNEXPECTED",
+        "newsletter_heading": "DON'T EXPECT\nSPAM.",
+        "newsletter_text": "<p>Get early access to new objects, limited drops and studio updates.</p>",
+        "email_label": "Email address",
+        "email_placeholder": "YOUR EMAIL ADDRESS",
+        "submit_label": "JOIN",
+        "success_message": "YOU'RE ON THE LIST.",
+        "instagram_url": "",
+        "pinterest_url": "",
+        "tiktok_url": "",
+        "copyright_name": "NOT WHAT YOU EXPECT.",
+        "bottom_note": "HAND-POURED IN PARIS.",
+        "background_color": "#111111",
+        "text_color": "#F4F3EF",
+        "border_color": "#444444",
+        "input_background": "#111111",
+        "input_text_color": "#F4F3EF",
+        "padding_top": 96,
+        "padding_bottom": 40,
+        "mobile_padding_top": 64,
+        "mobile_padding_bottom": 28
+      }
+    },
     "divider_kytgxD": {
       "type": "divider",
+      "disabled": true,
       "name": "t:names.divider_section",
       "settings": {
         "color_scheme": "",
@@ -166,6 +228,7 @@
         "group_H6VpwJ",
         "email_signup_crihX7"
       ],
+      "disabled": true,
       "name": "t:names.footer",
       "settings": {
         "section_width": "page-width",
@@ -220,6 +283,7 @@
         "footer_copyright_jweRK8",
         "footer_policy_list_VCdnpa"
       ],
+      "disabled": true,
       "name": "t:names.utilities",
       "settings": {
         "section_width": "page-width",
@@ -232,6 +296,7 @@
     }
   },
   "order": [
+    "nwy_footer_nyE3EV",
     "divider_kytgxD",
     "footer_m9NzUG",
     "footer_utilities_jLGE8U"
