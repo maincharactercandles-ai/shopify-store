@@ -74,15 +74,33 @@
   #{{ section_id }} .nwy-wholesale__hero-image, #{{ section_id }} .nwy-wholesale__overlay { position:absolute; inset:0; width:100%; height:100%; }
   #{{ section_id }} .nwy-wholesale__hero-image { object-fit:cover; }
   #{{ section_id }} .nwy-wholesale__overlay { background:rgba(0,0,0,{{ section.settings.overlay_opacity | divided_by: 100.0 }}); }
-  #{{ section_id }} .nwy-wholesale__hero-content { position:relative; z-index:1; width:100%; max-width:940px; padding-top:72px; padding-bottom:72px; text-align:center; color:#fff; }
+  #{{ section_id }} .nwy-wholesale__hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(940px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 72px 0;
+    text-align: center;
+    color: #fff;
+  }
   #{{ section_id }} .nwy-wholesale__hero-title { margin:0; font-family:var(--font-heading-family); font-size:clamp(42px,5.5vw,76px); font-weight:700; line-height:.95; letter-spacing:-.04em; text-transform:uppercase; }
   #{{ section_id }} .nwy-wholesale__hero-text { max-width:760px; margin:34px auto 0; font-size:clamp(17px,1.55vw,23px); line-height:1.35; }
   #{{ section_id }} .nwy-wholesale__hero-text p, #{{ section_id }} .nwy-wholesale__intro-text p, #{{ section_id }} .nwy-wholesale__contact-text p { margin:0; }
-  #{{ section_id }} .nwy-wholesale__content { max-width:1100px; padding-top:76px; padding-bottom:100px; }
+  #{{ section_id }} .nwy-wholesale__content {
+    width: min(1100px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 76px 0 100px;
+  }
   #{{ section_id }} .nwy-wholesale__intro { max-width:780px; margin:0 auto; text-align:center; }
   #{{ section_id }} .nwy-wholesale__heading { margin:0; font-family:var(--font-heading-family); font-size:clamp(38px,4vw,58px); font-weight:700; line-height:.98; letter-spacing:-.035em; }
   #{{ section_id }} .nwy-wholesale__intro-text { max-width:670px; margin:24px auto 0; font-size:17px; line-height:1.55; }
-  #{{ section_id }} .nwy-wholesale__platforms { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:52px; }
+  #{{ section_id }} .nwy-wholesale__platforms {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+    margin-top: 52px;
+  }
   #{{ section_id }} .nwy-wholesale__platform-card { min-height:230px; display:flex; flex-direction:column; padding:30px; color:var(--black); text-decoration:none; border:1px solid var(--black); transition:transform .18s ease,background-color .18s ease,color .18s ease; }
   #{{ section_id }} .nwy-wholesale__platform-card--primary { color:#fff; background:#111; }
   #{{ section_id }} .nwy-wholesale__platform-card:hover { color:#fff; background:#111; transform:translateY(-3px); }
@@ -108,10 +126,18 @@
 
   @media screen and (max-width:749px) {
     #{{ section_id }} .nwy-wholesale__hero { min-height:360px; }
-    #{{ section_id }} .nwy-wholesale__hero-content { padding:58px 20px; }
+    #{{ section_id }} .nwy-wholesale__hero-content {
+      width: calc(100% - 40px);
+      margin: 0 auto;
+      padding: 58px 0;
+    }
     #{{ section_id }} .nwy-wholesale__hero-title { font-size:clamp(38px,11vw,54px); }
     #{{ section_id }} .nwy-wholesale__hero-text { margin-top:24px; font-size:16px; }
-    #{{ section_id }} .nwy-wholesale__content { padding:52px 20px 72px; }
+    #{{ section_id }} .nwy-wholesale__content {
+      width: calc(100% - 40px);
+      margin: 0 auto;
+      padding: 52px 0 72px;
+    }
     #{{ section_id }} .nwy-wholesale__heading { font-size:38px; }
     #{{ section_id }} .nwy-wholesale__intro-text { margin-top:18px; font-size:15px; }
     #{{ section_id }} .nwy-wholesale__platforms { grid-template-columns:1fr; margin-top:36px; }
