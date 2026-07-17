@@ -1,0 +1,176 @@
+{% liquid
+  assign section_id = 'nwy-wholesale-' | append: section.id
+%}
+
+<section id="{{ section_id }}" class="nwy-wholesale">
+  {% if section.settings.hero_image != blank %}
+    <div class="nwy-wholesale__hero">
+      {{ section.settings.hero_image | image_url: width: 2400 | image_tag: class: 'nwy-wholesale__hero-image', loading: 'eager', widths: '750, 1100, 1500, 2000, 2400', sizes: '100vw', alt: section.settings.hero_image.alt }}
+      <div class="nwy-wholesale__overlay"></div>
+      <div class="nwy-wholesale__hero-content page-width">
+        <h1 class="nwy-wholesale__hero-title">{{ section.settings.hero_title }}</h1>
+        <div class="nwy-wholesale__hero-text rte">{{ section.settings.hero_text }}</div>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="nwy-wholesale__content page-width">
+    <header class="nwy-wholesale__intro">
+      <h2 class="nwy-wholesale__heading">{{ section.settings.heading }}</h2>
+      <div class="nwy-wholesale__intro-text rte">{{ section.settings.intro }}</div>
+    </header>
+
+    <div class="nwy-wholesale__platforms">
+      {% if section.settings.faire_url != blank %}
+        <a href="{{ section.settings.faire_url }}" class="nwy-wholesale__platform-card nwy-wholesale__platform-card--primary" target="_blank" rel="noopener">
+          <span class="nwy-wholesale__platform-label">{{ section.settings.faire_label }}</span>
+          <span class="nwy-wholesale__platform-description">{{ section.settings.faire_description }}</span>
+          <span class="nwy-wholesale__platform-link">{{ section.settings.platform_cta }} <span aria-hidden="true">→</span></span>
+        </a>
+      {% endif %}
+
+      {% if section.settings.ankorstore_url != blank %}
+        <a href="{{ section.settings.ankorstore_url }}" class="nwy-wholesale__platform-card" target="_blank" rel="noopener">
+          <span class="nwy-wholesale__platform-label">{{ section.settings.ankorstore_label }}</span>
+          <span class="nwy-wholesale__platform-description">{{ section.settings.ankorstore_description }}</span>
+          <span class="nwy-wholesale__platform-link">{{ section.settings.platform_cta }} <span aria-hidden="true">→</span></span>
+        </a>
+      {% endif %}
+    </div>
+
+    {% if section.blocks.size > 0 %}
+      <div class="nwy-wholesale__facts">
+        <h3 class="nwy-wholesale__facts-heading">{{ section.settings.facts_heading }}</h3>
+        <div class="nwy-wholesale__facts-grid">
+          {% for block in section.blocks %}
+            <div class="nwy-wholesale__fact" {{ block.shopify_attributes }}>
+              <span class="nwy-wholesale__fact-icon" aria-hidden="true">✓</span>
+              <div>
+                <p class="nwy-wholesale__fact-title">{{ block.settings.title }}</p>
+                {% if block.settings.text != blank %}<p class="nwy-wholesale__fact-text">{{ block.settings.text }}</p>{% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="nwy-wholesale__contact">
+      <div>
+        <h3 class="nwy-wholesale__contact-heading">{{ section.settings.contact_heading }}</h3>
+        <div class="nwy-wholesale__contact-text rte">{{ section.settings.contact_text }}</div>
+      </div>
+      {% if section.settings.contact_url != blank %}
+        <a href="{{ section.settings.contact_url }}" class="nwy-wholesale__contact-link">{{ section.settings.contact_label }} <span aria-hidden="true">→</span></a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #{{ section_id }} { --black:#111; --white:#fff; --border:rgba(17,17,17,.18); color:var(--black); background:var(--white); }
+  #{{ section_id }} * { box-sizing:border-box; }
+  #{{ section_id }} .nwy-wholesale__hero { position:relative; min-height:430px; display:grid; align-items:center; overflow:hidden; background:#292621; }
+  #{{ section_id }} .nwy-wholesale__hero-image, #{{ section_id }} .nwy-wholesale__overlay { position:absolute; inset:0; width:100%; height:100%; }
+  #{{ section_id }} .nwy-wholesale__hero-image { object-fit:cover; }
+  #{{ section_id }} .nwy-wholesale__overlay { background:rgba(0,0,0,{{ section.settings.overlay_opacity | divided_by: 100.0 }}); }
+  #{{ section_id }} .nwy-wholesale__hero-content { position:relative; z-index:1; width:100%; max-width:940px; padding-top:72px; padding-bottom:72px; text-align:center; color:#fff; }
+  #{{ section_id }} .nwy-wholesale__hero-title { margin:0; font-family:var(--font-heading-family); font-size:clamp(42px,5.5vw,76px); font-weight:700; line-height:.95; letter-spacing:-.04em; text-transform:uppercase; }
+  #{{ section_id }} .nwy-wholesale__hero-text { max-width:760px; margin:34px auto 0; font-size:clamp(17px,1.55vw,23px); line-height:1.35; }
+  #{{ section_id }} .nwy-wholesale__hero-text p, #{{ section_id }} .nwy-wholesale__intro-text p, #{{ section_id }} .nwy-wholesale__contact-text p { margin:0; }
+  #{{ section_id }} .nwy-wholesale__content { max-width:1100px; padding-top:76px; padding-bottom:100px; }
+  #{{ section_id }} .nwy-wholesale__intro { max-width:780px; margin:0 auto; text-align:center; }
+  #{{ section_id }} .nwy-wholesale__heading { margin:0; font-family:var(--font-heading-family); font-size:clamp(38px,4vw,58px); font-weight:700; line-height:.98; letter-spacing:-.035em; }
+  #{{ section_id }} .nwy-wholesale__intro-text { max-width:670px; margin:24px auto 0; font-size:17px; line-height:1.55; }
+  #{{ section_id }} .nwy-wholesale__platforms { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:52px; }
+  #{{ section_id }} .nwy-wholesale__platform-card { min-height:230px; display:flex; flex-direction:column; padding:30px; color:var(--black); text-decoration:none; border:1px solid var(--black); transition:transform .18s ease,background-color .18s ease,color .18s ease; }
+  #{{ section_id }} .nwy-wholesale__platform-card--primary { color:#fff; background:#111; }
+  #{{ section_id }} .nwy-wholesale__platform-card:hover { color:#fff; background:#111; transform:translateY(-3px); }
+  #{{ section_id }} .nwy-wholesale__platform-card--primary:hover { color:#111; background:#fff; }
+  #{{ section_id }} .nwy-wholesale__platform-label { font-family:var(--font-heading-family); font-size:clamp(28px,3vw,40px); font-weight:700; line-height:1; letter-spacing:-.03em; text-transform:uppercase; }
+  #{{ section_id }} .nwy-wholesale__platform-description { max-width:330px; margin-top:18px; font-size:15px; line-height:1.45; opacity:.72; }
+  #{{ section_id }} .nwy-wholesale__platform-link { display:flex; align-items:center; justify-content:space-between; gap:18px; margin-top:auto; padding-top:34px; font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+  #{{ section_id }} .nwy-wholesale__platform-link span { font-size:21px; transition:transform .18s ease; }
+  #{{ section_id }} .nwy-wholesale__platform-card:hover .nwy-wholesale__platform-link span { transform:translateX(4px); }
+  #{{ section_id }} .nwy-wholesale__facts { margin-top:70px; padding-top:34px; border-top:1px solid var(--border); }
+  #{{ section_id }} .nwy-wholesale__facts-heading { margin:0 0 28px; font-family:var(--font-heading-family); font-size:25px; font-weight:700; letter-spacing:-.02em; }
+  #{{ section_id }} .nwy-wholesale__facts-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:52px; }
+  #{{ section_id }} .nwy-wholesale__fact { display:grid; grid-template-columns:22px 1fr; gap:12px; padding:22px 0; border-bottom:1px solid var(--border); }
+  #{{ section_id }} .nwy-wholesale__fact-title, #{{ section_id }} .nwy-wholesale__fact-text { margin:0; }
+  #{{ section_id }} .nwy-wholesale__fact-title { font-size:15px; font-weight:600; }
+  #{{ section_id }} .nwy-wholesale__fact-text { margin-top:5px; font-size:14px; line-height:1.45; opacity:.68; }
+  #{{ section_id }} .nwy-wholesale__contact { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:40px; margin-top:76px; padding-top:38px; border-top:1px solid #111; }
+  #{{ section_id }} .nwy-wholesale__contact-heading { margin:0; font-family:var(--font-heading-family); font-size:clamp(25px,3vw,38px); font-weight:700; line-height:1; letter-spacing:-.025em; }
+  #{{ section_id }} .nwy-wholesale__contact-text { max-width:600px; margin-top:15px; font-size:15px; line-height:1.5; }
+  #{{ section_id }} .nwy-wholesale__contact-link { display:inline-flex; align-items:center; gap:22px; padding-bottom:5px; color:#111; font-size:13px; font-weight:600; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; border-bottom:1px solid currentColor; }
+  #{{ section_id }} .nwy-wholesale__contact-link span { font-size:20px; transition:transform .18s ease; }
+  #{{ section_id }} .nwy-wholesale__contact-link:hover span { transform:translateX(4px); }
+
+  @media screen and (max-width:749px) {
+    #{{ section_id }} .nwy-wholesale__hero { min-height:360px; }
+    #{{ section_id }} .nwy-wholesale__hero-content { padding:58px 20px; }
+    #{{ section_id }} .nwy-wholesale__hero-title { font-size:clamp(38px,11vw,54px); }
+    #{{ section_id }} .nwy-wholesale__hero-text { margin-top:24px; font-size:16px; }
+    #{{ section_id }} .nwy-wholesale__content { padding:52px 20px 72px; }
+    #{{ section_id }} .nwy-wholesale__heading { font-size:38px; }
+    #{{ section_id }} .nwy-wholesale__intro-text { margin-top:18px; font-size:15px; }
+    #{{ section_id }} .nwy-wholesale__platforms { grid-template-columns:1fr; margin-top:36px; }
+    #{{ section_id }} .nwy-wholesale__platform-card { min-height:190px; padding:24px; }
+    #{{ section_id }} .nwy-wholesale__facts { margin-top:54px; }
+    #{{ section_id }} .nwy-wholesale__facts-grid { grid-template-columns:1fr; }
+    #{{ section_id }} .nwy-wholesale__contact { grid-template-columns:1fr; align-items:start; gap:28px; margin-top:58px; }
+    #{{ section_id }} .nwy-wholesale__contact-link { width:max-content; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "NWY — Wholesale",
+  "tag": "section",
+  "class": "section-nwy-wholesale",
+  "settings": [
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "range", "id": "overlay_opacity", "min": 0, "max": 80, "step": 5, "unit": "%", "label": "Image overlay", "default": 45 },
+    { "type": "text", "id": "hero_title", "label": "Hero title", "default": "STOCKISTS & WHOLESALE." },
+    { "type": "richtext", "id": "hero_text", "label": "Hero text", "default": "<p>NOT WHAT YOU EXPECT. is available for selected retailers, concept stores, design shops, galleries and hospitality projects.</p>" },
+    { "type": "text", "id": "heading", "label": "Main heading", "default": "Wholesale" },
+    { "type": "richtext", "id": "intro", "label": "Introduction", "default": "<p>Choose your preferred ordering platform below. For hospitality projects or custom collaborations, contact us directly.</p>" },
+    { "type": "header", "content": "Faire" },
+    { "type": "text", "id": "faire_label", "label": "Label", "default": "Faire" },
+    { "type": "text", "id": "faire_description", "label": "Description", "default": "Recommended for independent retailers and concept stores." },
+    { "type": "url", "id": "faire_url", "label": "Faire showroom link" },
+    { "type": "header", "content": "Ankorstore" },
+    { "type": "text", "id": "ankorstore_label", "label": "Label", "default": "Ankorstore" },
+    { "type": "text", "id": "ankorstore_description", "label": "Description", "default": "Order our wholesale collection through Ankorstore." },
+    { "type": "url", "id": "ankorstore_url", "label": "Ankorstore showroom link" },
+    { "type": "text", "id": "platform_cta", "label": "Platform CTA", "default": "Browse catalogue" },
+    { "type": "text", "id": "facts_heading", "label": "Practical information heading", "default": "Wholesale at a glance" },
+    { "type": "header", "content": "Direct contact" },
+    { "type": "text", "id": "contact_heading", "label": "Contact heading", "default": "Hospitality or custom project?" },
+    { "type": "richtext", "id": "contact_text", "label": "Contact text", "default": "<p>Contact us directly for hotels, restaurants, events, gifting and special collaborations.</p>" },
+    { "type": "text", "id": "contact_label", "label": "Contact link label", "default": "Contact us" },
+    { "type": "url", "id": "contact_url", "label": "Contact page link" }
+  ],
+  "blocks": [
+    {
+      "type": "fact",
+      "name": "Practical information",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Ships across Europe" },
+        { "type": "text", "id": "text", "label": "Optional detail", "default": "Delivery options depend on the selected wholesale platform." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NWY — Wholesale",
+      "blocks": [
+        { "type": "fact", "settings": { "title": "Made in small batches", "text": "Produced with close attention to quality and consistency." } },
+        { "type": "fact", "settings": { "title": "Designed in Paris", "text": "Distinctive objects created for concept stores and design-led retailers." } },
+        { "type": "fact", "settings": { "title": "Gift-ready packaging", "text": "Products arrive ready for premium retail presentation." } },
+        { "type": "fact", "settings": { "title": "Hospitality projects", "text": "Custom requests are reviewed directly with our team." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
