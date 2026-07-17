@@ -457,6 +457,7 @@
           ]
         }
       },
+      "disabled": true,
       "settings": {
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
@@ -467,6 +468,83 @@
         "color_scheme": "",
         "padding-block-start": 0,
         "padding-block-end": 33
+      }
+    },
+    "nwy_product_hero_Vq3aK4": {
+      "type": "nwy-product-hero",
+      "blocks": {
+        "benefit_8JUntH": {
+          "type": "benefit",
+          "settings": {
+            "icon": "paris",
+            "text": "Hand-poured\nin Paris"
+          }
+        },
+        "benefit_3Eybq4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "time",
+            "text": "Approx. 45h\nburn time"
+          }
+        },
+        "benefit_Xpgmk4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "reuse",
+            "text": "Reusable\nobject"
+          }
+        },
+        "accordion_aF4xMf": {
+          "type": "accordion",
+          "settings": {
+            "heading": "The fragrance",
+            "content": "<p>Fresh citrus meets warm woods. Bergamot, lemon and mandarin open bright before cardamom, sandalwood and musk add depth.</p>"
+          }
+        },
+        "accordion_WUd9Lg": {
+          "type": "accordion",
+          "settings": {
+            "heading": "The object",
+            "content": "<p>An industrial aluminium can containing a reusable amber glass vessel.</p>"
+          }
+        },
+        "accordion_n8WJAA": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Details",
+            "content": "<p>Vegan soy wax · Approx. 45h burn time · 420g total weight.</p>"
+          }
+        },
+        "accordion_kBF3RF": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Shipping & returns",
+            "content": "<p>Free shipping in France. See our shipping and returns policy for full details.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_8JUntH",
+        "benefit_3Eybq4",
+        "benefit_Xpgmk4",
+        "accordion_aF4xMf",
+        "accordion_WUd9Lg",
+        "accordion_n8WJAA",
+        "accordion_kBF3RF"
+      ],
+      "name": "NWY — Product hero",
+      "settings": {
+        "color_scheme": "",
+        "eyebrow": "OBJECT 01",
+        "short_description": "<p>Fresh citrus meets warm woods.<br/>A scented candle hand-poured in Paris using vegan soy wax and premium fragrance oils. Presented in a reusable amber glass vessel.</p>",
+        "show_tax_text": true,
+        "tax_text": "Tax included.",
+        "quantity_label": "Quantity",
+        "add_to_cart_label": "Add to cart",
+        "sold_out_label": "Sold out",
+        "unavailable_label": "Unavailable",
+        "show_dynamic_checkout": true,
+        "payment_options_text": "More payment options"
       }
     },
     "nwy_product_story_DegChf": {
@@ -841,6 +919,7 @@
   },
   "order": [
     "main",
+    "nwy_product_hero_Vq3aK4",
     "nwy_product_story_DegChf",
     "nwy_product_media_RhcnwC",
     "nwy_related_objects_8WDEAJ",
