@@ -1,0 +1,964 @@
+{% liquid
+  assign section_id = 'nwy-footer-' | append: section.id
+  assign current_year = 'now' | date: '%Y'
+%}
+
+<footer
+  id="{{ section_id }}"
+  class="nwy-footer"
+  style="
+    --nwy-footer-bg: {{ section.settings.background_color }};
+    --nwy-footer-text: {{ section.settings.text_color }};
+    --nwy-footer-border: {{ section.settings.border_color }};
+    --nwy-footer-input-bg: {{ section.settings.input_background }};
+    --nwy-footer-input-text: {{ section.settings.input_text_color }};
+    --nwy-footer-pt: {{ section.settings.padding_top }}px;
+    --nwy-footer-pb: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="nwy-footer__container">
+
+    {% if section.settings.show_statement and section.settings.statement != blank %}
+      <div class="nwy-footer__statement">
+        <p>{{ section.settings.statement | escape }}</p>
+      </div>
+    {% endif %}
+
+    <div class="nwy-footer__divider"></div>
+
+    <div class="nwy-footer__main">
+
+      <div class="nwy-footer__brand">
+        {% if section.settings.brand_title != blank %}
+          <p class="nwy-footer__brand-title">
+            {{ section.settings.brand_title | escape }}
+          </p>
+        {% endif %}
+
+        {% if section.settings.brand_text != blank %}
+          <div class="nwy-footer__brand-text">
+            {{ section.settings.brand_text }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.location != blank %}
+          <p class="nwy-footer__location">
+            {{ section.settings.location | escape }}
+          </p>
+        {% endif %}
+      </div>
+
+      <nav
+        class="nwy-footer__navigation"
+        aria-label="Footer navigation"
+      >
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'menu' %}
+              <div
+                class="nwy-footer__column"
+                {{ block.shopify_attributes }}
+              >
+                {% if block.settings.heading != blank %}
+                  <p class="nwy-footer__column-title">
+                    {{ block.settings.heading | escape }}
+                  </p>
+                {% endif %}
+
+                {% if block.settings.menu != blank %}
+                  <ul class="nwy-footer__links" role="list">
+                    {% for link in block.settings.menu.links %}
+                      <li>
+                        <a
+                          href="{{ link.url }}"
+                          class="nwy-footer__link{% if link.current %} is-active{% endif %}"
+                          {% if link.current %}
+                            aria-current="page"
+                          {% endif %}
+                        >
+                          {{ link.title | escape }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </nav>
+
+    </div>
+
+    {% if section.settings.show_newsletter %}
+      <div class="nwy-footer__newsletter">
+
+        <div class="nwy-footer__newsletter-copy">
+          {% if section.settings.newsletter_eyebrow != blank %}
+            <p class="nwy-footer__eyebrow">
+              {{ section.settings.newsletter_eyebrow | escape }}
+            </p>
+          {% endif %}
+
+          {% if section.settings.newsletter_heading != blank %}
+            <h2 class="nwy-footer__newsletter-heading">
+              {{ section.settings.newsletter_heading | escape | newline_to_br }}
+            </h2>
+          {% endif %}
+
+          {% if section.settings.newsletter_text != blank %}
+            <div class="nwy-footer__newsletter-text">
+              {{ section.settings.newsletter_text }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="nwy-footer__form-wrapper">
+          {% form 'customer', class: 'nwy-footer__form' %}
+            <input
+              type="hidden"
+              name="contact[tags]"
+              value="newsletter"
+            >
+
+            <div class="nwy-footer__field">
+              <label
+                class="visually-hidden"
+                for="NwyFooterEmail-{{ section.id }}"
+              >
+                {{ section.settings.email_label | escape }}
+              </label>
+
+              <input
+                id="NwyFooterEmail-{{ section.id }}"
+                class="nwy-footer__input"
+                type="email"
+                name="contact[email]"
+                value="{{ form.email }}"
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="email"
+                placeholder="{{ section.settings.email_placeholder | escape }}"
+                required
+                {% if form.errors %}
+                  aria-invalid="true"
+                  aria-describedby="NwyFooterError-{{ section.id }}"
+                {% elsif form.posted_successfully? %}
+                  aria-describedby="NwyFooterSuccess-{{ section.id }}"
+                {% endif %}
+              >
+
+              <button
+                class="nwy-footer__submit"
+                type="submit"
+                name="commit"
+                aria-label="{{ section.settings.submit_label | escape }}"
+              >
+                <span>{{ section.settings.submit_label | escape }}</span>
+
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3 9H15M10 4L15 9L10 14"
+                    stroke="currentColor"
+                    stroke-width="1.4"
+                    stroke-linecap="square"
+                    stroke-linejoin="miter"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            {% if form.errors %}
+              <p
+                id="NwyFooterError-{{ section.id }}"
+                class="nwy-footer__message nwy-footer__message--error"
+                role="alert"
+              >
+                {{ form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email }}
+              </p>
+            {% endif %}
+
+            {% if form.posted_successfully? %}
+              <p
+                id="NwyFooterSuccess-{{ section.id }}"
+                class="nwy-footer__message nwy-footer__message--success"
+                role="status"
+              >
+                {{ section.settings.success_message | escape }}
+              </p>
+            {% endif %}
+          {% endform %}
+        </div>
+
+      </div>
+    {% endif %}
+
+    <div class="nwy-footer__divider"></div>
+
+    <div class="nwy-footer__bottom">
+
+      <div class="nwy-footer__socials">
+        {% if section.settings.instagram_url != blank %}
+          <a
+            href="{{ section.settings.instagram_url }}"
+            class="nwy-footer__social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
+        {% endif %}
+
+        {% if section.settings.pinterest_url != blank %}
+          <a
+            href="{{ section.settings.pinterest_url }}"
+            class="nwy-footer__social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Pinterest
+          </a>
+        {% endif %}
+
+        {% if section.settings.tiktok_url != blank %}
+          <a
+            href="{{ section.settings.tiktok_url }}"
+            class="nwy-footer__social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            TikTok
+          </a>
+        {% endif %}
+      </div>
+
+      <div class="nwy-footer__legal">
+        <p>
+          © {{ current_year }}
+          {{ section.settings.copyright_name | default: shop.name | escape }}
+        </p>
+
+        {% if section.settings.bottom_note != blank %}
+          <p>{{ section.settings.bottom_note | escape }}</p>
+        {% endif %}
+      </div>
+
+    </div>
+
+  </div>
+</footer>
+
+{% style %}
+  #{{ section_id }} {
+    position: relative;
+    overflow: hidden;
+    padding-top: var(--nwy-footer-pt);
+    padding-bottom: var(--nwy-footer-pb);
+    background: var(--nwy-footer-bg);
+    color: var(--nwy-footer-text);
+  }
+
+  #{{ section_id }} *,
+  #{{ section_id }} *::before,
+  #{{ section_id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #{{ section_id }} p,
+  #{{ section_id }} h2,
+  #{{ section_id }} ul {
+    margin-top: 0;
+  }
+
+  #{{ section_id }} .nwy-footer__container {
+    width: min(100%, 1860px);
+    margin: 0 auto;
+    padding-inline: clamp(20px, 4vw, 72px);
+  }
+
+  #{{ section_id }} .nwy-footer__divider {
+    width: 100%;
+    height: 1px;
+    background: var(--nwy-footer-border);
+  }
+
+  #{{ section_id }} .nwy-footer__statement {
+    padding-bottom: clamp(48px, 8vw, 130px);
+  }
+
+  #{{ section_id }} .nwy-footer__statement p {
+    max-width: 1500px;
+    margin-bottom: 0;
+    font-size: clamp(58px, 9.2vw, 168px);
+    font-weight: 700;
+    line-height: 0.82;
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-footer__main {
+    display: grid;
+    grid-template-columns: minmax(280px, 1.2fr) minmax(480px, 1.8fr);
+    gap: clamp(60px, 10vw, 180px);
+    padding-block: clamp(56px, 7vw, 110px);
+  }
+
+  #{{ section_id }} .nwy-footer__brand {
+    max-width: 460px;
+  }
+
+  #{{ section_id }} .nwy-footer__brand-title {
+    margin-bottom: 28px;
+    font-size: clamp(25px, 2.4vw, 42px);
+    font-weight: 650;
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-footer__brand-text {
+    max-width: 400px;
+    font-size: clamp(16px, 1.2vw, 20px);
+    line-height: 1.5;
+  }
+
+  #{{ section_id }} .nwy-footer__brand-text p {
+    margin-bottom: 14px;
+  }
+
+  #{{ section_id }} .nwy-footer__brand-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  #{{ section_id }} .nwy-footer__location {
+    margin: 30px 0 0;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-footer__navigation {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(130px, 1fr));
+    gap: clamp(30px, 4vw, 80px);
+  }
+
+  #{{ section_id }} .nwy-footer__column-title,
+  #{{ section_id }} .nwy-footer__eyebrow {
+    margin-bottom: 24px;
+    font-size: 11px;
+    font-weight: 650;
+    line-height: 1;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-footer__links {
+    margin-bottom: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  #{{ section_id }} .nwy-footer__links li {
+    margin-bottom: 12px;
+  }
+
+  #{{ section_id }} .nwy-footer__links li:last-child {
+    margin-bottom: 0;
+  }
+
+  #{{ section_id }} .nwy-footer__link,
+  #{{ section_id }} .nwy-footer__social-link {
+    position: relative;
+    display: inline-block;
+    color: inherit;
+    font-size: 15px;
+    line-height: 1.4;
+    text-decoration: none;
+  }
+
+  #{{ section_id }} .nwy-footer__link::after,
+  #{{ section_id }} .nwy-footer__social-link::after {
+    position: absolute;
+    right: 0;
+    bottom: -2px;
+    left: 0;
+    height: 1px;
+    background: currentColor;
+    content: "";
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  #{{ section_id }} .nwy-footer__link:hover::after,
+  #{{ section_id }} .nwy-footer__link.is-active::after,
+  #{{ section_id }} .nwy-footer__social-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  #{{ section_id }} .nwy-footer__newsletter {
+    display: grid;
+    grid-template-columns: minmax(280px, 1fr) minmax(420px, 1fr);
+    gap: clamp(60px, 10vw, 180px);
+    align-items: end;
+    padding-block: clamp(64px, 8vw, 125px);
+    border-top: 1px solid var(--nwy-footer-border);
+  }
+
+  #{{ section_id }} .nwy-footer__newsletter-copy {
+    max-width: 760px;
+  }
+
+  #{{ section_id }} .nwy-footer__newsletter-heading {
+    margin-bottom: 25px;
+    font-size: clamp(45px, 6vw, 104px);
+    font-weight: 700;
+    line-height: 0.86;
+    letter-spacing: -0.065em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-footer__newsletter-text {
+    max-width: 550px;
+    font-size: clamp(16px, 1.2vw, 20px);
+    line-height: 1.45;
+  }
+
+  #{{ section_id }} .nwy-footer__newsletter-text p {
+    margin-bottom: 0;
+  }
+
+  #{{ section_id }} .nwy-footer__form-wrapper {
+    width: 100%;
+    max-width: 650px;
+    justify-self: end;
+  }
+
+  #{{ section_id }} .nwy-footer__field {
+    display: flex;
+    width: 100%;
+    min-height: 60px;
+    border-bottom: 1px solid var(--nwy-footer-text);
+  }
+
+  #{{ section_id }} .nwy-footer__input {
+    min-width: 0;
+    flex: 1 1 auto;
+    border: 0;
+    border-radius: 0;
+    outline: none;
+    padding: 16px 10px 16px 0;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+    font: inherit;
+    font-size: clamp(17px, 1.4vw, 22px);
+  }
+
+  #{{ section_id }} .nwy-footer__input::placeholder {
+    color: inherit;
+    opacity: 0.55;
+  }
+
+  #{{ section_id }} .nwy-footer__submit {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 16px;
+    border: 0;
+    padding: 10px 0 10px 20px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 650;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-footer__submit svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  #{{ section_id }} .nwy-footer__submit:hover svg {
+    transform: translateX(5px);
+  }
+
+  #{{ section_id }} .nwy-footer__message {
+    margin: 14px 0 0;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  #{{ section_id }} .nwy-footer__message--error {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  #{{ section_id }} .nwy-footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    align-items: flex-end;
+    padding-top: 28px;
+  }
+
+  #{{ section_id }} .nwy-footer__socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+  }
+
+  #{{ section_id }} .nwy-footer__social-link {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-footer__legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px 28px;
+    text-align: right;
+  }
+
+  #{{ section_id }} .nwy-footer__legal p {
+    margin-bottom: 0;
+    font-size: 11px;
+    line-height: 1.3;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    white-space: nowrap !important;
+    clip-path: inset(50%) !important;
+  }
+
+  @media screen and (max-width: 989px) {
+    #{{ section_id }} .nwy-footer__main,
+    #{{ section_id }} .nwy-footer__newsletter {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+
+    #{{ section_id }} .nwy-footer__brand {
+      max-width: 600px;
+    }
+
+    #{{ section_id }} .nwy-footer__form-wrapper {
+      max-width: none;
+      justify-self: start;
+    }
+
+    #{{ section_id }} .nwy-footer__navigation {
+      gap: 40px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #{{ section_id }} {
+      --nwy-footer-pt: {{ section.settings.mobile_padding_top }}px;
+      --nwy-footer-pb: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    #{{ section_id }} .nwy-footer__container {
+      padding-inline: 20px;
+    }
+
+    #{{ section_id }} .nwy-footer__statement {
+      padding-bottom: 52px;
+    }
+
+    #{{ section_id }} .nwy-footer__statement p {
+      font-size: clamp(52px, 17vw, 82px);
+      line-height: 0.84;
+    }
+
+    #{{ section_id }} .nwy-footer__main {
+      gap: 52px;
+      padding-block: 52px;
+    }
+
+    #{{ section_id }} .nwy-footer__brand-title {
+      max-width: 300px;
+      font-size: 29px;
+    }
+
+    #{{ section_id }} .nwy-footer__brand-text {
+      font-size: 16px;
+    }
+
+    #{{ section_id }} .nwy-footer__navigation {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 46px 24px;
+    }
+
+    #{{ section_id }} .nwy-footer__column:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+
+    #{{ section_id }} .nwy-footer__column-title {
+      margin-bottom: 20px;
+    }
+
+    #{{ section_id }} .nwy-footer__links li {
+      margin-bottom: 11px;
+    }
+
+    #{{ section_id }} .nwy-footer__link {
+      font-size: 15px;
+    }
+
+    #{{ section_id }} .nwy-footer__newsletter {
+      gap: 44px;
+      padding-block: 64px;
+    }
+
+    #{{ section_id }} .nwy-footer__newsletter-heading {
+      font-size: clamp(48px, 15vw, 74px);
+      line-height: 0.87;
+    }
+
+    #{{ section_id }} .nwy-footer__newsletter-text {
+      font-size: 16px;
+    }
+
+    #{{ section_id }} .nwy-footer__field {
+      min-height: 56px;
+    }
+
+    #{{ section_id }} .nwy-footer__input {
+      width: 100%;
+      font-size: 16px;
+    }
+
+    #{{ section_id }} .nwy-footer__submit {
+      gap: 8px;
+      padding-left: 12px;
+    }
+
+    #{{ section_id }} .nwy-footer__submit span {
+      display: none;
+    }
+
+    #{{ section_id }} .nwy-footer__submit svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    #{{ section_id }} .nwy-footer__bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+      padding-top: 24px;
+    }
+
+    #{{ section_id }} .nwy-footer__socials {
+      gap: 20px;
+    }
+
+    #{{ section_id }} .nwy-footer__legal {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 7px;
+      text-align: left;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    #{{ section_id }} .nwy-footer__navigation {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #{{ section_id }} .nwy-footer__link::after,
+    #{{ section_id }} .nwy-footer__social-link::after,
+    #{{ section_id }} .nwy-footer__submit svg {
+      transition: none;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "NWY — Footer",
+  "tag": "section",
+  "class": "section-nwy-footer",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Large statement"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_statement",
+      "label": "Show large statement",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "statement",
+      "label": "Statement",
+      "default": "DESIGNED TO STAY."
+    },
+    {
+      "type": "header",
+      "content": "Brand information"
+    },
+    {
+      "type": "text",
+      "id": "brand_title",
+      "label": "Brand title",
+      "default": "NOT WHAT YOU EXPECT."
+    },
+    {
+      "type": "richtext",
+      "id": "brand_text",
+      "label": "Brand description",
+      "default": "<p>Industrial objects transformed into collectible scented candles.</p><p>Hand-poured in Paris.</p>"
+    },
+    {
+      "type": "text",
+      "id": "location",
+      "label": "Location",
+      "default": "PARIS, FRANCE"
+    },
+    {
+      "type": "header",
+      "content": "Newsletter"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter",
+      "label": "Show newsletter",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "newsletter_eyebrow",
+      "label": "Small title",
+      "default": "STAY UNEXPECTED"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_heading",
+      "label": "Heading",
+      "default": "DON'T EXPECT\nSPAM."
+    },
+    {
+      "type": "richtext",
+      "id": "newsletter_text",
+      "label": "Text",
+      "default": "<p>Get early access to new objects, limited drops and studio updates.</p>"
+    },
+    {
+      "type": "text",
+      "id": "email_label",
+      "label": "Email accessibility label",
+      "default": "Email address"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email placeholder",
+      "default": "YOUR EMAIL ADDRESS"
+    },
+    {
+      "type": "text",
+      "id": "submit_label",
+      "label": "Submit label",
+      "default": "JOIN"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "YOU'RE ON THE LIST."
+    },
+    {
+      "type": "header",
+      "content": "Social links"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "pinterest_url",
+      "label": "Pinterest URL"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "TikTok URL"
+    },
+    {
+      "type": "header",
+      "content": "Bottom information"
+    },
+    {
+      "type": "text",
+      "id": "copyright_name",
+      "label": "Copyright name",
+      "default": "NOT WHAT YOU EXPECT."
+    },
+    {
+      "type": "text",
+      "id": "bottom_note",
+      "label": "Bottom note",
+      "default": "HAND-POURED IN PARIS."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#F4F3EF"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Borders",
+      "default": "#444444"
+    },
+    {
+      "type": "color",
+      "id": "input_background",
+      "label": "Input background",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "input_text_color",
+      "label": "Input text",
+      "default": "#F4F3EF"
+    },
+    {
+      "type": "header",
+      "content": "Desktop spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Mobile spacing"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile top padding",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile bottom padding",
+      "default": 28
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Column title",
+          "default": "SHOP"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NWY — Footer",
+      "blocks": [
+        {
+          "type": "menu",
+          "settings": {
+            "heading": "SHOP"
+          }
+        },
+        {
+          "type": "menu",
+          "settings": {
+            "heading": "ABOUT"
+          }
+        },
+        {
+          "type": "menu",
+          "settings": {
+            "heading": "INFORMATION"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
