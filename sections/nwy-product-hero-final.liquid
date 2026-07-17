@@ -127,8 +127,12 @@
         {% endif %}
 <nav class="nwy-product-hero__breadcrumb" aria-label="Breadcrumb">
 
- <a href="/collections/all">
-    Shop
+<a
+  href="/collections/all"
+  class="nwy-product-hero__back-link"
+>
+  <span aria-hidden="true">←</span>
+  Back to shop
 </a>
 
   <span>/</span>
@@ -958,6 +962,36 @@
 
 #{{ section_id }} .nwy-product-hero__breadcrumb span:last-child{
   color:#111;
+}
+#{{ section_id }} .nwy-product-hero__back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 18px;
+
+  color: rgba(17, 17, 17, 0.58);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: color 180ms ease;
+}
+
+#{{ section_id }} .nwy-product-hero__back-link span {
+  font-size: 15px;
+  transition: transform 180ms ease;
+}
+
+#{{ section_id }} .nwy-product-hero__back-link:hover {
+  color: #111;
+}
+
+#{{ section_id }} .nwy-product-hero__back-link:hover span {
+  transform: translateX(-3px);
 }
   }
 </style>
