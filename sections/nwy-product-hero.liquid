@@ -21,7 +21,6 @@ type="submit"
 class="nwy-product-hero__submit"
 {% unless selected_variant.available %}disabled{% endunless %}
 >
-
 <span>
 {% if selected_variant.available %}
 {{ section.settings.add_to_cart_label }}
@@ -33,7 +32,6 @@ Sold out
 <span class="nwy-product-hero__arrow">
 →
 </span>
-
 </button>
           {% endfor %}
         </div>
