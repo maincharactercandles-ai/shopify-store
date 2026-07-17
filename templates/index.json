@@ -78,6 +78,33 @@
         "gap_between_elements": 24
       }
     },
+    "nwy_split_cta_iWLffL": {
+      "type": "nwy-split-cta",
+      "name": "NWY — Double CTA",
+      "settings": {
+        "left_image": "shopify://shop_images/object-03-green-tea-matcha-scented-candle-9527230.png",
+        "left_eyebrow": "DROP 01 - INDUSTRIAL OBJECTS",
+        "left_title": "AVAILABLE NOW.",
+        "left_text": "<p>Discover our signature collection.</p>",
+        "left_button_label": "SHOP NOW",
+        "left_link": "shopify://collections/drop-01",
+        "right_image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_12_42_12_dd5fccb1-6375-400a-bdcb-6237c303df47.png",
+        "right_eyebrow": "DROP 02 - GLASS OBJECTS",
+        "right_title": "JUST RELEASED.",
+        "right_text": "<p>Discover the new Glass Objects collection.</p>",
+        "right_button_label": "SHOP NOW",
+        "right_link": "shopify://collections/drop-02",
+        "block_height": 540,
+        "side_gutter": 0,
+        "max_width": 2000,
+        "background_color": "#f6f5f1",
+        "text_color": "#ffffff",
+        "muted_text_color": "#d8d7d1",
+        "line_color": "#f6f5f1",
+        "padding_top": 0,
+        "padding_bottom": 44
+      }
+    },
     "nwy_concept_intro_BLVFmz": {
       "type": "nwy-concept-intro",
       "name": "NWY — Concept intro",
@@ -249,33 +276,6 @@
         "padding_bottom": 68
       }
     },
-    "nwy_split_cta_iWLffL": {
-      "type": "nwy-split-cta",
-      "name": "NWY — Double CTA",
-      "settings": {
-        "left_image": "shopify://shop_images/object-03-green-tea-matcha-scented-candle-9527230.png",
-        "left_eyebrow": "DROP 01 - INDUSTRIAL OBJECTS",
-        "left_title": "AVAILABLE NOW.",
-        "left_text": "<p>Discover our signature collection.</p>",
-        "left_button_label": "SHOP NOW",
-        "left_link": "shopify://collections/drop-01",
-        "right_image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_12_42_12_dd5fccb1-6375-400a-bdcb-6237c303df47.png",
-        "right_eyebrow": "DROP 02 - GLASS OBJECTS",
-        "right_title": "JUST RELEASED.",
-        "right_text": "<p>Discover the new Glass Objects collection.</p>",
-        "right_button_label": "SHOP NOW",
-        "right_link": "shopify://collections/drop-02",
-        "block_height": 540,
-        "side_gutter": 0,
-        "max_width": 2000,
-        "background_color": "#f6f5f1",
-        "text_color": "#ffffff",
-        "muted_text_color": "#d8d7d1",
-        "line_color": "#f6f5f1",
-        "padding_top": 0,
-        "padding_bottom": 44
-      }
-    },
     "ss_feature_1_features_fqqzdc": {
       "type": "ss-feature-1--features",
       "blocks": {
@@ -441,10 +441,10 @@
   "order": [
     "nwy_home_hero_Wainfp",
     "marquee_mqh9yJ",
+    "nwy_split_cta_iWLffL",
     "nwy_concept_intro_BLVFmz",
     "nwye_into_the_wild_4Xth6i",
     "nwy_process_73MqMA",
-    "nwy_split_cta_iWLffL",
     "ss_feature_1_features_fqqzdc",
     "custom_liquid_8gYDjh",
     "nwy_journal_KDWWTF",
