@@ -87,7 +87,8 @@
         "text": "<p>Industrial objects transformed into collectible scented candles.</p><p>Hand-poured in Paris using vegan soy wax and fine fragrances from Grasse.</p><p>Designed to be reused long after the wax has burned away.</p>",
         "button_label": "DISCOVER THE CONCEPT",
         "button_link": "shopify://pages/concept",
-        "image": "shopify://shop_images/ChatGPT_Image_17_juil._2026_a_06_25_25.png",
+        "image": "shopify://shop_images/ChatGPT_Image_17_juil._2026_a_06_21_59_b050cae9-6174-42b0-8a84-76e838e56023.png",
+        "mobile_image": "shopify://shop_images/ChatGPT_Image_17_juil._2026_a_06_21_59_b050cae9-6174-42b0-8a84-76e838e56023.png",
         "image_height": 540,
         "image_height_mobile": 380,
         "side_gutter": 52,
@@ -132,7 +133,7 @@
         "image_mFLbmM": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_10_11_50_c61511e6-2cde-4e3e-88e5-6ecd13ed8012.png",
+            "image": "shopify://shop_images/object-02-leather-wood-scented-candle-7670285.png",
             "size": "large",
             "title": "OBJECT 05.",
             "caption": "Coffee after the flame",
@@ -142,7 +143,7 @@
         "image_whiY6b": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_13_juil._2026_10_15_05.png",
+            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_12_44_02_530df9f5-8e17-4af8-95a5-64e5c55192a6.png",
             "size": "wide",
             "title": "DROP 02",
             "caption": "Hand-poured in Paris",
@@ -162,7 +163,7 @@
         "image_ctPzra": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_13_juil._2026_10_34_49_2.png",
+            "image": "shopify://shop_images/object-05-oriental-night-scented-candle-4958357.png",
             "size": "portrait",
             "title": "OBJECT 05.",
             "caption": "After dinner",
@@ -244,7 +245,7 @@
         "step_zaEjc7": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_11_03_21_a1f58bd7-46da-488d-b98f-9308703c71c4.png",
+            "image": "shopify://shop_images/object-02-leather-wood-scented-candle-6342792.png",
             "number": "",
             "title": "Designed to stay.",
             "text": "<p>Once burned, every object is meant to become part of your home.</p>",
