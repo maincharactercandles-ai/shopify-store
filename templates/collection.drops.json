@@ -320,6 +320,7 @@
     },
     "nwy_split_cta_7EwQqM": {
       "type": "nwy-split-cta",
+      "disabled": true,
       "name": "NWY — Double CTA",
       "settings": {
         "left_image": "shopify://shop_images/drop-01-industrial-objects-full-set-7964669.png",
