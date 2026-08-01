@@ -297,7 +297,7 @@
         "image_99YyMa": {
           "type": "image",
           "settings": {
-            "feature_title": "HANDMADE IN PARIS.",
+            "feature_title": "HAND-POURED IN PARIS.",
             "feature_text": "<p>Each candle, each design object is handcrafted in our Parisian workshop.</p>",
             "icon_type": "default",
             "icon": "heart",
@@ -345,7 +345,7 @@
       "settings": {
         "feature_title_custom": false,
         "feature_title_font": "josefin_sans_n4",
-        "feature_title_size": 13,
+        "feature_title_size": 12,
         "feature_title_size_mobile": 12,
         "feature_title_advanced": false,
         "feature_title_height": 130,
@@ -353,7 +353,7 @@
         "feature_title_mt_mobile": 8,
         "feature_text_custom": false,
         "feature_text_font": "josefin_sans_n4",
-        "feature_text_size": 13,
+        "feature_text_size": 12,
         "feature_text_size_mobile": 11,
         "feature_text_advanced": false,
         "feature_text_height": 150,
