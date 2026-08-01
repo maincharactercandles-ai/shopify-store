@@ -26,103 +26,115 @@
         "object_p34YMQ": {
           "type": "object",
           "settings": {
+            "product": "object-01-citrus-ambre-scented-candle",
             "number": "01",
+            "year": "2026",
+            "use_product_title": false,
+            "title": "",
             "image": "shopify://shop_images/Agrumes_-_object_01.png",
-            "collection": "",
-            "title": "OBJECT 01",
-            "subtitle": "",
-            "link_label": "View Object 01",
+            "subtitle": "{{ block.settings.product.title }}",
             "link": "shopify://products/object-01-citrus-ambre-scented-candle"
           }
         },
         "object_kx4wAR": {
           "type": "object",
           "settings": {
+            "product": "object-02-leather-wood-scented-candle",
             "number": "02",
+            "year": "2026",
+            "use_product_title": false,
+            "title": "",
             "image": "shopify://shop_images/Leather_-_Slow_burn_baby.png",
-            "collection": "INDUSTRIAL OBJECTS",
-            "title": "OBJECT 02",
-            "subtitle": "Amber glass",
-            "link_label": "View Object 02",
+            "subtitle": "{{ block.settings.product.title }}",
             "link": "shopify://products/object-02-leather-wood-scented-candle"
           }
         },
         "object_yyJkT7": {
           "type": "object",
           "settings": {
+            "product": "object-03-green-tea-matcha-scented-candle",
             "number": "03",
+            "year": "2026",
+            "use_product_title": false,
+            "title": "",
             "image": "shopify://shop_images/notwhatyouexpect-07.jpg",
-            "collection": "INDUSTRIAL OBJECTS",
-            "title": "OBJECT 03",
-            "subtitle": "Aluminium",
-            "link_label": "View Object 03",
+            "subtitle": "{{ block.settings.product.title }}",
             "link": "shopify://products/object-03-green-tea-matcha-scented-candle"
           }
         },
         "object_jRKkKy": {
           "type": "object",
           "settings": {
+            "product": "object-04-mint-basil-scented-candle",
             "number": "04",
+            "year": "2026",
+            "use_product_title": false,
+            "title": "",
             "image": "shopify://shop_images/object-04-mint-basil-scented-candle-2901451.webp",
-            "collection": "GLASS OBJECTS",
-            "title": "OBJECT 04",
-            "subtitle": "Coloured glass",
-            "link_label": "View Object 04",
+            "subtitle": "{{ block.settings.product.title }}",
             "link": "shopify://products/object-04-mint-basil-scented-candle"
           }
         },
         "object_8QJiXX": {
           "type": "object",
           "settings": {
+            "product": "object-05-oriental-night-scented-candle",
             "number": "05",
+            "year": "2026",
+            "use_product_title": false,
+            "title": "",
             "image": "shopify://shop_images/DFC91583-174A-4954-A1A8-DB4F419C4D60_67cc1d21-58b7-45ba-a6ba-3b91c23b435a.png",
-            "collection": "GLASS OBJECTS",
-            "title": "OBJECT 05",
-            "subtitle": "Coloured glass",
-            "link_label": "View Object 05",
+            "subtitle": "{{ block.settings.product.title }}",
             "link": "shopify://products/object-05-oriental-night-scented-candle"
           }
         },
         "object_LTEETG": {
           "type": "object",
           "settings": {
+            "product": "object-06-peach-musk-scented-candle",
             "number": "06",
+            "year": "2026",
+            "use_product_title": false,
+            "title": "",
             "image": "shopify://shop_images/object-06-peach-musk-scented-candle-6578900.png",
-            "collection": "GLASS OBJECTS",
-            "title": "OBJECT 06",
-            "subtitle": "Coloured glass",
-            "link_label": "View Object 06",
+            "subtitle": "{{ block.settings.product.title }}",
             "link": ""
           }
         },
         "coming_soon_aFKwjd": {
           "type": "coming_soon",
+          "disabled": true,
           "settings": {
             "number": "07",
-            "label": "COMING SOON",
+            "year": "COMING SOON",
+            "heading": "COMING SOON",
             "text": "More to come.",
-            "link_label": "Discover later",
-            "link": ""
+            "footer_title": "NEXT OBJECT",
+            "footer_text": "Not revealed yet."
           }
         },
         "coming_soon_cLhn49": {
           "type": "coming_soon",
+          "disabled": true,
           "settings": {
             "number": "08",
-            "label": "COMING SOON",
+            "year": "COMING SOON",
+            "heading": "COMING SOON",
             "text": "More to come.",
-            "link_label": "Discover later",
-            "link": ""
+            "footer_title": "NEXT OBJECT",
+            "footer_text": "Not revealed yet."
           }
         },
         "coming_soon_aipBaG": {
           "type": "coming_soon",
+          "disabled": true,
           "settings": {
             "number": "09",
-            "label": "COMING SOON",
+            "year": "COMING SOON",
+            "heading": "COMING SOON",
             "text": "More to come.",
-            "link_label": "Discover later",
-            "link": ""
+            "footer_title": "NEXT OBJECT",
+            "footer_text": "Not revealed yet."
           }
         }
       },
@@ -143,12 +155,12 @@
         "eyebrow": "INDEX",
         "heading": "OBJECT INDEX",
         "intro": "<p>A collection of objects, reinterpreted. Each object has a purpose, a material, a story and a second life.</p>",
-        "hero_image": "shopify://shop_images/ChatGPT_Image_17_juil._2026_a_10_47_20.png",
-        "statement_image": "shopify://shop_images/ChatGPT_Image_17_juil._2026_a_10_37_37_d2cc778a-63ba-4cbd-a63a-12274ce2904a.png",
-        "statement_heading": "EACH OBJECT IS PART OF A LONG-TERM COLLECTION.",
-        "statement_text": "<p>New objects will be added over time. Different materials. Different functions. The same element of surprise.</p>",
-        "statement_link_label": "Follow the journey",
-        "statement_link": ""
+        "perfume_namespace": "custom",
+        "perfume_key": "parfum",
+        "perfume_text_field": "name",
+        "manifesto_eyebrow": "THE COLLECTION",
+        "manifesto_heading": "THIS INDEX IS NEVER COMPLETE.",
+        "manifesto_text": "<p>New objects will appear over time.<br>Different materials.<br>Different functions.<br>The same philosophy.</p>"
       }
     }
   },
