@@ -59,7 +59,7 @@
         "instagram_url": "",
         "pinterest_url": "",
         "tiktok_url": "",
-        "copyright_name": "NOT WHAT YOU EXPECT.",
+        "copyright_name": "",
         "bottom_note": "HAND-POURED IN PARIS.",
         "background_color": "#111111",
         "text_color": "#f4f3ef",
@@ -117,6 +117,7 @@
         "footer_copyright_jweRK8",
         "footer_policy_list_VCdnpa"
       ],
+      "disabled": true,
       "name": "t:names.utilities",
       "settings": {
         "section_width": "page-width",
