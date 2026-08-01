@@ -1,0 +1,771 @@
+{% liquid
+  assign section_id = 'nwy-object-index-' | append: section.id
+%}
+
+<section id="{{ section_id }}" class="nwy-object-index color-{{ section.settings.color_scheme }}">
+  <div class="nwy-object-index__container">
+
+    <!-- HERO -->
+    <header class="nwy-object-index__hero">
+      <div class="nwy-object-index__hero-copy">
+        {% if section.settings.eyebrow != blank %}
+          <p class="nwy-object-index__eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h1 class="nwy-object-index__heading">{{ section.settings.heading }}</h1>
+        {% endif %}
+
+        {% if section.settings.intro != blank %}
+          <div class="nwy-object-index__intro rte">
+            {{ section.settings.intro }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="nwy-object-index__hero-media">
+        {% if section.settings.hero_image != blank %}
+          {{
+            section.settings.hero_image
+            | image_url: width: 1800
+            | image_tag:
+              class: 'nwy-object-index__hero-image',
+              loading: 'eager',
+              fetchpriority: 'high',
+              widths: '600, 900, 1200, 1500, 1800',
+              sizes: '(max-width: 749px) 100vw, 52vw',
+              alt: section.settings.hero_image.alt
+          }}
+        {% else %}
+          <div class="nwy-object-index__placeholder">
+            {{ 'collection-1' | placeholder_svg_tag: 'nwy-object-index__placeholder-svg' }}
+          </div>
+        {% endif %}
+      </div>
+    </header>
+
+    <!-- INDEX GRID -->
+    <div class="nwy-object-index__grid">
+      {% for block in section.blocks %}
+        {% case block.type %}
+
+          {% when 'object' %}
+            <article class="nwy-object-index__card" {{ block.shopify_attributes }}>
+              <p class="nwy-object-index__number">
+                {{ block.settings.number | default: forloop.index | prepend: '0' | slice: -2, 2 }}
+              </p>
+
+              {% if block.settings.link != blank %}
+                <a href="{{ block.settings.link }}" class="nwy-object-index__card-link" aria-label="View {{ block.settings.title | escape }}">
+              {% else %}
+                <div class="nwy-object-index__card-link">
+              {% endif %}
+
+                <div class="nwy-object-index__card-media">
+                  {% if block.settings.image != blank %}
+                    {{
+                      block.settings.image
+                      | image_url: width: 1200
+                      | image_tag:
+                        class: 'nwy-object-index__card-image',
+                        loading: 'lazy',
+                        widths: '360, 540, 720, 960, 1200',
+                        sizes: '(max-width: 749px) 100vw, 33vw',
+                        alt: block.settings.image.alt | default: block.settings.title
+                    }}
+                  {% else %}
+                    <div class="nwy-object-index__placeholder">
+                      {{ 'product-1' | placeholder_svg_tag: 'nwy-object-index__placeholder-svg' }}
+                    </div>
+                  {% endif %}
+                </div>
+
+                <div class="nwy-object-index__card-copy">
+                  {% if block.settings.collection != blank %}
+                    <p class="nwy-object-index__collection">{{ block.settings.collection }}</p>
+                  {% endif %}
+
+                  {% if block.settings.title != blank %}
+                    <h2 class="nwy-object-index__card-title">{{ block.settings.title }}</h2>
+                  {% endif %}
+
+                  {% if block.settings.subtitle != blank %}
+                    <p class="nwy-object-index__subtitle">{{ block.settings.subtitle }}</p>
+                  {% endif %}
+
+                  {% if block.settings.link != blank %}
+                    <span class="nwy-object-index__view">
+                      {{ block.settings.link_label }}
+                      <span aria-hidden="true">→</span>
+                    </span>
+                  {% endif %}
+                </div>
+
+              {% if block.settings.link != blank %}
+                </a>
+              {% else %}
+                </div>
+              {% endif %}
+            </article>
+
+          {% when 'coming_soon' %}
+            <article class="nwy-object-index__card nwy-object-index__card--coming" {{ block.shopify_attributes }}>
+              <p class="nwy-object-index__number">{{ block.settings.number }}</p>
+
+              <div class="nwy-object-index__coming-box">
+                <span>{{ block.settings.label }}</span>
+              </div>
+
+              <div class="nwy-object-index__card-copy">
+                {% if block.settings.text != blank %}
+                  <p class="nwy-object-index__subtitle">{{ block.settings.text }}</p>
+                {% endif %}
+
+                {% if block.settings.link != blank %}
+                  <a href="{{ block.settings.link }}" class="nwy-object-index__view">
+                    {{ block.settings.link_label }}
+                    <span aria-hidden="true">→</span>
+                  </a>
+                {% endif %}
+              </div>
+            </article>
+
+        {% endcase %}
+      {% endfor %}
+    </div>
+
+    <!-- COLLECTION STATEMENT -->
+    <section class="nwy-object-index__statement">
+      <div class="nwy-object-index__statement-media">
+        {% if section.settings.statement_image != blank %}
+          {{
+            section.settings.statement_image
+            | image_url: width: 1800
+            | image_tag:
+              class: 'nwy-object-index__statement-image',
+              loading: 'lazy',
+              widths: '600, 900, 1200, 1500, 1800',
+              sizes: '(max-width: 749px) 100vw, 55vw',
+              alt: section.settings.statement_image.alt
+          }}
+        {% else %}
+          <div class="nwy-object-index__placeholder">
+            {{ 'product-2' | placeholder_svg_tag: 'nwy-object-index__placeholder-svg' }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="nwy-object-index__statement-copy">
+        {% if section.settings.statement_heading != blank %}
+          <h2>{{ section.settings.statement_heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.statement_text != blank %}
+          <div class="rte">
+            {{ section.settings.statement_text }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.statement_link != blank %}
+          <a href="{{ section.settings.statement_link }}" class="nwy-object-index__statement-link">
+            {{ section.settings.statement_link_label }}
+            <span aria-hidden="true">→</span>
+          </a>
+        {% endif %}
+      </div>
+    </section>
+
+  </div>
+</section>
+
+<style>
+  #{{ section_id }} {
+    --nwy-border: rgb(var(--color-foreground-rgb) / 0.16);
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+    font-family: var(--font-body-family);
+  }
+
+  #{{ section_id }} *,
+  #{{ section_id }} *::before,
+  #{{ section_id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #{{ section_id }} .nwy-object-index__container {
+    width: min(100% - 64px, 1280px);
+    margin: 0 auto;
+    padding: 76px 0 0;
+  }
+
+  #{{ section_id }} .nwy-object-index__hero {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+    align-items: center;
+    gap: 76px;
+    padding-bottom: 74px;
+    border-bottom: 1px solid var(--nwy-border);
+  }
+
+  #{{ section_id }} .nwy-object-index__hero-copy {
+    max-width: 620px;
+  }
+
+  #{{ section_id }} .nwy-object-index__eyebrow,
+  #{{ section_id }} .nwy-object-index__collection {
+    margin: 0 0 18px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  #{{ section_id }} .nwy-object-index__heading {
+    margin: 0;
+    font-family: var(--font-heading-family);
+    font-size: clamp(58px, 7.5vw, 116px);
+    font-weight: 700;
+    line-height: 0.87;
+    letter-spacing: -0.065em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-object-index__intro {
+    max-width: 460px;
+    margin-top: 32px;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  #{{ section_id }} .nwy-object-index__intro p {
+    margin-top: 0;
+  }
+
+  #{{ section_id }} .nwy-object-index__hero-media {
+    aspect-ratio: 16 / 11;
+    overflow: hidden;
+    background: #ece8e1;
+  }
+
+  #{{ section_id }} .nwy-object-index__hero-image,
+  #{{ section_id }} .nwy-object-index__card-image,
+  #{{ section_id }} .nwy-object-index__statement-image,
+  #{{ section_id }} .nwy-object-index__placeholder,
+  #{{ section_id }} .nwy-object-index__placeholder-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #{{ section_id }} .nwy-object-index__hero-image,
+  #{{ section_id }} .nwy-object-index__card-image,
+  #{{ section_id }} .nwy-object-index__statement-image {
+    object-fit: cover;
+  }
+
+  #{{ section_id }} .nwy-object-index__placeholder {
+    background: #ece8e1;
+  }
+
+  #{{ section_id }} .nwy-object-index__placeholder-svg {
+    opacity: 0.28;
+  }
+
+  #{{ section_id }} .nwy-object-index__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 28px;
+    row-gap: 62px;
+    padding: 42px 0 92px;
+  }
+
+  #{{ section_id }} .nwy-object-index__card {
+    min-width: 0;
+  }
+
+  #{{ section_id }} .nwy-object-index__number {
+    margin: 0 0 14px;
+    font-family: var(--font-heading-family);
+    font-size: clamp(28px, 2.4vw, 42px);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  #{{ section_id }} .nwy-object-index__card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #{{ section_id }} .nwy-object-index__card-media {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #ece8e1;
+  }
+
+  #{{ section_id }} .nwy-object-index__card-image {
+    transition: transform 420ms ease;
+  }
+
+  #{{ section_id }} .nwy-object-index__card-link:hover .nwy-object-index__card-image {
+    transform: scale(1.025);
+  }
+
+  #{{ section_id }} .nwy-object-index__card-copy {
+    padding-top: 16px;
+  }
+
+  #{{ section_id }} .nwy-object-index__collection {
+    margin-bottom: 7px;
+  }
+
+  #{{ section_id }} .nwy-object-index__card-title {
+    margin: 0;
+    font-family: var(--font-heading-family);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-object-index__subtitle {
+    margin: 7px 0 0;
+    font-size: 13px;
+    line-height: 1.45;
+    opacity: 0.72;
+  }
+
+  #{{ section_id }} .nwy-object-index__view {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 18px;
+    color: inherit;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-object-index__view span {
+    font-size: 16px;
+    line-height: 1;
+    transition: transform 180ms ease;
+  }
+
+  #{{ section_id }} .nwy-object-index__card-link:hover .nwy-object-index__view span,
+  #{{ section_id }} .nwy-object-index__view:hover span {
+    transform: translateX(5px);
+  }
+
+  #{{ section_id }} .nwy-object-index__coming-box {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1 / 1;
+    padding: 24px;
+    background:
+      linear-gradient(rgba(17,17,17,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17,17,17,.035) 1px, transparent 1px),
+      #f1eee8;
+    background-size: 28px 28px;
+  }
+
+  #{{ section_id }} .nwy-object-index__coming-box span {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-object-index__statement {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+    min-height: 560px;
+    margin-inline: calc((100vw - min(100vw - 64px, 1280px)) / -2);
+    background: #111;
+    color: #fff;
+  }
+
+  #{{ section_id }} .nwy-object-index__statement-media {
+    min-height: 560px;
+    overflow: hidden;
+    background: #292929;
+  }
+
+  #{{ section_id }} .nwy-object-index__statement-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(44px, 6vw, 86px);
+  }
+
+  #{{ section_id }} .nwy-object-index__statement-copy h2 {
+    margin: 0;
+    font-family: var(--font-heading-family);
+    font-size: clamp(44px, 5.8vw, 82px);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-object-index__statement-copy .rte {
+    max-width: 420px;
+    margin-top: 26px;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  #{{ section_id }} .nwy-object-index__statement-copy .rte p {
+    margin-top: 0;
+  }
+
+  #{{ section_id }} .nwy-object-index__statement-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    width: fit-content;
+    margin-top: 28px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid currentColor;
+    color: inherit;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .nwy-object-index__statement-link span {
+    font-size: 17px;
+    transition: transform 180ms ease;
+  }
+
+  #{{ section_id }} .nwy-object-index__statement-link:hover span {
+    transform: translateX(5px);
+  }
+
+  @media screen and (max-width: 989px) {
+    #{{ section_id }} .nwy-object-index__hero {
+      grid-template-columns: 1fr;
+      gap: 42px;
+    }
+
+    #{{ section_id }} .nwy-object-index__hero-copy {
+      max-width: 720px;
+    }
+
+    #{{ section_id }} .nwy-object-index__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #{{ section_id }} .nwy-object-index__statement {
+      grid-template-columns: 1fr;
+      margin-inline: calc((100vw - min(100vw - 64px, 1280px)) / -2);
+    }
+
+    #{{ section_id }} .nwy-object-index__statement-media {
+      min-height: 0;
+      aspect-ratio: 16 / 10;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #{{ section_id }} .nwy-object-index__container {
+      width: calc(100% - 40px);
+      padding-top: 52px;
+    }
+
+    #{{ section_id }} .nwy-object-index__hero {
+      gap: 34px;
+      padding-bottom: 48px;
+    }
+
+    #{{ section_id }} .nwy-object-index__heading {
+      font-size: clamp(50px, 15vw, 76px);
+      line-height: 0.88;
+    }
+
+    #{{ section_id }} .nwy-object-index__intro {
+      margin-top: 24px;
+      font-size: 16px;
+    }
+
+    #{{ section_id }} .nwy-object-index__hero-media {
+      aspect-ratio: 4 / 3;
+    }
+
+    #{{ section_id }} .nwy-object-index__grid {
+      grid-template-columns: 1fr;
+      row-gap: 48px;
+      padding: 34px 0 72px;
+    }
+
+    #{{ section_id }} .nwy-object-index__number {
+      font-size: 30px;
+    }
+
+    #{{ section_id }} .nwy-object-index__statement {
+      margin-inline: -20px;
+    }
+
+    #{{ section_id }} .nwy-object-index__statement-media {
+      aspect-ratio: 1 / 1;
+    }
+
+    #{{ section_id }} .nwy-object-index__statement-copy {
+      padding: 42px 24px 50px;
+    }
+
+    #{{ section_id }} .nwy-object-index__statement-copy h2 {
+      font-size: clamp(42px, 13vw, 66px);
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "NWY — Object index",
+  "tag": "section",
+  "class": "section-nwy-object-index",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "INDEX"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "OBJECT INDEX"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "<p>A collection of objects, reinterpreted. Each object has a purpose, a material, a story and a second life.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "header",
+      "content": "Collection statement"
+    },
+    {
+      "type": "image_picker",
+      "id": "statement_image",
+      "label": "Statement image"
+    },
+    {
+      "type": "text",
+      "id": "statement_heading",
+      "label": "Statement heading",
+      "default": "EACH OBJECT IS PART OF A LONG-TERM COLLECTION."
+    },
+    {
+      "type": "richtext",
+      "id": "statement_text",
+      "label": "Statement text",
+      "default": "<p>New objects will be added over time. Different materials. Different functions. The same element of surprise.</p>"
+    },
+    {
+      "type": "text",
+      "id": "statement_link_label",
+      "label": "Statement link label",
+      "default": "Follow the journey"
+    },
+    {
+      "type": "url",
+      "id": "statement_link",
+      "label": "Statement link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "object",
+      "name": "Object",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Object number",
+          "default": "01"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Object image"
+        },
+        {
+          "type": "text",
+          "id": "collection",
+          "label": "Collection",
+          "default": "INDUSTRIAL OBJECTS"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Object title",
+          "default": "OBJECT 01"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Aluminium"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "View object"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Object link"
+        }
+      ]
+    },
+    {
+      "type": "coming_soon",
+      "name": "Coming soon",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Object number",
+          "default": "07"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Box label",
+          "default": "COMING SOON"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Description",
+          "default": "More to come."
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "Discover later"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Optional link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NWY — Object index",
+      "blocks": [
+        {
+          "type": "object",
+          "settings": {
+            "number": "01",
+            "collection": "INDUSTRIAL OBJECTS",
+            "title": "OBJECT 01",
+            "subtitle": "Aluminium",
+            "link_label": "View Object 01"
+          }
+        },
+        {
+          "type": "object",
+          "settings": {
+            "number": "02",
+            "collection": "INDUSTRIAL OBJECTS",
+            "title": "OBJECT 02",
+            "subtitle": "Amber glass",
+            "link_label": "View Object 02"
+          }
+        },
+        {
+          "type": "object",
+          "settings": {
+            "number": "03",
+            "collection": "INDUSTRIAL OBJECTS",
+            "title": "OBJECT 03",
+            "subtitle": "Aluminium",
+            "link_label": "View Object 03"
+          }
+        },
+        {
+          "type": "object",
+          "settings": {
+            "number": "04",
+            "collection": "GLASS OBJECTS",
+            "title": "OBJECT 04",
+            "subtitle": "Coloured glass",
+            "link_label": "View Object 04"
+          }
+        },
+        {
+          "type": "object",
+          "settings": {
+            "number": "05",
+            "collection": "GLASS OBJECTS",
+            "title": "OBJECT 05",
+            "subtitle": "Coloured glass",
+            "link_label": "View Object 05"
+          }
+        },
+        {
+          "type": "object",
+          "settings": {
+            "number": "06",
+            "collection": "GLASS OBJECTS",
+            "title": "OBJECT 06",
+            "subtitle": "Coloured glass",
+            "link_label": "View Object 06"
+          }
+        },
+        {
+          "type": "coming_soon",
+          "settings": {
+            "number": "07"
+          }
+        },
+        {
+          "type": "coming_soon",
+          "settings": {
+            "number": "08"
+          }
+        },
+        {
+          "type": "coming_soon",
+          "settings": {
+            "number": "09"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
