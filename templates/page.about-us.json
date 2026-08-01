@@ -12,7 +12,7 @@
     "main": {
       "type": "about-us",
       "custom_css": [
-        ".nwye-collection h2 {margin: 0; font-size: clamp(54px, 6.2vw, 104px); font-weight: 700; line-height: 0.86; letter-spacing: -0.065em; text-transform: uppercase;}"
+        ".nwye-collection h2 {margin: 0; font-size: clamp(54px, 5.2vw, 104px); font-weight: 700; line-height: 0.86; letter-spacing: -0.065em; text-transform: uppercase;}"
       ],
       "name": "THE CONCEPT",
       "settings": {}
