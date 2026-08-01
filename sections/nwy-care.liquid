@@ -491,14 +491,27 @@
   }
 
   #{{ section_id }} .nwy-care__reuse {
+    position: relative;
     display: grid;
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
     align-items: stretch;
     gap: 70px;
-    margin-top: 130px;
-    padding: 68px;
+    margin-top: 150px;
+    padding: 82px 68px 68px;
     color: var(--nwy-white);
     background: var(--nwy-black);
+  }
+
+  #{{ section_id }} .nwy-care__reuse::before {
+    content: "AFTER THE FLAME";
+    position: absolute;
+    top: 22px;
+    left: 68px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.5;
   }
 
   #{{ section_id }} .nwy-care__reuse-content {
@@ -723,8 +736,13 @@
 
     #{{ section_id }} .nwy-care__reuse {
       gap: 42px;
-      margin-top: 86px;
-      padding: 34px 24px 24px;
+      margin-top: 96px;
+      padding: 66px 24px 24px;
+    }
+
+    #{{ section_id }} .nwy-care__reuse::before {
+      top: 24px;
+      left: 24px;
     }
 
     #{{ section_id }} .nwy-care__reuse-heading {
@@ -779,31 +797,31 @@
       "type": "text",
       "id": "eyebrow",
       "label": "Hero eyebrow",
-      "default": "CANDLE CARE"
+      "default": "CARE GUIDE"
     },
     {
       "type": "text",
       "id": "hero_title",
       "label": "Hero title",
-      "default": "BURN SLOWLY. KEEP FOREVER."
+      "default": "THE OBJECT DOESN’T END HERE."
     },
     {
       "type": "richtext",
       "id": "hero_text",
       "label": "Hero text",
-      "default": "<p>A few simple gestures will help your candle burn evenly, last longer and leave behind an object worth keeping.</p>"
+      "default": "<p>Care for the flame. Preserve the vessel. When the candle is finished, the object begins its second life.</p>"
     },
     {
       "type": "text",
       "id": "intro_heading",
       "label": "Introduction heading",
-      "default": "A better burn starts here."
+      "default": "First, care for the flame."
     },
     {
       "type": "richtext",
       "id": "intro_text",
       "label": "Introduction text",
-      "default": "<p>Every candle behaves differently. Follow these simple care instructions to preserve the fragrance, protect the vessel and get the most from every burn.</p>"
+      "default": "<p>A few simple gestures help the candle burn more evenly, preserve the fragrance and protect the vessel. The goal is not only to make the flame last longer, but to keep the object ready for what comes next.</p>"
     },
     {
       "type": "text",
@@ -815,7 +833,7 @@
       "type": "text",
       "id": "facts_heading",
       "label": "Practical facts heading",
-      "default": "Care at a glance"
+      "default": "The essentials"
     },
     {
       "type": "header",
@@ -830,25 +848,25 @@
       "type": "text",
       "id": "reuse_eyebrow",
       "label": "Reuse eyebrow",
-      "default": "AFTER THE FLAME"
+      "default": "SECOND LIFE"
     },
     {
       "type": "text",
       "id": "reuse_heading",
       "label": "Reuse heading",
-      "default": "The object remains."
+      "default": "The flame ends. The object stays."
     },
     {
       "type": "richtext",
       "id": "reuse_text",
       "label": "Reuse text",
-      "default": "<p>Once the candle is finished, clean the vessel and give it a second life as a storage object, a small vase or anything else you choose.</p>"
+      "default": "<p>Once the candle is finished, remove the remaining wax, clean the vessel carefully and reuse it in a way that feels natural to you. A container. A small vase. A desk object. Or simply something worth keeping.</p>"
     },
     {
       "type": "text",
       "id": "reuse_link_label",
       "label": "Reuse link label",
-      "default": "Discover the story"
+      "default": "Explore the concept"
     },
     {
       "type": "url",
@@ -965,8 +983,8 @@
           "type": "care_step",
           "settings": {
             "number": "01",
-            "title": "Trim the wick.",
-            "text": "<p>Before each burn, trim the wick to approximately 5 mm. This helps control the flame, limits smoke and supports a clean burn.</p>",
+            "title": "Start with the wick.",
+            "text": "<p>Before each burn, trim the wick to approximately 5 mm. A shorter wick keeps the flame controlled, reduces smoke and helps the wax melt more evenly.</p>",
             "tip": "Always allow the wax to cool completely before trimming.",
             "reverse": false
           }
@@ -975,8 +993,8 @@
           "type": "care_step",
           "settings": {
             "number": "02",
-            "title": "Let the surface melt.",
-            "text": "<p>During the first burn, allow the wax to melt all the way to the edges. This helps prevent tunnelling and creates a more even burn.</p>",
+            "title": "Let the wax reach the edges.",
+            "text": "<p>During the first burn, let the wax melt all the way to the edges of the vessel. This creates an even melt pool and helps prevent tunnelling later.</p>",
             "tip": "The first burn usually takes between two and three hours.",
             "reverse": true
           }
@@ -985,8 +1003,8 @@
           "type": "care_step",
           "settings": {
             "number": "03",
-            "title": "Burn with care.",
-            "text": "<p>Keep the candle away from drafts, children, pets and flammable materials. Never leave a burning candle unattended.</p>",
+            "title": "Give the flame space.",
+            "text": "<p>Place the candle on a stable, heat-resistant surface, away from drafts, children, pets and flammable materials. Never leave the flame unattended.</p>",
             "tip": "Do not burn for more than four consecutive hours.",
             "reverse": false
           }
@@ -995,10 +1013,20 @@
           "type": "care_step",
           "settings": {
             "number": "04",
-            "title": "Stop at the right moment.",
-            "text": "<p>Stop using the candle when approximately 5 mm of wax remains at the bottom. This protects the vessel from excessive heat.</p>",
+            "title": "Know when to stop.",
+            "text": "<p>Stop burning the candle when approximately 5 mm of wax remains at the bottom. This limits excess heat and helps protect the vessel.</p>",
             "tip": "Let the vessel cool completely before handling it.",
             "reverse": true
+          }
+        },
+        {
+          "type": "care_step",
+          "settings": {
+            "number": "05",
+            "title": "Prepare the second life.",
+            "text": "<p>Once the candle is finished and fully cool, remove the remaining wax and wick base, then wash the vessel gently with warm soapy water. Avoid sudden temperature changes.</p>",
+            "tip": "Do not pour wax into the sink. Remove it while solid and dispose of it separately.",
+            "reverse": false
           }
         },
         {
