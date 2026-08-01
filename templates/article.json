@@ -90,9 +90,24 @@
         "padding-block-start": 40,
         "padding-block-end": 80
       }
+    },
+    "nwy_article_links_eBUmNM": {
+      "type": "nwy-article-links",
+      "name": "NWY — Article links",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Continue exploring",
+        "collection_label": "Current collection",
+        "collection_link": "https://notwhatyouexpect.fr/collections/shop",
+        "concept_label": "The Concept",
+        "concept_link": "shopify://pages/concept",
+        "story_label": "The Story",
+        "story_link": "shopify://pages/about"
+      }
     }
   },
   "order": [
-    "section"
+    "section",
+    "nwy_article_links_eBUmNM"
   ]
 }
