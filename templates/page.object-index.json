@@ -28,9 +28,9 @@
           "settings": {
             "number": "01",
             "image": "shopify://shop_images/Agrumes_-_object_01.png",
-            "collection": "INDUSTRIAL OBJECTS",
+            "collection": "",
             "title": "OBJECT 01",
-            "subtitle": "Aluminium",
+            "subtitle": "",
             "link_label": "View Object 01",
             "link": "shopify://products/object-01-citrus-ambre-scented-candle"
           }
