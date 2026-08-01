@@ -260,6 +260,16 @@
           {% endif %}
         {% endform %}
 
+        {% if section.settings.show_purchase_reassurance %}
+          <div
+            class="nwy-product-hero__purchase-reassurance"
+            aria-label="Shipping and payment information"
+          >
+            <p>{{ section.settings.shipping_reassurance }}</p>
+            <p>{{ section.settings.payment_reassurance }}</p>
+          </div>
+        {% endif %}
+
         <div class="nwy-product-hero__accordions">
           {% for block in section.blocks %}
             {% if block.type == 'accordion' %}
@@ -810,6 +820,27 @@
     opacity: 0.78;
   }
 
+  #{{ section_id }} .nwy-product-hero__purchase-reassurance {
+    display: grid;
+    gap: 6px;
+    margin-top: 16px;
+    padding: 15px 18px;
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.12);
+    text-align: center;
+  }
+
+  #{{ section_id }} .nwy-product-hero__purchase-reassurance p {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: 0.045em;
+  }
+
+  #{{ section_id }} .nwy-product-hero__purchase-reassurance p + p {
+    opacity: 0.6;
+  }
+
   #{{ section_id }} .nwy-product-hero__accordions {
     margin-top: 25px;
     border-top: 1px solid rgb(var(--color-foreground-rgb) / 0.15);
@@ -1040,6 +1071,15 @@
       grid-template-columns: 112px minmax(0, 1fr);
       gap: 12px;
     }
+
+    #{{ section_id }} .nwy-product-hero__purchase-reassurance {
+      margin-top: 14px;
+      padding: 14px 12px;
+    }
+
+    #{{ section_id }} .nwy-product-hero__purchase-reassurance p {
+      font-size: 10px;
+    }
   }
 
 </style>
@@ -1112,6 +1152,28 @@
       "id": "show_dynamic_checkout",
       "label": "Show dynamic checkout",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "Purchase reassurance"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_purchase_reassurance",
+      "label": "Show shipping and payment information",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "shipping_reassurance",
+      "label": "Shipping information",
+      "default": "Free delivery in France · Ships within 2–3 business days"
+    },
+    {
+      "type": "text",
+      "id": "payment_reassurance",
+      "label": "Payment and returns information",
+      "default": "Secure payment · Returns within 14 days"
     }
   ],
   "blocks": [
