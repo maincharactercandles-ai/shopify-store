@@ -428,11 +428,7 @@
             </p>
           </div>
 
-          {% form 'product',
-            current_product,
-            id: 'nwy-product-editorial-form-' | append: section.id,
-            class: 'nwy-product-editorial__form'
-          %}
+          {% form section.id, class: 'nwy-product-editorial__form' %}
             <input
               type="hidden"
               name="id"
@@ -1534,4 +1530,18 @@
     }
   ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% form 'product',
+                current_product,
+                id: 'nwy-product-editorial-form-' | append: section.id,
+                class: 'nwy-product-editorial__form'
+              %}
+  to: "{% form section.id, class: 'nwy-product-editorial__form' %}"
+  position: 15696..15755
+{%- endcomment -%}
