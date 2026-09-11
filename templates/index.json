@@ -133,6 +133,7 @@
         "image_mFLbmM": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/object-02-leather-wood-scented-candle-2842735.webp",
             "size": "large",
             "title": "OBJECT 02.",
             "caption": "Coffee after the flame",
@@ -162,6 +163,7 @@
         "image_ctPzra": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/C1AE12B7-AE7E-402B-999C-9E857BC7FBE5_f06802b6-7932-4817-a5cc-e34897f5a8ed.png",
             "size": "portrait",
             "title": "OBJECT 05.",
             "caption": "After dinner",
