@@ -104,7 +104,7 @@
       "type": "nwy-split-cta",
       "name": "NWY — Double CTA",
       "settings": {
-        "left_image": "shopify://shop_images/object-03-green-tea-matcha-scented-candle-9527230.png",
+        "left_image": "shopify://shop_images/OBJECT-01-Citrus-Ambre-Scented-Candle-5.png",
         "left_eyebrow": "DROP 01 - INDUSTRIAL OBJECTS",
         "left_title": "AVAILABLE NOW.",
         "left_text": "<p>Discover our signature collection.</p>",
@@ -133,7 +133,6 @@
         "image_mFLbmM": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/object-02-leather-wood-scented-candle-7670285.png",
             "size": "large",
             "title": "OBJECT 02.",
             "caption": "Coffee after the flame",
@@ -163,7 +162,6 @@
         "image_ctPzra": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/object-05-oriental-night-scented-candle-4958357.png",
             "size": "portrait",
             "title": "OBJECT 05.",
             "caption": "After dinner",
@@ -234,7 +232,6 @@
         "step_fGmVpV": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/object-03-green-tea-matcha-scented-candle-9527230.png",
             "number": "",
             "title": "Reinvented.",
             "text": "<p>Each object becomes a scented candle hand-poured in Paris.</p>",
@@ -245,7 +242,6 @@
         "step_zaEjc7": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/object-02-leather-wood-scented-candle-6342792.png",
             "number": "",
             "title": "Designed to stay.",
             "text": "<p>Once burned, every object is meant to become part of your home.</p>",
