@@ -234,6 +234,7 @@
         "step_fGmVpV": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/object-02-leather-wood-scented-candle-2657332.webp",
             "number": "",
             "title": "Reinvented.",
             "text": "<p>Each object becomes a scented candle hand-poured in Paris.</p>",
@@ -244,6 +245,7 @@
         "step_zaEjc7": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/OBJECT-01-Citrus-Ambre-Scented-Candle-10.png",
             "number": "",
             "title": "Designed to stay.",
             "text": "<p>Once burned, every object is meant to become part of your home.</p>",
