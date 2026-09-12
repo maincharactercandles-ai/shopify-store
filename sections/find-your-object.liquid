@@ -128,7 +128,11 @@
           data-answer="steel"
           data-next="q3"
         >
-          <div class="fyo-material fyo-material--steel"></div>
+<div class="fyo-option-image">
+  {% if section.settings.q2_image_1 != blank %}
+    {{ section.settings.q2_image_1 | image_url: width: 900 | image_tag }}
+  {% endif %}
+</div>
           <span>STEEL</span>
         </button>
 
@@ -138,8 +142,11 @@
           data-answer="wood"
           data-next="q3"
         >
-          <div class="fyo-material fyo-material--wood"></div>
-          <span>DARK WOOD</span>
+<div class="fyo-option-image">
+  {% if section.settings.q2_image_2 != blank %}
+    {{ section.settings.q2_image_2 | image_url: width: 900 | image_tag }}
+  {% endif %}
+</div>          <span>DARK WOOD</span>
         </button>
 
         <button
@@ -148,8 +155,11 @@
           data-answer="glass"
           data-next="q3"
         >
-          <div class="fyo-material fyo-material--glass"></div>
-          <span>COLOURED GLASS</span>
+<div class="fyo-option-image">
+  {% if section.settings.q2_image_3 != blank %}
+    {{ section.settings.q2_image_3 | image_url: width: 900 | image_tag }}
+  {% endif %}
+</div>          <span>COLOURED GLASS</span>
         </button>
 
       </div>
