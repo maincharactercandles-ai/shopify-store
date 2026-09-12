@@ -1,0 +1,948 @@
+{% comment %}
+  AFTER THE BURN.
+  Interactive editorial page for NOT WHAT YOU EXPECT.
+{% endcomment %}
+
+<section
+  id="after-the-burn-{{ section.id }}"
+  class="atb"
+  data-section-id="{{ section.id }}"
+>
+
+  <!-- HERO -->
+  <div class="atb-hero">
+    <div class="atb-hero-copy">
+      <div class="atb-logo">NOT.</div>
+
+      <h1>
+        THE CANDLE ENDS.<br>
+        THE OBJECT DOESN'T.
+      </h1>
+
+      <p>
+        Burn it. Clean it. Keep it.<br>
+        Then use it however you want.
+      </p>
+
+      <a href="#atb-step-1-{{ section.id }}" class="atb-btn">
+        START <span>↓</span>
+      </a>
+    </div>
+
+    <div class="atb-hero-media">
+      {% if section.settings.hero_image != blank %}
+        {{
+          section.settings.hero_image
+          | image_url: width: 1800
+          | image_tag:
+            loading: 'eager',
+            widths: '900, 1400, 1800',
+            sizes: '(min-width: 900px) 58vw, 100vw'
+        }}
+      {% else %}
+        <div class="atb-placeholder">ADD HERO IMAGE</div>
+      {% endif %}
+    </div>
+  </div>
+
+
+  <!-- STEP 1 -->
+  <section
+    id="atb-step-1-{{ section.id }}"
+    class="atb-step atb-step--light"
+  >
+    <div class="atb-number">01</div>
+
+    <div class="atb-step-copy">
+      <span class="atb-kicker">BURN IT.</span>
+
+      <h2>
+        FIRST,<br>
+        DO THE OBVIOUS.
+      </h2>
+
+      <p>
+        Light it. Let it fill the room.
+        Enjoy the scent. Use every last bit.
+      </p>
+    </div>
+
+    <div class="atb-step-media">
+      {% if section.settings.burn_image != blank %}
+        {{
+          section.settings.burn_image
+          | image_url: width: 1600
+          | image_tag: loading: 'lazy'
+        }}
+      {% endif %}
+    </div>
+  </section>
+
+
+  <!-- STEP 2 -->
+  <section class="atb-step atb-step--dark">
+    <div class="atb-number">02</div>
+
+    <div class="atb-step-media">
+      {% if section.settings.clean_image != blank %}
+        {{
+          section.settings.clean_image
+          | image_url: width: 1600
+          | image_tag: loading: 'lazy'
+        }}
+      {% endif %}
+    </div>
+
+    <div class="atb-step-copy">
+      <span class="atb-kicker">CLEAN IT.</span>
+
+      <h2>
+        WAX OUT.<br>
+        OBJECT STAYS.
+      </h2>
+
+      <p>
+        Once the candle is finished, clean the vessel.
+        What happens next is entirely up to you.
+      </p>
+
+      {% if section.settings.clean_link != blank %}
+        <a href="{{ section.settings.clean_link }}" class="atb-text-link">
+          HOW TO CLEAN IT →
+        </a>
+      {% endif %}
+    </div>
+  </section>
+
+
+  <!-- CHOOSE USE -->
+  <section class="atb-use">
+    <div class="atb-use-head">
+      <div class="atb-logo">NOT.</div>
+
+      <h2>
+        WHAT HAPPENS<br>
+        AFTER THE BURN?
+      </h2>
+
+      <p>Pick a second life.</p>
+    </div>
+
+    <div class="atb-use-options">
+
+      <button
+        type="button"
+        class="atb-use-option is-active"
+        data-use="drink"
+      >
+        DRINK
+      </button>
+
+      <button
+        type="button"
+        class="atb-use-option"
+        data-use="store"
+      >
+        STORE
+      </button>
+
+      <button
+        type="button"
+        class="atb-use-option"
+        data-use="display"
+      >
+        DISPLAY
+      </button>
+
+      <button
+        type="button"
+        class="atb-use-option"
+        data-use="whatever"
+      >
+        WHATEVER
+      </button>
+
+    </div>
+
+
+    <div class="atb-use-stage">
+
+      <div class="atb-use-panel is-active" data-use-panel="drink">
+        <div class="atb-use-image">
+          {% if section.settings.drink_image != blank %}
+            {{
+              section.settings.drink_image
+              | image_url: width: 1500
+              | image_tag: loading: 'lazy'
+            }}
+          {% endif %}
+        </div>
+
+        <div class="atb-use-copy">
+          <span>DRINK.</span>
+          <p>
+            A glass is just a candle vessel
+            with a second career.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="atb-use-panel" data-use-panel="store">
+        <div class="atb-use-image">
+          {% if section.settings.store_image != blank %}
+            {{
+              section.settings.store_image
+              | image_url: width: 1500
+              | image_tag: loading: 'lazy'
+            }}
+          {% endif %}
+        </div>
+
+        <div class="atb-use-copy">
+          <span>STORE.</span>
+          <p>
+            Jewellery, matches, keys,
+            bathroom things, small secrets.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="atb-use-panel" data-use-panel="display">
+        <div class="atb-use-image">
+          {% if section.settings.display_image != blank %}
+            {{
+              section.settings.display_image
+              | image_url: width: 1500
+              | image_tag: loading: 'lazy'
+            }}
+          {% endif %}
+        </div>
+
+        <div class="atb-use-copy">
+          <span>DISPLAY.</span>
+          <p>
+            Some objects don't need a purpose
+            to deserve a place in the room.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="atb-use-panel" data-use-panel="whatever">
+        <div class="atb-use-image">
+          {% if section.settings.whatever_image != blank %}
+            {{
+              section.settings.whatever_image
+              | image_url: width: 1500
+              | image_tag: loading: 'lazy'
+            }}
+          {% endif %}
+        </div>
+
+        <div class="atb-use-copy">
+          <span>WHATEVER.</span>
+          <p>
+            Use it wrong.
+            That's usually more interesting anyway.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- USE IT WRONG -->
+  <section class="atb-wrong">
+    <div class="atb-wrong-head">
+      <span class="atb-kicker">03 — KEEP IT.</span>
+
+      <h2>
+        USE IT<br>
+        WRONG.
+      </h2>
+    </div>
+
+    <div class="atb-wrong-grid">
+
+      {% for block in section.blocks %}
+        {% if block.type == 'use_case' %}
+          <div
+            class="atb-wrong-item"
+            {{ block.shopify_attributes }}
+          >
+            <div class="atb-wrong-image">
+              {% if block.settings.image != blank %}
+                {{
+                  block.settings.image
+                  | image_url: width: 1000
+                  | image_tag: loading: 'lazy'
+                }}
+              {% endif %}
+            </div>
+
+            {% if block.settings.caption != blank %}
+              <div class="atb-wrong-caption">
+                {{ block.settings.caption }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+  </section>
+
+
+  <!-- FINAL -->
+  <section class="atb-final">
+    <div class="atb-final-copy">
+      <div class="atb-logo">NOT.</div>
+
+      <h2>
+        SOME THINGS ARE<br>
+        DESIGNED TO DISAPPEAR.<br>
+        OURS AREN'T.
+      </h2>
+
+      <p>
+        Scented candles.<br>
+        Unexpected objects.
+      </p>
+
+      {% if section.settings.collection_link != blank %}
+        <a href="{{ section.settings.collection_link }}" class="atb-btn atb-btn--light">
+          SHOP THE OBJECTS <span>→</span>
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="atb-final-media">
+      {% if section.settings.final_image != blank %}
+        {{
+          section.settings.final_image
+          | image_url: width: 1800
+          | image_tag: loading: 'lazy'
+        }}
+      {% endif %}
+    </div>
+  </section>
+
+</section>
+
+
+<style>
+#after-the-burn-{{ section.id }} {
+  --cream: #f2f0ea;
+  --black: #090909;
+  --line: rgba(0,0,0,.14);
+
+  background: var(--cream);
+  color: var(--black);
+}
+
+#after-the-burn-{{ section.id }} * {
+  box-sizing: border-box;
+}
+
+#after-the-burn-{{ section.id }} img {
+  display: block;
+}
+
+#after-the-burn-{{ section.id }} button,
+#after-the-burn-{{ section.id }} a {
+  font: inherit;
+}
+
+.atb-logo {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -.03em;
+}
+
+.atb-placeholder {
+  min-height: 500px;
+  display: grid;
+  place-items: center;
+  background: #d8d5ce;
+  font-size: 12px;
+}
+
+
+/* HERO */
+
+.atb-hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 42% 58%;
+}
+
+.atb-hero-copy {
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+}
+
+.atb-hero-copy h1 {
+  margin: auto 0 28px;
+  max-width: 800px;
+  font-size: clamp(58px, 6.2vw, 120px);
+  line-height: .88;
+  letter-spacing: -.065em;
+  font-weight: 400;
+}
+
+.atb-hero-copy p {
+  margin: 0 0 28px;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.atb-btn {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 44px;
+
+  border: 1px solid currentColor;
+  padding: 15px 20px;
+
+  color: inherit;
+  text-decoration: none;
+
+  font-size: 12px;
+  letter-spacing: .03em;
+}
+
+.atb-btn:hover {
+  background: #111;
+  color: white;
+}
+
+.atb-hero-media {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.atb-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* STEPS */
+
+.atb-step {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 80px 1fr 1.15fr;
+  gap: 30px;
+  padding: 34px;
+  align-items: center;
+}
+
+.atb-step--dark {
+  grid-template-columns: 80px 1.15fr 1fr;
+  background: var(--black);
+  color: white;
+}
+
+.atb-number {
+  align-self: start;
+  padding-top: 5px;
+  font-size: 12px;
+  letter-spacing: .06em;
+}
+
+.atb-step-copy {
+  max-width: 550px;
+}
+
+.atb-kicker {
+  display: block;
+  margin-bottom: 26px;
+  font-size: 12px;
+  letter-spacing: .08em;
+}
+
+.atb-step-copy h2,
+.atb-wrong h2,
+.atb-final h2 {
+  margin: 0 0 28px;
+  font-size: clamp(58px, 6vw, 115px);
+  line-height: .88;
+  letter-spacing: -.065em;
+  font-weight: 400;
+}
+
+.atb-step-copy p {
+  max-width: 430px;
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.atb-step-media {
+  height: 78vh;
+  overflow: hidden;
+}
+
+.atb-step-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.atb-text-link {
+  display: inline-block;
+  margin-top: 32px;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 3px;
+  font-size: 12px;
+}
+
+
+/* USE SELECTOR */
+
+.atb-use {
+  padding: 100px 34px 130px;
+}
+
+.atb-use-head {
+  max-width: 900px;
+}
+
+.atb-use-head h2 {
+  margin: 55px 0 20px;
+  font-size: clamp(55px, 6vw, 110px);
+  line-height: .88;
+  letter-spacing: -.065em;
+  font-weight: 400;
+}
+
+.atb-use-head p {
+  font-size: 16px;
+}
+
+.atb-use-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 55px 0 30px;
+}
+
+.atb-use-option {
+  appearance: none;
+  border: 1px solid #111;
+  background: transparent;
+  color: #111;
+
+  padding: 14px 22px;
+
+  cursor: pointer;
+
+  font-size: 12px;
+  letter-spacing: .04em;
+}
+
+.atb-use-option.is-active,
+.atb-use-option:hover {
+  background: #111;
+  color: white;
+}
+
+.atb-use-panel {
+  display: none;
+  grid-template-columns: 70% 30%;
+  min-height: 72vh;
+  background: #111;
+  color: white;
+}
+
+.atb-use-panel.is-active {
+  display: grid;
+}
+
+.atb-use-image {
+  overflow: hidden;
+}
+
+.atb-use-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.atb-use-copy {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.atb-use-copy span {
+  font-size: clamp(46px, 5vw, 90px);
+  line-height: .9;
+  letter-spacing: -.06em;
+}
+
+.atb-use-copy p {
+  max-width: 330px;
+  margin-top: 25px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+
+/* WRONG */
+
+.atb-wrong {
+  background: #111;
+  color: white;
+  padding: 110px 34px;
+}
+
+.atb-wrong-head {
+  margin-bottom: 65px;
+}
+
+.atb-wrong-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.atb-wrong-item:nth-child(2) {
+  margin-top: 90px;
+}
+
+.atb-wrong-item:nth-child(3) {
+  margin-top: 20px;
+}
+
+.atb-wrong-image {
+  aspect-ratio: .83;
+  overflow: hidden;
+  background: #222;
+}
+
+.atb-wrong-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.atb-wrong-caption {
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: .02em;
+}
+
+
+/* FINAL */
+
+.atb-final {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 54% 46%;
+  background: var(--cream);
+}
+
+.atb-final-copy {
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+}
+
+.atb-final-copy h2 {
+  margin-top: auto;
+}
+
+.atb-final-copy p {
+  margin: 0 0 30px;
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.atb-final-media {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.atb-final-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* MOBILE */
+
+@media screen and (max-width: 749px) {
+
+  .atb-hero,
+  .atb-final {
+    grid-template-columns: 1fr;
+  }
+
+  .atb-hero-copy {
+    min-height: 62vh;
+    padding: 22px;
+  }
+
+  .atb-hero-copy h1 {
+    margin-top: 110px;
+    font-size: 58px;
+  }
+
+  .atb-hero-media,
+  .atb-final-media {
+    min-height: 52vh;
+    height: 52vh;
+  }
+
+  .atb-step,
+  .atb-step--dark {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 70px 20px;
+  }
+
+  .atb-number {
+    margin-bottom: 30px;
+  }
+
+  .atb-step-media {
+    height: 58vh;
+    order: 3;
+  }
+
+  .atb-step--dark .atb-step-media {
+    order: 2;
+  }
+
+  .atb-step--dark .atb-step-copy {
+    order: 3;
+  }
+
+  .atb-step-copy h2,
+  .atb-wrong h2,
+  .atb-final h2 {
+    font-size: 55px;
+  }
+
+  .atb-use {
+    padding: 80px 20px;
+  }
+
+  .atb-use-head h2 {
+    font-size: 56px;
+  }
+
+  .atb-use-panel,
+  .atb-use-panel.is-active {
+    grid-template-columns: 1fr;
+  }
+
+  .atb-use-image {
+    height: 55vh;
+  }
+
+  .atb-use-copy {
+    padding: 30px 20px 45px;
+  }
+
+  .atb-wrong {
+    padding: 80px 20px;
+  }
+
+  .atb-wrong-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .atb-wrong-item:nth-child(2),
+  .atb-wrong-item:nth-child(3) {
+    margin-top: 0;
+  }
+
+  .atb-final-copy {
+    min-height: 70vh;
+    padding: 22px;
+  }
+
+}
+</style>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  const section =
+    document.querySelector('#after-the-burn-{{ section.id }}');
+
+  if (!section) return;
+
+
+  const buttons =
+    section.querySelectorAll('[data-use]');
+
+  const panels =
+    section.querySelectorAll('[data-use-panel]');
+
+
+  buttons.forEach(button => {
+
+    button.addEventListener('click', () => {
+
+      const target = button.dataset.use;
+
+      buttons.forEach(item => {
+        item.classList.toggle(
+          'is-active',
+          item === button
+        );
+      });
+
+      panels.forEach(panel => {
+        panel.classList.toggle(
+          'is-active',
+          panel.dataset.usePanel === target
+        );
+      });
+
+    });
+
+  });
+
+});
+</script>
+
+
+{% schema %}
+{
+  "name": "After the burn",
+
+  "settings": [
+
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "burn_image",
+      "label": "Burn it image"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "clean_image",
+      "label": "Clean it image"
+    },
+
+    {
+      "type": "url",
+      "id": "clean_link",
+      "label": "Cleaning guide link"
+    },
+
+    {
+      "type": "header",
+      "content": "Second life images"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "drink_image",
+      "label": "Drink image"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "store_image",
+      "label": "Store image"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "display_image",
+      "label": "Display image"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "whatever_image",
+      "label": "Whatever image"
+    },
+
+    {
+      "type": "header",
+      "content": "Final section"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "final_image",
+      "label": "Final image"
+    },
+
+    {
+      "type": "url",
+      "id": "collection_link",
+      "label": "Collection link"
+    }
+
+  ],
+
+  "blocks": [
+
+    {
+      "type": "use_case",
+      "name": "Use case",
+      "limit": 6,
+
+      "settings": [
+
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption",
+          "default": "OBJECT, REUSED."
+        }
+
+      ]
+
+    }
+
+  ],
+
+  "presets": [
+
+    {
+      "name": "After the burn",
+
+      "blocks": [
+        { "type": "use_case" },
+        { "type": "use_case" },
+        { "type": "use_case" }
+      ]
+
+    }
+
+  ]
+}
+{% endschema %}
