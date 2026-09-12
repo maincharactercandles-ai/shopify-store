@@ -52,14 +52,14 @@
       ],
       "name": "After the burn",
       "settings": {
-        "hero_image": "shopify://shop_images/ChatGPT_Image_12_sept._2026_05_31_06.png",
+        "hero_image": "shopify://shop_images/hero.png",
         "burn_image": "shopify://shop_images/burn_it.png",
         "clean_image": "shopify://shop_images/clean_it.png",
         "clean_link": "",
         "drink_image": "shopify://shop_images/drink.png",
         "store_image": "shopify://shop_images/store.png",
         "whatever_image": "shopify://shop_images/whatever.png",
-        "final_image": "shopify://shop_images/final.png",
+        "final_image": "shopify://shop_images/finale2.png",
         "collection_link": ""
       }
     }
