@@ -235,8 +235,8 @@
 
       <p class="fyo-eyebrow">YOUR OBJECT IS...</p>
 
-      <h2 data-result-title>OBJECT 02</h2>
-      <h3 data-result-subtitle>Leather & Wood</h3>
+      <h2 data-result-title>OBJECT 01</h2>
+      <h3 data-result-subtitle>Citrus & Ambre</h3>
 
       <p class="fyo-result-text" data-result-text></p>
 
@@ -245,7 +245,7 @@
         class="fyo-btn"
         data-result-url
       >
-        DISCOVER <span data-result-short-title>OBJECT 02</span> →
+        DISCOVER <span data-result-short-title>OBJECT 01</span> →
       </a>
 
       <button
@@ -343,6 +343,9 @@
   font-weight: 700;
   letter-spacing: -.03em;
 }
+
+
+/* INTRO */
 
 .fyo-screen--intro {
   grid-template-columns: 42% 58%;
@@ -557,6 +560,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 
 .fyo-result-copy .fyo-logo {
@@ -780,11 +784,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+
+  /* NAVIGATION */
+
   section.querySelectorAll('[data-next]').forEach(button => {
     button.addEventListener('click', () => {
+
       if (button.dataset.answer) {
         const parent = button.closest('[data-screen]');
-        answers[parent.dataset.screen] = button.dataset.answer;
+
+        if (parent) {
+          answers[parent.dataset.screen] = button.dataset.answer;
+        }
       }
 
       showScreen(button.dataset.next);
@@ -797,6 +808,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
+  /* PRODUCTS */
 
   const products = [
 
@@ -822,56 +835,99 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
 
+  /* RESULT LOGIC */
+
   const calculateResult = () => {
 
-    const q1 = answers.q1;
-    const q2 = answers.q2;
-    const q3 = answers.q3;
+    const scores = {
+      "OBJECT 01": 0,
+      "OBJECT 02": 0,
+      "OBJECT 03": 0,
+      "OBJECT 04": 0,
+      "OBJECT 05": 0,
+      "OBJECT 06": 0
+    };
 
-    let index = 0;
 
-    /*
-      RESULT LOGIC
+    /* QUESTION 1 */
 
-      0 = OBJECT 01
-      1 = OBJECT 02
-      2 = OBJECT 03
-      3 = OBJECT 04
-      4 = OBJECT 05
-      5 = OBJECT 06
-    */
-
-    if (q1 === 'night') {
-      if (q2 === 'wood') index = 1;
-      else if (q2 === 'glass') index = 4;
-      else index = 0;
+    if (answers.q1 === 'night') {
+      scores["OBJECT 02"] += 3;
+      scores["OBJECT 05"] += 2;
     }
 
-    if (q1 === 'green') {
-      if (q3 === 'calm') index = 2;
-      else if (q2 === 'glass') index = 3;
-      else index = 0;
+    if (answers.q1 === 'green') {
+      scores["OBJECT 03"] += 3;
+      scores["OBJECT 04"] += 2;
     }
 
-    if (q1 === 'minimal') {
-      if (q3 === 'drama') index = 4;
-      else if (q3 === 'chaos') index = 5;
-      else index = 0;
+    if (answers.q1 === 'minimal') {
+      scores["OBJECT 01"] += 3;
+      scores["OBJECT 06"] += 1;
     }
 
-    if (q3 === 'chaos' && q2 === 'glass') {
-      index = 5;
+
+    /* QUESTION 2 */
+
+    if (answers.q2 === 'steel') {
+      scores["OBJECT 01"] += 3;
+      scores["OBJECT 02"] += 1;
     }
 
-    if (q3 === 'calm' && q2 === 'glass') {
-      index = 3;
+    if (answers.q2 === 'wood') {
+      scores["OBJECT 02"] += 3;
+      scores["OBJECT 03"] += 1;
     }
 
-    return products[index] || products[0];
+    if (answers.q2 === 'glass') {
+      scores["OBJECT 04"] += 2;
+      scores["OBJECT 05"] += 2;
+      scores["OBJECT 06"] += 2;
+    }
+
+
+    /* QUESTION 3 */
+
+    if (answers.q3 === 'calm') {
+      scores["OBJECT 03"] += 3;
+      scores["OBJECT 04"] += 2;
+      scores["OBJECT 01"] += 1;
+    }
+
+    if (answers.q3 === 'drama') {
+      scores["OBJECT 05"] += 4;
+      scores["OBJECT 02"] += 2;
+    }
+
+    if (answers.q3 === 'chaos') {
+      scores["OBJECT 06"] += 4;
+      scores["OBJECT 05"] += 1;
+    }
+
+
+    /* FIND WINNER */
+
+    const winner = Object.keys(scores).reduce((best, current) => {
+      return scores[current] > scores[best] ? current : best;
+    });
+
+
+    /* FIND PRODUCT BY OBJECT NAME */
+
+    const matchingProduct = products.find(product => {
+      return product.object
+        .trim()
+        .toUpperCase() === winner;
+    });
+
+    return matchingProduct || products[0];
   };
 
 
+  /* FINAL QUESTION + RESULT */
+
   section.querySelectorAll('[data-result]').forEach(button => {
+
     button.addEventListener('click', () => {
 
       answers.q3 = button.dataset.answer;
@@ -880,34 +936,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!result) return;
 
-      section.querySelector('[data-result-title]').textContent =
-        result.object;
 
-      section.querySelector('[data-result-short-title]').textContent =
-        result.object;
+      const resultTitle =
+        section.querySelector('[data-result-title]');
 
-      section.querySelector('[data-result-subtitle]').textContent =
-        result.scent;
+      const resultShortTitle =
+        section.querySelector('[data-result-short-title]');
 
-      section.querySelector('[data-result-text]').textContent =
-        result.text;
+      const resultSubtitle =
+        section.querySelector('[data-result-subtitle]');
 
-      section.querySelector('[data-result-url]').href =
-        result.url;
+      const resultText =
+        section.querySelector('[data-result-text]');
 
-      const image = section.querySelector('[data-result-image]');
+      const resultUrl =
+        section.querySelector('[data-result-url]');
 
-      image.src = result.image;
-      image.alt = result.object;
+      const resultImage =
+        section.querySelector('[data-result-image]');
+
+
+      if (resultTitle) {
+        resultTitle.textContent = result.object;
+      }
+
+      if (resultShortTitle) {
+        resultShortTitle.textContent = result.object;
+      }
+
+      if (resultSubtitle) {
+        resultSubtitle.textContent = result.scent;
+      }
+
+      if (resultText) {
+        resultText.textContent = result.text;
+      }
+
+      if (resultUrl) {
+        resultUrl.href = result.url;
+      }
+
+      if (resultImage) {
+        resultImage.src = result.image;
+        resultImage.alt = result.object;
+      }
+
 
       showScreen('result');
     });
+
   });
 
 
+  /* RESTART */
+
   section.querySelector('[data-restart]')?.addEventListener('click', () => {
-    Object.keys(answers).forEach(key => delete answers[key]);
+
+    Object.keys(answers).forEach(key => {
+      delete answers[key];
+    });
+
     showScreen('intro');
+
   });
 
 });
@@ -917,7 +1007,9 @@ document.addEventListener('DOMContentLoaded', () => {
 {% schema %}
 {
   "name": "Find your object",
+
   "settings": [
+
     {
       "type": "image_picker",
       "id": "hero_image",
@@ -928,16 +1020,19 @@ document.addEventListener('DOMContentLoaded', () => {
       "type": "header",
       "content": "Question 1 images"
     },
+
     {
       "type": "image_picker",
       "id": "q1_image_1",
       "label": "Hotel bar"
     },
+
     {
       "type": "image_picker",
       "id": "q1_image_2",
       "label": "Garden after rain"
     },
+
     {
       "type": "image_picker",
       "id": "q1_image_3",
@@ -948,64 +1043,79 @@ document.addEventListener('DOMContentLoaded', () => {
       "type": "header",
       "content": "Question 3 images"
     },
+
     {
       "type": "image_picker",
       "id": "q3_image_1",
       "label": "Calm"
     },
+
     {
       "type": "image_picker",
       "id": "q3_image_2",
       "label": "Drama"
     },
+
     {
       "type": "image_picker",
       "id": "q3_image_3",
       "label": "Chaos"
     }
+
   ],
 
   "blocks": [
+
     {
       "type": "object",
       "name": "Object",
       "limit": 6,
+
       "settings": [
+
         {
           "type": "product",
           "id": "product",
           "label": "Product"
         },
+
         {
           "type": "text",
           "id": "object_name",
           "label": "Object name",
           "default": "OBJECT 01"
         },
+
         {
           "type": "text",
           "id": "scent_name",
           "label": "Scent name",
           "default": "Citrus & Ambre"
         },
+
         {
           "type": "textarea",
           "id": "result_text",
           "label": "Result text",
           "default": "Unexpected, distinctive, and apparently very you."
         },
+
         {
           "type": "image_picker",
           "id": "result_image",
           "label": "Result image"
         }
+
       ]
     }
+
   ],
 
   "presets": [
+
     {
       "name": "Find your object",
+
       "blocks": [
         { "type": "object" },
         { "type": "object" },
@@ -1014,7 +1124,9 @@ document.addEventListener('DOMContentLoaded', () => {
         { "type": "object" },
         { "type": "object" }
       ]
+
     }
+
   ]
 }
 {% endschema %}
