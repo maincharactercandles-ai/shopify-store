@@ -33,7 +33,7 @@
       {% if section.settings.hero_image != blank %}
         {{
           section.settings.hero_image
-          | image_url: width: 1500
+          | image_url: width: 1800
           | image_tag:
             loading: 'eager',
             widths: '900, 1400, 1800',
@@ -172,7 +172,7 @@
           {% if section.settings.drink_image != blank %}
             {{
               section.settings.drink_image
-              | image_url: width: 1200
+              | image_url: width: 1500
               | image_tag: loading: 'lazy'
             }}
           {% endif %}
@@ -193,7 +193,7 @@
           {% if section.settings.store_image != blank %}
             {{
               section.settings.store_image
-              | image_url: width: 1200
+              | image_url: width: 1500
               | image_tag: loading: 'lazy'
             }}
           {% endif %}
@@ -214,7 +214,7 @@
           {% if section.settings.display_image != blank %}
             {{
               section.settings.display_image
-              | image_url: width: 800
+              | image_url: width: 1500
               | image_tag: loading: 'lazy'
             }}
           {% endif %}
@@ -277,7 +277,7 @@
               {% if block.settings.image != blank %}
                 {{
                   block.settings.image
-                  | image_url: width: 100
+                  | image_url: width: 1000
                   | image_tag: loading: 'lazy'
                 }}
               {% endif %}
@@ -323,7 +323,7 @@
       {% if section.settings.final_image != blank %}
         {{
           section.settings.final_image
-          | image_url: width: 1500
+          | image_url: width: 1800
           | image_tag: loading: 'lazy'
         }}
       {% endif %}
@@ -774,6 +774,191 @@
   .atb-final-copy {
     min-height: 70vh;
     padding: 22px;
+  }
+
+}
+/* =========================================
+   COMPACT LAYOUT — AFTER THE BURN
+   ========================================= */
+
+@media screen and (min-width: 750px) {
+
+  /* HERO */
+  .atb-hero {
+    min-height: 72vh;
+  }
+
+  .atb-hero-media {
+    min-height: 72vh;
+    height: 72vh;
+    max-height: 720px;
+  }
+
+  .atb-hero-copy {
+    min-height: 72vh;
+  }
+
+  .atb-hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+  /* BURN IT + CLEAN IT */
+  .atb-step,
+  .atb-step--dark {
+    min-height: auto;
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  .atb-step-media {
+    height: 55vh;
+    max-height: 570px;
+    min-height: 0;
+  }
+
+  .atb-step-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+  /* WHAT HAPPENS AFTER THE BURN */
+  .atb-use {
+    padding-top: 80px;
+    padding-bottom: 95px;
+  }
+
+  .atb-use-stage {
+    max-width: 1450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .atb-use-panel {
+    min-height: 0;
+    grid-template-columns: 67% 33%;
+  }
+
+  .atb-use-image {
+    height: 54vh;
+    max-height: 560px;
+  }
+
+  .atb-use-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+  /* USE IT WRONG GALLERY */
+  .atb-wrong {
+    padding-top: 85px;
+    padding-bottom: 90px;
+  }
+
+  .atb-wrong-grid {
+    max-width: 1450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .atb-wrong-image {
+    aspect-ratio: 1 / 1;
+    max-height: 500px;
+  }
+
+  .atb-wrong-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .atb-wrong-item:nth-child(2) {
+    margin-top: 55px;
+  }
+
+  .atb-wrong-item:nth-child(3) {
+    margin-top: 15px;
+  }
+
+
+  /* FINAL */
+  .atb-final {
+    min-height: 72vh;
+  }
+
+  .atb-final-copy {
+    min-height: 72vh;
+  }
+
+  .atb-final-media {
+    min-height: 72vh;
+    height: 72vh;
+    max-height: 720px;
+  }
+
+  .atb-final-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+}
+
+
+/* MOBILE */
+@media screen and (max-width: 749px) {
+
+  .atb-hero-copy {
+    min-height: 52vh;
+  }
+
+  .atb-hero-media {
+    height: 42vh;
+    min-height: 42vh;
+  }
+
+  .atb-step,
+  .atb-step--dark {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+
+  .atb-step-media {
+    height: 42vh;
+    min-height: 0;
+  }
+
+  .atb-use {
+    padding-top: 60px;
+    padding-bottom: 70px;
+  }
+
+  .atb-use-image {
+    height: 42vh;
+  }
+
+  .atb-wrong {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .atb-wrong-image {
+    aspect-ratio: 1 / 1;
+  }
+
+  .atb-final-copy {
+    min-height: 55vh;
+  }
+
+  .atb-final-media {
+    height: 42vh;
+    min-height: 42vh;
   }
 
 }
