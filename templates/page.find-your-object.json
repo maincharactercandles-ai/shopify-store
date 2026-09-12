@@ -319,7 +319,7 @@
             "object_name": "OBJECT 01",
             "scent_name": "Citrus & Ambre",
             "result_text": "Unexpected, distinctive, and apparently very you.",
-            "result_image": "shopify://shop_images/OBJECT-01-Citrus-Ambre-Scented-Candle.png"
+            "result_image": "shopify://shop_images/object_01.png"
           }
         },
         "object_jPymVQ": {
@@ -327,44 +327,49 @@
           "settings": {
             "product": "object-02-leather-wood-scented-candle",
             "object_name": "OBJECT 02",
-            "scent_name": "Citrus & Ambre",
-            "result_text": "Unexpected, distinctive, and apparently very you."
+            "scent_name": "Leather & Wood",
+            "result_text": "Unexpected, distinctive, and apparently very you.",
+            "result_image": "shopify://shop_images/Object_02_leather.png"
           }
         },
         "object_m8xAGd": {
           "type": "object",
           "settings": {
-            "product": "",
-            "object_name": "OBJECT 01",
-            "scent_name": "Citrus & Ambre",
-            "result_text": "Unexpected, distinctive, and apparently very you."
+            "product": "object-03-green-tea-matcha-scented-candle",
+            "object_name": "OBJECT 03",
+            "scent_name": "Green Tea & Matcha",
+            "result_text": "Unexpected, distinctive, and apparently very you.",
+            "result_image": "shopify://shop_images/object03.png"
           }
         },
         "object_qJhQfx": {
           "type": "object",
           "settings": {
-            "product": "",
-            "object_name": "OBJECT 01",
-            "scent_name": "Citrus & Ambre",
-            "result_text": "Unexpected, distinctive, and apparently very you."
+            "product": "object-04-mint-basil-scented-candle",
+            "object_name": "OBJECT 04",
+            "scent_name": "Mint & Basil",
+            "result_text": "Unexpected, distinctive, and apparently very you.",
+            "result_image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_10_36_41.png"
           }
         },
         "object_PcpPhn": {
           "type": "object",
           "settings": {
-            "product": "",
-            "object_name": "OBJECT 01",
-            "scent_name": "Citrus & Ambre",
-            "result_text": "Unexpected, distinctive, and apparently very you."
+            "product": "object-05-oriental-night-scented-candle",
+            "object_name": "OBJECT 05",
+            "scent_name": "Oriental Night",
+            "result_text": "Unexpected, distinctive, and apparently very you.",
+            "result_image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_11_54_28.png"
           }
         },
         "object_bRkFdD": {
           "type": "object",
           "settings": {
-            "product": "",
-            "object_name": "OBJECT 01",
-            "scent_name": "Citrus & Ambre",
-            "result_text": "Unexpected, distinctive, and apparently very you."
+            "product": "object-06-peach-musk-scented-candle",
+            "object_name": "OBJECT 06",
+            "scent_name": "Peach & Musk",
+            "result_text": "Unexpected, distinctive, and apparently very you.",
+            "result_image": "shopify://shop_images/ChatGPT_Image_10_juil._2026_12_16_49_bbacb773-3429-49a7-a9e3-7202525ec966.png"
           }
         }
       },
