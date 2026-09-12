@@ -33,7 +33,7 @@
       {% if section.settings.hero_image != blank %}
         {{
           section.settings.hero_image
-          | image_url: width: 1800
+          | image_url: width: 1500
           | image_tag:
             loading: 'eager',
             widths: '900, 1400, 1800',
@@ -214,7 +214,7 @@
           {% if section.settings.display_image != blank %}
             {{
               section.settings.display_image
-              | image_url: width: 1200
+              | image_url: width: 800
               | image_tag: loading: 'lazy'
             }}
           {% endif %}
@@ -277,7 +277,7 @@
               {% if block.settings.image != blank %}
                 {{
                   block.settings.image
-                  | image_url: width: 1000
+                  | image_url: width: 100
                   | image_tag: loading: 'lazy'
                 }}
               {% endif %}
@@ -323,7 +323,7 @@
       {% if section.settings.final_image != blank %}
         {{
           section.settings.final_image
-          | image_url: width: 1800
+          | image_url: width: 1500
           | image_tag: loading: 'lazy'
         }}
       {% endif %}
