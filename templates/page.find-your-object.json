@@ -54,7 +54,7 @@
                 "wrap": "pretty",
                 "color": "var(--color-foreground)",
                 "background": false,
-                "background_color": "#F4F3F38F",
+                "background_color": "#f4f3f38f",
                 "corner_radius": 0,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
@@ -223,6 +223,7 @@
         "slide_fNTyjj",
         "slide_N6wkiJ"
       ],
+      "disabled": true,
       "name": "t:names.slideshow_inset",
       "settings": {
         "display_mode": "full_frame",
@@ -255,6 +256,7 @@
     },
     "nwye_collection_bLdGaL": {
       "type": "nwye-collection",
+      "disabled": true,
       "name": "The Collection",
       "settings": {
         "title": "SHOP THE COLLECTION.",
@@ -278,6 +280,7 @@
       "block_order": [
         "square_instagram_feed_insta_feed_HWJK3Q"
       ],
+      "disabled": true,
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -305,12 +308,91 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "find_your_object_7HPaHW": {
+      "type": "find-your-object",
+      "blocks": {
+        "object_RN6inE": {
+          "type": "object",
+          "settings": {
+            "product": "object-01-citrus-ambre-scented-candle",
+            "object_name": "OBJECT 01",
+            "scent_name": "Citrus & Ambre",
+            "result_text": "Unexpected, distinctive, and apparently very you.",
+            "result_image": "shopify://shop_images/OBJECT-01-Citrus-Ambre-Scented-Candle.png"
+          }
+        },
+        "object_jPymVQ": {
+          "type": "object",
+          "settings": {
+            "product": "",
+            "object_name": "OBJECT 01",
+            "scent_name": "Citrus & Ambre",
+            "result_text": "Unexpected, distinctive, and apparently very you."
+          }
+        },
+        "object_m8xAGd": {
+          "type": "object",
+          "settings": {
+            "product": "",
+            "object_name": "OBJECT 01",
+            "scent_name": "Citrus & Ambre",
+            "result_text": "Unexpected, distinctive, and apparently very you."
+          }
+        },
+        "object_qJhQfx": {
+          "type": "object",
+          "settings": {
+            "product": "",
+            "object_name": "OBJECT 01",
+            "scent_name": "Citrus & Ambre",
+            "result_text": "Unexpected, distinctive, and apparently very you."
+          }
+        },
+        "object_PcpPhn": {
+          "type": "object",
+          "settings": {
+            "product": "",
+            "object_name": "OBJECT 01",
+            "scent_name": "Citrus & Ambre",
+            "result_text": "Unexpected, distinctive, and apparently very you."
+          }
+        },
+        "object_bRkFdD": {
+          "type": "object",
+          "settings": {
+            "product": "",
+            "object_name": "OBJECT 01",
+            "scent_name": "Citrus & Ambre",
+            "result_text": "Unexpected, distinctive, and apparently very you."
+          }
+        }
+      },
+      "block_order": [
+        "object_RN6inE",
+        "object_jPymVQ",
+        "object_m8xAGd",
+        "object_qJhQfx",
+        "object_PcpPhn",
+        "object_bRkFdD"
+      ],
+      "name": "Find your object",
+      "settings": {
+        "hero_image": "shopify://shop_images/ChatGPT_Image_12_sept._2026_04_30_49.png",
+        "q1_image_1": "shopify://shop_images/hotel_bar.png",
+        "q1_image_2": "shopify://shop_images/garden_after_rain.png",
+        "q1_image_3": "shopify://shop_images/somewhere_with_no_windows.png",
+        "q3_image_1": "shopify://shop_images/calm.png",
+        "q3_image_2": "shopify://shop_images/drama.png",
+        "q3_image_3": "shopify://shop_images/chaos.png"
+      }
     }
   },
   "order": [
     "slideshow_ATxxGD",
     "main",
     "nwye_collection_bLdGaL",
-    "17815625374a7d3acb"
+    "17815625374a7d3acb",
+    "find_your_object_7HPaHW"
   ]
 }
