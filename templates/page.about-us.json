@@ -11,9 +11,7 @@
   "sections": {
     "main": {
       "type": "about-us",
-      "custom_css": [
-        ".nwye-collection h2 {font-size: clamp(44px, 5vw, 82px);}"
-      ],
+      "custom_css": [],
       "name": "THE CONCEPT",
       "settings": {}
     }
