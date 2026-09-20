@@ -14,8 +14,8 @@
       "custom_css": [
         ".nwye-concept-hero h1 {line-height: 0.88;}",
         ".nwye-concept-hero__bottom {margin-top: 50px;}",
-        ".nwye-concept-hero__bottom p:first-child {font-size: 20px;}",
-        ".nwye-concept-hero__bottom p:last-child {font-size: 15px;}"
+        ".nwye-concept-hero__bottom p:first-child {font-size: 25px;}",
+        ".nwye-concept-hero__bottom p:last-child {font-size: 25px;}"
       ],
       "name": "THE CONCEPT",
       "settings": {}
