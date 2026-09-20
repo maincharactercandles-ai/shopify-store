@@ -17,7 +17,7 @@
         ".nwye-concept-hero__bottom p:first-child {font-size: 25px;}",
         ".nwye-concept-hero__bottom p:last-child {font-size: 25px;}",
         "@media (max-width: 900px) {.nwye-collection h2 {font-size: clamp(44px, 13vw, 68px); }}",
-        ".nwye-collection h2 {font-size: clamp(50px, 5.5vw, 88px);}"
+        ".nwye-collection h2 {font-size: clamp(50px, 5.5vw, 80px);}"
       ],
       "name": "THE CONCEPT",
       "settings": {}
