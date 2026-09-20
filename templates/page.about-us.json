@@ -12,7 +12,8 @@
     "main": {
       "type": "about-us",
       "custom_css": [
-        ".nwye-collection h2 {margin: 0; font-size: clamp(54px, 5.2vw, 104px); font-weight: 700; line-height: 0.86; letter-spacing: -0.065em; text-transform: uppercase;}"
+        ".nwye-collection h2 {margin: 0; font-size: clamp(54px, 5.2vw, 104px); font-weight: 700; line-height: 0.86; letter-spacing: -0.065em; text-transform: uppercase;}",
+        "@media screen and (max-width: 900px) {.nwye-concept-hero__bottom {grid-template-columns: 1fr; gap: 20px; margin: 36px 0 0; } .nwye-concept-hero__bottom p:first-child {font-size: 20px; }}"
       ],
       "name": "THE CONCEPT",
       "settings": {}
