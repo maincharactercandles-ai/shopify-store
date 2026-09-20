@@ -11,7 +11,12 @@
   "sections": {
     "main": {
       "type": "about-us",
-      "custom_css": [],
+      "custom_css": [
+        ".nwye-concept-hero h1{line-height:.88}",
+        ".nwye-concept-hero__bottom{margin-top:80px}",
+        ".nwye-concept-hero__bottom p:first-child{font-size:30px}",
+        ".nwye-concept-hero__bottom p:last-child{font-size:25px}"
+      ],
       "name": "THE CONCEPT",
       "settings": {}
     }
