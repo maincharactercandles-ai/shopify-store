@@ -11,7 +11,6 @@
   "sections": {
     "nwy_home_hero_Wainfp": {
       "type": "nwy-home-hero",
-      "disabled": true,
       "name": "NWY — Home hero",
       "settings": {
         "desktop_image": "shopify://shop_images/ChatGPT_Image_13_juil._2026_10_01_36.png",
