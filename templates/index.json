@@ -103,6 +103,19 @@
     "reviews_storelocator_nkmPTE": {
       "type": "reviews_storelocator",
       "blocks": {
+        "store_P3YypG": {
+          "type": "store",
+          "settings": {
+            "name": "LIPSHOP",
+            "city": "Athens",
+            "country": "Greece",
+            "info": "Independent design store",
+            "url": "https://lipshop.gr/",
+            "image": "shopify://shop_images/nwye_lipshop.webp",
+            "x": 50,
+            "y": 50
+          }
+        },
         "store_WAitY9": {
           "type": "store",
           "settings": {
@@ -118,6 +131,7 @@
         }
       },
       "block_order": [
+        "store_P3YypG",
         "store_WAitY9"
       ],
       "name": "NWYE — Stores & Reviews",
