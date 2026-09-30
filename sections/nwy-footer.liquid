@@ -254,11 +254,16 @@
 </footer>
 
 {% style %}
+
+  /* =========================================================
+     NWYE FOOTER — COMPACT VERSION
+     ========================================================= */
+
   #{{ section_id }} {
     position: relative;
     overflow: hidden;
-    padding-top: var(--nwy-footer-pt);
-    padding-bottom: var(--nwy-footer-pb);
+    padding-top: clamp(34px, 3.5vw, 54px);
+    padding-bottom: 18px;
     background: var(--nwy-footer-bg);
     color: var(--nwy-footer-text);
   }
@@ -287,48 +292,71 @@
     background: var(--nwy-footer-border);
   }
 
+
+  /* =========================================================
+     STATEMENT
+     ========================================================= */
+
   #{{ section_id }} .nwy-footer__statement {
-    padding-bottom: clamp(48px, 8vw, 90px);
+    padding-bottom: clamp(32px, 3.5vw, 48px);
   }
 
   #{{ section_id }} .nwy-footer__statement p {
     max-width: 1500px;
     margin-bottom: 0;
-    font-size: clamp(58px, 9.2vw, 90px);
+
+    font-size: clamp(48px, 5vw, 72px);
     font-weight: 500;
-    line-height: 0.82;
-    letter-spacing: -0.07em;
+    line-height: .88;
+    letter-spacing: -.065em;
     text-transform: uppercase;
   }
 
+
+  /* =========================================================
+     MAIN FOOTER
+     ========================================================= */
+
   #{{ section_id }} .nwy-footer__main {
     display: grid;
-    grid-template-columns: minmax(280px, 1.2fr) minmax(480px, 1.8fr);
-    gap: clamp(60px, 10vw, 180px);
-    padding-block: clamp(56px, 7vw, 110px);
+    grid-template-columns:
+      minmax(260px, 1.05fr)
+      minmax(520px, 1.65fr);
+
+    gap: clamp(55px, 8vw, 140px);
+
+    padding-block: clamp(34px, 3.5vw, 52px);
   }
 
+
+  /* BRAND */
+
   #{{ section_id }} .nwy-footer__brand {
-    max-width: 460px;
+    max-width: 390px;
   }
 
   #{{ section_id }} .nwy-footer__brand-title {
-    margin-bottom: 28px;
-    font-size: clamp(25px, 2.4vw, 42px);
+    margin-bottom: 18px;
+
+    max-width: 290px;
+
+    font-size: clamp(24px, 2vw, 34px);
     font-weight: 650;
-    line-height: 0.95;
-    letter-spacing: -0.045em;
+    line-height: .92;
+    letter-spacing: -.045em;
+
     text-transform: uppercase;
   }
 
   #{{ section_id }} .nwy-footer__brand-text {
-    max-width: 400px;
-    font-size: clamp(16px, 1.2vw, 20px);
-    line-height: 1.5;
+    max-width: 350px;
+
+    font-size: clamp(14px, 1vw, 17px);
+    line-height: 1.45;
   }
 
   #{{ section_id }} .nwy-footer__brand-text p {
-    margin-bottom: 14px;
+    margin-bottom: 8px;
   }
 
   #{{ section_id }} .nwy-footer__brand-text p:last-child {
@@ -336,27 +364,36 @@
   }
 
   #{{ section_id }} .nwy-footer__location {
-    margin: 30px 0 0;
-    font-size: 11px;
-    font-weight: 600;
+    margin: 18px 0 0;
+
+    font-size: 9px;
+    font-weight: 650;
     line-height: 1.2;
-    letter-spacing: 0.13em;
+    letter-spacing: .16em;
+
     text-transform: uppercase;
   }
 
+
+  /* =========================================================
+     NAVIGATION
+     ========================================================= */
+
   #{{ section_id }} .nwy-footer__navigation {
     display: grid;
-    grid-template-columns: repeat(3, minmax(130px, 1fr));
-    gap: clamp(30px, 4vw, 80px);
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
+    gap: clamp(30px, 4vw, 70px);
   }
 
   #{{ section_id }} .nwy-footer__column-title,
   #{{ section_id }} .nwy-footer__eyebrow {
-    margin-bottom: 24px;
-    font-size: 11px;
+    margin-bottom: 16px;
+
+    font-size: 9px;
     font-weight: 650;
     line-height: 1;
-    letter-spacing: 0.13em;
+    letter-spacing: .15em;
+
     text-transform: uppercase;
   }
 
@@ -367,7 +404,7 @@
   }
 
   #{{ section_id }} .nwy-footer__links li {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
   #{{ section_id }} .nwy-footer__links li:last-child {
@@ -378,24 +415,33 @@
   #{{ section_id }} .nwy-footer__social-link {
     position: relative;
     display: inline-block;
+
     color: inherit;
-    font-size: 15px;
-    line-height: 1.4;
+
+    font-size: 13px;
+    line-height: 1.35;
     text-decoration: none;
   }
 
   #{{ section_id }} .nwy-footer__link::after,
   #{{ section_id }} .nwy-footer__social-link::after {
     position: absolute;
+
     right: 0;
     bottom: -2px;
     left: 0;
+
     height: 1px;
+
     background: currentColor;
+
     content: "";
+
     transform: scaleX(0);
     transform-origin: right center;
-    transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+
+    transition:
+      transform 350ms cubic-bezier(.22, 1, .36, 1);
   }
 
   #{{ section_id }} .nwy-footer__link:hover::after,
@@ -404,91 +450,139 @@
     transform: scaleX(1);
     transform-origin: left center;
   }
-#{{ section_id }} .nwy-footer__newsletter {
-  display: grid;
-  grid-template-columns: minmax(280px, 1fr) minmax(420px, 1fr);
-  gap: clamp(40px, 6vw, 100px);
-  align-items: end;
-padding-block: clamp(36px, 4vw, 50px);
-  border-top: 1px solid var(--nwy-footer-border);
-}
+
+
+  /* =========================================================
+     NEWSLETTER
+     More horizontal / less like a second footer
+     ========================================================= */
+
+  #{{ section_id }} .nwy-footer__newsletter {
+    display: grid;
+
+    grid-template-columns:
+      minmax(300px, .85fr)
+      minmax(420px, 1.15fr);
+
+    gap: clamp(50px, 8vw, 150px);
+
+    align-items: end;
+
+    padding-block: clamp(28px, 3vw, 40px);
+
+    border-top: 1px solid var(--nwy-footer-border);
+  }
 
   #{{ section_id }} .nwy-footer__newsletter-copy {
-    max-width: 760px;
+    max-width: 520px;
+  }
+
+  #{{ section_id }} .nwy-footer__eyebrow {
+    margin-bottom: 10px;
+    opacity: .7;
   }
 
   #{{ section_id }} .nwy-footer__newsletter-heading {
-    margin-bottom: 25px;
-    font-size: clamp(45px, 6vw, 64px);
+    margin-bottom: 12px;
+
+    font-size: clamp(30px, 3vw, 42px);
     font-weight: 500;
-    line-height: 0.86;
-    letter-spacing: -0.065em;
+    line-height: .88;
+    letter-spacing: -.055em;
+
     text-transform: uppercase;
   }
 
   #{{ section_id }} .nwy-footer__newsletter-text {
-    max-width: 450px;
-    font-size: clamp(16px, 1.2vw, 20px);
-    line-height: 1.45;
+    max-width: 390px;
+
+    font-size: clamp(13px, .95vw, 15px);
+    line-height: 1.4;
+
+    opacity: .82;
   }
 
   #{{ section_id }} .nwy-footer__newsletter-text p {
     margin-bottom: 0;
   }
 
+
+  /* =========================================================
+     NEWSLETTER FORM
+     ========================================================= */
+
   #{{ section_id }} .nwy-footer__form-wrapper {
     width: 100%;
-    max-width: 650px;
+    max-width: 620px;
+
     justify-self: end;
   }
 
   #{{ section_id }} .nwy-footer__field {
     display: flex;
+
     width: 100%;
-    min-height: 60px;
+    min-height: 46px;
+
     border-bottom: 1px solid var(--nwy-footer-text);
   }
 
   #{{ section_id }} .nwy-footer__input {
     min-width: 0;
     flex: 1 1 auto;
+
     border: 0;
     border-radius: 0;
     outline: none;
-    padding: 16px 10px 16px 0;
+
+    padding: 10px 10px 10px 0;
+
     background: transparent;
     box-shadow: none;
+
     color: inherit;
+
     font: inherit;
-    font-size: clamp(17px, 1.4vw, 22px);
+    font-size: 14px;
   }
 
   #{{ section_id }} .nwy-footer__input::placeholder {
     color: inherit;
-    opacity: 0.55;
+    opacity: .5;
   }
 
   #{{ section_id }} .nwy-footer__submit {
     display: inline-flex;
+
     flex: 0 0 auto;
+
     align-items: center;
-    gap: 16px;
+
+    gap: 12px;
+
     border: 0;
-    padding: 10px 0 10px 20px;
+
+    padding: 8px 0 8px 18px;
+
     background: transparent;
     color: inherit;
+
     cursor: pointer;
+
     font: inherit;
-    font-size: 11px;
+    font-size: 9px;
     font-weight: 650;
-    letter-spacing: 0.11em;
+    letter-spacing: .13em;
+
     text-transform: uppercase;
   }
 
   #{{ section_id }} .nwy-footer__submit svg {
-    width: 18px;
-    height: 18px;
-    transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+    width: 15px;
+    height: 15px;
+
+    transition:
+      transform 300ms cubic-bezier(.22, 1, .36, 1);
   }
 
   #{{ section_id }} .nwy-footer__submit:hover svg {
@@ -496,8 +590,9 @@ padding-block: clamp(36px, 4vw, 50px);
   }
 
   #{{ section_id }} .nwy-footer__message {
-    margin: 14px 0 0;
-    font-size: 13px;
+    margin: 10px 0 0;
+
+    font-size: 12px;
     line-height: 1.4;
   }
 
@@ -506,110 +601,172 @@ padding-block: clamp(36px, 4vw, 50px);
     text-underline-offset: 3px;
   }
 
+
+  /* =========================================================
+     BOTTOM
+     ========================================================= */
+
   #{{ section_id }} .nwy-footer__bottom {
     display: flex;
+
     justify-content: space-between;
+    align-items: center;
+
     gap: 40px;
-    align-items: flex-end;
-    padding-top: 28px;
+
+    padding-top: 16px;
   }
 
   #{{ section_id }} .nwy-footer__socials {
     display: flex;
     flex-wrap: wrap;
-    gap: 28px;
+
+    gap: 22px;
   }
 
   #{{ section_id }} .nwy-footer__social-link {
-    font-size: 12px;
+    font-size: 9px;
     font-weight: 600;
-    letter-spacing: 0.09em;
+    letter-spacing: .11em;
+
     text-transform: uppercase;
   }
 
   #{{ section_id }} .nwy-footer__legal {
     display: flex;
     flex-wrap: wrap;
+
     justify-content: flex-end;
-    gap: 10px 28px;
+
+    gap: 8px 22px;
+
     text-align: right;
   }
 
   #{{ section_id }} .nwy-footer__legal p {
     margin-bottom: 0;
-    font-size: 11px;
+
+    font-size: 8px;
     line-height: 1.3;
-    letter-spacing: 0.08em;
+    letter-spacing: .10em;
+
     text-transform: uppercase;
+
+    opacity: .75;
   }
+
+
+  /* =========================================================
+     ACCESSIBILITY
+     ========================================================= */
 
   #{{ section_id }} .visually-hidden {
     position: absolute !important;
+
     width: 1px !important;
     height: 1px !important;
+
     overflow: hidden !important;
+
     clip: rect(0 0 0 0) !important;
-    white-space: nowrap !important;
     clip-path: inset(50%) !important;
+
+    white-space: nowrap !important;
   }
 
+
+  /* =========================================================
+     TABLET
+     ========================================================= */
+
   @media screen and (max-width: 989px) {
-    #{{ section_id }} .nwy-footer__main,
-    #{{ section_id }} .nwy-footer__newsletter {
+
+    #{{ section_id }} .nwy-footer__main {
       grid-template-columns: 1fr;
-      gap: 60px;
+      gap: 40px;
+
+      padding-block: 40px;
     }
 
     #{{ section_id }} .nwy-footer__brand {
-      max-width: 600px;
+      max-width: 520px;
+    }
+
+    #{{ section_id }} .nwy-footer__navigation {
+      gap: 30px;
+    }
+
+    #{{ section_id }} .nwy-footer__newsletter {
+      grid-template-columns: .85fr 1.15fr;
+      gap: 40px;
     }
 
     #{{ section_id }} .nwy-footer__form-wrapper {
       max-width: none;
-      justify-self: start;
-    }
-
-    #{{ section_id }} .nwy-footer__navigation {
-      gap: 40px;
     }
   }
 
+
+  /* =========================================================
+     MOBILE
+     ========================================================= */
+
   @media screen and (max-width: 749px) {
+
     #{{ section_id }} {
-      --nwy-footer-pt: {{ section.settings.mobile_padding_top }}px;
-      --nwy-footer-pb: {{ section.settings.mobile_padding_bottom }}px;
+      padding-top: 38px;
+      padding-bottom: 18px;
     }
 
     #{{ section_id }} .nwy-footer__container {
       padding-inline: 20px;
     }
 
+
+    /* STATEMENT */
+
     #{{ section_id }} .nwy-footer__statement {
-      padding-bottom: 52px;
+      padding-bottom: 32px;
     }
 
     #{{ section_id }} .nwy-footer__statement p {
-      font-size: clamp(52px, 17vw, 82px);
-      line-height: 0.84;
+      font-size: clamp(42px, 13vw, 60px);
+      line-height: .86;
     }
 
+
+    /* MAIN */
+
     #{{ section_id }} .nwy-footer__main {
-      gap: 52px;
-      padding-block: 52px;
+      gap: 36px;
+      padding-block: 34px;
     }
 
     #{{ section_id }} .nwy-footer__brand-title {
-      max-width: 200px;
-      font-size: 29px;
+      max-width: 220px;
+
+      margin-bottom: 15px;
+
+      font-size: 27px;
     }
 
     #{{ section_id }} .nwy-footer__brand-text {
-      font-size: 16px;
+      max-width: 330px;
+
+      font-size: 14px;
     }
+
+    #{{ section_id }} .nwy-footer__location {
+      margin-top: 16px;
+    }
+
+
+    /* MENUS */
 
     #{{ section_id }} .nwy-footer__navigation {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 46px 24px;
+
+      gap: 32px 20px;
     }
 
     #{{ section_id }} .nwy-footer__column:last-child:nth-child(odd) {
@@ -617,38 +774,51 @@ padding-block: clamp(36px, 4vw, 50px);
     }
 
     #{{ section_id }} .nwy-footer__column-title {
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     #{{ section_id }} .nwy-footer__links li {
-      margin-bottom: 11px;
+      margin-bottom: 8px;
     }
 
     #{{ section_id }} .nwy-footer__link {
-      font-size: 15px;
+      font-size: 13px;
     }
 
+
+    /* NEWSLETTER */
+
     #{{ section_id }} .nwy-footer__newsletter {
-      gap: 44px;
-      padding-block: 54px;
+      grid-template-columns: 1fr;
+
+      gap: 26px;
+
+      padding-block: 32px;
     }
 
     #{{ section_id }} .nwy-footer__newsletter-heading {
-      font-size: clamp(48px, 15vw, 54px);
-      line-height: 0.87;
+      max-width: 280px;
+
+      margin-bottom: 10px;
+
+      font-size: 36px;
+      line-height: .88;
     }
 
     #{{ section_id }} .nwy-footer__newsletter-text {
-      font-size: 16px;
+      max-width: 320px;
+
+      font-size: 14px;
     }
 
     #{{ section_id }} .nwy-footer__field {
-      min-height: 56px;
+      min-height: 48px;
     }
 
     #{{ section_id }} .nwy-footer__input {
       width: 100%;
-      font-size: 16px;
+
+      font-size: 14px;
     }
 
     #{{ section_id }} .nwy-footer__submit {
@@ -661,43 +831,63 @@ padding-block: clamp(36px, 4vw, 50px);
     }
 
     #{{ section_id }} .nwy-footer__submit svg {
-      width: 22px;
-      height: 22px;
+      width: 19px;
+      height: 19px;
     }
+
+
+    /* BOTTOM */
 
     #{{ section_id }} .nwy-footer__bottom {
       flex-direction: column;
+
       align-items: flex-start;
-      gap: 30px;
-      padding-top: 24px;
+
+      gap: 16px;
+
+      padding-top: 16px;
     }
 
     #{{ section_id }} .nwy-footer__socials {
-      gap: 20px;
+      gap: 18px;
     }
 
     #{{ section_id }} .nwy-footer__legal {
       flex-direction: column;
+
       align-items: flex-start;
       justify-content: flex-start;
-      gap: 7px;
+
+      gap: 5px;
+
       text-align: left;
     }
   }
 
+
   @media screen and (max-width: 420px) {
+
     #{{ section_id }} .nwy-footer__navigation {
       grid-template-columns: 1fr 1fr;
     }
+
   }
 
+
+  /* =========================================================
+     REDUCED MOTION
+     ========================================================= */
+
   @media (prefers-reduced-motion: reduce) {
+
     #{{ section_id }} .nwy-footer__link::after,
     #{{ section_id }} .nwy-footer__social-link::after,
     #{{ section_id }} .nwy-footer__submit svg {
       transition: none;
     }
+
   }
+
 {% endstyle %}
 
 {% schema %}
