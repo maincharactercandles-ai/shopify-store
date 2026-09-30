@@ -102,13 +102,30 @@
     },
     "reviews_storelocator_nkmPTE": {
       "type": "reviews_storelocator",
+      "blocks": {
+        "store_WAitY9": {
+          "type": "store",
+          "settings": {
+            "name": "REINER",
+            "city": "Paris",
+            "country": "France",
+            "info": "Independent design store",
+            "url": "https://reiner-editions.com/",
+            "image": "shopify://shop_images/nwye_reiner.webp",
+            "x": 50,
+            "y": 50
+          }
+        }
+      },
+      "block_order": [
+        "store_WAitY9"
+      ],
       "name": "NWYE — Stores & Reviews",
       "settings": {
-        "reiner_image": "shopify://shop_images/nwye_reiner.webp",
-        "lipshop_image": "shopify://shop_images/nwye_lipshop.webp",
-        "yesstudio_image": "shopify://shop_images/nwye_yes_studio_berlin.webp",
-        "neue_image": "shopify://shop_images/nwye_neue_store.webp",
-        "pigmenta_image": "shopify://shop_images/nwye_pigmenta_design_v2.webp"
+        "eyebrow": "Where to find us",
+        "title": "Find us\nin the wild.",
+        "description": "<p>Our candles are stocked in a curated selection of independent design stores across Europe. Explore the map to discover them.</p>",
+        "show_reviews": true
       }
     },
     "nwy_split_cta_iWLffL": {
