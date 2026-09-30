@@ -100,6 +100,17 @@
         "padding_bottom": 48
       }
     },
+    "reviews_storelocator_nkmPTE": {
+      "type": "reviews_storelocator",
+      "name": "NWYE — Stores & Reviews",
+      "settings": {
+        "reiner_image": "shopify://shop_images/nwye_reiner.webp",
+        "lipshop_image": "shopify://shop_images/nwye_lipshop.webp",
+        "yesstudio_image": "shopify://shop_images/nwye_yes_studio_berlin.webp",
+        "neue_image": "shopify://shop_images/nwye_neue_store.webp",
+        "pigmenta_image": "shopify://shop_images/nwye_pigmenta_design_v2.webp"
+      }
+    },
     "nwy_split_cta_iWLffL": {
       "type": "nwy-split-cta",
       "name": "NWY — Double CTA",
@@ -125,17 +136,6 @@
         "line_color": "#f6f5f1",
         "padding_top": 0,
         "padding_bottom": 44
-      }
-    },
-    "reviews_storelocator_nkmPTE": {
-      "type": "reviews_storelocator",
-      "name": "NWYE — Stores & Reviews",
-      "settings": {
-        "reiner_image": "shopify://shop_images/nwye_reiner.webp",
-        "lipshop_image": "shopify://shop_images/nwye_lipshop.webp",
-        "yesstudio_image": "shopify://shop_images/nwye_yes_studio_berlin.webp",
-        "neue_image": "shopify://shop_images/nwye_neue_store.webp",
-        "pigmenta_image": "shopify://shop_images/nwye_pigmenta_design_v2.webp"
       }
     },
     "nwye_into_the_wild_4Xth6i": {
@@ -323,8 +323,8 @@
     "nwy_home_hero_Wainfp",
     "marquee_mqh9yJ",
     "nwy_concept_intro_BLVFmz",
-    "nwy_split_cta_iWLffL",
     "reviews_storelocator_nkmPTE",
+    "nwy_split_cta_iWLffL",
     "nwye_into_the_wild_4Xth6i",
     "nwy_process_73MqMA",
     "nwy_journal_KDWWTF"
