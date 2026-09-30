@@ -138,18 +138,6 @@
         "pigmenta_image": "shopify://shop_images/nwye_pigmenta_design_v2.webp"
       }
     },
-    "custom_liquid_8gYDjh": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "name": "t:names.custom_liquid",
-      "settings": {
-        "custom_liquid": "<section class=\"nwy-selected-stores\">\n\n  <div class=\"nwy-selected-stores__inner\">\n\n    <p class=\"nwy-selected-stores__eyebrow\">\n      SELECTED RETAILERS\n    </p>\n\n    <h3 class=\"nwy-selected-stores__title\">\n      SELECTED BY INDEPENDENT DESIGN STORES ACROSS EUROPE.\n    </h3>\n\n    <div class=\"nwy-selected-stores__cities\">\n\n      <a href=\"https://www.reiner-upcycling.com/\" target=\"_blank\" rel=\"noopener noreferrer\">\n        REINER — PARIS\n      </a>\n\n      <a href=\"https://lipshop.gr/\" target=\"_blank\" rel=\"noopener noreferrer\">\n        LIPSHOP — ATHENS\n      </a>\n\n      <a href=\"https://yesstudio.berlin/\" target=\"_blank\" rel=\"noopener noreferrer\">\n        YES STUDIO — BERLIN\n      </a>\n\n      <a href=\"https://neuestore.co.uk/\" target=\"_blank\" rel=\"noopener noreferrer\">\n        NEUE STORE — BRISTOL\n      </a>\n\n    </div>\n\n    <div class=\"nwy-selected-stores__review\">\n\n      <p class=\"nwy-selected-stores__review-label\">\n        RETAILER REVIEW\n      </p>\n\n      <blockquote class=\"nwy-selected-stores__quote\">\n        “The packaging looks amazing and the candles smell very nice. Our favourite: Object 02.”\n      </blockquote>\n\n      <p class=\"nwy-selected-stores__author\">\n        — YES STUDIO BERLIN · FAIRE RETAILER\n      </p>\n\n    </div>\n\n  </div>\n\n</section>\n\n<style>\n\n.nwy-selected-stores{\n    padding:90px 32px 100px;\n    background:#fff;\n}\n\n.nwy-selected-stores__inner{\n    max-width:1180px;\n    margin:0 auto;\n}\n\n.nwy-selected-stores__eyebrow{\n    margin:0 0 18px;\n    font-size:10px;\n    font-weight:600;\n    letter-spacing:.22em;\n    text-transform:uppercase;\n    opacity:.35;\n}\n\n.nwy-selected-stores__title{\n    margin:0;\n    max-width:900px;\n    font-family:var(--font-heading-family);\n    font-size:clamp(44px,4.5vw,78px);\n    line-height:.92;\n    letter-spacing:-.05em;\n    font-weight:700;\n    text-transform:uppercase;\n}\n\n.nwy-selected-stores__cities{\n    display:flex;\n    flex-wrap:wrap;\n    gap:16px;\n    margin-top:34px;\n    align-items:center;\n}\n\n.nwy-selected-stores__cities a{\n    display:flex;\n    align-items:center;\n    color:inherit;\n    text-decoration:none;\n    font-size:13px;\n    font-weight:500;\n    letter-spacing:.18em;\n    text-transform:uppercase;\n    opacity:.7;\n    transition:opacity .2s ease;\n}\n\n.nwy-selected-stores__cities a:hover{\n    opacity:1;\n}\n\n.nwy-selected-stores__cities a:not(:last-child)::after{\n    content:\"—\";\n    margin-left:16px;\n    opacity:.35;\n}\n\n/* REVIEW */\n\n.nwy-selected-stores__review{\n    margin-top:70px;\n    max-width:620px;\n    border-top:1px solid rgba(0,0,0,.08);\n    padding-top:32px;\n}\n\n.nwy-selected-stores__review-label{\n    margin:0 0 18px;\n    font-size:10px;\n    font-weight:600;\n    letter-spacing:.22em;\n    text-transform:uppercase;\n    opacity:.35;\n}\n\n.nwy-selected-stores__quote{\n    margin:0;\n    font-size:30px;\n    line-height:1.28;\n    letter-spacing:-.03em;\n    font-weight:400;\n    font-style:normal;\n}\n\n.nwy-selected-stores__author{\n    margin-top:24px;\n    font-size:11px;\n    font-weight:500;\n    letter-spacing:.22em;\n    text-transform:uppercase;\n    opacity:.45;\n}\n\n@media(max-width:749px){\n\n.nwy-selected-stores{\n    padding:72px 24px 96px;\n}\n\n.nwy-selected-stores__title{\n    font-size:42px;\n    line-height:.94;\n    max-width:100%;\n}\n\n.nwy-selected-stores__cities{\n    margin-top:26px;\n    gap:12px;\n}\n\n.nwy-selected-stores__cities a{\n    font-size:11px;\n}\n\n.nwy-selected-stores__cities a:not(:last-child)::after{\n    margin-left:12px;\n}\n\n.nwy-selected-stores__review{\n    margin-top:54px;\n    padding-top:24px;\n}\n\n.nwy-selected-stores__quote{\n    font-size:22px;\n    line-height:1.35;\n}\n\n}\n\n</style>",
-        "color_scheme": "",
-        "section_width": "full-width",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
-    },
     "nwye_into_the_wild_4Xth6i": {
       "type": "nwye-into-the-wild",
       "blocks": {
@@ -300,126 +288,6 @@
         "padding_bottom": 68
       }
     },
-    "divider_NQEJTM": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "",
-        "section_width": "full-width",
-        "thickness": 1,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 16,
-        "padding-block-end": 16
-      }
-    },
-    "ss_feature_1_features_fqqzdc": {
-      "type": "ss-feature-1--features",
-      "blocks": {
-        "image_99YyMa": {
-          "type": "image",
-          "settings": {
-            "feature_title": "HAND-POURED IN PARIS.",
-            "feature_text": "<p>Each candle is prepared and hand-poured in our Parisian workshop.</p>",
-            "icon_type": "default",
-            "icon": "heart",
-            "feature_url": ""
-          }
-        },
-        "image_CDaaGE": {
-          "type": "image",
-          "settings": {
-            "feature_title": "READY TO GIFT.",
-            "feature_text": "<p>Carefully packaged to surprise and delight.</p>",
-            "icon_type": "default",
-            "icon": "gift",
-            "feature_url": ""
-          }
-        },
-        "image_pABJgH": {
-          "type": "image",
-          "settings": {
-            "feature_title": "CAREFUL DELIVERY.",
-            "feature_text": "<p>Fast shipping and protective packaging across Europe.</p>",
-            "icon_type": "default",
-            "icon": "envelope",
-            "feature_url": ""
-          }
-        },
-        "image_tfhaeX": {
-          "type": "image",
-          "settings": {
-            "feature_title": "DESIGNED TO LAST.",
-            "feature_text": "<p>Reusable vessels made to remain part of your home.</p>",
-            "icon_type": "default",
-            "icon": "earth",
-            "feature_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_99YyMa",
-        "image_CDaaGE",
-        "image_pABJgH",
-        "image_tfhaeX"
-      ],
-      "name": "Features",
-      "settings": {
-        "feature_title_custom": false,
-        "feature_title_font": "josefin_sans_n4",
-        "feature_title_size": 12,
-        "feature_title_size_mobile": 12,
-        "feature_title_advanced": false,
-        "feature_title_height": 130,
-        "feature_title_mt": 8,
-        "feature_title_mt_mobile": 8,
-        "feature_text_custom": false,
-        "feature_text_font": "josefin_sans_n4",
-        "feature_text_size": 12,
-        "feature_text_size_mobile": 11,
-        "feature_text_advanced": false,
-        "feature_text_height": 150,
-        "feature_text_mt": 4,
-        "feature_text_mt_mobile": 4,
-        "feature_icon_size": 32,
-        "feature_icon_size_mobile": 20,
-        "feature_row": 4,
-        "feature_row_mobile": 2,
-        "feature_gap": 100,
-        "feature_gap_mobile": 22,
-        "feature_background": true,
-        "feature_bg": "#f6f5f1",
-        "feature_padding_horizontal": 0,
-        "feature_padding_horizontal_mobile": 16,
-        "feature_padding_vertical": 18,
-        "feature_padding_vertical_mobile": 24,
-        "feature_radius": 0,
-        "feature_border_thickness": 0,
-        "feature_border_color": "#dfdfdf",
-        "feature_shadow": false,
-        "feature_shadow_color": "#000000",
-        "feature_title_color": "#000000",
-        "feature_text_color": "#000000",
-        "feature_icon_color": "#000000",
-        "background_style": "solid",
-        "background_color": "#f7f7f3",
-        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
-        "border_color": "#f7f7f3",
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "margin_horizontal": 0,
-        "margin_horizontal_mobile": 0,
-        "padding_top": 28,
-        "padding_bottom": 20,
-        "padding_horizontal": 7,
-        "padding_horizontal_mobile": 1.5,
-        "width": "full",
-        "content_width": 1200,
-        "border_thickness": 0,
-        "section_radius": 0
-      }
-    },
     "nwy_journal_KDWWTF": {
       "type": "nwy-journal",
       "name": "NWY — Journal",
@@ -449,20 +317,6 @@
         "padding_top": 96,
         "padding_bottom": 96
       }
-    },
-    "divider_FdDTii": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "",
-        "section_width": "full-width",
-        "thickness": 1,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 16,
-        "padding-block-end": 16
-      }
     }
   },
   "order": [
@@ -471,12 +325,8 @@
     "nwy_concept_intro_BLVFmz",
     "nwy_split_cta_iWLffL",
     "reviews_storelocator_nkmPTE",
-    "custom_liquid_8gYDjh",
     "nwye_into_the_wild_4Xth6i",
     "nwy_process_73MqMA",
-    "divider_NQEJTM",
-    "ss_feature_1_features_fqqzdc",
-    "nwy_journal_KDWWTF",
-    "divider_FdDTii"
+    "nwy_journal_KDWWTF"
   ]
 }
