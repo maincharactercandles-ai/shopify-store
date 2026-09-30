@@ -1,0 +1,1417 @@
+{% comment %}
+===========================================================
+NWYE — FIND US IN THE WILD + RETAILER REVIEWS
+Custom Liquid section
+===========================================================
+
+IMAGES:
+1. Upload your retailer photos to Shopify:
+   Content > Files
+2. Copy each Shopify CDN URL
+3. Replace the 5 URLs below.
+
+===========================================================
+{% endcomment %}
+
+{% assign reiner_image = "PASTE-REINER-SHOPIFY-IMAGE-URL-HERE" %}
+{% assign lipshop_image = "PASTE-LIPSHOP-SHOPIFY-IMAGE-URL-HERE" %}
+{% assign yesstudio_image = "PASTE-YES-STUDIO-SHOPIFY-IMAGE-URL-HERE" %}
+{% assign neue_image = "PASTE-NEUE-STORE-SHOPIFY-IMAGE-URL-HERE" %}
+{% assign pigmenta_image = "PASTE-PIGMENTA-SHOPIFY-IMAGE-URL-HERE" %}
+
+
+<style>
+
+  /* ======================================================
+     NWYE — GLOBAL
+     ====================================================== */
+
+  .nwye-retail {
+    --nwye-black: #292929;
+    --nwye-grey: #969696;
+    --nwye-light-grey: #dcdcdc;
+    --nwye-bg: #ffffff;
+
+    width: 100%;
+    background: var(--nwye-bg);
+    color: var(--nwye-black);
+    overflow: hidden;
+  }
+
+  .nwye-retail *,
+  .nwye-retail *::before,
+  .nwye-retail *::after {
+    box-sizing: border-box;
+  }
+
+  .nwye-retail__container {
+    width: min(100% - 64px, 1480px);
+    margin: 0 auto;
+  }
+
+
+  /* ======================================================
+     TYPOGRAPHY
+     ====================================================== */
+
+  .nwye-retail__eyebrow {
+    margin: 0 0 25px;
+
+    font-size: 10px;
+    line-height: 1;
+
+    letter-spacing: .30em;
+    text-transform: uppercase;
+
+    color: #9a9a9a;
+  }
+
+  .nwye-retail__headline {
+    margin: 0;
+
+    max-width: 620px;
+
+    font-size: clamp(58px, 5.4vw, 92px);
+    line-height: .88;
+
+    font-weight: 800;
+    letter-spacing: -.065em;
+
+    text-transform: uppercase;
+  }
+
+  .nwye-retail__description {
+    max-width: 420px;
+
+    margin: 28px 0 0;
+
+    font-size: 18px;
+    line-height: 1.4;
+
+    letter-spacing: -.02em;
+  }
+
+
+  /* ======================================================
+     HERO
+     ====================================================== */
+
+  .nwye-retail__hero {
+    display: grid;
+
+    grid-template-columns:
+      minmax(420px, .85fr)
+      minmax(500px, 1.15fr);
+
+    gap: 70px;
+
+    align-items: center;
+
+    padding-top: 90px;
+    padding-bottom: 60px;
+  }
+
+
+  /* ======================================================
+     MAP
+     ====================================================== */
+
+  .nwye-map {
+    position: relative;
+
+    width: 100%;
+    max-width: 720px;
+
+    margin-left: auto;
+
+    aspect-ratio: 1.72 / 1;
+  }
+
+
+  .nwye-map__svg {
+    position: absolute;
+
+    width: 76%;
+    height: 92%;
+
+    left: 12%;
+    top: 2%;
+  }
+
+
+  .nwye-map__svg svg {
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .nwye-map__svg path {
+    fill: none;
+
+    stroke: #b2b2b2;
+    stroke-width: 1.2;
+
+    vector-effect: non-scaling-stroke;
+  }
+
+
+  /* ======================================================
+     MAP PINS
+     ====================================================== */
+
+  .nwye-map__pin {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    font-size: 10px;
+    line-height: 1;
+
+    letter-spacing: .24em;
+    text-transform: uppercase;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+  }
+
+
+  .nwye-map__pin::before {
+    content: "";
+
+    display: block;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #111;
+
+    flex-shrink: 0;
+  }
+
+
+  .nwye-map__pin::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+
+    height: 1px;
+
+    background: #777;
+
+    z-index: -1;
+  }
+
+
+  /* BRISTOL */
+
+  .nwye-map__pin--bristol {
+    left: 11%;
+    top: 35%;
+
+    flex-direction: row-reverse;
+  }
+
+  .nwye-map__pin--bristol::after {
+    width: 65px;
+    right: 3px;
+  }
+
+
+  /* PARIS */
+
+  .nwye-map__pin--paris {
+    left: 17%;
+    top: 51%;
+
+    flex-direction: row-reverse;
+  }
+
+  .nwye-map__pin--paris::after {
+    width: 63px;
+    right: 3px;
+  }
+
+
+  /* BERLIN */
+
+  .nwye-map__pin--berlin {
+    left: 49%;
+    top: 36%;
+  }
+
+  .nwye-map__pin--berlin::after {
+    width: 82px;
+    left: 3px;
+  }
+
+
+  /* STOCKHOLM */
+
+  .nwye-map__pin--stockholm {
+    left: 55%;
+    top: 11%;
+  }
+
+  .nwye-map__pin--stockholm::after {
+    width: 82px;
+    left: 3px;
+  }
+
+
+  /* ATHENS */
+
+  .nwye-map__pin--athens {
+    left: 67%;
+    top: 75%;
+  }
+
+  .nwye-map__pin--athens::after {
+    width: 95px;
+    left: 3px;
+  }
+
+
+
+  /* ======================================================
+     STORES GRID
+     ====================================================== */
+
+  .nwye-stores {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    border-top: 1px solid var(--nwye-light-grey);
+    border-bottom: 1px solid var(--nwye-light-grey);
+  }
+
+
+  .nwye-store {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    border-right: 1px solid var(--nwye-light-grey);
+  }
+
+
+  .nwye-store:first-child {
+    border-left: 1px solid var(--nwye-light-grey);
+  }
+
+
+  /* ======================================================
+     STORE IMAGE
+     ====================================================== */
+
+  .nwye-store__image-wrap {
+    width: 100%;
+
+    aspect-ratio: 1.18 / 1;
+
+    overflow: hidden;
+
+    background: #f1f1f1;
+  }
+
+
+  .nwye-store__image {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    filter: saturate(.82);
+
+    transition:
+      transform .55s cubic-bezier(.2,.7,.2,1),
+      filter .35s ease;
+  }
+
+
+  .nwye-store:hover .nwye-store__image {
+    transform: scale(1.025);
+
+    filter: saturate(1);
+  }
+
+
+  /* Placeholder if image URL isn't added */
+
+  .nwye-store__placeholder {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: #f4f4f4;
+
+    color: #aaa;
+
+    text-align: center;
+
+    font-size: 9px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+  }
+
+
+  /* ======================================================
+     STORE TEXT
+     ====================================================== */
+
+  .nwye-store__content {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    min-height: 190px;
+
+    padding: 27px 25px 28px;
+  }
+
+
+  .nwye-store__city {
+    margin: 0 0 13px;
+
+    font-size: 9px;
+    line-height: 1;
+
+    letter-spacing: .27em;
+    text-transform: uppercase;
+
+    color: #8f8f8f;
+  }
+
+
+  .nwye-store__name {
+    margin: 0;
+
+    font-size: clamp(19px, 1.45vw, 25px);
+    line-height: .98;
+
+    font-weight: 700;
+
+    letter-spacing: -.04em;
+
+    text-transform: uppercase;
+  }
+
+
+  .nwye-store__line {
+    display: block;
+
+    width: 28px;
+    height: 1px;
+
+    margin: 20px 0;
+
+    background: #333;
+  }
+
+
+  .nwye-store__link {
+    width: fit-content;
+
+    margin-top: auto;
+
+    padding-bottom: 5px;
+
+    color: inherit;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid #333;
+
+    font-size: 9px;
+    line-height: 1;
+
+    font-weight: 600;
+
+    letter-spacing: .23em;
+
+    text-transform: uppercase;
+  }
+
+
+  .nwye-store__arrow {
+    display: inline-block;
+
+    margin-left: 5px;
+
+    transition: transform .25s ease;
+  }
+
+
+  .nwye-store:hover .nwye-store__arrow {
+    transform: translate(3px, -3px);
+  }
+
+
+
+  /* ======================================================
+     REVIEWS SECTION
+     ====================================================== */
+
+  .nwye-reviews {
+    display: grid;
+
+    grid-template-columns:
+      minmax(330px, .72fr)
+      minmax(600px, 1.78fr);
+
+    gap: 65px;
+
+    padding-top: 75px;
+    padding-bottom: 90px;
+  }
+
+
+  .nwye-reviews__headline {
+    margin: 0;
+
+    max-width: 430px;
+
+    font-size: clamp(52px, 4.5vw, 75px);
+    line-height: .87;
+
+    font-weight: 800;
+
+    letter-spacing: -.065em;
+
+    text-transform: uppercase;
+  }
+
+
+  .nwye-reviews__intro {
+    max-width: 410px;
+
+    margin: 27px 0 0;
+
+    font-size: 16px;
+    line-height: 1.45;
+
+    letter-spacing: -.015em;
+
+    color: #555;
+  }
+
+
+
+  /* ======================================================
+     REVIEW GRID
+     ====================================================== */
+
+  .nwye-review-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+
+  .nwye-review {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 295px;
+
+    padding: 10px 34px 5px;
+
+    border-left: 1px solid var(--nwye-light-grey);
+  }
+
+
+  .nwye-review__stars {
+    margin: 0 0 23px;
+
+    font-size: 17px;
+    line-height: 1;
+
+    letter-spacing: 2px;
+  }
+
+
+  .nwye-review__quote {
+    margin: 0;
+
+    padding: 0;
+
+    border: 0;
+
+    font-size: 18px;
+    line-height: 1.42;
+
+    letter-spacing: -.025em;
+
+    font-style: normal;
+  }
+
+
+  .nwye-review__meta {
+    margin-top: auto;
+
+    padding-top: 36px;
+  }
+
+
+  .nwye-review__meta::before {
+    content: "";
+
+    display: block;
+
+    width: 28px;
+    height: 1px;
+
+    margin-bottom: 17px;
+
+    background: #333;
+  }
+
+
+  .nwye-review__retailer {
+    font-size: 9px;
+    line-height: 1.3;
+
+    font-weight: 600;
+
+    letter-spacing: .25em;
+
+    text-transform: uppercase;
+  }
+
+
+  .nwye-review__source {
+    margin-top: 8px;
+
+    color: #999;
+
+    font-size: 8px;
+    line-height: 1.3;
+
+    letter-spacing: .22em;
+
+    text-transform: uppercase;
+  }
+
+
+
+  /* ======================================================
+     TABLET
+     ====================================================== */
+
+  @media screen and (max-width: 1100px) {
+
+    .nwye-retail__hero {
+      grid-template-columns: 1fr;
+      gap: 50px;
+    }
+
+
+    .nwye-map {
+      margin: 0 auto;
+      max-width: 760px;
+    }
+
+
+    .nwye-stores {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .nwye-store {
+      border-bottom: 1px solid var(--nwye-light-grey);
+    }
+
+
+    .nwye-reviews {
+      grid-template-columns: 1fr;
+      gap: 55px;
+    }
+
+  }
+
+
+
+  /* ======================================================
+     MOBILE
+     ====================================================== */
+
+  @media screen and (max-width: 650px) {
+
+    .nwye-retail__container {
+      width: calc(100% - 32px);
+    }
+
+
+    .nwye-retail__hero {
+      padding-top: 58px;
+      padding-bottom: 45px;
+    }
+
+
+    .nwye-retail__eyebrow {
+      margin-bottom: 18px;
+
+      font-size: 8px;
+    }
+
+
+    .nwye-retail__headline {
+      font-size: clamp(45px, 14vw, 58px);
+    }
+
+
+    .nwye-retail__description {
+      max-width: 330px;
+
+      margin-top: 23px;
+
+      font-size: 15px;
+    }
+
+
+    /* MAP */
+
+    .nwye-map {
+      width: 110%;
+
+      margin-left: -5%;
+
+      aspect-ratio: 1.25 / 1;
+    }
+
+
+    .nwye-map__pin {
+      font-size: 6.5px;
+
+      letter-spacing: .15em;
+
+      gap: 6px;
+    }
+
+
+    .nwye-map__pin::before {
+      width: 5px;
+      height: 5px;
+    }
+
+
+    /* STORES */
+
+    .nwye-stores {
+      grid-template-columns: 1fr 1fr;
+    }
+
+
+    .nwye-store__content {
+      min-height: 155px;
+
+      padding: 20px 16px;
+    }
+
+
+    .nwye-store__city {
+      font-size: 7px;
+    }
+
+
+    .nwye-store__name {
+      font-size: 17px;
+    }
+
+
+    .nwye-store__link {
+      font-size: 7px;
+    }
+
+
+    /* Last store spans width */
+
+    .nwye-store:last-child {
+      grid-column: 1 / -1;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+    }
+
+
+    .nwye-store:last-child .nwye-store__image-wrap {
+      aspect-ratio: auto;
+      height: 100%;
+    }
+
+
+    /* REVIEWS */
+
+    .nwye-reviews {
+      padding-top: 60px;
+      padding-bottom: 55px;
+    }
+
+
+    .nwye-reviews__headline {
+      font-size: clamp(45px, 13vw, 58px);
+    }
+
+
+    .nwye-reviews__intro {
+      font-size: 15px;
+    }
+
+
+    .nwye-review-grid {
+      grid-template-columns: 1fr;
+    }
+
+
+    .nwye-review {
+      min-height: auto;
+
+      padding: 30px 0;
+
+      border-left: 0;
+
+      border-top: 1px solid var(--nwye-light-grey);
+    }
+
+
+    .nwye-review__quote {
+      max-width: 430px;
+
+      font-size: 17px;
+    }
+
+
+    .nwye-review__meta {
+      margin-top: 32px;
+
+      padding-top: 0;
+    }
+
+  }
+
+</style>
+
+
+
+<section class="nwye-retail">
+
+  <div class="nwye-retail__container">
+
+
+    <!-- ==================================================
+         FIND US
+         ================================================== -->
+
+    <div class="nwye-retail__hero">
+
+
+      <!-- TEXT -->
+
+      <div class="nwye-retail__hero-copy">
+
+        <p class="nwye-retail__eyebrow">
+          Where to find us
+        </p>
+
+        <h2 class="nwye-retail__headline">
+          Find us<br>
+          in the wild.
+        </h2>
+
+        <p class="nwye-retail__description">
+          Our candles are stocked in a curated selection
+          of independent design stores across Europe.
+          Discover them below.
+        </p>
+
+      </div>
+
+
+
+      <!-- MAP -->
+
+      <div
+        class="nwye-map"
+        role="img"
+        aria-label="NWYE retailers in Paris, Bristol, Berlin, Stockholm and Athens"
+      >
+
+
+        <div class="nwye-map__svg">
+
+          <svg
+            viewBox="0 0 700 390"
+            aria-hidden="true"
+            focusable="false"
+          >
+
+            <path d="
+              M196 65
+              L180 82 L171 105 L147 111 L132 129
+              L143 143 L130 162 L145 180 L164 177
+              L176 196 L167 215 L180 234 L205 229
+              L221 242 L246 238 L260 255 L284 254
+              L303 274 L326 273 L340 293 L364 289
+              L381 307 L408 307 L428 327 L454 322
+              L474 338 L498 329 L519 340 L544 321
+              L567 318 L578 297 L601 285 L590 262
+              L607 243 L594 220 L570 213 L563 192
+              L539 182 L529 161 L506 159 L494 139
+              L469 136 L458 114 L432 115 L419 95
+              L395 103 L376 87 L355 98 L335 82
+              L315 94 L293 80 L273 91 L254 77
+              L235 86 L218 70 Z
+
+              M205 48
+              L196 28 L205 10 L220 24 L225 45
+              L218 62 Z
+
+              M166 83
+              L151 62 L156 42 L170 52 L179 73 Z
+
+              M267 255
+              L252 278 L256 307 L270 330
+              L280 315 L277 289 L289 270 Z
+
+              M414 307
+              L425 328 L443 347 L456 342
+              L448 324 L430 309 Z
+            " />
+
+          </svg>
+
+        </div>
+
+
+        <div class="nwye-map__pin nwye-map__pin--bristol">
+          Bristol
+        </div>
+
+
+        <div class="nwye-map__pin nwye-map__pin--paris">
+          Paris
+        </div>
+
+
+        <div class="nwye-map__pin nwye-map__pin--berlin">
+          Berlin
+        </div>
+
+
+        <div class="nwye-map__pin nwye-map__pin--stockholm">
+          Stockholm
+        </div>
+
+
+        <div class="nwye-map__pin nwye-map__pin--athens">
+          Athens
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         RETAILERS
+         ================================================== -->
+
+    <div class="nwye-stores">
+
+
+      <!-- =========================
+           REINER — PARIS
+           ========================= -->
+
+      <article class="nwye-store">
+
+        <a
+          class="nwye-store__image-wrap"
+          href="https://reiner-editions.com/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Visit Reiner Editions"
+        >
+
+          {% if reiner_image contains 'PASTE-' %}
+
+            <div class="nwye-store__placeholder">
+              Add Reiner image
+            </div>
+
+          {% else %}
+
+            <img
+              class="nwye-store__image"
+              src="{{ reiner_image }}"
+              alt="Reiner Editions, Paris"
+              loading="lazy"
+              width="600"
+              height="510"
+            >
+
+          {% endif %}
+
+        </a>
+
+
+        <div class="nwye-store__content">
+
+          <div class="nwye-store__city">
+            Paris
+          </div>
+
+          <h3 class="nwye-store__name">
+            Reiner
+          </h3>
+
+          <span class="nwye-store__line"></span>
+
+          <a
+            class="nwye-store__link"
+            href="https://reiner-editions.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            View store
+            <span class="nwye-store__arrow">↗</span>
+          </a>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- =========================
+           LIPSHOP — ATHENS
+           ========================= -->
+
+      <article class="nwye-store">
+
+        <a
+          class="nwye-store__image-wrap"
+          href="https://lipshop.gr/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Visit Lipshop"
+        >
+
+          {% if lipshop_image contains 'PASTE-' %}
+
+            <div class="nwye-store__placeholder">
+              Add Lipshop image
+            </div>
+
+          {% else %}
+
+            <img
+              class="nwye-store__image"
+              src="{{ lipshop_image }}"
+              alt="Lipshop, Athens"
+              loading="lazy"
+              width="600"
+              height="510"
+            >
+
+          {% endif %}
+
+        </a>
+
+
+        <div class="nwye-store__content">
+
+          <div class="nwye-store__city">
+            Athens
+          </div>
+
+          <h3 class="nwye-store__name">
+            Lipshop
+          </h3>
+
+          <span class="nwye-store__line"></span>
+
+          <a
+            class="nwye-store__link"
+            href="https://lipshop.gr/"
+            target="_blank"
+            rel="noopener"
+          >
+            View store
+            <span class="nwye-store__arrow">↗</span>
+          </a>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- =========================
+           YES STUDIO — BERLIN
+           ========================= -->
+
+      <article class="nwye-store">
+
+        <a
+          class="nwye-store__image-wrap"
+          href="https://yesstudio.berlin/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Visit Yes Studio Berlin"
+        >
+
+          {% if yesstudio_image contains 'PASTE-' %}
+
+            <div class="nwye-store__placeholder">
+              Add Yes Studio image
+            </div>
+
+          {% else %}
+
+            <img
+              class="nwye-store__image"
+              src="{{ yesstudio_image }}"
+              alt="Yes Studio, Berlin"
+              loading="lazy"
+              width="600"
+              height="510"
+            >
+
+          {% endif %}
+
+        </a>
+
+
+        <div class="nwye-store__content">
+
+          <div class="nwye-store__city">
+            Berlin
+          </div>
+
+          <h3 class="nwye-store__name">
+            Yes Studio
+          </h3>
+
+          <span class="nwye-store__line"></span>
+
+          <a
+            class="nwye-store__link"
+            href="https://yesstudio.berlin/"
+            target="_blank"
+            rel="noopener"
+          >
+            View store
+            <span class="nwye-store__arrow">↗</span>
+          </a>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- =========================
+           NEUE STORE — BRISTOL
+           ========================= -->
+
+      <article class="nwye-store">
+
+        <a
+          class="nwye-store__image-wrap"
+          href="https://neuestore.co.uk/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Visit Neue Store"
+        >
+
+          {% if neue_image contains 'PASTE-' %}
+
+            <div class="nwye-store__placeholder">
+              Add Neue Store image
+            </div>
+
+          {% else %}
+
+            <img
+              class="nwye-store__image"
+              src="{{ neue_image }}"
+              alt="Neue Store, Bristol"
+              loading="lazy"
+              width="600"
+              height="510"
+            >
+
+          {% endif %}
+
+        </a>
+
+
+        <div class="nwye-store__content">
+
+          <div class="nwye-store__city">
+            Bristol
+          </div>
+
+          <h3 class="nwye-store__name">
+            Neue Store
+          </h3>
+
+          <span class="nwye-store__line"></span>
+
+          <a
+            class="nwye-store__link"
+            href="https://neuestore.co.uk/"
+            target="_blank"
+            rel="noopener"
+          >
+            View store
+            <span class="nwye-store__arrow">↗</span>
+          </a>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- =========================
+           PIGMENTA — STOCKHOLM
+           ========================= -->
+
+      <article class="nwye-store">
+
+        <a
+          class="nwye-store__image-wrap"
+          href="https://www.pigmentadesign.se/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Visit Pigmenta Design"
+        >
+
+          {% if pigmenta_image contains 'PASTE-' %}
+
+            <div class="nwye-store__placeholder">
+              Add Pigmenta image
+            </div>
+
+          {% else %}
+
+            <img
+              class="nwye-store__image"
+              src="{{ pigmenta_image }}"
+              alt="Pigmenta Design, Stockholm"
+              loading="lazy"
+              width="600"
+              height="510"
+            >
+
+          {% endif %}
+
+        </a>
+
+
+        <div class="nwye-store__content">
+
+          <div class="nwye-store__city">
+            Stockholm
+          </div>
+
+          <h3 class="nwye-store__name">
+            Pigmenta Design
+          </h3>
+
+          <span class="nwye-store__line"></span>
+
+          <a
+            class="nwye-store__link"
+            href="https://www.pigmentadesign.se/"
+            target="_blank"
+            rel="noopener"
+          >
+            View store
+            <span class="nwye-store__arrow">↗</span>
+          </a>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+
+
+    <!-- ==================================================
+         REVIEWS
+         ================================================== -->
+
+    <div class="nwye-reviews">
+
+
+      <!-- LEFT -->
+
+      <div class="nwye-reviews__copy">
+
+        <p class="nwye-retail__eyebrow">
+          Retailer reviews
+        </p>
+
+
+        <h2 class="nwye-reviews__headline">
+          What<br>
+          retailers say.
+        </h2>
+
+
+        <p class="nwye-reviews__intro">
+          Independent stores, design lovers and concept shops
+          across Europe have welcomed our candles into their
+          curated collections.
+        </p>
+
+      </div>
+
+
+
+      <!-- REVIEWS -->
+
+      <div class="nwye-review-grid">
+
+
+        <!-- YES STUDIO -->
+
+        <article class="nwye-review">
+
+          <div
+            class="nwye-review__stars"
+            aria-label="5 out of 5 stars"
+          >
+            ★★★★★
+          </div>
+
+
+          <blockquote class="nwye-review__quote">
+
+            “Very friendly in processing and the candles
+            smell very nice — the packaging also looks
+            amazing. Our fave: Object 02 :) Amazing!”
+
+          </blockquote>
+
+
+          <div class="nwye-review__meta">
+
+            <div class="nwye-review__retailer">
+              Yes Studio Berlin
+            </div>
+
+            <div class="nwye-review__source">
+              Faire retailer · Berlin
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- NEUE STORE REVIEW 1 -->
+
+        <article class="nwye-review">
+
+          <div
+            class="nwye-review__stars"
+            aria-label="5 out of 5 stars"
+          >
+            ★★★★★
+          </div>
+
+
+          <blockquote class="nwye-review__quote">
+
+            “Love this brand... Looks great, strong brand
+            message and a little mystery too. One for the
+            design heads and we’ve already ordered again.”
+
+          </blockquote>
+
+
+          <div class="nwye-review__meta">
+
+            <div class="nwye-review__retailer">
+              Neue Store
+            </div>
+
+            <div class="nwye-review__source">
+              Faire retailer · Bristol
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- NEUE STORE REVIEW 2 -->
+
+        <article class="nwye-review">
+
+          <div
+            class="nwye-review__stars"
+            aria-label="5 out of 5 stars"
+          >
+            ★★★★★
+          </div>
+
+
+          <blockquote class="nwye-review__quote">
+
+            “Another great set of products, all good!”
+
+          </blockquote>
+
+
+          <div class="nwye-review__meta">
+
+            <div class="nwye-review__retailer">
+              Neue Store
+            </div>
+
+            <div class="nwye-review__source">
+              Faire retailer · Bristol
+            </div>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
