@@ -103,6 +103,19 @@
     "reviews_storelocator_nkmPTE": {
       "type": "reviews_storelocator",
       "blocks": {
+        "store_F9Kxrh": {
+          "type": "store",
+          "settings": {
+            "name": "Neue Store",
+            "city": "Bristol",
+            "country": "UK",
+            "info": "Independent design store",
+            "url": "https://neuestore.co.uk/",
+            "image": "shopify://shop_images/nwye_neue_store.webp",
+            "x": 30,
+            "y": 24
+          }
+        },
         "store_k3aCVR": {
           "type": "store",
           "settings": {
@@ -144,6 +157,7 @@
         }
       },
       "block_order": [
+        "store_F9Kxrh",
         "store_k3aCVR",
         "store_P3YypG",
         "store_WAitY9"
