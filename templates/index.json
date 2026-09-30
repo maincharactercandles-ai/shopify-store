@@ -127,6 +127,17 @@
         "padding_bottom": 44
       }
     },
+    "reviews_storelocator_nkmPTE": {
+      "type": "reviews_storelocator",
+      "name": "NWYE — Stores & Reviews",
+      "settings": {
+        "reiner_image": "shopify://shop_images/nwye_reiner.webp",
+        "lipshop_image": "shopify://shop_images/nwye_lipshop.webp",
+        "yesstudio_image": "shopify://shop_images/nwye_yes_studio_berlin.webp",
+        "neue_image": "shopify://shop_images/nwye_neue_store.webp",
+        "pigmenta_image": "shopify://shop_images/nwye_pigmenta_design.webp"
+      }
+    },
     "custom_liquid_8gYDjh": {
       "type": "custom-liquid",
       "disabled": true,
@@ -452,11 +463,6 @@
         "padding-block-start": 16,
         "padding-block-end": 16
       }
-    },
-    "reviews_storelocator_nkmPTE": {
-      "type": "reviews_storelocator",
-      "name": "NWYE — Stores & Reviews",
-      "settings": {}
     }
   },
   "order": [
