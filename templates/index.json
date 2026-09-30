@@ -103,6 +103,18 @@
     "reviews_storelocator_nkmPTE": {
       "type": "reviews_storelocator",
       "blocks": {
+        "store_hkaEmh": {
+          "type": "store",
+          "settings": {
+            "name": "PIGMENTA DESIGN",
+            "city": "STOCKHOLM",
+            "country": "SWEDEN",
+            "info": "Independent design store",
+            "url": "https://www.pigmentadesign.se/",
+            "x": 32,
+            "y": 34
+          }
+        },
         "store_F9Kxrh": {
           "type": "store",
           "settings": {
@@ -157,6 +169,7 @@
         }
       },
       "block_order": [
+        "store_hkaEmh",
         "store_F9Kxrh",
         "store_k3aCVR",
         "store_P3YypG",
