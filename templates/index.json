@@ -78,6 +78,17 @@
         "gap_between_elements": 24
       }
     },
+    "custom_liquid_we6d7m": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"nwye-finder-banner\">\n  <div class=\"nwye-finder-top\">\n    <span>FIND YOUR OBJECT.</span>\n    <span>01 — 06</span>\n  </div>\n\n  <div class=\"nwye-finder-main\">\n    <h2>NOT SURE<br>WHERE TO START?</h2>\n\n    <div class=\"nwye-finder-action\">\n      <p>Three questions. One object.<br>No wrong answers.</p>\n\n      <a href=\"/pages/find-your-object\">\n        FIND MY OBJECT <span>→</span>\n      </a>\n    </div>\n  </div>\n</section>\n\n<style>\n.nwye-finder-banner {\n  background: #0d0d0d;\n  color: #f4f1eb;\n  padding: 38px 5% 48px;\n  min-height: 320px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n\n.nwye-finder-top {\n  display: flex;\n  justify-content: space-between;\n  font-size: 18px;\n  font-weight: 500;\n  letter-spacing: .12em;\n}\n\n.nwye-finder-main {\n  display: grid;\n  grid-template-columns: 1.35fr 1fr;\n  align-items: end;\n  gap: 60px;\n}\n\n.nwye-finder-main h2 {\n  margin: 55px 0 0;\n  font-size: clamp(48px, 5.8vw, 100px);\n  line-height: .88;\n  letter-spacing: -.055em;\n  font-weight: 600;\n}\n\n.nwye-finder-action {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n  gap: 30px;\n}\n\n.nwye-finder-action p {\n  margin: 0;\n  font-size: 15px;\n  line-height: 1.45;\n  opacity: .72;\n}\n\n.nwye-finder-action a {\n  color: inherit;\n  text-decoration: none;\n  border-bottom: 1px solid currentColor;\n  padding-bottom: 7px;\n  white-space: nowrap;\n  font-size: 13px;\n  letter-spacing: .08em;\n}\n\n.nwye-finder-action a span {\n  display: inline-block;\n  margin-left: 28px;\n  transition: transform .2s ease;\n}\n\n.nwye-finder-action a:hover span {\n  transform: translateX(6px);\n}\n\n@media (max-width: 749px) {\n  .nwye-finder-banner {\n    min-height: 390px;\n    padding: 28px 22px 32px;\n  }\n\n  .nwye-finder-main {\n    grid-template-columns: 1fr;\n    gap: 42px;\n  }\n\n  .nwye-finder-main h2 {\n    margin-top: 55px;\n    font-size: 13vw;\n  }\n\n  .nwye-finder-action {\n    align-items: flex-end;\n  }\n}\n</style>",
+        "color_scheme": "",
+        "section_width": "full-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "nwy_concept_intro_BLVFmz": {
       "type": "nwy-concept-intro",
       "name": "NWY — Concept intro",
@@ -102,86 +113,8 @@
     },
     "reviews_storelocator_nkmPTE": {
       "type": "reviews_storelocator",
-      "blocks": {
-        "store_hkaEmh": {
-          "type": "store",
-          "settings": {
-            "name": "PIGMENTA DESIGN",
-            "city": "STOCKHOLM",
-            "country": "SWEDEN",
-            "info": "Independent design store",
-            "url": "https://www.pigmentadesign.se/",
-            "x": 32,
-            "y": 34
-          }
-        },
-        "store_F9Kxrh": {
-          "type": "store",
-          "settings": {
-            "name": "Neue Store",
-            "city": "Bristol",
-            "country": "UK",
-            "info": "Independent design store",
-            "url": "https://neuestore.co.uk/",
-            "image": "shopify://shop_images/nwye_neue_store.webp",
-            "x": 30,
-            "y": 24
-          }
-        },
-        "store_k3aCVR": {
-          "type": "store",
-          "settings": {
-            "name": "YES STUDIO BERLIN",
-            "city": "BERLIN",
-            "country": "GERMANY",
-            "info": "Independent design store",
-            "url": "https://yesstudio.berlin/",
-            "image": "shopify://shop_images/nwye_yes_studio_berlin.webp",
-            "x": 49,
-            "y": 37
-          }
-        },
-        "store_P3YypG": {
-          "type": "store",
-          "settings": {
-            "name": "LIPSHOP",
-            "city": "Athens",
-            "country": "Greece",
-            "info": "Independent design store",
-            "url": "https://lipshop.gr/",
-            "image": "shopify://shop_images/nwye_lipshop.webp",
-            "x": 75,
-            "y": 65
-          }
-        },
-        "store_WAitY9": {
-          "type": "store",
-          "settings": {
-            "name": "REINER",
-            "city": "Paris",
-            "country": "France",
-            "info": "Independent design store",
-            "url": "https://reiner-editions.com/",
-            "image": "shopify://shop_images/nwye_reiner.webp",
-            "x": 37,
-            "y": 52
-          }
-        }
-      },
-      "block_order": [
-        "store_hkaEmh",
-        "store_F9Kxrh",
-        "store_k3aCVR",
-        "store_P3YypG",
-        "store_WAitY9"
-      ],
       "name": "NWYE — Stores & Reviews",
-      "settings": {
-        "eyebrow": "Where to find us",
-        "title": "Find us\nin the wild.",
-        "description": "<p>Our candles are stocked in a curated selection of independent design stores across Europe. Explore the map to discover them.</p>",
-        "show_reviews": true
-      }
+      "settings": {}
     },
     "nwy_split_cta_iWLffL": {
       "type": "nwy-split-cta",
@@ -394,6 +327,7 @@
   "order": [
     "nwy_home_hero_Wainfp",
     "marquee_mqh9yJ",
+    "custom_liquid_we6d7m",
     "nwy_concept_intro_BLVFmz",
     "reviews_storelocator_nkmPTE",
     "nwy_split_cta_iWLffL",
