@@ -1,1162 +1,1097 @@
 {% comment %}
-  FIND YOUR OBJECT.
-  Custom interactive quiz for NOT WHAT YOU EXPECT.
+ FIND YOUR OBJECT.
+ Custom interactive quiz for NOT WHAT YOU EXPECT.
+
 {% endcomment %}
 
+
+
 <section
-  id="find-your-object-{{ section.id }}"
-  class="fyo"
-  data-section-id="{{ section.id }}"
+ id="find-your-object-{{ section.id }}"
+ class="fyo"
+ data-section-id="{{ section.id }}"
+
 >
-
-  <!-- INTRO -->
-  <div class="fyo-screen fyo-screen--intro is-active" data-screen="intro">
-    <div class="fyo-intro-copy">
-      <div class="fyo-logo">NOT.</div>
-
-      <h1>
-        FIND<br>
-        YOUR<br>
-        OBJECT.
-      </h1>
-
-      <p>
-        Don't choose a scent.<br>
-        Choose a feeling.
-      </p>
-
-      <button class="fyo-btn" type="button" data-next="q1">
-        START <span>→</span>
-      </button>
-    </div>
-
-    <div class="fyo-intro-image">
-      {% if section.settings.hero_image != blank %}
-        {{
-          section.settings.hero_image
-          | image_url: width: 1800
-          | image_tag:
-            loading: 'eager',
-            widths: '750, 1100, 1500, 1800',
-            sizes: '(min-width: 900px) 60vw, 100vw'
-        }}
-      {% else %}
-        <div class="fyo-placeholder">
-          <span>ADD HERO IMAGE</span>
-        </div>
-      {% endif %}
-    </div>
+ <!-- INTRO -->
+ <div class="fyo-screen fyo-screen--intro is-active" data-screen="intro">
+  <div class="fyo-intro-media">{% if section.settings.hero_image != blank %}{{ section.settings.hero_image | image_url: width: 2200 | image_tag: loading: 'eager', widths: '750, 1100, 1500, 1800, 2200', sizes: '100vw' }}{% else %}<div class="fyo-placeholder"><span>ADD HERO IMAGE</span></div>{% endif %}</div>
+  <div class="fyo-intro-shade"></div>
+  <div class="fyo-intro-ui">
+   <div class="fyo-intro-meta"><span>NWYE. / OBJECT SELECTOR™</span><span>06 OBJECTS — 03 QUESTIONS — 01 MATCH</span></div>
+   <div class="fyo-intro-copy"><h1>YOU DON’T<br>NEED ANOTHER<br>CANDLE.</h1><p class="fyo-intro-kicker">You need the right object.</p><p class="fyo-intro-desc">3 questions. No notes to memorize.<br>We’ll tell you which one belongs in your home.</p><button class="fyo-btn fyo-btn--hero" type="button" data-next="q1">FIND MY OBJECT <span>→</span></button></div>
+   <div class="fyo-intro-bottom"><div class="fyo-marquee" aria-hidden="true"><div class="fyo-marquee-track"><span>OBJECT 01 — OBJECT 02 — OBJECT 03 — OBJECT 04 — OBJECT 05 — OBJECT 06 — </span><span>OBJECT 01 — OBJECT 02 — OBJECT 03 — OBJECT 04 — OBJECT 05 — OBJECT 06 — </span></div></div><div class="fyo-intro-proof">NO ACCOUNT. NO EMAIL. NO WRONG ANSWERS.</div></div>
   </div>
+ </div>
+ <!-- QUESTION 1 -->
+ <div class="fyo-screen fyo-question" data-screen="q1">
+ <div class="fyo-topbar">
+ <div class="fyo-logo">NOT.</div>
+ <div class="fyo-progress">01 / 03</div>
+ <button class="fyo-link" type="button" data-back="intro">CLOSE</button>
+ </div>
+ <div class="fyo-question-wrap">
+ <h2>WHERE WOULD YOU<br>RATHER BE RIGHT NOW?</h2>
+ <div class="fyo-options fyo-options--3">
+ <button
+ class="fyo-option"
+ type="button"
+ data-answer="night"
+ data-next="q2"
+ >
+ <div class="fyo-option-image">
+ {% if section.settings.q1_image_1 != blank %}
+ {{ section.settings.q1_image_1 | image_url: width: 900 | image_tag }}
+ {% endif %}
+ </div>
+ <span>A HOTEL BAR<br>AT 1AM</span>
+ </button>
+ <button
+ class="fyo-option"
+ type="button"
+ data-answer="green"
+ data-next="q2"
+ >
+ <div class="fyo-option-image">
+ {% if section.settings.q1_image_2 != blank %}
+ {{ section.settings.q1_image_2 | image_url: width: 900 | image_tag }}
+ {% endif %}
+ </div>
+ <span>A GARDEN<br>AFTER RAIN</span>
+ </button>
+ <button
+ class="fyo-option"
+ type="button"
+ data-answer="minimal"
+ data-next="q2"
+ >
+ <div class="fyo-option-image">
+ {% if section.settings.q1_image_3 != blank %}
+ {{ section.settings.q1_image_3 | image_url: width: 900 | image_tag }}
+ {% endif %}
+ </div>
+ <span>SOMEWHERE WITH<br>NO WINDOWS</span>
+ </button>
+ </div>
+ </div>
+ </div>
+ <!-- QUESTION 2 -->
+ <div class="fyo-screen fyo-question" data-screen="q2">
+ <div class="fyo-topbar">
+ <div class="fyo-logo">NOT.</div>
+ <div class="fyo-progress">02 / 03</div>
+ <button class="fyo-link" type="button" data-back="q1">BACK</button>
+ </div>
+ <div class="fyo-question-wrap">
+ <h2>PICK A MATERIAL.</h2>
+ <div class="fyo-options fyo-options--3">
+ <button
+ class="fyo-option"
+ type="button"
+ data-answer="steel"
+ data-next="q3"
+ >
 
-
-  <!-- QUESTION 1 -->
-  <div class="fyo-screen fyo-question" data-screen="q1">
-    <div class="fyo-topbar">
-      <div class="fyo-logo">NOT.</div>
-      <div class="fyo-progress">01 / 03</div>
-      <button class="fyo-link" type="button" data-back="intro">CLOSE</button>
-    </div>
-
-    <div class="fyo-question-wrap">
-      <h2>WHERE WOULD YOU<br>RATHER BE RIGHT NOW?</h2>
-
-      <div class="fyo-options fyo-options--3">
-
-        <button
-          class="fyo-option"
-          type="button"
-          data-answer="night"
-          data-next="q2"
-        >
-          <div class="fyo-option-image">
-            {% if section.settings.q1_image_1 != blank %}
-              {{ section.settings.q1_image_1 | image_url: width: 900 | image_tag }}
-            {% endif %}
-          </div>
-          <span>A HOTEL BAR<br>AT 1AM</span>
-        </button>
-
-        <button
-          class="fyo-option"
-          type="button"
-          data-answer="green"
-          data-next="q2"
-        >
-          <div class="fyo-option-image">
-            {% if section.settings.q1_image_2 != blank %}
-              {{ section.settings.q1_image_2 | image_url: width: 900 | image_tag }}
-            {% endif %}
-          </div>
-          <span>A GARDEN<br>AFTER RAIN</span>
-        </button>
-
-        <button
-          class="fyo-option"
-          type="button"
-          data-answer="minimal"
-          data-next="q2"
-        >
-          <div class="fyo-option-image">
-            {% if section.settings.q1_image_3 != blank %}
-              {{ section.settings.q1_image_3 | image_url: width: 900 | image_tag }}
-            {% endif %}
-          </div>
-          <span>SOMEWHERE WITH<br>NO WINDOWS</span>
-        </button>
-
-      </div>
-    </div>
-  </div>
-
-
-  <!-- QUESTION 2 -->
-  <div class="fyo-screen fyo-question" data-screen="q2">
-    <div class="fyo-topbar">
-      <div class="fyo-logo">NOT.</div>
-      <div class="fyo-progress">02 / 03</div>
-      <button class="fyo-link" type="button" data-back="q1">BACK</button>
-    </div>
-
-    <div class="fyo-question-wrap">
-      <h2>PICK A MATERIAL.</h2>
-
-      <div class="fyo-options fyo-options--3">
-
-        <button
-          class="fyo-option"
-          type="button"
-          data-answer="steel"
-          data-next="q3"
-        >
 <div class="fyo-option-image">
-  {% if section.settings.q2_image_1 != blank %}
-    {{ section.settings.q2_image_1 | image_url: width: 900 | image_tag }}
-  {% endif %}
+ {% if section.settings.q2_image_1 != blank %}
+ {{ section.settings.q2_image_1 | image_url: width: 900 | image_tag }}
+ {% endif %}
+
 </div>
-          <span>STEEL</span>
-        </button>
+ <span>STEEL</span>
+ </button>
+ <button
+ class="fyo-option"
+ type="button"
+ data-answer="wood"
+ data-next="q3"
+ >
 
-        <button
-          class="fyo-option"
-          type="button"
-          data-answer="wood"
-          data-next="q3"
-        >
 <div class="fyo-option-image">
-  {% if section.settings.q2_image_2 != blank %}
-    {{ section.settings.q2_image_2 | image_url: width: 900 | image_tag }}
-  {% endif %}
+ {% if section.settings.q2_image_2 != blank %}
+ {{ section.settings.q2_image_2 | image_url: width: 900 | image_tag }}
+ {% endif %}
+
 </div>          <span>DARK WOOD</span>
-        </button>
+ </button>
+ <button
+ class="fyo-option"
+ type="button"
+ data-answer="glass"
+ data-next="q3"
+ >
 
-        <button
-          class="fyo-option"
-          type="button"
-          data-answer="glass"
-          data-next="q3"
-        >
 <div class="fyo-option-image">
-  {% if section.settings.q2_image_3 != blank %}
-    {{ section.settings.q2_image_3 | image_url: width: 900 | image_tag }}
-  {% endif %}
+ {% if section.settings.q2_image_3 != blank %}
+ {{ section.settings.q2_image_3 | image_url: width: 900 | image_tag }}
+ {% endif %}
+
 </div>          <span>COLOURED GLASS</span>
-        </button>
+ </button>
+ </div>
+ </div>
+ </div>
+ <!-- QUESTION 3 -->
+ <div class="fyo-screen fyo-question" data-screen="q3">
+ <div class="fyo-topbar">
+ <div class="fyo-logo">NOT.</div>
+ <div class="fyo-progress">03 / 03</div>
+ <button class="fyo-link" type="button" data-back="q2">BACK</button>
+ </div>
+ <div class="fyo-question-wrap">
+ <h2>YOUR HOME NEEDS MORE...</h2>
+ <div class="fyo-options fyo-options--3">
+ <button
+ class="fyo-option"
+ type="button"
+ data-answer="calm"
+ data-result
+ >
+ <div class="fyo-option-image">
+ {% if section.settings.q3_image_1 != blank %}
+ {{ section.settings.q3_image_1 | image_url: width: 900 | image_tag }}
+ {% endif %}
+ </div>
+ <span>CALM</span>
+ </button>
+ <button
+ class="fyo-option"
+ type="button"
+ data-answer="drama"
+ data-result
+ >
+ <div class="fyo-option-image">
+ {% if section.settings.q3_image_2 != blank %}
+ {{ section.settings.q3_image_2 | image_url: width: 900 | image_tag }}
+ {% endif %}
+ </div>
+ <span>DRAMA</span>
+ </button>
+ <button
+ class="fyo-option"
+ type="button"
+ data-answer="chaos"
+ data-result
+ >
+ <div class="fyo-option-image">
+ {% if section.settings.q3_image_3 != blank %}
+ {{ section.settings.q3_image_3 | image_url: width: 900 | image_tag }}
+ {% endif %}
+ </div>
+ <span>CHAOS</span>
+ </button>
+ </div>
+ </div>
+ </div>
+ <!-- RESULT -->
+ <div class="fyo-screen fyo-result" data-screen="result">
+ <div class="fyo-result-media">
+ <img
+ data-result-image
+ src=""
+ alt=""
+ width="1200"
+ height="1400"
+ loading="lazy"
+ >
+ </div>
+ <div class="fyo-result-copy">
+ <div class="fyo-logo">NOT.</div>
+ <p class="fyo-eyebrow">YOUR OBJECT IS...</p>
+ <h2 data-result-title>OBJECT 01</h2>
+ <h3 data-result-subtitle>Citrus & Ambre</h3>
+ <p class="fyo-result-text" data-result-text></p>
+ <a
+ href="#"
+ class="fyo-btn"
+ data-result-url
+ >
+ DISCOVER <span data-result-short-title>OBJECT 01</span> →
+ </a>
+ <button
+ type="button"
+ class="fyo-restart"
+ data-restart
+ >
+ NOT YOURS? START AGAIN
+ </button>
+ </div>
+ </div>
+ <!-- COLLECTION -->
+ <div class="fyo-collection">
+ <div class="fyo-collection-head">
+ <div>
+ <div class="fyo-logo"</div>
+ <h3>
+ EXPLORE THE<br>
+ FULL COLLECTION.
+ </h>
+ </div>
+ </div>
+ <div class="fyo-product-grid">
+ {% for block in section.blocks %}
+ {% assign product = block.settings.product %}
+ {% if product != blank %}
+ <a
+ class="fyo-product"
+ href="{{ product.url }}"
+ {{ block.shopify_attributes }}
+ >
+ <div class="fyo-product-image">
+ {% if product.featured_image %}
+ {{
+ product.featured_image
+ | image_url: width: 700
+ | image_tag:
+ loading: 'lazy'
+ }}
+ {% endif %}
+ </div>
+ <div class="fyo-product-number">
+ {{ block.settings.object_name }}
+ </div>
+ <div class="fyo-product-title">
+ {{ block.settings.scent_name }}
+ </div>
+ </a>
+ {% endif %}
+ {% endfor %}
+ </div>
+ </div>
 
-      </div>
-    </div>
-  </div>
 
-
-  <!-- QUESTION 3 -->
-  <div class="fyo-screen fyo-question" data-screen="q3">
-    <div class="fyo-topbar">
-      <div class="fyo-logo">NOT.</div>
-      <div class="fyo-progress">03 / 03</div>
-      <button class="fyo-link" type="button" data-back="q2">BACK</button>
-    </div>
-
-    <div class="fyo-question-wrap">
-      <h2>YOUR HOME NEEDS MORE...</h2>
-
-      <div class="fyo-options fyo-options--3">
-
-        <button
-          class="fyo-option"
-          type="button"
-          data-answer="calm"
-          data-result
-        >
-          <div class="fyo-option-image">
-            {% if section.settings.q3_image_1 != blank %}
-              {{ section.settings.q3_image_1 | image_url: width: 900 | image_tag }}
-            {% endif %}
-          </div>
-          <span>CALM</span>
-        </button>
-
-        <button
-          class="fyo-option"
-          type="button"
-          data-answer="drama"
-          data-result
-        >
-          <div class="fyo-option-image">
-            {% if section.settings.q3_image_2 != blank %}
-              {{ section.settings.q3_image_2 | image_url: width: 900 | image_tag }}
-            {% endif %}
-          </div>
-          <span>DRAMA</span>
-        </button>
-
-        <button
-          class="fyo-option"
-          type="button"
-          data-answer="chaos"
-          data-result
-        >
-          <div class="fyo-option-image">
-            {% if section.settings.q3_image_3 != blank %}
-              {{ section.settings.q3_image_3 | image_url: width: 900 | image_tag }}
-            {% endif %}
-          </div>
-          <span>CHAOS</span>
-        </button>
-
-      </div>
-    </div>
-  </div>
-
-
-  <!-- RESULT -->
-  <div class="fyo-screen fyo-result" data-screen="result">
-    <div class="fyo-result-media">
-      <img
-        data-result-image
-        src=""
-        alt=""
-        width="1200"
-        height="1400"
-        loading="lazy"
-      >
-    </div>
-
-    <div class="fyo-result-copy">
-      <div class="fyo-logo">NOT.</div>
-
-      <p class="fyo-eyebrow">YOUR OBJECT IS...</p>
-
-      <h2 data-result-title>OBJECT 01</h2>
-      <h3 data-result-subtitle>Citrus & Ambre</h3>
-
-      <p class="fyo-result-text" data-result-text></p>
-
-      <a
-        href="#"
-        class="fyo-btn"
-        data-result-url
-      >
-        DISCOVER <span data-result-short-title>OBJECT 01</span> →
-      </a>
-
-      <button
-        type="button"
-        class="fyo-restart"
-        data-restart
-      >
-        NOT YOURS? START AGAIN
-      </button>
-    </div>
-  </div>
-
-
-  <!-- COLLECTION -->
-  <div class="fyo-collection">
-    <div class="fyo-collection-head">
-      <div>
-        <div class="fyo-logo"</div>
-        <h3>
-          EXPLORE THE<br>
-          FULL COLLECTION.
-        </h>
-      </div>
-    </div>
-
-    <div class="fyo-product-grid">
-      {% for block in section.blocks %}
-        {% assign product = block.settings.product %}
-
-        {% if product != blank %}
-          <a
-            class="fyo-product"
-            href="{{ product.url }}"
-            {{ block.shopify_attributes }}
-          >
-            <div class="fyo-product-image">
-              {% if product.featured_image %}
-                {{
-                  product.featured_image
-                  | image_url: width: 700
-                  | image_tag:
-                    loading: 'lazy'
-                }}
-              {% endif %}
-            </div>
-
-            <div class="fyo-product-number">
-              {{ block.settings.object_name }}
-            </div>
-
-            <div class="fyo-product-title">
-              {{ block.settings.scent_name }}
-            </div>
-          </a>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
 
 </section>
 
 
+
+
+
 <style>
-#find-your-object-{{ section.id }} {
-  --bg: #f1efe9;
-  --text: #111111;
-  --line: rgba(0,0,0,.15);
 
-  background: var(--bg);
-  color: var(--text);
-  overflow: hidden;
+\#find-your-object-{{ section.id }} {
+ \--bg: #f1efe9;
+ \--text: #111111;
+ \--line: rgba(0,0,0,.15);
+ background: var(--bg);
+ color: var(--text);
+ overflow: hidden;
+
 }
 
-#find-your-object-{{ section.id }} * {
-  box-sizing: border-box;
+
+
+\#find-your-object-{{ section.id }} \* {
+ box-sizing: border-box;
+
 }
 
-#find-your-object-{{ section.id }} button,
-#find-your-object-{{ section.id }} a {
-  font: inherit;
+
+
+\#find-your-object-{{ section.id }} button,
+
+\#find-your-object-{{ section.id }} a {
+ font: inherit;
+
 }
+
+
 
 .fyo-screen {
-  display: none;
-  min-height: 100vh;
-  width: 100%;
+ display: none;
+ min-height: 100vh;
+ width: 100%;
+
 }
+
+
 
 .fyo-screen.is-active {
-  display: grid;
+ display: grid;
+
 }
 
+
+
 .fyo-logo {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -.03em;
+ font-size: 18px;
+ font-weight: 700;
+ letter-spacing: -.03em;
+
 }
+
+
+
 
 
 /* INTRO */
+.fyo-screen--intro{position:relative;min-height:100svh;overflow:hidden;background:#111;color:#f5f2ea}.fyo-intro-media,.fyo-intro-shade,.fyo-intro-ui{position:absolute;inset:0}.fyo-intro-media img,.fyo-placeholder{width:100%;height:100%;min-height:100svh;object-fit:cover}.fyo-placeholder{background:#c9c4b9;display:flex;align-items:center;justify-content:center;color:#111}.fyo-intro-shade{background:linear-gradient(90deg,rgba(8,8,7,.78) 0%,rgba(8,8,7,.43) 42%,rgba(8,8,7,.06) 76%),linear-gradient(0deg,rgba(8,8,7,.62) 0%,transparent 40%)}.fyo-intro-ui{z-index:2;padding:28px 34px 24px;display:flex;flex-direction:column}.fyo-intro-meta{display:flex;justify-content:space-between;gap:20px;font-size:11px;line-height:1;letter-spacing:.08em;text-transform:uppercase}.fyo-intro-copy{margin:auto 0;max-width:1100px}.fyo-intro-copy h1{margin:0;font-size:clamp(70px,8.8vw,164px);line-height:.78;letter-spacing:-.075em;font-weight:500}.fyo-intro-kicker{margin:28px 0 0;font-size:clamp(22px,2vw,34px);line-height:1;letter-spacing:-.035em}.fyo-intro-desc{margin:18px 0 26px;max-width:470px;font-size:14px;line-height:1.35}.fyo-btn--hero{min-height:58px;padding:0 24px;border:1px solid currentColor;border-color:currentColor;color:currentColor;background:rgba(245,242,234,.02);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);display:inline-flex;align-items:center;justify-content:space-between;gap:34px;cursor:pointer;letter-spacing:.02em}.fyo-btn--hero:hover{background:#f5f2ea;color:#111}.fyo-intro-bottom{margin-top:auto}.fyo-marquee{overflow:hidden;border-top:1px solid rgba(245,242,234,.5);border-bottom:1px solid rgba(245,242,234,.5);padding:10px 0 9px}.fyo-marquee-track{display:flex;width:max-content;animation:fyo-marquee 22s linear infinite;font-size:11px;letter-spacing:.11em;white-space:nowrap}.fyo-marquee-track span{padding-right:1.2em}@keyframes fyo-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}.fyo-intro-proof{padding-top:11px;font-size:9px;letter-spacing:.12em;text-align:right}
 
-.fyo-screen--intro {
-  grid-template-columns: 42% 58%;
-  min-height: 100vh;
-}
-
-.fyo-intro-copy {
-  padding: 34px;
-  display: flex;
-  flex-direction: column;
-}
-
-.fyo-intro-copy h1 {
-  margin: auto 0 20px;
-  font-size: clamp(70px, 8vw, 150px);
-  line-height: .82;
-  letter-spacing: -.075em;
-  font-weight: 500;
-}
-
-.fyo-intro-copy p {
-  font-size: 16px;
-  line-height: 1.3;
-  margin: 0 0 26px;
-}
-
-.fyo-btn {
-  display: inline-flex;
-  width: fit-content;
-  align-items: center;
-  gap: 36px;
-  background: transparent;
-  border: 1px solid #111;
-  color: #111;
-  padding: 14px 18px;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 13px;
-  letter-spacing: .02em;
-  text-transform: uppercase;
-}
-
-.fyo-btn:hover {
-  background: #111;
-  color: white;
-}
-
-.fyo-intro-image {
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-.fyo-intro-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.fyo-placeholder {
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  background: #d7d4cc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/\* QUESTIONS \*/
 
 
-/* QUESTIONS */
 
 .fyo-question {
-  grid-template-rows: auto 1fr;
-  padding: 30px;
+ grid-template-rows: auto 1fr;
+ padding: 30px;
+
 }
+
+
 
 .fyo-topbar {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
+ display: grid;
+ grid-template-columns: 1fr auto 1fr;
+ align-items: center;
+
 }
+
+
 
 .fyo-progress {
-  font-size: 12px;
-  letter-spacing: .05em;
+ font-size: 12px;
+ letter-spacing: .05em;
+
 }
+
+
 
 .fyo-link {
-  justify-self: end;
-  background: none;
-  border: 0;
-  cursor: pointer;
-  font-size: 12px;
+ justify-self: end;
+ background: none;
+ border: 0;
+ cursor: pointer;
+ font-size: 12px;
+
 }
+
+
 
 .fyo-question-wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px 0;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ padding: 60px 0;
+
 }
+
+
 
 .fyo-question-wrap h2 {
-  margin: 0 0 50px;
-  font-size: clamp(38px, 4vw, 72px);
-  line-height: .95;
-  letter-spacing: -.05em;
-  font-weight: 400;
-  text-align: center;
+ margin: 0 0 50px;
+ font-size: clamp(38px, 4vw, 72px);
+ line-height: .95;
+ letter-spacing: -.05em;
+ font-weight: 400;
+ text-align: center;
+
 }
+
+
 
 .fyo-options {
-  display: grid;
-  gap: 14px;
+ display: grid;
+ gap: 14px;
+
 }
+
+
 
 .fyo-options--3 {
-  grid-template-columns: repeat(3, 1fr);
+ grid-template-columns: repeat(3, 1fr);
+
 }
+
+
 
 .fyo-option {
-  appearance: none;
-  border: 0;
-  padding: 0;
-  background: transparent;
-  color: inherit;
-  text-align: left;
-  cursor: pointer;
+ appearance: none;
+ border: 0;
+ padding: 0;
+ background: transparent;
+ color: inherit;
+ text-align: left;
+ cursor: pointer;
+
 }
+
+
 
 .fyo-option-image,
+
 .fyo-material {
-  aspect-ratio: 1.22 / 1;
-  overflow: hidden;
-  background: #ddd;
+ aspect-ratio: 1.22 / 1;
+ overflow: hidden;
+ background: #ddd;
+
 }
+
+
 
 .fyo-option-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform .5s cubic-bezier(.2,.8,.2,1);
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ transition: transform .5s cubic-bezier(.2,.8,.2,1);
+
 }
+
+
 
 .fyo-option:hover img {
-  transform: scale(1.025);
+ transform: scale(1.025);
+
 }
+
+
 
 .fyo-option span {
-  display: block;
-  margin-top: 10px;
-  font-size: 14px;
-  line-height: 1.05;
+ display: block;
+ margin-top: 10px;
+ font-size: 14px;
+ line-height: 1.05;
+
 }
+
+
 
 .fyo-material--steel {
-  background:
-    linear-gradient(
-      90deg,
-      #aaa 0%,
-      #e2e2e0 14%,
-      #bcbcbc 27%,
-      #f1f1ef 42%,
-      #aaa 63%,
-      #dededc 82%,
-      #aaa 100%
-    );
+ background:
+ linear-gradient(
+ 90deg,
+ \#aaa 0%,
+ \#e2e2e0 14%,
+ \#bcbcbc 27%,
+ \#f1f1ef 42%,
+ \#aaa 63%,
+ \#dededc 82%,
+ \#aaa 100%
+ );
+
 }
+
+
 
 .fyo-material--wood {
-  background:
-    radial-gradient(
-      ellipse at center,
-      #3c271c 0%,
-      #241710 60%,
-      #110d0a 100%
-    );
+ background:
+ radial-gradient(
+ ellipse at center,
+ \#3c271c 0%,
+ \#241710 60%,
+ \#110d0a 100%
+ );
+
 }
+
+
 
 .fyo-material--glass {
-  background:
-    radial-gradient(
-      circle at 35% 30%,
-      #2457aa,
-      #051532 55%,
-      #020811
-    );
+ background:
+ radial-gradient(
+ circle at 35% 30%,
+ \#2457aa,
+ \#051532 55%,
+ \#020811
+ );
+
 }
 
 
-/* RESULT */
+
+
+
+/\* RESULT \*/
+
+
 
 .fyo-result {
-  grid-template-columns: 52% 48%;
-  min-height: 100vh;
-  background: #0b0908;
-  color: white;
+ grid-template-columns: 52% 48%;
+ min-height: 100vh;
+ background: #0b0908;
+ color: white;
+
 }
+
+
 
 .fyo-result-media {
-  min-height: 100vh;
+ min-height: 100vh;
+
 }
+
+
 
 .fyo-result-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+
 }
+
+
 
 .fyo-result-copy {
-  padding: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
+ padding: 50px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ position: relative;
+
 }
+
+
 
 .fyo-result-copy .fyo-logo {
-  position: absolute;
-  top: 35px;
+ position: absolute;
+ top: 35px;
+
 }
+
+
 
 .fyo-eyebrow {
-  font-size: 12px;
-  letter-spacing: .07em;
-  margin-bottom: 20px;
+ font-size: 12px;
+ letter-spacing: .07em;
+ margin-bottom: 20px;
+
 }
+
+
 
 .fyo-result-copy h2 {
-  font-size: clamp(60px, 7vw, 130px);
-  font-weight: 400;
-  letter-spacing: -.06em;
-  line-height: .9;
-  margin: 0 0 20px;
+ font-size: clamp(60px, 7vw, 130px);
+ font-weight: 400;
+ letter-spacing: -.06em;
+ line-height: .9;
+ margin: 0 0 20px;
+
 }
+
+
 
 .fyo-result-copy h3 {
-  font-size: clamp(28px, 3vw, 52px);
-  font-weight: 400;
-  line-height: 1;
-  margin: 0 0 26px;
+ font-size: clamp(28px, 3vw, 52px);
+ font-weight: 400;
+ line-height: 1;
+ margin: 0 0 26px;
+
 }
+
+
 
 .fyo-result-text {
-  max-width: 430px;
-  font-size: 16px;
-  line-height: 1.4;
-  margin-bottom: 34px;
+ max-width: 430px;
+ font-size: 16px;
+ line-height: 1.4;
+ margin-bottom: 34px;
+
 }
+
+
 
 .fyo-result .fyo-btn {
-  border-color: white;
-  color: white;
+ border-color: white;
+ color: white;
+
 }
+
+
 
 .fyo-result .fyo-btn:hover {
-  background: white;
-  color: black;
+ background: white;
+ color: black;
+
 }
+
+
 
 .fyo-restart {
-  width: fit-content;
-  border: 0;
-  border-bottom: 1px solid rgba(255,255,255,.45);
-  color: white;
-  background: none;
-  margin-top: 25px;
-  padding: 0 0 3px;
-  cursor: pointer;
-  font-size: 11px;
+ width: fit-content;
+ border: 0;
+ border-bottom: 1px solid rgba(255,255,255,.45);
+ color: white;
+ background: none;
+ margin-top: 25px;
+ padding: 0 0 3px;
+ cursor: pointer;
+ font-size: 11px;
+
 }
 
 
-/* COLLECTION */
+
+
+
+/\* COLLECTION \*/
+
+
 
 .fyo-collection {
-  padding: 90px 30px 120px;
-  border-top: 1px solid var(--line);
+ padding: 140px 30px 140px;
+ border-top: 1px solid var(--line);
+
 }
+
+
 
 .fyo-collection-head h2 {
-  font-size: clamp(42px, 5vw, 90px);
-  line-height: .9;
-  letter-spacing: -.055em;
-  font-weight: 400;
-  margin: 50px 0 60px;
+ font-size: clamp(42px, 5vw, 90px);
+ line-height: .9;
+ letter-spacing: -.055em;
+ font-weight: 400;
+ margin: 0 0 72px;
+
 }
+
+
 
 .fyo-product-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
+ display: grid;
+ grid-template-columns: repeat(6, 1fr);
+ gap: 12px;
+
 }
+
+
 
 .fyo-product {
-  text-decoration: none;
-  color: inherit;
+ text-decoration: none;
+ color: inherit;
+
 }
+
+
 
 .fyo-product-image {
-  aspect-ratio: .82;
-  overflow: hidden;
-  background: #ddd;
+ aspect-ratio: .82;
+ overflow: hidden;
+ background: #ddd;
+
 }
+
+
 
 .fyo-product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform .45s ease;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ transition: transform .45s ease;
+
 }
+
+
 
 .fyo-product:hover img {
-  transform: scale(1.025);
+ transform: scale(1.025);
+
 }
+
+
 
 .fyo-product-number {
-  margin-top: 10px;
-  font-size: 12px;
-  font-weight: 600;
+ margin-top: 10px;
+ font-size: 12px;
+ font-weight: 600;
+
 }
+
+
 
 .fyo-product-title {
-  margin-top: 3px;
-  font-size: 11px;
-  opacity: .7;
+ margin-top: 3px;
+ font-size: 11px;
+ opacity: .7;
+
 }
 
 
-/* MOBILE */
+
+
+
+/\* MOBILE \*/
+
+
 
 @media screen and (max-width: 749px) {
+ .fyo-screen--intro{min-height:100svh}.fyo-intro-ui{padding:18px 18px 16px}.fyo-intro-meta{font-size:8px}.fyo-intro-meta span:last-child{text-align:right}.fyo-intro-copy{margin:auto 0 15vh;max-width:none;min-height:auto;padding:0}.fyo-intro-copy h1{font-size:clamp(50px,15vw,76px);line-height:.82;margin:0}.fyo-intro-kicker{margin-top:20px;font-size:20px}.fyo-intro-desc{font-size:12px;margin:14px 0 20px}.fyo-btn--hero{min-height:54px;padding:0 18px;gap:24px}.fyo-intro-proof{font-size:7px}.fyo-marquee-track{font-size:9px}
 
-  .fyo-screen--intro {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 48vh;
-  }
+ .fyo-screen--intro {
+ grid-template-columns: 1fr;
+ grid-template-rows: auto 48vh;
+ }
+ .fyo-intro-copy {
+ min-height: 55vh;
+ padding: 22px;
+ }
+ .fyo-intro-copy h1 {
+ font-size: 64px;
+ margin-top: 80px;
+ }
+ .fyo-intro-image {
+ min-height: 48vh;
+ }
+ .fyo-question {
+ padding: 20px;
+ }
+ .fyo-question-wrap {
+ justify-content: flex-start;
+ padding-top: 90px;
+ }
+ .fyo-question-wrap h2 {
+ font-size: 38px;
+ text-align: left;
+ margin-bottom: 28px;
+ }
+ .fyo-options--3 {
+ grid-template-columns: 1fr;
+ }
+ .fyo-option-image,
+ .fyo-material {
+ aspect-ratio: 1.7;
+ }
+ .fyo-option {
+ margin-bottom: 18px;
+ }
+ .fyo-result {
+ grid-template-columns: 1fr;
+ }
+ .fyo-result-media {
+ min-height: 55vh;
+ height: 55vh;
+ }
+ .fyo-result-copy {
+ padding: 40px 22px 70px;
+ }
+ .fyo-result-copy .fyo-logo {
+ position: static;
+ margin-bottom: 70px;
+ }
+ .fyo-result-copy h2 {
+ font-size: 64px;
+ }
+ .fyo-product-grid {
+ grid-template-columns: repeat(2, 1fr);
+ gap: 22px 10px;
+ }
+ .fyo-collection {
+ padding: 90px 20px 100px;
+ }
 
-  .fyo-intro-copy {
-    min-height: 55vh;
-    padding: 22px;
-  }
 
-  .fyo-intro-copy h1 {
-    font-size: 64px;
-    margin-top: 80px;
-  }
-
-  .fyo-intro-image {
-    min-height: 48vh;
-  }
-
-  .fyo-question {
-    padding: 20px;
-  }
-
-  .fyo-question-wrap {
-    justify-content: flex-start;
-    padding-top: 70px;
-  }
-
-  .fyo-question-wrap h2 {
-    font-size: 38px;
-    text-align: left;
-    margin-bottom: 28px;
-  }
-
-  .fyo-options--3 {
-    grid-template-columns: 1fr;
-  }
-
-  .fyo-option-image,
-  .fyo-material {
-    aspect-ratio: 1.7;
-  }
-
-  .fyo-option {
-    margin-bottom: 18px;
-  }
-
-  .fyo-result {
-    grid-template-columns: 1fr;
-  }
-
-  .fyo-result-media {
-    min-height: 55vh;
-    height: 55vh;
-  }
-
-  .fyo-result-copy {
-    padding: 40px 22px 70px;
-  }
-
-  .fyo-result-copy .fyo-logo {
-    position: static;
-    margin-bottom: 70px;
-  }
-
-  .fyo-result-copy h2 {
-    font-size: 64px;
-  }
-
-  .fyo-product-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px 10px;
-  }
-
-  .fyo-collection {
-    padding: 70px 20px;
-  }
 
 }
+
+
+@media screen and (max-width:749px){.fyo-screen--intro{display:grid!important;grid-template-columns:1fr!important;grid-template-rows:1fr!important}.fyo-intro-copy{min-height:auto!important;padding:0!important}.fyo-intro-copy h1{font-size:clamp(50px,15vw,76px)!important;margin:0!important}.fyo-intro-media{min-height:100svh!important}}
+
 </style>
 
 
+
+
+
 <script>
+
 document.addEventListener('DOMContentLoaded', () => {
-  const section = document.querySelector('#find-your-object-{{ section.id }}');
+ const section = document.querySelector('#find-your-object-{{ section.id }}');
+ if (!section) return;
+ const screens = section.querySelectorAll('[data-screen]');
+ const answers = {};
+ const showScreen = (name) => {
+ screens.forEach(screen => {
+ screen.classList.toggle(
+ 'is-active',
+ screen.dataset.screen === name
+ );
+ });
+ window.scrollTo({
+ top: section.offsetTop,
+ behavior: 'smooth'
+ });
+ };
+ /\* NAVIGATION \*/
+ section.querySelectorAll('[data-next]').forEach(button => {
+ button.addEventListener('click', () => {
+ if (button.dataset.answer) {
+ const parent = button.closest('[data-screen]');
+ if (parent) {
+ answers[parent.dataset.screen] = button.dataset.answer;
+ }
+ }
+ showScreen(button.dataset.next);
+ });
+ });
+ section.querySelectorAll('[data-back]').forEach(button => {
+ button.addEventListener('click', () => {
+ showScreen(button.dataset.back);
+ });
+ });
+ /\* PRODUCTS \*/
+ const products = [
+ {% for block in section.blocks %}
+ {% assign p = block.settings.product %}
+ {% if p != blank %}
+ {
+ object: {{ block.settings.object_name | json }},
+ scent: {{ block.settings.scent_name | json }},
+ text: {{ block.settings.result_text | json }},
+ url: {{ p.url | json }},
+ image:
+ {% if block.settings.result_image != blank %}
+ {{ block.settings.result_image | image_url: width: 1600 | json }}
+ {% else %}
+ {{ p.featured_image | image_url: width: 1600 | json }}
+ {% endif %}
+ },
+ {% endif %}
+ {% endfor %}
+ ];
+ /\* RESULT LOGIC \*/
+ const calculateResult = () => {
+ const scores = {
+ "OBJECT 01": 0,
+ "OBJECT 02": 0,
+ "OBJECT 03": 0,
+ "OBJECT 04": 0,
+ "OBJECT 05": 0,
+ "OBJECT 06": 0
+ };
+ /\* QUESTION 1 \*/
+ if (answers.q1 === 'night') {
+ scores["OBJECT 02"] += 3;
+ scores["OBJECT 05"] += 2;
+ }
+ if (answers.q1 === 'green') {
+ scores["OBJECT 03"] += 3;
+ scores["OBJECT 04"] += 2;
+ }
+ if (answers.q1 === 'minimal') {
+ scores["OBJECT 01"] += 3;
+ scores["OBJECT 06"] += 1;
+ }
+ /\* QUESTION 2 \*/
+ if (answers.q2 === 'steel') {
+ scores["OBJECT 01"] += 3;
+ scores["OBJECT 02"] += 1;
+ }
+ if (answers.q2 === 'wood') {
+ scores["OBJECT 02"] += 3;
+ scores["OBJECT 03"] += 1;
+ }
+ if (answers.q2 === 'glass') {
+ scores["OBJECT 04"] += 2;
+ scores["OBJECT 05"] += 2;
+ scores["OBJECT 06"] += 2;
+ }
+ /\* QUESTION 3 \*/
+ if (answers.q3 === 'calm') {
+ scores["OBJECT 03"] += 3;
+ scores["OBJECT 04"] += 2;
+ scores["OBJECT 01"] += 1;
+ }
+ if (answers.q3 === 'drama') {
+ scores["OBJECT 05"] += 4;
+ scores["OBJECT 02"] += 2;
+ }
+ if (answers.q3 === 'chaos') {
+ scores["OBJECT 06"] += 4;
+ scores["OBJECT 05"] += 1;
+ }
+ /\* FIND WINNER \*/
+ const winner = Object.keys(scores).reduce((best, current) => {
+ return scores[current] > scores[best] ? current : best;
+ });
+ /\* FIND PRODUCT BY OBJECT NAME \*/
+ const matchingProduct = products.find(product => {
+ return product.object
+ .trim()
+ .toUpperCase() === winner;
+ });
+ return matchingProduct || products[0];
+ };
+ /\* FINAL QUESTION + RESULT \*/
+ section.querySelectorAll('[data-result]').forEach(button => {
+ button.addEventListener('click', () => {
+ answers.q3 = button.dataset.answer;
+ const result = calculateResult();
+ if (!result) return;
+ const resultTitle =
+ section.querySelector('[data-result-title]');
+ const resultShortTitle =
+ section.querySelector('[data-result-short-title]');
+ const resultSubtitle =
+ section.querySelector('[data-result-subtitle]');
+ const resultText =
+ section.querySelector('[data-result-text]');
+ const resultUrl =
+ section.querySelector('[data-result-url]');
+ const resultImage =
+ section.querySelector('[data-result-image]');
+ if (resultTitle) {
+ resultTitle.textContent = result.object;
+ }
+ if (resultShortTitle) {
+ resultShortTitle.textContent = result.object;
+ }
+ if (resultSubtitle) {
+ resultSubtitle.textContent = result.scent;
+ }
+ if (resultText) {
+ resultText.textContent = result.text;
+ }
+ if (resultUrl) {
+ resultUrl.href = result.url;
+ }
+ if (resultImage) {
+ resultImage.src = result.image;
+ resultImage.alt = result.object;
+ }
+ showScreen('result');
+ });
+ });
+ /\* RESTART \*/
+ section.querySelector('[data-restart]')?.addEventListener('click', () => {
+ Object.keys(answers).forEach(key => {
+ delete answers[key];
+ });
+ showScreen('intro');
+ });
 
-  if (!section) return;
 
-  const screens = section.querySelectorAll('[data-screen]');
-  const answers = {};
-
-  const showScreen = (name) => {
-    screens.forEach(screen => {
-      screen.classList.toggle(
-        'is-active',
-        screen.dataset.screen === name
-      );
-    });
-
-    window.scrollTo({
-      top: section.offsetTop,
-      behavior: 'smooth'
-    });
-  };
-
-
-  /* NAVIGATION */
-
-  section.querySelectorAll('[data-next]').forEach(button => {
-    button.addEventListener('click', () => {
-
-      if (button.dataset.answer) {
-        const parent = button.closest('[data-screen]');
-
-        if (parent) {
-          answers[parent.dataset.screen] = button.dataset.answer;
-        }
-      }
-
-      showScreen(button.dataset.next);
-    });
-  });
-
-  section.querySelectorAll('[data-back]').forEach(button => {
-    button.addEventListener('click', () => {
-      showScreen(button.dataset.back);
-    });
-  });
-
-
-  /* PRODUCTS */
-
-  const products = [
-
-    {% for block in section.blocks %}
-      {% assign p = block.settings.product %}
-
-      {% if p != blank %}
-        {
-          object: {{ block.settings.object_name | json }},
-          scent: {{ block.settings.scent_name | json }},
-          text: {{ block.settings.result_text | json }},
-          url: {{ p.url | json }},
-          image:
-            {% if block.settings.result_image != blank %}
-              {{ block.settings.result_image | image_url: width: 1600 | json }}
-            {% else %}
-              {{ p.featured_image | image_url: width: 1600 | json }}
-            {% endif %}
-        },
-      {% endif %}
-    {% endfor %}
-
-  ];
-
-
-  /* RESULT LOGIC */
-
-  const calculateResult = () => {
-
-    const scores = {
-      "OBJECT 01": 0,
-      "OBJECT 02": 0,
-      "OBJECT 03": 0,
-      "OBJECT 04": 0,
-      "OBJECT 05": 0,
-      "OBJECT 06": 0
-    };
-
-
-    /* QUESTION 1 */
-
-    if (answers.q1 === 'night') {
-      scores["OBJECT 02"] += 3;
-      scores["OBJECT 05"] += 2;
-    }
-
-    if (answers.q1 === 'green') {
-      scores["OBJECT 03"] += 3;
-      scores["OBJECT 04"] += 2;
-    }
-
-    if (answers.q1 === 'minimal') {
-      scores["OBJECT 01"] += 3;
-      scores["OBJECT 06"] += 1;
-    }
-
-
-    /* QUESTION 2 */
-
-    if (answers.q2 === 'steel') {
-      scores["OBJECT 01"] += 3;
-      scores["OBJECT 02"] += 1;
-    }
-
-    if (answers.q2 === 'wood') {
-      scores["OBJECT 02"] += 3;
-      scores["OBJECT 03"] += 1;
-    }
-
-    if (answers.q2 === 'glass') {
-      scores["OBJECT 04"] += 2;
-      scores["OBJECT 05"] += 2;
-      scores["OBJECT 06"] += 2;
-    }
-
-
-    /* QUESTION 3 */
-
-    if (answers.q3 === 'calm') {
-      scores["OBJECT 03"] += 3;
-      scores["OBJECT 04"] += 2;
-      scores["OBJECT 01"] += 1;
-    }
-
-    if (answers.q3 === 'drama') {
-      scores["OBJECT 05"] += 4;
-      scores["OBJECT 02"] += 2;
-    }
-
-    if (answers.q3 === 'chaos') {
-      scores["OBJECT 06"] += 4;
-      scores["OBJECT 05"] += 1;
-    }
-
-
-    /* FIND WINNER */
-
-    const winner = Object.keys(scores).reduce((best, current) => {
-      return scores[current] > scores[best] ? current : best;
-    });
-
-
-    /* FIND PRODUCT BY OBJECT NAME */
-
-    const matchingProduct = products.find(product => {
-      return product.object
-        .trim()
-        .toUpperCase() === winner;
-    });
-
-    return matchingProduct || products[0];
-  };
-
-
-  /* FINAL QUESTION + RESULT */
-
-  section.querySelectorAll('[data-result]').forEach(button => {
-
-    button.addEventListener('click', () => {
-
-      answers.q3 = button.dataset.answer;
-
-      const result = calculateResult();
-
-      if (!result) return;
-
-
-      const resultTitle =
-        section.querySelector('[data-result-title]');
-
-      const resultShortTitle =
-        section.querySelector('[data-result-short-title]');
-
-      const resultSubtitle =
-        section.querySelector('[data-result-subtitle]');
-
-      const resultText =
-        section.querySelector('[data-result-text]');
-
-      const resultUrl =
-        section.querySelector('[data-result-url]');
-
-      const resultImage =
-        section.querySelector('[data-result-image]');
-
-
-      if (resultTitle) {
-        resultTitle.textContent = result.object;
-      }
-
-      if (resultShortTitle) {
-        resultShortTitle.textContent = result.object;
-      }
-
-      if (resultSubtitle) {
-        resultSubtitle.textContent = result.scent;
-      }
-
-      if (resultText) {
-        resultText.textContent = result.text;
-      }
-
-      if (resultUrl) {
-        resultUrl.href = result.url;
-      }
-
-      if (resultImage) {
-        resultImage.src = result.image;
-        resultImage.alt = result.object;
-      }
-
-
-      showScreen('result');
-    });
-
-  });
-
-
-  /* RESTART */
-
-  section.querySelector('[data-restart]')?.addEventListener('click', () => {
-
-    Object.keys(answers).forEach(key => {
-      delete answers[key];
-    });
-
-    showScreen('intro');
-
-  });
 
 });
+
 </script>
 
 
+
+
+
 {% schema %}
+
 {
-  "name": "Find your object",
+ "name": "Find your object",
+ "settings": [
+ {
+ "type": "image_picker",
+ "id": "hero_image",
+ "label": "Hero image"
+ },
+ {
+ "type": "header",
+ "content": "Question 1 images"
+ },
+ {
+ "type": "image_picker",
+ "id": "q1_image_1",
+ "label": "Hotel bar"
+ },
+ {
+ "type": "image_picker",
+ "id": "q1_image_2",
+ "label": "Garden after rain"
+ },
+ {
+ "type": "image_picker",
+ "id": "q1_image_3",
+ "label": "Somewhere with no windows"
+ },
+ {
+ "type": "header",
+ "content": "Question 2 images"
 
-  "settings": [
-
-    {
-      "type": "image_picker",
-      "id": "hero_image",
-      "label": "Hero image"
-    },
-
-    {
-      "type": "header",
-      "content": "Question 1 images"
-    },
-
-    {
-      "type": "image_picker",
-      "id": "q1_image_1",
-      "label": "Hotel bar"
-    },
-
-    {
-      "type": "image_picker",
-      "id": "q1_image_2",
-      "label": "Garden after rain"
-    },
-
-    {
-      "type": "image_picker",
-      "id": "q1_image_3",
-      "label": "Somewhere with no windows"
-    },
-
-    {
-  "type": "header",
-  "content": "Question 2 images"
-},
-{
-  "type": "image_picker",
-  "id": "q2_image_1",
-  "label": "Steel"
-},
-{
-  "type": "image_picker",
-  "id": "q2_image_2",
-  "label": "Dark Wood"
-},
-{
-  "type": "image_picker",
-  "id": "q2_image_3",
-  "label": "Coloured Glass"
 },
 
-    {
-      "type": "header",
-      "content": "Question 3 images"
-    },
+{
+ "type": "image_picker",
+ "id": "q2_image_1",
+ "label": "Steel"
 
-    {
-      "type": "image_picker",
-      "id": "q3_image_1",
-      "label": "Calm"
-    },
+},
 
-    {
-      "type": "image_picker",
-      "id": "q3_image_2",
-      "label": "Drama"
-    },
+{
+ "type": "image_picker",
+ "id": "q2_image_2",
+ "label": "Dark Wood"
 
-    {
-      "type": "image_picker",
-      "id": "q3_image_3",
-      "label": "Chaos"
-    }
+},
 
-  ],
+{
+ "type": "image_picker",
+ "id": "q2_image_3",
+ "label": "Coloured Glass"
 
-  "blocks": [
+},
+ {
+ "type": "header",
+ "content": "Question 3 images"
+ },
+ {
+ "type": "image_picker",
+ "id": "q3_image_1",
+ "label": "Calm"
+ },
+ {
+ "type": "image_picker",
+ "id": "q3_image_2",
+ "label": "Drama"
+ },
+ {
+ "type": "image_picker",
+ "id": "q3_image_3",
+ "label": "Chaos"
+ }
+ ],
+ "blocks": [
+ {
+ "type": "object",
+ "name": "Object",
+ "limit": 6,
+ "settings": [
+ {
+ "type": "product",
+ "id": "product",
+ "label": "Product"
+ },
+ {
+ "type": "text",
+ "id": "object_name",
+ "label": "Object name",
+ "default": "OBJECT 01"
+ },
+ {
+ "type": "text",
+ "id": "scent_name",
+ "label": "Scent name",
+ "default": "Citrus & Ambre"
+ },
+ {
+ "type": "textarea",
+ "id": "result_text",
+ "label": "Result text",
+ "default": "Unexpected, distinctive, and apparently very you."
+ },
+ {
+ "type": "image_picker",
+ "id": "result_image",
+ "label": "Result image"
+ }
+ ]
+ }
+ ],
+ "presets": [
+ {
+ "name": "Find your object",
+ "blocks": [
+ { "type": "object" },
+ { "type": "object" },
+ { "type": "object" },
+ { "type": "object" },
+ { "type": "object" },
+ { "type": "object" }
+ ]
+ }
+ ]
 
-    {
-      "type": "object",
-      "name": "Object",
-      "limit": 6,
-
-      "settings": [
-
-        {
-          "type": "product",
-          "id": "product",
-          "label": "Product"
-        },
-
-        {
-          "type": "text",
-          "id": "object_name",
-          "label": "Object name",
-          "default": "OBJECT 01"
-        },
-
-        {
-          "type": "text",
-          "id": "scent_name",
-          "label": "Scent name",
-          "default": "Citrus & Ambre"
-        },
-
-        {
-          "type": "textarea",
-          "id": "result_text",
-          "label": "Result text",
-          "default": "Unexpected, distinctive, and apparently very you."
-        },
-
-        {
-          "type": "image_picker",
-          "id": "result_image",
-          "label": "Result image"
-        }
-
-      ]
-    }
-
-  ],
-
-  "presets": [
-
-    {
-      "name": "Find your object",
-
-      "blocks": [
-        { "type": "object" },
-        { "type": "object" },
-        { "type": "object" },
-        { "type": "object" },
-        { "type": "object" },
-        { "type": "object" }
-      ]
-
-    }
-
-  ]
 }
+
 {% endschema %}
