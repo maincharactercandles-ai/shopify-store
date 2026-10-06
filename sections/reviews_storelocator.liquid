@@ -1013,24 +1013,24 @@ IMAGES:
           aria-label="Visit Lipshop"
         >
 
-          {% if lipshop_image contains 'PASTE-' %}
+    {% if section.settings.lipshop_image != blank %}
 
-            <div class="nwye-store__placeholder">
-              Add Lipshop image
-            </div>
+  {{
+    section.settings.lipshop_image
+    | image_url: width: 900
+    | image_tag:
+      class: 'nwye-store__image',
+      loading: 'lazy',
+      alt: 'Lipshop, Athens'
+  }}
 
-          {% else %}
+{% else %}
 
-            <img
-              class="nwye-store__image"
-              src="{{ lipshop_image }}"
-              alt="Lipshop, Athens"
-              loading="lazy"
-              width="600"
-              height="510"
-            >
+  <div class="nwye-store__placeholder">
+    Add Lipshop image
+  </div>
 
-          {% endif %}
+{% endif %}
 
         </a>
 
@@ -1077,24 +1077,24 @@ IMAGES:
           aria-label="Visit Yes Studio Berlin"
         >
 
-          {% if yesstudio_image contains 'PASTE-' %}
+          {% if section.settings.yesstudio_image != blank %}
 
-            <div class="nwye-store__placeholder">
-              Add Yes Studio image
-            </div>
+  {{
+    section.settings.yesstudio_image
+    | image_url: width: 900
+    | image_tag:
+      class: 'nwye-store__image',
+      loading: 'lazy',
+      alt: 'Yes Studio, Berlin'
+  }}
 
-          {% else %}
+{% else %}
 
-            <img
-              class="nwye-store__image"
-              src="{{ yesstudio_image }}"
-              alt="Yes Studio, Berlin"
-              loading="lazy"
-              width="600"
-              height="510"
-            >
+  <div class="nwye-store__placeholder">
+    Add Yes Studio image
+  </div>
 
-          {% endif %}
+{% endif %}
 
         </a>
 
@@ -1141,24 +1141,24 @@ IMAGES:
           aria-label="Visit Neue Store"
         >
 
-          {% if neue_image contains 'PASTE-' %}
+          {% if section.settings.neue_image != blank %}
 
-            <div class="nwye-store__placeholder">
-              Add Neue Store image
-            </div>
+  {{
+    section.settings.neue_image
+    | image_url: width: 900
+    | image_tag:
+      class: 'nwye-store__image',
+      loading: 'lazy',
+      alt: 'Neue Store, Bristol'
+  }}
 
-          {% else %}
+{% else %}
 
-            <img
-              class="nwye-store__image"
-              src="{{ neue_image }}"
-              alt="Neue Store, Bristol"
-              loading="lazy"
-              width="600"
-              height="510"
-            >
+  <div class="nwye-store__placeholder">
+    Add Neue Store image
+  </div>
 
-          {% endif %}
+{% endif %}
 
         </a>
 
@@ -1205,24 +1205,24 @@ IMAGES:
           aria-label="Visit Pigmenta Design"
         >
 
-          {% if pigmenta_image contains 'PASTE-' %}
+          {% if section.settings.pigmenta_image != blank %}
 
-            <div class="nwye-store__placeholder">
-              Add Pigmenta image
-            </div>
+  {{
+    section.settings.pigmenta_image
+    | image_url: width: 900
+    | image_tag:
+      class: 'nwye-store__image',
+      loading: 'lazy',
+      alt: 'Pigmenta Design, Stockholm'
+  }}
 
-          {% else %}
+{% else %}
 
-            <img
-              class="nwye-store__image"
-              src="{{ pigmenta_image }}"
-              alt="Pigmenta Design, Stockholm"
-              loading="lazy"
-              width="600"
-              height="510"
-            >
+  <div class="nwye-store__placeholder">
+    Add Pigmenta image
+  </div>
 
-          {% endif %}
+{% endif %}
 
         </a>
 
@@ -1416,7 +1416,39 @@ IMAGES:
   "name": "NWYE — Stores & Reviews",
   "tag": "section",
   "class": "section-nwye-stores-reviews",
-  "settings": [],
+
+  "settings": [
+    {
+      "type": "header",
+      "content": "Retailer images"
+    },
+    {
+      "type": "image_picker",
+      "id": "reiner_image",
+      "label": "Reiner — Paris"
+    },
+    {
+      "type": "image_picker",
+      "id": "lipshop_image",
+      "label": "Lipshop — Athens"
+    },
+    {
+      "type": "image_picker",
+      "id": "yesstudio_image",
+      "label": "Yes Studio — Berlin"
+    },
+    {
+      "type": "image_picker",
+      "id": "neue_image",
+      "label": "Neue Store — Bristol"
+    },
+    {
+      "type": "image_picker",
+      "id": "pigmenta_image",
+      "label": "Pigmenta Design — Stockholm"
+    }
+  ],
+
   "presets": [
     {
       "name": "NWYE — Stores & Reviews"
