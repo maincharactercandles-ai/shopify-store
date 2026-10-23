@@ -29,13 +29,7 @@
         </a>
       {% endif %}
 
-      {% if section.settings.ankorstore_url != blank %}
-        <a href="{{ section.settings.ankorstore_url }}" class="nwy-wholesale__platform-card" target="_blank" rel="noopener">
-          <span class="nwy-wholesale__platform-label">{{ section.settings.ankorstore_label }}</span>
-          <span class="nwy-wholesale__platform-description">{{ section.settings.ankorstore_description }}</span>
-          <span class="nwy-wholesale__platform-link">{{ section.settings.platform_cta }} <span aria-hidden="true">→</span></span>
-        </a>
-      {% endif %}
+   
     </div>
 
     {% if section.blocks.size > 0 %}
@@ -173,10 +167,7 @@
     { "type": "text", "id": "faire_label", "label": "Label", "default": "Faire" },
     { "type": "text", "id": "faire_description", "label": "Description", "default": "Recommended for independent retailers and concept stores." },
     { "type": "url", "id": "faire_url", "label": "Faire showroom link" },
-    { "type": "header", "content": "Ankorstore" },
-    { "type": "text", "id": "ankorstore_label", "label": "Label", "default": "Ankorstore" },
-    { "type": "text", "id": "ankorstore_description", "label": "Description", "default": "Order our wholesale collection through Ankorstore." },
-    { "type": "url", "id": "ankorstore_url", "label": "Ankorstore showroom link" },
+  
     { "type": "text", "id": "platform_cta", "label": "Platform CTA", "default": "Browse catalogue" },
     { "type": "text", "id": "facts_heading", "label": "Practical information heading", "default": "Wholesale at a glance" },
     { "type": "header", "content": "Direct contact" },
