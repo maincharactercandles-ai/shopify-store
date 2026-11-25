@@ -629,16 +629,67 @@ IMAGES:
       max-width: 760px;
     }
 
+/* Photos panoramiques, même hauteur pour les quatre boutiques */
+.nwye-stores .nwye-store .nwye-store__image-wrap {
+  display: block;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  overflow: hidden;
+}
 
-    .nwye-stores {
-      grid-template-columns: repeat(2, 1fr);
-    }
+.nwye-stores .nwye-store__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
+/* Légende compacte */
+.nwye-stores .nwye-store__content {
+  flex: 0 0 auto;
+  min-height: 0;
+  padding: 16px 20px 18px;
+}
 
-    .nwye-store {
-      border-bottom: 1px solid var(--nwye-light-grey);
-    }
+.nwye-stores .nwye-store__city {
+  margin: 0 0 6px;
+  color: #686868;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+}
 
+.nwye-stores .nwye-store__name {
+  margin: 0;
+  font-size: clamp(17px, 1.4vw, 22px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.nwye-stores .nwye-store__line {
+  display: none;
+}
+
+.nwye-stores .nwye-store__link {
+  margin-top: 12px;
+  padding-bottom: 3px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+/* Mobile : quatre cartes en grille 2 × 2 */
+@media (max-width: 650px) {
+  .nwye-stores {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nwye-stores .nwye-store:last-child {
+    display: flex;
+    grid-column: auto;
+  }
+
+  .nwye-stores .nwye-store__content {
+    padding: 12px 14px 14px;
+  }
+}
 
     .nwye-reviews {
       grid-template-columns: 1fr;
