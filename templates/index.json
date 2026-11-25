@@ -42,25 +42,25 @@
         "text_FHafkg": {
           "type": "text",
           "settings": {
-            "text": "<p>HAND-POURED IN PARIS • VEGAN SOY WAX • GRASSE FRAGRANCES • REUSABLE OBJECTS</p>",
+            "text": "<p>HAND-POURED IN PARIS • GRASSE FRAGRANCES • REUSABLE OBJECTS</p>",
             "width": "fit-content",
-            "max_width": "none",
+            "max_width": "narrow",
             "alignment": "center",
             "type_preset": "custom",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
-            "line_height": "tight",
-            "letter_spacing": "normal",
+            "line_height": "loose",
+            "letter_spacing": "loose",
             "case": "uppercase",
-            "wrap": "balance",
+            "wrap": "pretty",
             "color": "var(--color-foreground)",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
-            "padding-inline-start": 32,
-            "padding-inline-end": 43
+            "padding-inline-start": 44,
+            "padding-inline-end": 63
           },
           "blocks": {}
         }
@@ -203,7 +203,7 @@
         "image_ratio": "4 / 3",
         "side_gutter": 40,
         "max_width": 1800,
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "text_color": "#111111",
         "muted_text_color": "#6e6e68",
         "line_color": "#d8d7d1",
