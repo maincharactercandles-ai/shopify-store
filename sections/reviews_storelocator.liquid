@@ -285,7 +285,7 @@ IMAGES:
   .nwye-stores {
     display: grid;
 
-    grid-template-columns: repeat(4, 2fr);
+    grid-template-columns: repeat(4, 1fr);
 
     border-top: 1px solid var(--nwye-light-grey);
     border-bottom: 1px solid var(--nwye-light-grey);
@@ -383,7 +383,20 @@ IMAGES:
 
     padding: 27px 25px 28px;
   }
+.nwye-stores {
+  gap: 16px;
+  border: 0;
+}
 
+.nwye-stores .nwye-store {
+  border: 1px solid #dedede;
+}
+
+@media (max-width: 650px) {
+  .nwye-stores {
+    gap: 10px;
+  }
+}
 
   .nwye-store__city {
     margin: 0 0 13px;
