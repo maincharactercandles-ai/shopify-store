@@ -283,7 +283,7 @@ IMAGES:
   .nwye-stores {
     display: grid;
 
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, minmax(0, 1fr));
 
     border-top: 1px solid var(--nwye-light-grey);
     border-bottom: 1px solid var(--nwye-light-grey);
@@ -299,6 +299,30 @@ IMAGES:
     border-right: 1px solid var(--nwye-light-grey);
   }
 
+
+  .nwye-store--merci {
+    justify-content: flex-end;
+    background: var(--nwye-black);
+    color: white;
+  }
+
+  .nwye-store--merci .nwye-store__content {
+    flex: 0 1 auto;
+  }
+
+  .nwye-store--merci .nwye-store__city {
+    color: #ddd;
+  }
+
+  .nwye-store--merci .nwye-store__link {
+    border-color: currentColor;
+  }
+
+  .nwye-store__product {
+    margin: 14px 0 22px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
 
   .nwye-store:first-child {
     border-left: 1px solid var(--nwye-light-grey);
@@ -737,23 +761,6 @@ IMAGES:
     }
 
 
-    /* Last store spans width */
-
-    .nwye-store:last-child {
-      grid-column: 1 / -1;
-
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-    }
-
-
-    .nwye-store:last-child .nwye-store__image-wrap {
-      aspect-ratio: auto;
-      height: 100%;
-    }
-
-
     /* REVIEWS */
 
     .nwye-reviews {
@@ -933,6 +940,19 @@ IMAGES:
          ================================================== -->
 
     <div class="nwye-stores">
+
+      <article class="nwye-store nwye-store--merci">
+        <div class="nwye-store__content">
+          <p class="nwye-store__city">Paris</p>
+          <h3 class="nwye-store__name" style="color: inherit">Now at Merci</h3>
+          <p class="nwye-store__product">Object 01 — Watch Me Glow</p>
+          <a class="nwye-store__link"
+             href="https://merci-merci.com/en/products/not-what-you-expect-bougie-obj-01-watch-me-glow-1609990"
+             target="_blank" rel="noopener">
+            Shop at Merci <span class="nwye-store__arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </article>
 
 
       <!-- =========================
