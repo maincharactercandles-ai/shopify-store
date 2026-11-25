@@ -916,67 +916,6 @@ IMAGES:
     <div class="nwye-stores">
 
 
-      <!-- =========================
-           REINER — PARIS
-           ========================= -->
-
-      <article class="nwye-store">
-
-        <a
-          class="nwye-store__image-wrap"
-          href="https://reiner-editions.com/"
-          target="_blank"
-          rel="noopener"
-          aria-label="Visit Reiner Editions"
-        >
-
-{% if section.settings.reiner_image != blank %}
-
-  {{
-    section.settings.reiner_image
-    | image_url: width: 900
-    | image_tag:
-      class: 'nwye-store__image',
-      loading: 'lazy',
-      alt: 'Reiner Editions, Paris'
-  }}
-
-{% else %}
-
-  <div class="nwye-store__placeholder">
-    Add Reiner image
-  </div>
-
-{% endif %}
-
-        </a>
-
-
-        <div class="nwye-store__content">
-
-          <div class="nwye-store__city">
-            Paris
-          </div>
-
-          <h3 class="nwye-store__name">
-            Reiner
-          </h3>
-
-          <span class="nwye-store__line"></span>
-
-          <a
-            class="nwye-store__link"
-            href="https://reiner-editions.com/"
-            target="_blank"
-            rel="noopener"
-          >
-            View store
-            <span class="nwye-store__arrow">↗</span>
-          </a>
-
-        </div>
-
-      </article>
 
 
 
