@@ -804,30 +804,28 @@ IMAGES:
   }
 
 
-  .nwye-merci {display:flex; align-items:center; justify-content:space-between; gap:5%; padding:clamp(24px,4vw,56px) 0; border-block:1px solid #dcdcdc; color:inherit; text-decoration:none;}
-  .nwye-merci__copy {min-width:0;}
-  .nwye-merci__label,.nwye-merci__note {font-size:12px; letter-spacing:.16em; text-transform:uppercase;}
-  .nwye-merci__logo {display:block; width:clamp(110px,23vw,330px); height:auto; margin:12px 0;}
-  .nwye-merci__note {margin:0 0 24px;}
-  .nwye-merci__cta {font-size:clamp(12px,1.25vw,17px); text-decoration:underline; text-underline-offset:4px;}
-.nwye-merci__photo {
-  display: block;
-  width: min(54%, 560px);
-  height: auto;
-}
-
-@media (max-width: 650px) {
   .nwye-merci {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
+    display: grid;
+    grid-template-columns: minmax(0, 43fr) minmax(0, 57fr);
+    align-items: center;
+    gap: clamp(16px, 2vw, 36px);
+    padding-block: clamp(24px, 3vw, 46px);
+    border-block: 1px solid var(--nwye-light-grey);
   }
-
-  .nwye-merci__photo {
-    width: 100%;
+  .nwye-merci__copy { text-align: center; padding: 18px 8px; }
+  .nwye-merci__copy:only-child { grid-column: 1 / -1; }
+  .nwye-merci__label, .nwye-merci__note { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; }
+  .nwye-merci__logo { display: block; width: min(78%, 375px); height: auto; margin: 16px auto; }
+  .nwye-merci__note { margin: 0; }
+  .nwye-merci__links { display: grid; justify-items: center; margin-top: clamp(20px, 2.5vw, 36px); }
+  .nwye-merci__links a { display: inline-flex; align-items: center; gap: .5em; min-height: 44px; color: inherit; font-size: clamp(15px, 1.15vw, 18px); text-decoration: underline; text-underline-offset: 5px; text-decoration-color: #aaa; }
+  .nwye-merci__links a:hover { color: #bd0022; }
+  .nwye-merci__links a:focus-visible { outline: 2px solid #bd0022; outline-offset: 3px; }
+  .nwye-merci__photo { display: block; width: 100%; height: auto; }
+  @media (max-width: 700px) {
+    .nwye-merci { grid-template-columns: 1fr; gap: 18px; }
+    .nwye-merci__logo { width: min(68%, 290px); }
   }
-}
-  .nwye-merci:focus-visible {outline:2px solid #bd0022; outline-offset:3px;}
   .nwye-europe {display:block; width:100%; max-width:550px; margin-inline:auto; height:auto;}
   .nwye-europe text {font:600 17px sans-serif; fill:#292929; paint-order:stroke; stroke:#fff; stroke-width:4px; stroke-linejoin:round;}
   @media(max-width:650px){.nwye-europe text{font-size:23px;} .nwye-merci__note{font-size:10px; margin-bottom:16px;}}
@@ -841,7 +839,7 @@ IMAGES:
 
 
     {% assign merci_photo = section.settings.merci_image | default: images['image.webp'] %}
-    <a class="nwye-merci" href="https://merci-merci.com/en/products/not-what-you-expect-bougie-obj-01-watch-me-glow-1609990">
+    <section class="nwye-merci" aria-label="Now at Merci Paris">
       <div class="nwye-merci__copy">
         <span class="nwye-merci__label">Now at</span>
         <svg class="nwye-merci__logo" role="img" aria-label="Merci" width="80" height="24" viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -853,12 +851,16 @@ IMAGES:
 <path d="M74.7227 2.57653C74.7291 1.78388 74.7803 0.991225 74.7483 0.198574C74.7483 0.0771195 74.8123 0.0579425 74.9019 0.0579425C75.4014 0.0643348 75.9008 -0.00598097 76.4003 0.000411377C76.6308 0.000411377 76.8677 0.0195884 77.0982 0.0195884C77.5849 0.0195884 78.0779 0.0643348 78.5646 0.0323731C78.7247 0.0259808 78.8847 0.0323731 79.0512 0.0195884C79.1216 0.0131961 79.1473 0.0451578 79.1537 0.115474C79.1729 0.26889 79.1537 0.422306 79.1537 0.575722C79.1537 0.856986 79.1281 1.14464 79.1216 1.4259C79.1088 1.99482 79.096 2.56374 79.0896 3.13905C79.0896 3.31165 79.1281 3.47785 79.1152 3.65683C79.1152 3.72076 79.1024 3.74633 79.0384 3.7655C78.8719 3.82303 78.7054 3.82943 78.5326 3.83582C78.1163 3.8486 77.7065 3.87417 77.2903 3.88696C77.015 3.88696 76.7333 3.87417 76.4579 3.87417C75.9521 3.87417 75.4462 3.86778 74.9404 3.87417C74.8059 3.87417 74.7611 3.83582 74.7547 3.69519C74.7355 3.32443 74.7227 2.95367 74.7227 2.58292V2.57653Z" fill="#BD0022"></path>
 </svg>
         <p class="nwye-merci__note">Paris, France</p>
-        <span class="nwye-merci__cta">Discover Object 01 at Merci ↗</span>
+        <nav class="nwye-merci__links" aria-label="Shop the objects at Merci">
+          <a href="https://merci-merci.com/en/products/not-what-you-expect-bougie-obj-01-watch-me-glow-1609990">Object 01 — Watch Me Glow <span aria-hidden="true">↗</span></a>
+          <a href="https://merci-merci.com/en/products/not-what-you-expect-bougie-obj-02-slow-burn-baby-1609989">Object 02 — Slow Burn Baby <span aria-hidden="true">↗</span></a>
+          <a href="https://merci-merci.com/en/products/not-what-you-expect-bougie-obj-03-sweet-but-not-so-1609988">Object 03 — Sweet But Not So <span aria-hidden="true">↗</span></a>
+        </nav>
       </div>
       {% if merci_photo != blank %}
-        {{ merci_photo | image_url: width: 1100 | image_tag: class: 'nwye-merci__photo', widths: '360, 550, 820, 1100', sizes: '(max-width: 650px) 42vw, 340px', loading: 'lazy', alt: 'Merci storefront in Paris with its red Fiat' }}
+        {{ merci_photo | image_url: width: 1800 | image_tag: class: 'nwye-merci__photo', widths: '400, 640, 900, 1200, 1600, 1800', sizes: '(max-width: 700px) 100vw, (max-width: 1544px) 57vw, 840px', loading: 'lazy', alt: 'Merci storefront in Paris with its red Fiat' }}
       {% endif %}
-    </a>
+    </section>
 
     <!-- ==================================================
          FIND US
