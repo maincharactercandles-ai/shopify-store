@@ -1,67 +1,130 @@
-{%- assign col = section.settings.collection -%}
-{%- if col != blank -%}
-  {%- assign products = col.products -%}
-{%- else -%}
-  {%- assign products = collections.all.products -%}
-{%- endif -%}
+{% liquid
+  assign col = section.settings.collection
+  if col != blank
+    assign products = col.products
+  else
+    assign products = collections.all.products
+  endif
+  assign card_count = products.size | at_most: section.settings.products_count
+  assign columns = section.settings.columns
+  if card_count > 0
+    assign columns = columns | at_most: card_count
+  endif
+  assign desktop_width = 100 | divided_by: columns
+  capture image_sizes
+    echo '(max-width: 700px) 50vw, '
+    echo desktop_width
+    echo 'vw'
+  endcapture
+%}
 
-<div class="nwye-collection" style="background:#ffffff; padding:64px 24px;">
-  <div style="max-width:1200px; margin:0 auto;">
+<div class="nwye-edit" style="--columns: {{ columns }};">
+  <div class="nwye-edit__inner">
+    <header class="nwye-edit__header">
+      {% if section.settings.title != blank %}
+        <h2>{{ section.settings.title | escape }}</h2>
+      {% endif %}
+      {% if section.settings.show_view_all and col != blank %}
+        <a href="{{ col.url }}">{{ section.settings.view_all_label | escape }}</a>
+      {% endif %}
+    </header>
 
-    <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:28px;">
-      <span style="font-size:0.99rem; font-weight:900; letter-spacing:0.08em; text-transform:uppercase;">
-        {{ section.settings.title }}
-      </span>
-      {%- if section.settings.show_view_all and col != blank -%}
-        <a href="{{ col.url }}" style="font-size:2rem; font-weight:500; letter-spacing:0.06em; color:#000; text-decoration:none; border-bottom:1px solid #000; padding-bottom:2px;">
-          {{ section.settings.view_all_label }} →
+    <div class="nwye-edit__grid">
+      {% for product in products limit: section.settings.products_count %}
+        <a class="nwye-edit__card" href="{{ product.url }}">
+          <div class="nwye-edit__photo">
+            {% if product.featured_image %}
+              {{ product.featured_image | image_url: width: 1500 | image_tag: widths: '320, 480, 640, 900, 1200, 1500', sizes: image_sizes, loading: 'lazy' }}
+            {% else %}
+              {{ 'product-1' | placeholder_svg_tag }}
+            {% endif %}
+          </div>
+          <div class="nwye-edit__caption">
+            <h3>{{ product.title | escape }}</h3>
+            <span>{{ product.price | money }}</span>
+          </div>
         </a>
-      {%- endif -%}
+      {% else %}
+        {% for i in (1..section.settings.products_count) %}
+          <div class="nwye-edit__card">
+            <div class="nwye-edit__photo">
+              {% assign placeholder = forloop.index0 | modulo: 6 | plus: 1 | prepend: 'product-' %}
+              {{ placeholder | placeholder_svg_tag }}
+            </div>
+            <div class="nwye-edit__caption"><h3>Product</h3><span>— €</span></div>
+          </div>
+        {% endfor %}
+      {% endfor %}
     </div>
-
-    <div class="nwye-col-grid" style="display:grid; grid-template-columns:repeat({{ section.settings.columns }},1fr); gap:2px;">
-      {%- for product in products limit: section.settings.products_count -%}
-        <a href="{{ product.url }}" style="text-decoration:none; color:#000;" class="nwye-col-card">
-          <div style="aspect-ratio:1/1; background:#BFBFBE; overflow:hidden;">
-            {%- if product.featured_image -%}
-              {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', style: 'width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;', class: 'nwye-col-img' }}
-            {%- else -%}
-              <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;opacity:0.3;">
-                {{ 'product-1' | placeholder_svg_tag }}
-              </div>
-            {%- endif -%}
-          </div>
-          <div style="padding:12px 0 0;">
-            <div style="font-size:0.8rem; font-weight:500; letter-spacing:0.05em; text-transform:uppercase;">
-              {{ product.title }}
-            </div>
-            <div style="font-size:0.8rem; margin-top:4px; opacity:0.6;">
-              {{ product.price | money }}
-            </div>
-          </div>
-        </a>
-      {%- else -%}
-        {%- for i in (1..section.settings.products_count) -%}
-          <div>
-            <div style="aspect-ratio:1/1; background:#BFBFBE; display:flex;align-items:center;justify-content:center;opacity:0.3;">
-              {{ 'product-' | append: i | placeholder_svg_tag }}
-            </div>
-            <div style="padding:12px 0 0;">
-              <div style="font-size:0.8rem; font-weight:500; letter-spacing:0.05em; text-transform:uppercase;">Product</div>
-              <div style="font-size:0.8rem; margin-top:4px; opacity:0.6;">— €</div>
-            </div>
-          </div>
-        {%- endfor -%}
-      {%- endfor -%}
-    </div>
-
   </div>
 </div>
 
 <style>
-  .nwye-col-card:hover .nwye-col-img { transform: scale(1.04); }
-  @media (max-width:768px) {
-    .nwye-col-grid { grid-template-columns: repeat(2,1fr) !important; }
+  .nwye-edit {
+    background: #fff;
+    color: #232323;
+    padding: clamp(36px, 5vw, 72px) clamp(16px, 3vw, 48px);
+  }
+  .nwye-edit__inner { max-width: 1480px; margin-inline: auto; }
+  .nwye-edit__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-bottom: clamp(20px, 2.8vw, 38px);
+  }
+  .nwye-edit__header h2 {
+    margin: 0;
+    color: inherit;
+    font-size: clamp(38px, 5.5vw, 84px);
+    font-weight: 800;
+    letter-spacing: -.055em;
+    line-height: .98;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+  }
+  .nwye-edit__header a {
+    color: inherit;
+    font-size: 15px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .nwye-edit__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+    gap: 28px clamp(12px, 1.7vw, 24px);
+  }
+  .nwye-edit__card { display: block; min-width: 0; color: inherit; text-decoration: none; }
+  .nwye-edit__photo { overflow: hidden; aspect-ratio: 1; background: #f2f1ee; }
+  .nwye-edit__photo img, .nwye-edit__photo svg {
+    display: block; width: 100%; height: 100%; object-fit: cover;
+  }
+  .nwye-edit__caption {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 5px 14px;
+    padding-top: 14px;
+  }
+  .nwye-edit__caption h3 {
+    margin: 0;
+    color: inherit;
+    font-size: clamp(16px, 1.35vw, 21px);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -.025em;
+    text-transform: none;
+    overflow-wrap: anywhere;
+  }
+  .nwye-edit__caption span { font-size: 15px; line-height: 1.4; white-space: nowrap; }
+  .nwye-edit a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+  @media (hover: hover) {
+    a.nwye-edit__card:hover h3 { text-decoration: underline; text-underline-offset: 3px; }
+  }
+  @media (max-width: 700px) {
+    .nwye-edit__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .nwye-edit__caption { grid-template-columns: 1fr; padding-top: 10px; }
   }
 </style>
 
@@ -70,52 +133,13 @@
   "name": "The Collection",
   "tag": "section",
   "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Section title",
-      "default": "The Collection."
-    },
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Collection"
-    },
-    {
-      "type": "range",
-      "id": "products_count",
-      "label": "Number of products",
-      "min": 2,
-      "max": 8,
-      "step": 1,
-      "default": 4
-    },
-    {
-      "type": "range",
-      "id": "columns",
-      "label": "Columns (desktop)",
-      "min": 2,
-      "max": 4,
-      "step": 1,
-      "default": 4
-    },
-    {
-      "type": "checkbox",
-      "id": "show_view_all",
-      "label": "Show \"View all\" link",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "view_all_label",
-      "label": "\"View all\" label",
-      "default": "View all"
-    }
+    { "type": "text", "id": "title", "label": "Section title", "default": "The Collection." },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "products_count", "label": "Number of products", "min": 2, "max": 8, "step": 1, "default": 4 },
+    { "type": "range", "id": "columns", "label": "Columns (desktop)", "min": 2, "max": 4, "step": 1, "default": 4 },
+    { "type": "checkbox", "id": "show_view_all", "label": "Show View all link", "default": true },
+    { "type": "text", "id": "view_all_label", "label": "View all label", "default": "View all" }
   ],
-  "presets": [
-    {
-      "name": "The Collection"
-    }
-  ]
+  "presets": [{ "name": "The Collection" }]
 }
 {% endschema %}
