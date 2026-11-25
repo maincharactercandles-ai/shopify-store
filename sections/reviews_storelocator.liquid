@@ -821,10 +821,14 @@ IMAGES:
   letter-spacing: 0.12em;
 }  .nwye-merci__logo { display: block; width: min(78%, 375px); height: auto; margin: 16px auto; }
   .nwye-merci__note { margin: 0; }
-  .nwye-merci__links { display: grid; justify-items: center; margin-top: clamp(20px, 2.5vw, 36px); }
-  .nwye-merci__links a { display: inline-flex; align-items: center; gap: .5em; min-height: 44px; color: inherit; font-size: clamp(15px, 1.15vw, 18px); text-decoration: underline; text-underline-offset: 5px; text-decoration-color: #aaa; }
-  .nwye-merci__links a:hover { color: #bd0022; }
-  .nwye-merci__links a:focus-visible { outline: 2px solid #bd0022; outline-offset: 3px; }
+.nwye-merci__links a {
+  font-size: clamp(18px, 1.6vw, 24px);
+  line-height: 1.4;
+}
+
+.nwye-merci__links a span[aria-hidden="true"] {
+  display: none;
+}
   .nwye-merci__photo { display: block; width: 100%; height: auto; }
   @media (max-width: 700px) {
     .nwye-merci { grid-template-columns: 1fr; gap: 18px; }
