@@ -814,8 +814,12 @@ IMAGES:
   }
   .nwye-merci__copy { text-align: center; padding: 18px 8px; }
   .nwye-merci__copy:only-child { grid-column: 1 / -1; }
-  .nwye-merci__label, .nwye-merci__note { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; }
-  .nwye-merci__logo { display: block; width: min(78%, 375px); height: auto; margin: 16px auto; }
+.nwye-merci__label {
+  display: block;
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}  .nwye-merci__logo { display: block; width: min(78%, 375px); height: auto; margin: 16px auto; }
   .nwye-merci__note { margin: 0; }
   .nwye-merci__links { display: grid; justify-items: center; margin-top: clamp(20px, 2.5vw, 36px); }
   .nwye-merci__links a { display: inline-flex; align-items: center; gap: .5em; min-height: 44px; color: inherit; font-size: clamp(15px, 1.15vw, 18px); text-decoration: underline; text-underline-offset: 5px; text-decoration-color: #aaa; }
