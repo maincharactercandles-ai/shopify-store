@@ -810,7 +810,23 @@ IMAGES:
   .nwye-merci__logo {display:block; width:clamp(110px,23vw,330px); height:auto; margin:12px 0;}
   .nwye-merci__note {margin:0 0 24px;}
   .nwye-merci__cta {font-size:clamp(12px,1.25vw,17px); text-decoration:underline; text-underline-offset:4px;}
-  .nwye-merci__photo {display:block; width:min(42%,340px); height:auto; aspect-ratio:1; object-fit:contain;}
+.nwye-merci__photo {
+  display: block;
+  width: min(54%, 560px);
+  height: auto;
+}
+
+@media (max-width: 650px) {
+  .nwye-merci {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .nwye-merci__photo {
+    width: 100%;
+  }
+}
   .nwye-merci:focus-visible {outline:2px solid #bd0022; outline-offset:3px;}
   .nwye-europe {display:block; width:100%; max-width:550px; margin-inline:auto; height:auto;}
   .nwye-europe text {font:600 17px sans-serif; fill:#292929; paint-order:stroke; stroke:#fff; stroke-width:4px; stroke-linejoin:round;}
