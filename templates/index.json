@@ -82,7 +82,7 @@
       "name": "The Collection",
       "settings": {
         "title": "THE COLLECTION",
-        "collection": "",
+        "collection": "shop",
         "products_count": 3,
         "columns": 3,
         "show_view_all": true,
